@@ -1,0 +1,19 @@
+---
+interface Props {
+	href: string;
+	category: string;
+	title: string;
+	dek?: string;
+	meta: string;
+	imageLabel: string;
+	tint?: string;
+}
+const { href, category, title, dek, meta, imageLabel, tint = "var(--nm-accent-soft)" } = Astro.props;
+---
+<article class="article-card" data-search={`${title} ${dek ?? ""} ${category}`.toLowerCase()}>
+	<div class="img-ph" style={`--tint:${tint}`} aria-hidden="true">[Image: {imageLabel}]</div>
+	<span class="cat">{category}</span>
+	<h3><a href={href}>{title}</a></h3>
+	{dek && <p class="dek">{dek}</p>}
+	<span class="meta">{meta}</span>
+</article>

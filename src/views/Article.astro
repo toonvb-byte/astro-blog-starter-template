@@ -1,0 +1,188 @@
+---
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { LOCALES, path, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { getGuides, guideAlternates, guideUrl, inlineMd, type Guide } from "../lib/guides";
+import { SITE_NAME, SITE_URL } from "../lib/site";
+
+interface Props { locale: Locale; guide: Guide }
+const { locale, guide } = Astro.props;
+const d = guide.data;
+const t = useT(locale);
+const { Content, headings } = await render(guide);
+const alternates = await guideAlternates(guide);
+const url = guideUrl(guide);
+const updated = d.updatedDate ?? d.publishDate;
+
+const toc = [
+	...(d.takeaways.length ? [{ slug: "takeaways", text: t("article.takeaways") }] : []),
+	...headings.filter((h) => h.depth === 2).map((h) => ({ slug: h.slug, text: h.text })),
+	...(d.faq.length ? [{ slug: "faq", text: t("article.faq") }] : []),
+	...(d.sources.length ? [{ slug: "sources", text: t("article.sources") }] : []),
+];
+const related = (await getGuides(locale)).filter((g) => g.id !== guide.id).slice(0, 3);
+
+const jsonLd: object[] = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: d.title,
+		description: d.description,
+		inLanguage: locale,
+		datePublished: d.publishDate.toISOString(),
+		dateModified: updated.toISOString(),
+		author: { "@type": "Person", name: d.author },
+		...(d.reviewer ? { reviewedBy: { "@type": "Person", name: d.reviewer } } : {}),
+		publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+		mainEntityOfPage: new URL(url, SITE_URL).href,
+	},
+	...(d.faq.length
+		? [{
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				mainEntity: d.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+			}]
+		: []),
+];
+---
+<Base
+	locale={locale}
+	title={`${d.title} | NutriMetrics`.length <= 60 ? `${d.title} | NutriMetrics` : d.title}
+	description={d.description}
+	alternates={alternates}
+	active="guides"
+	disclosure
+	ogType="article"
+	breadcrumbs={[
+		{ name: t("article.home"), href: path(locale) },
+		{ name: t("nav.guides"), href: path(locale, "guides") },
+		{ name: d.title, href: url },
+	]}
+	jsonLd={jsonLd}
+>
+	<div class="container">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				<li><a href={path(locale)}>{t("article.home")}</a></li>
+				<li><a href={path(locale, "guides")}>{t("nav.guides")}</a></li>
+				<li aria-current="page">{d.title}</li>
+			</ol>
+		</nav>
+
+		<header class="art-head">
+			<span class="eyebrow">{d.category}</span>
+			<h1 class="h1" style="font-size:clamp(2rem,3.6vw,3rem)">{d.title}</h1>
+			<p class="lead">{d.dek}</p>
+			<div class="byline">
+				<span><span class="muted">{t("article.writtenBy")}</span> <a href={`${path(locale, "about")}#team`}>{d.author}</a></span>
+				{d.reviewer && <span><span class="muted">{t("article.reviewedBy")}</span> <a href={`${path(locale, "about")}#team`}>{d.reviewer}</a></span>}
+				<span><span class="muted">{t("article.updated")}</span> <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated, locale)}</time></span>
+				<span><span class="muted">{t("article.reading")}</span> {d.readingMinutes} min</span>
+				{Object.keys(alternates).length > 1 && (
+					<span>
+						<span class="muted">{t("article.alsoIn")}</span>
+						{LOCALES.filter((l) => l !== locale && alternates[l]).map((l) => (
+							<a href={alternates[l]} hreflang={l} lang={l} class="lang-pill">{l.toUpperCase()}</a>
+						))}
+					</span>
+				)}
+			</div>
+			<p role="note" class="art-note">{t("article.note")}</p>
+		</header>
+
+		<div class="art-layout">
+			<aside aria-labelledby="toc-h" class="toc">
+				<h2 id="toc-h">{t("article.toc")}</h2>
+				<ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+			</aside>
+
+			<article class="prose">
+				{d.takeaways.length > 0 && (
+					<section id="takeaways" aria-labelledby="kt-h" class="takeaways">
+						<h2 id="kt-h">{t("article.takeaways")}</h2>
+						<ul>{d.takeaways.map((k) => <li set:html={inlineMd(k)} />)}</ul>
+					</section>
+				)}
+
+				<Content />
+
+				{d.faq.length > 0 && (
+					<section id="faq" aria-labelledby="faq-h">
+						<h2 id="faq-h">{t("article.faq")}</h2>
+						{d.faq.map((f, i) => (
+							<details class="faq" open={i === 0}>
+								<summary>{f.q}</summary>
+								<p>{f.a}</p>
+							</details>
+						))}
+					</section>
+				)}
+
+				{d.sources.length > 0 && (
+					<section id="sources" aria-labelledby="src-h">
+						<h2 id="src-h">{t("article.sources")}</h2>
+						<ol class="sources">
+							{d.sources.map((s) => <li>{s.url ? <a href={s.url} rel="noopener" target="_blank">{s.title}</a> : s.title}</li>)}
+						</ol>
+					</section>
+				)}
+
+				<section aria-label={t("article.aboutAuthor")} class="author-box">
+					<span class="avatar" aria-hidden="true"></span>
+					<div>
+						<strong>{d.author}</strong>
+						{d.authorBio && <p>{d.authorBio}</p>}
+					</div>
+				</section>
+			</article>
+		</div>
+
+		{related.length > 0 && (
+			<section aria-labelledby="rel-h" class="section" style="padding-bottom:var(--nm-section-gap)">
+				<h2 id="rel-h" class="h2">{t("article.keepReading")}</h2>
+				<div class="grid-auto">
+					{related.map((r) => (
+						<a href={guideUrl(r)} class="card rel-card">
+							<span style="font-size:13px;font-weight:600;color:var(--nm-accent)">{r.data.category}</span>
+							<span style="font-family:var(--nm-font-display);font-weight:600;font-size:20px;line-height:1.25">{r.data.title}</span>
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+	</div>
+</Base>
+
+<style>
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 0 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	.art-head { max-width: 820px; padding: 28px 0 32px; display: flex; flex-direction: column; gap: 18px; }
+	.byline { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; align-items: center; padding-top: 16px; border-top: 1px solid var(--nm-line); }
+	.byline a { font-weight: 600; }
+	.lang-pill { margin-left: 6px; padding: 4px 8px; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-sm); text-decoration: none; font-size: 13px; }
+	.art-note { font-size: 13px; color: var(--nm-deal-ink); background: var(--nm-deal-soft); padding: 10px 14px; border-radius: var(--nm-radius); }
+	.art-layout { display: grid; grid-template-columns: 240px minmax(0, 760px); gap: 56px; padding-bottom: 32px; }
+	.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }
+	.toc h2 { font-family: var(--nm-font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nm-muted); margin-bottom: 10px; }
+	.toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--nm-line); }
+	.toc a { display: block; padding: 8px 14px; color: var(--nm-ink-2); text-decoration: none; }
+	.toc a:hover { color: var(--nm-accent); }
+	@media (max-width: 900px) {
+		.art-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+		.toc { position: static; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px; }
+	}
+	.takeaways { background: var(--nm-accent-soft); border-radius: var(--nm-radius-lg); padding: 24px 28px; }
+	.takeaways h2 { margin-top: 0; font-size: 22px; }
+	.takeaways ul { margin-top: 12px; }
+	.faq { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 0 20px; font-size: 16px; }
+	.faq + .faq { margin-top: 10px; }
+	.faq summary { cursor: pointer; font-weight: 600; min-height: 52px; display: flex; align-items: center; }
+	.faq p { padding-bottom: 16px; color: var(--nm-ink-2); }
+	.sources { font-size: 15px; }
+	.author-box { display: flex; gap: 16px; align-items: flex-start; padding: 24px; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); font-size: 15px; margin-top: 2.5em; }
+	.author-box p { color: var(--nm-ink-2); margin-top: 4px; }
+	.avatar { flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--nm-accent-soft); }
+	.rel-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; text-decoration: none; color: var(--nm-ink); }
+	.rel-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+</style>

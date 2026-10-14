@@ -1,0 +1,175 @@
+---
+import Base from "../layouts/Base.astro";
+import { ALL_LANGUAGES, path, routeAlternates, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+
+const C = {
+	en: {
+		title: "About NutriMetrics & our methodology",
+		description: "How NutriMetrics compares supplement prices across Europe, how we make money, our editorial policy and how to contact us.",
+		eyebrow: "About us",
+		h1: "Supplement prices in Europe are opaque. We make them comparable.",
+		lead: "Pack sizes, doses and shipping costs vary wildly between countries and shops. NutriMetrics turns every offer into one honest number — cost per dose — and puts quality information right next to it.",
+		toc: ["How we compare prices", "How we make money", "Editorial policy", "Team", "Contact"],
+		steps: [
+			["01 · Collect", "Prices from retailer feeds", "We read product feeds from retailers and affiliate networks, and refresh them every [24] hours."],
+			["02 · Match", "Same product, every shop", "Offers are matched by EAN/GTIN and checked by hand, so one product shows every place it’s sold."],
+			["03 · Normalise", "Cost per dose, shipping in", "Total price to your country divided by servings, or by grams of active ingredient."],
+			["04 · Qualify", "Quality signals alongside", "Form, dose, third-party testing and additives are shown with the price — never hidden behind it."],
+		],
+		money: ["NutriMetrics is free. Many shop links are affiliate links through networks such as AWIN and direct partner programmes: if you buy after clicking, the shop may pay us a commission. You pay the same price.", "Retailers we don’t earn from are still listed when they have the product. Every affiliate link is marked."],
+		promises: ["Rankings follow price and methodology, never commission.", "No paid placements or sponsored rankings.", "Brands can’t pay to review or edit our guides."],
+		editorial: ["Every guide names its author and its reviewer. Health-related content is reviewed by a qualified professional before it’s published and again when it’s updated.", "We cite peer-reviewed research and official bodies such as EFSA, and we don’t make health claims beyond those authorised in the EU."],
+		errors: "Spotted an error?", tell: "Tell us", errorsEnd: "— corrections are noted at the bottom of the article.",
+		team: [
+			["Toon Van Buylaere", "Founder & editor-in-chief", "[Bio: ~20 years in European e-commerce; why NutriMetrics exists.]"],
+			["[Name]", "Medical reviewer", "[Credential, registration, areas of expertise.]"],
+		],
+		langH: "Built for all of Europe",
+		langP: "Each language edition is localised for its market — local retailers, local shipping, local search terms — not just translated.",
+		contactP: "Questions, corrections, or you run a shop and want to be listed? Write to us.",
+		form: { name: "Name", email: "Email", topic: "Topic", message: "Message", send: "Send message", topics: ["General question", "Report an error", "Retailer / partnership", "Press"], soon: "The contact form opens at launch — email us in the meantime." },
+	},
+	es: {
+		title: "Quiénes somos y nuestra metodología",
+		description: "Cómo compara NutriMetrics los precios de suplementos en Europa, cómo ganamos dinero, nuestra política editorial y cómo contactarnos.",
+		eyebrow: "Quiénes somos",
+		h1: "Los precios de los suplementos en Europa son opacos. Nosotros los hacemos comparables.",
+		lead: "Los tamaños de envase, las dosis y los gastos de envío cambian muchísimo entre países y tiendas. NutriMetrics convierte cada oferta en una sola cifra honesta, el coste por dosis, y pone la información de calidad justo al lado.",
+		toc: ["Cómo comparamos precios", "Cómo ganamos dinero", "Política editorial", "Equipo", "Contacto"],
+		steps: [
+			["01 · Recopilar", "Precios de los catálogos de tiendas", "Leemos los catálogos de productos de tiendas y redes de afiliación y los actualizamos cada [24] horas."],
+			["02 · Emparejar", "El mismo producto, en cada tienda", "Las ofertas se emparejan por EAN/GTIN y se revisan a mano, para que cada producto muestre todos los sitios donde se vende."],
+			["03 · Normalizar", "Coste por dosis, envío incluido", "Precio total a tu país dividido entre las tomas, o entre los gramos de ingrediente activo."],
+			["04 · Calificar", "Señales de calidad al lado", "Forma, dosis, análisis independientes y aditivos se muestran junto al precio, nunca escondidos."],
+		],
+		money: ["NutriMetrics es gratis. Muchos enlaces a tiendas son enlaces de afiliado a través de redes como AWIN y programas directos: si compras después de hacer clic, la tienda puede pagarnos una comisión. Tú pagas lo mismo.", "Las tiendas con las que no ganamos nada también aparecen si tienen el producto. Todos los enlaces de afiliado están marcados."],
+		promises: ["Las clasificaciones siguen el precio y la metodología, nunca la comisión.", "Sin posiciones pagadas ni clasificaciones patrocinadas.", "Las marcas no pueden pagar para revisar o editar nuestras guías."],
+		editorial: ["Cada guía indica su autor y su revisor. El contenido relacionado con la salud lo revisa un profesional cualificado antes de publicarse y cada vez que se actualiza.", "Citamos investigación revisada por pares y organismos oficiales como la EFSA, y no hacemos declaraciones de salud más allá de las autorizadas en la UE."],
+		errors: "¿Has visto un error?", tell: "Dínoslo", errorsEnd: ": las correcciones se indican al final del artículo.",
+		team: [
+			["Toon Van Buylaere", "Fundador y director editorial", "[Bio: ~20 años en e-commerce europeo; por qué existe NutriMetrics.]"],
+			["[Nombre]", "Revisor médico", "[Titulación, colegiación, áreas de especialidad.]"],
+		],
+		langH: "Hecho para toda Europa",
+		langP: "Cada edición está localizada para su mercado (tiendas locales, envíos locales, búsquedas locales), no solo traducida.",
+		contactP: "¿Preguntas, correcciones o tienes una tienda y quieres aparecer? Escríbenos.",
+		form: { name: "Nombre", email: "Email", topic: "Tema", message: "Mensaje", send: "Enviar mensaje", topics: ["Pregunta general", "Informar de un error", "Tienda / colaboración", "Prensa"], soon: "El formulario se abre en el lanzamiento; mientras tanto, escríbenos por email." },
+	},
+}[locale];
+const ids = ["method", "money", "editorial", "team", "contact"];
+---
+<Base
+	locale={locale}
+	title={`${C.title} | NutriMetrics`.length <= 60 ? `${C.title} | NutriMetrics` : C.title}
+	description={C.description}
+	alternates={routeAlternates("about")}
+	active="about"
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: t("nav.about"), href: path(locale, "about") }]}
+>
+	<section aria-labelledby="about-h" style="background:#fff;border-bottom:1px solid var(--nm-line)">
+		<div class="container about-hero">
+			<div style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:20px">
+				<span class="eyebrow">{C.eyebrow}</span>
+				<h1 id="about-h" class="h1">{C.h1}</h1>
+				<p class="lead">{C.lead}</p>
+			</div>
+			<nav aria-label={t("article.toc")} class="about-toc">
+				{C.toc.map((label, i) => <a href={`#${ids[i]}`}>{label}</a>)}
+			</nav>
+		</div>
+	</section>
+
+	<div class="container" style="display:flex;flex-direction:column;gap:72px;padding-top:64px;padding-bottom:88px">
+		<section id="method" aria-labelledby="method-h" style="display:flex;flex-direction:column;gap:24px">
+			<h2 id="method-h" class="h2">{C.toc[0]}</h2>
+			<ol class="grid-auto steps" style="--min:240px">
+				{C.steps.map(([k, h, p]) => (
+					<li class="card"><span class="mono" style="font-weight:600;color:var(--nm-accent);font-size:14px">{k}</span><h3 class="h3">{h}</h3><p style="color:var(--nm-ink-2)">{p}</p></li>
+				))}
+			</ol>
+		</section>
+
+		<section id="money" aria-labelledby="money-h" class="dark-panel">
+			<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px">
+				<h2 id="money-h" class="h2">{C.toc[1]}</h2>
+				{C.money.map((p) => <p>{p}</p>)}
+				<a href={path(locale, "disclosure")} class="btn btn-light" style="align-self:flex-start">{t("legal.disclosure")}</a>
+			</div>
+			<ul>
+				{C.promises.map((p) => (
+					<li style="display:flex;gap:12px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FD1B0" stroke-width="2" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M4 12l5 5L20 6"></path></svg><span style="color:#fff">{p}</span></li>
+				))}
+			</ul>
+		</section>
+
+		<section id="editorial" aria-labelledby="ed-h" class="two-col">
+			<h2 id="ed-h" class="h2">{C.toc[2]}</h2>
+			<div class="prose" style="font-size:17px">
+				{C.editorial.map((p) => <p>{p}</p>)}
+				<p>{C.errors} <a href="#contact">{C.tell}</a> {C.errorsEnd}</p>
+			</div>
+		</section>
+
+		<section id="team" aria-labelledby="team-h" style="display:flex;flex-direction:column;gap:24px">
+			<h2 id="team-h" class="h2">{C.toc[3]}</h2>
+			<div class="grid-auto">
+				{C.team.map(([name, role, bio], i) => (
+					<div class="card person">
+						<span class="avatar" aria-hidden="true" style={`background:${["#E3F1EA", "#E8ECF4"][i]}`}></span>
+						<strong style="font-size:18px">{name}</strong>
+						<span style="color:var(--nm-accent);font-weight:600;font-size:14px">{role}</span>
+						<span style="color:var(--nm-ink-2);font-size:15px">{bio}</span>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section aria-labelledby="lang-h" class="card two-col" style="padding:32px">
+			<div style="display:flex;flex-direction:column;gap:10px">
+				<h2 id="lang-h" class="h2" style="font-size:28px">{C.langH}</h2>
+				<p style="color:var(--nm-ink-2)">{C.langP}</p>
+			</div>
+			<ul class="langs">{ALL_LANGUAGES.map((l) => <li lang={l.code}>{l.name}</li>)}</ul>
+		</section>
+
+		<section id="contact" aria-labelledby="contact-h" class="two-col">
+			<div style="display:flex;flex-direction:column;gap:12px">
+				<h2 id="contact-h" class="h2">{C.toc[4]}</h2>
+				<p style="color:var(--nm-ink-2)">{C.contactP}</p>
+				<p><span class="placeholder">[hello@nutrimetrics.eu]</span><br /><span class="placeholder">[Company name, address — imprint details]</span></p>
+			</div>
+			<form class="card contact-form" onsubmit="return false">
+				<div class="grid-auto" style="--min:200px;gap:16px">
+					<label>{C.form.name}<input class="input" type="text" autocomplete="name" disabled /></label>
+					<label>{C.form.email}<input class="input" type="email" autocomplete="email" disabled /></label>
+				</div>
+				<label>{C.form.topic}<select class="input" disabled>{C.form.topics.map((o) => <option>{o}</option>)}</select></label>
+				<label>{C.form.message}<textarea class="input" rows="5" disabled></textarea></label>
+				<button type="submit" class="btn btn-primary btn-lg" style="align-self:flex-start" disabled>{C.form.send}</button>
+				<p class="muted" style="font-size:13px">{C.form.soon}</p>
+			</form>
+		</section>
+	</div>
+</Base>
+
+<style>
+	.about-hero { padding-top: 64px; padding-bottom: 56px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; }
+	.about-toc { flex: 1 1 260px; display: flex; flex-direction: column; border-left: 2px solid var(--nm-line); }
+	.about-toc a { padding: 10px 16px; min-height: 44px; display: flex; align-items: center; color: var(--nm-ink-2); text-decoration: none; font-weight: 500; }
+	.about-toc a:hover { color: var(--nm-accent); }
+	.steps { list-style: none; margin: 0; padding: 0; }
+	.steps li { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+	.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; align-items: start; }
+	.person { padding: 24px; display: flex; flex-direction: column; gap: 6px; }
+	.avatar { width: 64px; height: 64px; border-radius: 50%; margin-bottom: 8px; }
+	.langs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+	.langs li { padding: 8px 14px; border: 1px solid var(--nm-line); border-radius: var(--nm-pill); font-size: 15px; }
+	.contact-form { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+	.contact-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 500; font-size: 14px; }
+	.contact-form textarea.input { height: auto; padding: 12px 14px; resize: vertical; }
+</style>

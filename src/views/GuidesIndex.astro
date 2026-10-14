@@ -1,0 +1,96 @@
+---
+import Base from "../layouts/Base.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import NewsletterBlock from "../components/NewsletterBlock.astro";
+import { path, routeAlternates, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { getGuides, guideUrl } from "../lib/guides";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+const all = await getGuides(locale);
+const featured = all.find((g) => g.data.featured);
+const rest = all.filter((g) => g !== featured);
+const meta = (g: (typeof all)[number]) =>
+	`${g.data.readingMinutes} ${t("guides.read")}${g.data.reviewer ? ` · ${t("guides.reviewedBy")} ${g.data.reviewer}` : ""}`;
+---
+<Base
+	locale={locale}
+	title={t("guides.title")}
+	description={t("guides.description")}
+	alternates={routeAlternates("guides")}
+	active="guides"
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: t("nav.guides"), href: path(locale, "guides") }]}
+>
+	<header class="container guides-head">
+		<div style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+			<h1 class="h1">{t("guides.h1")}</h1>
+			<p class="lead">{t("guides.lead")}</p>
+		</div>
+		<form role="search" class="guides-search" onsubmit="return false">
+			<label for="blog-q" class="sr-only">{t("search.guides")}</label>
+			<input id="blog-q" name="q" type="search" class="input" placeholder={t("search.guides")} style="flex:1 1 auto;background:#fff" />
+		</form>
+	</header>
+
+	<div class="container" style="padding-bottom:var(--nm-section-gap);display:flex;flex-direction:column;gap:48px">
+		{all.length === 0 && <p class="lead">{t("guides.empty")}</p>}
+
+		{featured && (
+			<article class="card featured" data-search={`${featured.data.title} ${featured.data.dek} ${featured.data.category}`.toLowerCase()}>
+				<div class="img-ph" style={`--tint:${featured.data.tint};aspect-ratio:auto;min-height:260px`} aria-hidden="true">[Image: {featured.data.imageLabel}]</div>
+				<div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+					<span style="font-size:13px;font-weight:600;color:var(--nm-accent)">{t("guides.featured")} · {featured.data.category}</span>
+					<h2 class="h2"><a href={guideUrl(featured)} style="color:var(--nm-ink);text-decoration:none">{featured.data.title}</a></h2>
+					<p class="lead" style="font-size:17px">{featured.data.dek}</p>
+					<span class="muted" style="font-size:14px">
+						{featured.data.author}{featured.data.reviewer && ` · ${t("guides.reviewedBy")} ${featured.data.reviewer}`} · {formatDate(featured.data.updatedDate ?? featured.data.publishDate, locale)} · {featured.data.readingMinutes} {t("guides.read")}
+					</span>
+				</div>
+			</article>
+		)}
+
+		{rest.length > 0 && (
+			<section aria-labelledby="latest-h" style="display:flex;flex-direction:column;gap:24px">
+				<h2 id="latest-h" class="h2">{t("guides.latest")}</h2>
+				<div class="grid-auto" style="--min:300px;gap:32px 24px">
+					{rest.map((g) => (
+						<ArticleCard href={guideUrl(g)} category={g.data.category} title={g.data.title} dek={g.data.dek} meta={meta(g)} imageLabel={g.data.imageLabel} tint={g.data.tint} />
+					))}
+				</div>
+			</section>
+		)}
+		<p id="no-match" class="lead" hidden>{t("guides.noMatch")}</p>
+
+		<NewsletterBlock locale={locale} />
+	</div>
+</Base>
+
+<script>
+	// Tiny client-side filter; also handles ?q= from the header search.
+	const input = document.getElementById("blog-q") as HTMLInputElement | null;
+	const items = Array.from(document.querySelectorAll<HTMLElement>("[data-search]"));
+	const none = document.getElementById("no-match");
+	const run = () => {
+		const q = (input?.value ?? "").trim().toLowerCase();
+		let shown = 0;
+		for (const el of items) {
+			const hit = !q || q.split(/\s+/).every((w) => el.dataset.search!.includes(w));
+			el.hidden = !hit;
+			if (hit) shown++;
+		}
+		if (none) none.hidden = shown > 0 || items.length === 0;
+	};
+	const initial = new URLSearchParams(location.search).get("q");
+	if (input && initial) input.value = initial;
+	input?.addEventListener("input", run);
+	run();
+</script>
+
+<style>
+	.guides-head { padding-top: 56px; padding-bottom: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+	.guides-search { display: flex; flex: 0 1 360px; min-width: 240px; }
+	.featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: 24px; }
+	.featured[hidden], [data-search][hidden] { display: none; }
+</style>

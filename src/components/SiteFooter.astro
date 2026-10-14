@@ -1,0 +1,60 @@
+---
+import { ALL_LANGUAGES, LOCALES, path, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+
+interface Props { locale: Locale; alternates: Partial<Record<Locale, string>> }
+const { locale, alternates } = Astro.props;
+const t = useT(locale);
+const about = path(locale, "about");
+const guides = path(locale, "guides");
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<span class="logo-word">NutriMetrics<span>.eu</span></span>
+				<p>{t("footer.about")}</p>
+				<p style="font-size:13px">{t("footer.medical")}</p>
+			</div>
+			<nav aria-label={t("footer.tools")} class="footer-col">
+				<span class="head">{t("footer.tools")}</span>
+				<a href={path(locale, "prices")}>{t("nav.prices")}</a>
+				<a href={path(locale, "compare")}>{t("nav.compare")}</a>
+				<a href={path(locale, "prices")}>{t("footer.alerts")}</a>
+			</nav>
+			<nav aria-label={t("footer.guidesHead")} class="footer-col">
+				<span class="head">{t("footer.guidesHead")}</span>
+				<a href={guides}>{t("footer.buying")}</a>
+				<a href={guides}>{t("footer.explainers")}</a>
+				<a href={guides}>{t("footer.deals")}</a>
+			</nav>
+			<nav aria-label={t("footer.company")} class="footer-col">
+				<span class="head">{t("footer.company")}</span>
+				<a href={about}>{t("footer.aboutUs")}</a>
+				<a href={`${about}#method`}>{t("footer.methodology")}</a>
+				<a href={`${about}#money`}>{t("footer.money")}</a>
+				<a href={`${about}#contact`}>{t("footer.contact")}</a>
+			</nav>
+		</div>
+		<nav aria-label={t("footer.readIn")} class="footer-langs">
+			<span class="label">{t("footer.readIn")}</span>
+			{ALL_LANGUAGES.map((l) =>
+				LOCALES.includes(l.code as Locale) ? (
+					<a href={alternates[l.code as Locale] ?? path(l.code as Locale)} hreflang={l.code} lang={l.code} aria-current={l.code === locale ? "true" : undefined}>{l.name}</a>
+				) : (
+					<span class="off" lang={l.code} title={t("footer.soon")}>{l.name}</span>
+				)
+			)}
+		</nav>
+		<div class="footer-bottom">
+			<span>© {year} NutriMetrics.eu</span>
+			<nav aria-label="Legal">
+				<a href={path(locale, "disclosure")}>{t("legal.disclosure")}</a>
+				<a href={path(locale, "privacy")}>{t("legal.privacy")}</a>
+				<a href={path(locale, "cookies")}>{t("legal.cookies")}</a>
+				<a href={path(locale, "imprint")}>{t("legal.imprint")}</a>
+			</nav>
+		</div>
+	</div>
+</footer>

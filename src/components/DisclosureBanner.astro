@@ -1,0 +1,12 @@
+---
+import { path, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+---
+<div class="disclosure" role="note">
+	<div class="container">
+		{t("disclosure.banner")} <a href={path(locale, "disclosure")}>{t("disclosure.more")}</a>
+	</div>
+</div>

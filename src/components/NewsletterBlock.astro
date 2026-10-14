@@ -1,0 +1,24 @@
+---
+import { useT } from "../i18n/ui";
+import type { Locale } from "../i18n/config";
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+const id = `nl-${Math.random().toString(36).slice(2, 7)}`;
+---
+<!-- Not wired yet: /api/newsletter + Turnstile + double opt-in come in build step 6. -->
+<div class="newsletter">
+	<div class="text">
+		<h2 class="h2" style="font-size:30px">{t("nl.h")}</h2>
+		<p>{t("nl.p")}</p>
+	</div>
+	<form action="#" onsubmit="return false" aria-describedby={`${id}-soon`}>
+		<div class="row">
+			<label for={`${id}-email`} class="sr-only">{t("nl.email")}</label>
+			<input id={`${id}-email`} type="email" autocomplete="email" placeholder="you@example.com" class="input" disabled />
+			<button type="submit" class="btn btn-primary btn-lg" disabled>{t("nl.submit")}</button>
+		</div>
+		<label class="consent"><input type="checkbox" disabled /> {t("nl.consent")}</label>
+		<span id={`${id}-soon`} class="consent" style="font-weight:600">{t("nl.soon")}</span>
+	</form>
+</div>

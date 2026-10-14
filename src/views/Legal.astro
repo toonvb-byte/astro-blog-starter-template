@@ -1,0 +1,115 @@
+---
+/**
+ * Legal pages — DRAFT SKELETONS. Have them completed/checked before launch
+ * (company details, data processors, cookie list). Not legal advice.
+ */
+import Base from "../layouts/Base.astro";
+import { path, routeAlternates, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+
+type Which = "privacy" | "cookies" | "imprint" | "disclosure";
+interface Props { locale: Locale; which: Which }
+const { locale, which } = Astro.props;
+const t = useT(locale);
+
+const P = (s: string) => `<span class="placeholder">${s}</span>`;
+const L = {
+	en: {
+		draft: "Draft — to be completed before launch.",
+		privacy: {
+			h1: "Privacy policy",
+			body: [
+				["Who we are", `${P("[Company name, address, email]")} is the controller for personal data processed on nutrimetrics.eu.`],
+				["What we collect", "We don’t use tracking cookies. Analytics are cookie-free and aggregated (Cloudflare Web Analytics). Outbound shop clicks are logged without IP address or personal data. If you sign up for the newsletter or a price alert we store your email address, language and alert settings."],
+				["Legal basis", "Consent (newsletter, price alerts — double opt-in, withdraw any time) and legitimate interest (site security, aggregated statistics)."],
+				["Processors", `Cloudflare (hosting, database). ${P("[Email provider]")} (sending emails).`],
+				["Your rights", `Access, rectification, erasure, restriction, portability and objection. Contact ${P("[privacy email]")}. You can also complain to your national data protection authority.`],
+			],
+		},
+		cookies: {
+			h1: "Cookie policy",
+			body: [
+				["Our approach", "NutriMetrics doesn’t set advertising or tracking cookies, so we don’t need a consent banner for analytics."],
+				["Functional cookies", "We may store your “ship to” country and language choice in a first-party cookie so prices are calculated for the right country."],
+				["Affiliate partners", "When you click through to a shop, that shop or its affiliate network (e.g. AWIN) may set its own cookies on its site. Their cookie policies apply there."],
+			],
+		},
+		imprint: {
+			h1: "Imprint",
+			body: [
+				["Provider", P("[Company name, legal form, registered address]")],
+				["Contact", P("[Email, phone]")],
+				["Registration", P("[Commercial register, number / NIF / VAT ID]")],
+				["Responsible for content", P("[Name, address]")],
+			],
+		},
+		disclosure: {
+			h1: "Affiliate disclosure",
+			body: [
+				["How we make money", "NutriMetrics is free to use. Many shop links are affiliate links through networks such as AWIN or direct partner programmes. If you buy after clicking one, the shop may pay us a commission. The price you pay is the same."],
+				["What never changes", "Results are always ordered by total price (including shipping to your country) or by our published methodology — never by commission. Retailers that pay us nothing are still listed with a plain link."],
+				["How links are marked", "Pages with shop links show a notice at the top, and main buttons carry an “Affiliate link” label. All shop links use rel=\"sponsored\"."],
+			],
+		},
+	},
+	es: {
+		draft: "Borrador: completar antes del lanzamiento.",
+		privacy: {
+			h1: "Política de privacidad",
+			body: [
+				["Quiénes somos", `${P("[Nombre de la empresa, dirección, email]")} es el responsable del tratamiento de los datos personales en nutrimetrics.eu.`],
+				["Qué datos recogemos", "No usamos cookies de seguimiento. La analítica es sin cookies y agregada (Cloudflare Web Analytics). Los clics hacia tiendas se registran sin dirección IP ni datos personales. Si te suscribes al boletín o a una alerta de precio, guardamos tu email, idioma y la configuración de la alerta."],
+				["Base jurídica", "Consentimiento (boletín, alertas de precio — doble confirmación, revocable en cualquier momento) e interés legítimo (seguridad del sitio, estadísticas agregadas)."],
+				["Encargados del tratamiento", `Cloudflare (alojamiento, base de datos). ${P("[Proveedor de email]")} (envío de emails).`],
+				["Tus derechos", `Acceso, rectificación, supresión, limitación, portabilidad y oposición. Escribe a ${P("[email de privacidad]")}. También puedes reclamar ante la AEPD.`],
+			],
+		},
+		cookies: {
+			h1: "Política de cookies",
+			body: [
+				["Nuestro enfoque", "NutriMetrics no instala cookies publicitarias ni de seguimiento, por eso no necesitamos un banner de consentimiento para la analítica."],
+				["Cookies funcionales", "Podemos guardar tu país de envío y tu idioma en una cookie propia para calcular los precios para el país correcto."],
+				["Socios de afiliación", "Cuando haces clic hacia una tienda, esa tienda o su red de afiliación (p. ej. AWIN) puede instalar sus propias cookies en su web. Allí se aplican sus políticas."],
+			],
+		},
+		imprint: {
+			h1: "Aviso legal",
+			body: [
+				["Titular", P("[Nombre de la empresa, forma jurídica, domicilio social]")],
+				["Contacto", P("[Email, teléfono]")],
+				["Datos registrales", P("[Registro Mercantil / NIF / IVA]")],
+				["Responsable del contenido", P("[Nombre, dirección]")],
+			],
+		},
+		disclosure: {
+			h1: "Aviso de afiliación",
+			body: [
+				["Cómo ganamos dinero", "NutriMetrics es gratis. Muchos enlaces a tiendas son enlaces de afiliado a través de redes como AWIN o programas directos. Si compras después de hacer clic, la tienda puede pagarnos una comisión. Tú pagas lo mismo."],
+				["Lo que nunca cambia", "Los resultados se ordenan siempre por precio total (con el envío a tu país) o por nuestra metodología publicada, nunca por comisión. Las tiendas que no nos pagan nada también aparecen, con un enlace normal."],
+				["Cómo se marcan los enlaces", "Las páginas con enlaces a tiendas muestran un aviso arriba y los botones principales llevan la etiqueta «Enlace de afiliado». Todos los enlaces a tiendas usan rel=\"sponsored\"."],
+			],
+		},
+	},
+}[locale];
+const page = L[which];
+---
+<Base
+	locale={locale}
+	title={`${page.h1} | NutriMetrics`}
+	description={`${page.h1} — NutriMetrics.eu`}
+	alternates={routeAlternates(which)}
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: page.h1, href: path(locale, which) }]}
+>
+	<div class="container" style="padding-top:56px;padding-bottom:88px">
+		<article class="prose" style="max-width:760px">
+			<h1 class="h1" style="font-size:clamp(2rem,3.4vw,2.8rem)">{page.h1}</h1>
+			{which !== "disclosure" && <p class="art-draft"><span class="placeholder">{L.draft}</span></p>}
+			{page.body.map(([h, p]) => (
+				<>
+					<h2>{h}</h2>
+					<p set:html={p} />
+				</>
+			))}
+		</article>
+	</div>
+</Base>

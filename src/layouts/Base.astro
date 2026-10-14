@@ -1,0 +1,99 @@
+---
+import "@fontsource/bricolage-grotesque/600.css";
+import "@fontsource/bricolage-grotesque/700.css";
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-mono/500.css";
+import "@fontsource/ibm-plex-mono/600.css";
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import DisclosureBanner from "../components/DisclosureBanner.astro";
+import { DEFAULT_LOCALE, LOCALES, OG_LOCALE, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+import { SITE_LIVE, SITE_NAME, SITE_URL } from "../lib/site";
+
+export type NavKey = "home" | "prices" | "compare" | "guides" | "about" | "";
+export interface Crumb { name: string; href: string }
+
+interface Props {
+	locale: Locale;
+	title: string;
+	description: string;
+	/** Same page in each locale that actually exists (hreflang + language switcher). */
+	alternates: Partial<Record<Locale, string>>;
+	active?: NavKey;
+	disclosure?: boolean;
+	breadcrumbs?: Crumb[];
+	jsonLd?: object[];
+	ogType?: "website" | "article";
+}
+
+const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website" } = Astro.props;
+const t = useT(locale);
+const canonical = new URL(alternates[locale] ?? Astro.url.pathname, SITE_URL).href;
+
+const schema: object[] = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"@id": `${SITE_URL}/#org`,
+		name: SITE_NAME,
+		url: SITE_URL,
+		logo: `${SITE_URL}/favicon.svg`,
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"@id": `${SITE_URL}/#website`,
+		name: SITE_NAME,
+		url: `${SITE_URL}/${locale}/`,
+		inLanguage: locale,
+		publisher: { "@id": `${SITE_URL}/#org` },
+	},
+	...(breadcrumbs?.length
+		? [{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				itemListElement: breadcrumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: new URL(c.href, SITE_URL).href })),
+			}]
+		: []),
+	...jsonLd,
+];
+---
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		{LOCALES.filter((l) => alternates[l]).map((l) => (
+			<link rel="alternate" hreflang={l} href={new URL(alternates[l]!, SITE_URL).href} />
+		))}
+		{alternates[DEFAULT_LOCALE] && <link rel="alternate" hreflang="x-default" href={new URL(alternates[DEFAULT_LOCALE]!, SITE_URL).href} />}
+		{!SITE_LIVE && <meta name="robots" content="noindex, nofollow" />}
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="theme-color" content="#0B6B4F" />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:locale" content={OG_LOCALE[locale]} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+		<!-- Cloudflare Web Analytics (cookie-free): enable in dashboard → Web Analytics, it injects automatically on custom domains. -->
+	</head>
+	<body>
+		<a class="skip-link" href="#main">{t("skip")}</a>
+		{disclosure && <DisclosureBanner locale={locale} />}
+		<SiteHeader locale={locale} active={active} alternates={alternates} />
+		<main id="main">
+			<slot />
+		</main>
+		<SiteFooter locale={locale} alternates={alternates} />
+	</body>
+</html>

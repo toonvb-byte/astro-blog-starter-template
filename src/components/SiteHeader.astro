@@ -1,0 +1,49 @@
+---
+import Logo from "./Logo.astro";
+import { LOCALES, ALL_LANGUAGES, path, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+import type { NavKey } from "../layouts/Base.astro";
+
+interface Props { locale: Locale; active: NavKey; alternates: Partial<Record<Locale, string>> }
+const { locale, active, alternates } = Astro.props;
+const t = useT(locale);
+
+const links = [
+	{ id: "prices", label: t("nav.prices"), href: path(locale, "prices") },
+	{ id: "compare", label: t("nav.compare"), href: path(locale, "compare") },
+	{ id: "guides", label: t("nav.guides"), href: path(locale, "guides") },
+	{ id: "about", label: t("nav.about"), href: path(locale, "about") },
+];
+const langName = (c: string) => ALL_LANGUAGES.find((l) => l.code === c)?.name ?? c;
+---
+<header class="site-header">
+	<div class="container">
+		<a href={path(locale)} class="logo" aria-label={t("nav.home")}>
+			<Logo />
+			<span class="logo-word">NutriMetrics<span>.eu</span></span>
+		</a>
+		<nav aria-label={t("nav.main")} class="main-nav">
+			{links.map((l) => (
+				<a href={l.href} aria-current={l.id === active ? "page" : undefined}>{l.label}</a>
+			))}
+		</nav>
+		<form role="search" action={path(locale, "guides")} method="get" class="header-search">
+			<label for="hdr-q" class="sr-only">{t("search.label")}</label>
+			<input id="hdr-q" name="q" type="search" class="input" placeholder={t("search.placeholder")} />
+		</form>
+		<details class="lang-menu">
+			<summary aria-label={t("lang.change")}>
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg>
+				{locale}
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+			</summary>
+			<ul>
+				{LOCALES.map((l) => (
+					<li>
+						<a href={alternates[l] ?? path(l)} hreflang={l} lang={l} aria-current={l === locale ? "true" : undefined}>{langName(l)}</a>
+					</li>
+				))}
+			</ul>
+		</details>
+	</div>
+</header>

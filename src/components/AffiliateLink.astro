@@ -1,0 +1,17 @@
+---
+/**
+ * The ONLY component allowed to render a shop link (brief §6).
+ * Always goes through the /go/{offerId} redirect so clicks are logged and the
+ * affiliate URL is built server-side. Retailers without a programme still get
+ * a link — the redirect simply sends them to the plain merchant URL.
+ */
+interface Props {
+	offerId: number | string;
+	placement: string;
+	variant?: "primary" | "outline";
+	class?: string;
+}
+const { offerId, placement, variant = "primary", class: cls = "" } = Astro.props;
+const href = `/go/${offerId}?p=${encodeURIComponent(placement)}`;
+---
+<a href={href} rel="sponsored nofollow noopener" target="_blank" class={`btn btn-${variant} ${cls}`}><slot /></a>

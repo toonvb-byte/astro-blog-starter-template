@@ -1,0 +1,54 @@
+/* NutriMetrics.eu — design tokens (extracted from the design files) */
+
+:root {
+  /* Colour */
+  --nm-ground: #F6F7F4;        /* page background */
+  --nm-surface: #FFFFFF;       /* cards, tables */
+  --nm-surface-alt: #FBFCFA;   /* table row headers */
+  --nm-ink: #10201A;           /* primary text, dark sections */
+  --nm-ink-2: #3E4C46;         /* body secondary */
+  --nm-muted: #5A6863;         /* captions, meta (passes 4.5:1 on white) */
+  --nm-line: #DCE1DD;          /* borders */
+  --nm-line-soft: #EEF1EE;     /* row dividers */
+  --nm-input-line: #C9D1CC;
+
+  --nm-accent: #0B6B4F;        /* primary actions, links */
+  --nm-accent-hover: #084D39;
+  --nm-accent-soft: #E3F1EA;   /* highlights, best-value cells */
+  --nm-accent-ink: #0B4F3B;    /* text on accent-soft */
+
+  --nm-deal: #8A3A0C;          /* price drops, "sample data", warnings — text */
+  --nm-deal-strong: #B4470E;   /* chart markers */
+  --nm-deal-soft: #FCEBDD;     /* deal badges, disclosure banners */
+  --nm-deal-ink: #5C2808;      /* text on deal-soft banners */
+
+  --nm-dark-text: #E6ECE8;     /* text on ink background */
+  --nm-dark-muted: #B9C7C0;
+  --nm-dark-line: #2C3F37;
+  --nm-tint-blue: #E8ECF4;     /* image placeholder variety */
+
+  /* Type */
+  --nm-font-display: 'Bricolage Grotesque', system-ui, sans-serif; /* headings */
+  --nm-font-body: 'IBM Plex Sans', system-ui, sans-serif;          /* body, UI */
+  --nm-font-data: 'IBM Plex Mono', ui-monospace, monospace;        /* prices, numbers */
+
+  --nm-h1: clamp(2.2rem, 4.2vw, 3.6rem);  /* weight 700, line-height 1.05, letter-spacing -0.03em */
+  --nm-h2: 34px;                          /* weight 700, letter-spacing -0.02em */
+  --nm-h3: 20px;                          /* weight 600 */
+  --nm-lead: 19px;
+  --nm-body: 16px;                        /* article body: 18px / 1.7 */
+  --nm-small: 14px;
+  --nm-caption: 13px;                     /* eyebrow: 13px 600 uppercase, letter-spacing 0.06em */
+
+  /* Shape & space */
+  --nm-radius-sm: 6px;   /* badges */
+  --nm-radius: 10px;     /* buttons, inputs */
+  --nm-radius-md: 12px;  /* small cards, details */
+  --nm-radius-lg: 16px;  /* cards, tables */
+  --nm-radius-xl: 22px;  /* feature panels */
+  --nm-pill: 999px;      /* chips */
+
+  --nm-container: 1240px;  /* max content width, 24px side padding */
+  --nm-section-gap: 56px;  /* between homepage sections (72px for major breaks) */
+  --nm-touch: 44px;        /* minimum touch target; primary CTAs 48–52px */
+}

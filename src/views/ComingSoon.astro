@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+import NewsletterBlock from "../components/NewsletterBlock.astro";
+import { path, routeAlternates, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+
+interface Props { locale: Locale; which: "prices" | "compare" }
+const { locale, which } = Astro.props;
+const t = useT(locale);
+const k = which === "prices" ? "soon.prices" : "soon.compare";
+---
+<Base
+	locale={locale}
+	title={t(`${k}.title` as "soon.prices.title")}
+	description={t(`${k}.p` as "soon.prices.p").slice(0, 155)}
+	alternates={routeAlternates(which)}
+	active={which}
+>
+	<div class="container" style="padding-top:72px;padding-bottom:88px;display:flex;flex-direction:column;gap:48px">
+		<div style="max-width:720px;display:flex;flex-direction:column;gap:20px">
+			<span class="badge-deal" style="align-self:flex-start">{t("soon.badge")}</span>
+			<h1 class="h1">{t(`${k}.h1` as "soon.prices.h1")}</h1>
+			<p class="lead">{t(`${k}.p` as "soon.prices.p")}</p>
+			<a href={path(locale, "guides")} class="link-strong">{t("soon.back")}</a>
+		</div>
+		<NewsletterBlock locale={locale} />
+	</div>
+</Base>
