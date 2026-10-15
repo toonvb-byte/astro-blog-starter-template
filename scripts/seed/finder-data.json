@@ -26,31 +26,51 @@
    "id": "energy",
    "en": "Energy & less fatigue",
    "es": "Energía y menos cansancio",
-   "icon": "⚡"
+   "icon": "⚡",
+   "desc": {
+    "en": "Tiredness, low energy, afternoon slump",
+    "es": "Cansancio, falta de energía, bajón de la tarde"
+   }
   },
   {
    "id": "sleep",
    "en": "Deep sleep",
    "es": "Sueño profundo",
-   "icon": "☾"
+   "icon": "☾",
+   "desc": {
+    "en": "Falling asleep, staying asleep, waking rested",
+    "es": "Dormirse, no despertarse, levantarse descansado"
+   }
   },
   {
    "id": "stress",
    "en": "Stress & calm",
    "es": "Estrés y calma",
-   "icon": "≈"
+   "icon": "≈",
+   "desc": {
+    "en": "Feeling tense, anxious or wound up",
+    "es": "Tensión, nervios, sensación de ir acelerado"
+   }
   },
   {
    "id": "focus",
    "en": "Focus & brain",
    "es": "Concentración y cerebro",
-   "icon": "◎"
+   "icon": "◎",
+   "desc": {
+    "en": "Concentration, memory, mental clarity",
+    "es": "Concentración, memoria, claridad mental"
+   }
   },
   {
    "id": "immunity",
    "en": "Immune support",
    "es": "Defensas",
-   "icon": "✚"
+   "icon": "✚",
+   "desc": {
+    "en": "Fewer colds, winter defences",
+    "es": "Menos resfriados, defensas en invierno"
+   }
   },
   {
    "id": "detox",
@@ -60,25 +80,41 @@
    "warn": {
     "en": "There is no EU-authorised 'detox' claim. Your liver and kidneys do this job on their own. Ingredients below are the ones marketed for liver support, and the evidence for them is limited.",
     "es": "No existe ninguna declaración 'detox' autorizada en la UE. El hígado y los riñones ya hacen ese trabajo. Abajo están los ingredientes que se venden para el hígado, y la evidencia es limitada."
+   },
+   "desc": {
+    "en": "Liver support and 'cleanse' products",
+    "es": "Apoyo al hígado y productos 'depurativos'"
    }
   },
   {
    "id": "gut",
    "en": "Gut & digestion",
    "es": "Intestino y digestión",
-   "icon": "∿"
+   "icon": "∿",
+   "desc": {
+    "en": "Regularity, bloating, gut flora",
+    "es": "Tránsito, hinchazón, flora intestinal"
+   }
   },
   {
    "id": "muscle",
    "en": "Muscle & recovery",
    "es": "Músculo y recuperación",
-   "icon": "▲"
+   "icon": "▲",
+   "desc": {
+    "en": "Strength, training performance, recovery",
+    "es": "Fuerza, rendimiento deportivo, recuperación"
+   }
   },
   {
    "id": "joints",
    "en": "Joints",
    "es": "Articulaciones",
-   "icon": "⌒"
+   "icon": "⌒",
+   "desc": {
+    "en": "Stiff or sore joints, cartilage",
+    "es": "Rigidez o dolor articular, cartílago"
+   }
   }
  ],
  "ingredients": [

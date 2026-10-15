@@ -19,7 +19,7 @@ for i in d["ingredients"]:
 for s, g in enumerate(d["goals"]):
     out.append(f"INSERT OR REPLACE INTO goals VALUES ({goal_id[g['id']]}, {q(g['id'])}, {q(g['icon'])}, {s});")
     for loc in ("en", "es"):
-        out.append(f"INSERT OR REPLACE INTO goal_i18n VALUES ({goal_id[g['id']]}, {q(loc)}, {q(g[loc])}, {q((g.get('warn') or {}).get(loc))});")
+        out.append(f"INSERT OR REPLACE INTO goal_i18n (goal_id, locale, name, description, warning) VALUES ({goal_id[g['id']]}, {q(loc)}, {q(g[loc])}, {q(g['desc'][loc])}, {q((g.get('warn') or {}).get(loc))});")
 ING = lambda slug: f"(SELECT id FROM ingredients WHERE slug={q(slug)})"
 for gi in d["goalIngredients"]:
     out.append(f"INSERT OR REPLACE INTO goal_ingredients (goal_id, ingredient_id, evidence, eu_claim, deficiency_only) VALUES ({goal_id[gi['g']]}, {ING(gi['i'])}, {gi['ev']}, {b(gi['claim'])}, {b(gi.get('cond'))});")

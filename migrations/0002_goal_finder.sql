@@ -25,6 +25,7 @@ CREATE TABLE goal_i18n (
   goal_id       INTEGER NOT NULL REFERENCES goals(id),
   locale        TEXT NOT NULL,
   name          TEXT NOT NULL,
+  description   TEXT,                                  -- 'Falling asleep, staying asleep...'
   warning       TEXT,                                  -- e.g. no authorised 'detox' claim
   PRIMARY KEY (goal_id, locale)
 );
