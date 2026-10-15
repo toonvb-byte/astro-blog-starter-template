@@ -14,12 +14,6 @@
 		"enabled": true
 	},
 	"upload_source_maps": true,
-	// Custom domains: Cloudflare creates the DNS records + HTTPS certificate on deploy.
-	// Requires the nutrimetrics.eu zone to be active in this Cloudflare account.
-	"routes": [
-		{ "pattern": "nutrimetrics.eu", "custom_domain": true },
-		{ "pattern": "www.nutrimetrics.eu", "custom_domain": true }
-	],
 	"d1_databases": [
 		{
 			"binding": "DB",
