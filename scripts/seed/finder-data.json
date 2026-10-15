@@ -1,0 +1,1738 @@
+{
+ "meta": {
+  "version": "0.1-prototype",
+  "checked": "2026-10-15",
+  "markets": [
+   "ES",
+   "DE"
+  ],
+  "evidenceScale": {
+   "3": {
+    "en": "Strong",
+    "es": "Sólida"
+   },
+   "2": {
+    "en": "Moderate",
+    "es": "Moderada"
+   },
+   "1": {
+    "en": "Limited",
+    "es": "Limitada"
+   }
+  }
+ },
+ "goals": [
+  {
+   "id": "energy",
+   "en": "Energy & less fatigue",
+   "es": "Energía y menos cansancio",
+   "icon": "⚡"
+  },
+  {
+   "id": "sleep",
+   "en": "Deep sleep",
+   "es": "Sueño profundo",
+   "icon": "☾"
+  },
+  {
+   "id": "stress",
+   "en": "Stress & calm",
+   "es": "Estrés y calma",
+   "icon": "≈"
+  },
+  {
+   "id": "focus",
+   "en": "Focus & brain",
+   "es": "Concentración y cerebro",
+   "icon": "◎"
+  },
+  {
+   "id": "immunity",
+   "en": "Immune support",
+   "es": "Defensas",
+   "icon": "✚"
+  },
+  {
+   "id": "detox",
+   "en": "Detox / liver",
+   "es": "Detox / hígado",
+   "icon": "◇",
+   "warn": {
+    "en": "There is no EU-authorised 'detox' claim. Your liver and kidneys do this job on their own. Ingredients below are the ones marketed for liver support, and the evidence for them is limited.",
+    "es": "No existe ninguna declaración 'detox' autorizada en la UE. El hígado y los riñones ya hacen ese trabajo. Abajo están los ingredientes que se venden para el hígado, y la evidencia es limitada."
+   }
+  },
+  {
+   "id": "gut",
+   "en": "Gut & digestion",
+   "es": "Intestino y digestión",
+   "icon": "∿"
+  },
+  {
+   "id": "muscle",
+   "en": "Muscle & recovery",
+   "es": "Músculo y recuperación",
+   "icon": "▲"
+  },
+  {
+   "id": "joints",
+   "en": "Joints",
+   "es": "Articulaciones",
+   "icon": "⌒"
+  }
+ ],
+ "ingredients": [
+  {
+   "id": "melatonin",
+   "en": "Melatonin",
+   "es": "Melatonina",
+   "unit": "mg",
+   "effective": 1,
+   "caution": {
+    "en": "Not for pregnancy, breastfeeding or children. Can interact with sedatives and blood thinners. In Germany it is legally grey as a supplement.",
+    "es": "No apta para embarazo, lactancia ni niños. Puede interactuar con sedantes y anticoagulantes."
+   }
+  },
+  {
+   "id": "magnesium",
+   "en": "Magnesium",
+   "es": "Magnesio",
+   "unit": "mg",
+   "effective": 200,
+   "tip": {
+    "en": "Bisglycinate and citrate are well absorbed; oxide much less.",
+    "es": "Bisglicinato y citrato se absorben bien; el óxido mucho menos."
+   }
+  },
+  {
+   "id": "valerian",
+   "en": "Valerian",
+   "es": "Valeriana",
+   "unit": "mg",
+   "effective": 300
+  },
+  {
+   "id": "passionflower",
+   "en": "Passionflower",
+   "es": "Pasiflora",
+   "unit": "mg",
+   "effective": 200
+  },
+  {
+   "id": "california_poppy",
+   "en": "California poppy",
+   "es": "Amapola de California",
+   "unit": "mg",
+   "effective": 200
+  },
+  {
+   "id": "lemon_balm",
+   "en": "Lemon balm",
+   "es": "Melisa",
+   "unit": "mg",
+   "effective": 300
+  },
+  {
+   "id": "chamomile",
+   "en": "Chamomile",
+   "es": "Manzanilla",
+   "unit": "mg",
+   "effective": 200
+  },
+  {
+   "id": "lavender",
+   "en": "Lavender",
+   "es": "Lavanda",
+   "unit": "mg",
+   "effective": 80
+  },
+  {
+   "id": "htp5",
+   "en": "5-HTP (griffonia)",
+   "es": "5-HTP (griffonia)",
+   "unit": "mg",
+   "effective": 100,
+   "caution": {
+    "en": "Do not combine with antidepressants (serotonin syndrome risk).",
+    "es": "No combinar con antidepresivos (riesgo de síndrome serotoninérgico)."
+   }
+  },
+  {
+   "id": "ashwagandha",
+   "en": "Ashwagandha",
+   "es": "Ashwagandha",
+   "unit": "mg",
+   "effective": 300,
+   "caution": {
+    "en": "Not in pregnancy or with thyroid conditions; rare liver-injury reports; restricted or under review in some EU countries.",
+    "es": "No en embarazo ni con problemas de tiroides; casos raros de daño hepático; restringida o en revisión en algunos países de la UE."
+   }
+  },
+  {
+   "id": "l_theanine",
+   "en": "L-theanine",
+   "es": "L-teanina",
+   "unit": "mg",
+   "effective": 200
+  },
+  {
+   "id": "rhodiola",
+   "en": "Rhodiola",
+   "es": "Rhodiola",
+   "unit": "mg",
+   "effective": 400,
+   "caution": {
+    "en": "Avoid with bipolar disorder and in pregnancy.",
+    "es": "Evitar con trastorno bipolar y en embarazo."
+   }
+  },
+  {
+   "id": "iron",
+   "en": "Iron",
+   "es": "Hierro",
+   "unit": "mg",
+   "effective": 14,
+   "caution": {
+    "en": "Only useful if you are low in iron. Get a blood test first; excess iron is harmful.",
+    "es": "Solo útil si tienes el hierro bajo. Haz una analítica antes; el exceso es perjudicial."
+   }
+  },
+  {
+   "id": "b12",
+   "en": "Vitamin B12",
+   "es": "Vitamina B12",
+   "unit": "µg",
+   "effective": 2.5,
+   "tip": {
+    "en": "Big effect only if you are low (common in vegans and over-50s).",
+    "es": "Efecto notable solo si tienes déficit (frecuente en veganos y mayores de 50)."
+   }
+  },
+  {
+   "id": "b6",
+   "en": "Vitamin B6",
+   "es": "Vitamina B6",
+   "unit": "mg",
+   "effective": 1.4,
+   "upper": 12
+  },
+  {
+   "id": "folate",
+   "en": "Folate",
+   "es": "Folato",
+   "unit": "µg",
+   "effective": 200
+  },
+  {
+   "id": "b1",
+   "en": "Vitamin B1",
+   "es": "Vitamina B1",
+   "unit": "mg",
+   "effective": 1.1
+  },
+  {
+   "id": "b2",
+   "en": "Vitamin B2",
+   "es": "Vitamina B2",
+   "unit": "mg",
+   "effective": 1.4
+  },
+  {
+   "id": "b3",
+   "en": "Niacin (B3)",
+   "es": "Niacina (B3)",
+   "unit": "mg",
+   "effective": 16
+  },
+  {
+   "id": "b5",
+   "en": "Pantothenic acid (B5)",
+   "es": "Ácido pantoténico (B5)",
+   "unit": "mg",
+   "effective": 6
+  },
+  {
+   "id": "vitamin_c",
+   "en": "Vitamin C",
+   "es": "Vitamina C",
+   "unit": "mg",
+   "effective": 200
+  },
+  {
+   "id": "zinc",
+   "en": "Zinc",
+   "es": "Zinc",
+   "unit": "mg",
+   "effective": 10,
+   "upper": 25
+  },
+  {
+   "id": "vitamin_d",
+   "en": "Vitamin D3",
+   "es": "Vitamina D3",
+   "unit": "µg",
+   "effective": 20,
+   "upper": 100,
+   "tip": {
+    "en": "20 µg = 800 IU. Most Northern and Central Europeans run low in winter.",
+    "es": "20 µg = 800 UI. Muy frecuente tenerla baja en invierno."
+   }
+  },
+  {
+   "id": "vitamin_k2",
+   "en": "Vitamin K2 (MK-7)",
+   "es": "Vitamina K2 (MK-7)",
+   "unit": "µg",
+   "effective": 75,
+   "caution": {
+    "en": "Talk to your doctor if you take warfarin/acenocoumarol (Sintrom).",
+    "es": "Consulta a tu médico si tomas Sintrom u otros anticoagulantes."
+   }
+  },
+  {
+   "id": "dha",
+   "en": "Omega-3 DHA",
+   "es": "Omega-3 DHA",
+   "unit": "mg",
+   "effective": 250
+  },
+  {
+   "id": "epa",
+   "en": "Omega-3 EPA",
+   "es": "Omega-3 EPA",
+   "unit": "mg",
+   "effective": 1000
+  },
+  {
+   "id": "creatine",
+   "en": "Creatine monohydrate",
+   "es": "Creatina monohidrato",
+   "unit": "g",
+   "effective": 3
+  },
+  {
+   "id": "collagen",
+   "en": "Hydrolysed collagen",
+   "es": "Colágeno hidrolizado",
+   "unit": "g",
+   "effective": 5
+  },
+  {
+   "id": "curcuminoids",
+   "en": "Curcumin (curcuminoids)",
+   "es": "Curcumina (curcuminoides)",
+   "unit": "mg",
+   "effective": 500,
+   "caution": {
+    "en": "With piperine, absorption rises a lot; rare liver-injury reports. Avoid with gallstones or blood thinners.",
+    "es": "Con piperina se absorbe mucho más; casos raros de daño hepático. Evitar con cálculos biliares o anticoagulantes."
+   }
+  },
+  {
+   "id": "silymarin",
+   "en": "Milk thistle (silymarin)",
+   "es": "Cardo mariano (silimarina)",
+   "unit": "mg",
+   "effective": 140,
+   "caution": {
+    "en": "Possible allergy if sensitive to daisy-family plants.",
+    "es": "Posible alergia si eres sensible a plantas de la familia de las margaritas."
+   }
+  },
+  {
+   "id": "artichoke",
+   "en": "Artichoke extract",
+   "es": "Extracto de alcachofa",
+   "unit": "mg",
+   "effective": 320
+  },
+  {
+   "id": "dandelion",
+   "en": "Dandelion root",
+   "es": "Raíz de diente de león",
+   "unit": "mg",
+   "effective": 250
+  },
+  {
+   "id": "psyllium",
+   "en": "Psyllium husk",
+   "es": "Psyllium (plantago ovata)",
+   "unit": "g",
+   "effective": 5,
+   "tip": {
+    "en": "Drink plenty of water. Take 2 h apart from medicines.",
+    "es": "Bebe mucha agua. Sepáralo 2 h de medicamentos."
+   }
+  },
+  {
+   "id": "probiotics",
+   "en": "Probiotic cultures",
+   "es": "Cultivos probióticos",
+   "unit": "bn CFU",
+   "effective": 1,
+   "tip": {
+    "en": "Effects are strain-specific; the CFU count alone says little.",
+    "es": "Los efectos dependen de la cepa; las UFC por sí solas dicen poco."
+   }
+  }
+ ],
+ "goalIngredients": [
+  {
+   "g": "energy",
+   "i": "iron",
+   "ev": 3,
+   "claim": true,
+   "en": "Reduces tiredness, but only if you are iron-deficient.",
+   "es": "Reduce el cansancio, pero solo si tienes déficit de hierro.",
+   "cond": true
+  },
+  {
+   "g": "energy",
+   "i": "b12",
+   "ev": 3,
+   "claim": true,
+   "en": "EU-authorised claim for tiredness and fatigue; strong effect when levels are low.",
+   "es": "Declaración autorizada en la UE sobre el cansancio; efecto claro si hay déficit."
+  },
+  {
+   "g": "energy",
+   "i": "folate",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised fatigue claim; relevant if your diet is low in greens.",
+   "es": "Declaración autorizada sobre el cansancio; relevante si comes pocas verduras."
+  },
+  {
+   "g": "energy",
+   "i": "b6",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised fatigue claim.",
+   "es": "Declaración autorizada sobre el cansancio."
+  },
+  {
+   "g": "energy",
+   "i": "b2",
+   "ev": 1,
+   "claim": true,
+   "en": "Part of energy metabolism; extra helps only if low.",
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+  },
+  {
+   "g": "energy",
+   "i": "b3",
+   "ev": 1,
+   "claim": true,
+   "en": "Part of energy metabolism; extra helps only if low.",
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+  },
+  {
+   "g": "energy",
+   "i": "b5",
+   "ev": 1,
+   "claim": true,
+   "en": "Part of energy metabolism; extra helps only if low.",
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+  },
+  {
+   "g": "energy",
+   "i": "b1",
+   "ev": 1,
+   "claim": true,
+   "en": "Part of energy metabolism; extra helps only if low.",
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+  },
+  {
+   "g": "energy",
+   "i": "magnesium",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised claim for tiredness and fatigue.",
+   "es": "Declaración autorizada en la UE sobre el cansancio."
+  },
+  {
+   "g": "energy",
+   "i": "vitamin_c",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised fatigue claim; most people already get enough.",
+   "es": "Declaración autorizada sobre el cansancio; la mayoría ya toma suficiente."
+  },
+  {
+   "g": "energy",
+   "i": "rhodiola",
+   "ev": 2,
+   "claim": false,
+   "en": "Several trials show less mental fatigue under stress.",
+   "es": "Varios ensayos muestran menos fatiga mental bajo estrés."
+  },
+  {
+   "g": "energy",
+   "i": "ashwagandha",
+   "ev": 1,
+   "claim": false,
+   "en": "Small trials on vitality; indirect via stress.",
+   "es": "Ensayos pequeños sobre vitalidad; efecto indirecto vía estrés."
+  },
+  {
+   "g": "energy",
+   "i": "creatine",
+   "ev": 1,
+   "claim": false,
+   "en": "Some data on mental fatigue under sleep loss.",
+   "es": "Algunos datos sobre fatiga mental con falta de sueño."
+  },
+  {
+   "g": "sleep",
+   "i": "melatonin",
+   "ev": 3,
+   "claim": true,
+   "en": "EU-authorised: 1 mg before bed shortens time to fall asleep. Helps falling asleep more than deep sleep.",
+   "es": "Autorizado en la UE: 1 mg antes de dormir acorta el tiempo para conciliar el sueño. Ayuda más a dormirse que al sueño profundo."
+  },
+  {
+   "g": "sleep",
+   "i": "magnesium",
+   "ev": 2,
+   "claim": false,
+   "en": "Modest benefit, mainly in people who are low; no authorised sleep claim.",
+   "es": "Beneficio modesto, sobre todo si hay déficit; sin declaración autorizada sobre el sueño."
+  },
+  {
+   "g": "sleep",
+   "i": "ashwagandha",
+   "ev": 2,
+   "claim": false,
+   "en": "Several RCTs show better sleep quality at 300–600 mg.",
+   "es": "Varios ensayos muestran mejor calidad de sueño con 300–600 mg."
+  },
+  {
+   "g": "sleep",
+   "i": "valerian",
+   "ev": 1,
+   "claim": false,
+   "en": "Mixed results; possible small effect after 2–4 weeks.",
+   "es": "Resultados mixtos; posible efecto pequeño tras 2–4 semanas."
+  },
+  {
+   "g": "sleep",
+   "i": "passionflower",
+   "ev": 1,
+   "claim": false,
+   "en": "Traditional use; little trial data.",
+   "es": "Uso tradicional; pocos ensayos."
+  },
+  {
+   "g": "sleep",
+   "i": "california_poppy",
+   "ev": 1,
+   "claim": false,
+   "en": "Traditional use; little trial data.",
+   "es": "Uso tradicional; pocos ensayos."
+  },
+  {
+   "g": "sleep",
+   "i": "lemon_balm",
+   "ev": 1,
+   "claim": false,
+   "en": "Small trials, often combined with valerian.",
+   "es": "Ensayos pequeños, a menudo junto a valeriana."
+  },
+  {
+   "g": "sleep",
+   "i": "chamomile",
+   "ev": 1,
+   "claim": false,
+   "en": "Weak evidence; mild effect at best.",
+   "es": "Evidencia débil; efecto leve en el mejor caso."
+  },
+  {
+   "g": "sleep",
+   "i": "lavender",
+   "ev": 1,
+   "claim": false,
+   "en": "Evidence is for a specific oil extract at 80 mg, not small amounts in blends.",
+   "es": "La evidencia es de un aceite concreto a 80 mg, no de cantidades pequeñas en mezclas."
+  },
+  {
+   "g": "sleep",
+   "i": "htp5",
+   "ev": 1,
+   "claim": false,
+   "en": "Little good-quality evidence for sleep.",
+   "es": "Poca evidencia de calidad para el sueño."
+  },
+  {
+   "g": "sleep",
+   "i": "l_theanine",
+   "ev": 1,
+   "claim": false,
+   "en": "Small trials on sleep quality at 200–400 mg.",
+   "es": "Ensayos pequeños sobre calidad de sueño con 200–400 mg."
+  },
+  {
+   "g": "stress",
+   "i": "ashwagandha",
+   "ev": 2,
+   "claim": false,
+   "en": "The best-studied herb for perceived stress and cortisol; benefits are moderate.",
+   "es": "La planta más estudiada para el estrés percibido y el cortisol; beneficios moderados."
+  },
+  {
+   "g": "stress",
+   "i": "magnesium",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised claim for normal psychological function.",
+   "es": "Declaración autorizada sobre la función psicológica normal."
+  },
+  {
+   "g": "stress",
+   "i": "l_theanine",
+   "ev": 2,
+   "claim": false,
+   "en": "Calming without drowsiness at 200 mg in several small trials.",
+   "es": "Calma sin somnolencia con 200 mg en varios ensayos pequeños."
+  },
+  {
+   "g": "stress",
+   "i": "rhodiola",
+   "ev": 2,
+   "claim": false,
+   "en": "Helps stress-related fatigue in several trials.",
+   "es": "Ayuda con la fatiga por estrés en varios ensayos."
+  },
+  {
+   "g": "stress",
+   "i": "b6",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised claim for psychological function; helps only if low.",
+   "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta."
+  },
+  {
+   "g": "stress",
+   "i": "b12",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised claim for psychological function; helps only if low.",
+   "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta."
+  },
+  {
+   "g": "stress",
+   "i": "lemon_balm",
+   "ev": 1,
+   "claim": false,
+   "en": "Small trials on calmness.",
+   "es": "Ensayos pequeños sobre la calma."
+  },
+  {
+   "g": "stress",
+   "i": "epa",
+   "ev": 1,
+   "claim": false,
+   "en": "EPA-rich omega-3 shows small mood benefits.",
+   "es": "El omega-3 rico en EPA muestra pequeños beneficios en el ánimo."
+  },
+  {
+   "g": "stress",
+   "i": "htp5",
+   "ev": 1,
+   "claim": false,
+   "en": "Limited data; interaction risks.",
+   "es": "Datos limitados; riesgo de interacciones."
+  },
+  {
+   "g": "focus",
+   "i": "dha",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised: 250 mg DHA a day maintains normal brain function.",
+   "es": "Autorizado en la UE: 250 mg de DHA al día mantienen la función cerebral normal."
+  },
+  {
+   "g": "focus",
+   "i": "iron",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised claim for cognitive function; only if deficient.",
+   "es": "Declaración autorizada sobre la función cognitiva; solo si hay déficit.",
+   "cond": true
+  },
+  {
+   "g": "focus",
+   "i": "zinc",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised claim for cognitive function; only if low.",
+   "es": "Declaración autorizada sobre la función cognitiva; solo si falta."
+  },
+  {
+   "g": "focus",
+   "i": "b5",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised claim for mental performance; only if low.",
+   "es": "Declaración autorizada sobre el rendimiento intelectual; solo si falta."
+  },
+  {
+   "g": "focus",
+   "i": "l_theanine",
+   "ev": 1,
+   "claim": false,
+   "en": "Works best paired with caffeine.",
+   "es": "Funciona mejor junto con cafeína."
+  },
+  {
+   "g": "focus",
+   "i": "rhodiola",
+   "ev": 1,
+   "claim": false,
+   "en": "Some data on concentration under fatigue.",
+   "es": "Algunos datos sobre concentración con fatiga."
+  },
+  {
+   "g": "focus",
+   "i": "creatine",
+   "ev": 1,
+   "claim": false,
+   "en": "Some memory benefit, mostly in vegetarians and older adults.",
+   "es": "Algún beneficio en memoria, sobre todo en vegetarianos y mayores."
+  },
+  {
+   "g": "immunity",
+   "i": "vitamin_d",
+   "ev": 3,
+   "claim": true,
+   "en": "EU-authorised claim; deficiency is common in winter.",
+   "es": "Declaración autorizada; el déficit es frecuente en invierno."
+  },
+  {
+   "g": "immunity",
+   "i": "zinc",
+   "ev": 3,
+   "claim": true,
+   "en": "EU-authorised claim; lozenges may shorten colds.",
+   "es": "Declaración autorizada; las pastillas para chupar pueden acortar resfriados."
+  },
+  {
+   "g": "immunity",
+   "i": "vitamin_c",
+   "ev": 3,
+   "claim": true,
+   "en": "EU-authorised claim; may slightly shorten colds.",
+   "es": "Declaración autorizada; puede acortar ligeramente los resfriados."
+  },
+  {
+   "g": "immunity",
+   "i": "b6",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised immune claim; only if low.",
+   "es": "Declaración autorizada sobre defensas; solo si falta."
+  },
+  {
+   "g": "immunity",
+   "i": "b12",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised immune claim; only if low.",
+   "es": "Declaración autorizada sobre defensas; solo si falta."
+  },
+  {
+   "g": "immunity",
+   "i": "folate",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised immune claim; only if low.",
+   "es": "Declaración autorizada sobre defensas; solo si falta."
+  },
+  {
+   "g": "immunity",
+   "i": "iron",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised immune claim; only if deficient.",
+   "es": "Declaración autorizada sobre defensas; solo si hay déficit.",
+   "cond": true
+  },
+  {
+   "g": "immunity",
+   "i": "probiotics",
+   "ev": 1,
+   "claim": false,
+   "en": "Some strains reduce respiratory infections a little.",
+   "es": "Algunas cepas reducen un poco las infecciones respiratorias."
+  },
+  {
+   "g": "detox",
+   "i": "silymarin",
+   "ev": 1,
+   "claim": false,
+   "en": "Widely sold for the liver; human trials are inconsistent. No authorised claim.",
+   "es": "Muy vendido para el hígado; los ensayos en humanos no son concluyentes. Sin declaración autorizada."
+  },
+  {
+   "g": "detox",
+   "i": "artichoke",
+   "ev": 1,
+   "claim": false,
+   "en": "Some data on digestion and blood lipids; liver claims unproven.",
+   "es": "Algunos datos sobre digestión y lípidos; efectos hepáticos sin probar."
+  },
+  {
+   "g": "detox",
+   "i": "dandelion",
+   "ev": 1,
+   "claim": false,
+   "en": "Traditional use only.",
+   "es": "Solo uso tradicional."
+  },
+  {
+   "g": "detox",
+   "i": "psyllium",
+   "ev": 1,
+   "claim": false,
+   "en": "Supports regular bowel movements, which is the most concrete thing behind 'cleanse' marketing.",
+   "es": "Favorece el tránsito intestinal, lo más concreto detrás del marketing 'limpieza'."
+  },
+  {
+   "g": "gut",
+   "i": "psyllium",
+   "ev": 3,
+   "claim": false,
+   "en": "Strong evidence for regularity (both constipation and loose stools).",
+   "es": "Evidencia sólida para regular el tránsito (estreñimiento y heces blandas)."
+  },
+  {
+   "g": "gut",
+   "i": "probiotics",
+   "ev": 2,
+   "claim": false,
+   "en": "Specific strains help with antibiotic-related diarrhoea and IBS symptoms.",
+   "es": "Algunas cepas ayudan con la diarrea por antibióticos y el colon irritable."
+  },
+  {
+   "g": "gut",
+   "i": "artichoke",
+   "ev": 1,
+   "claim": false,
+   "en": "Small trials on bloating and indigestion.",
+   "es": "Ensayos pequeños sobre hinchazón y digestiones pesadas."
+  },
+  {
+   "g": "muscle",
+   "i": "creatine",
+   "ev": 3,
+   "claim": true,
+   "en": "EU-authorised: 3 g a day improves performance in short, high-intensity efforts. The best-studied sports supplement.",
+   "es": "Autorizado en la UE: 3 g al día mejoran el rendimiento en esfuerzos cortos e intensos. El suplemento deportivo más estudiado."
+  },
+  {
+   "g": "muscle",
+   "i": "vitamin_d",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised claim for normal muscle function; matters if low.",
+   "es": "Declaración autorizada sobre la función muscular; importa si falta."
+  },
+  {
+   "g": "muscle",
+   "i": "magnesium",
+   "ev": 2,
+   "claim": true,
+   "en": "EU-authorised claim for normal muscle function.",
+   "es": "Declaración autorizada sobre la función muscular normal."
+  },
+  {
+   "g": "muscle",
+   "i": "epa",
+   "ev": 1,
+   "claim": false,
+   "en": "May reduce muscle soreness slightly.",
+   "es": "Puede reducir ligeramente las agujetas."
+  },
+  {
+   "g": "muscle",
+   "i": "ashwagandha",
+   "ev": 1,
+   "claim": false,
+   "en": "Small trials on strength gains.",
+   "es": "Ensayos pequeños sobre ganancia de fuerza."
+  },
+  {
+   "g": "joints",
+   "i": "curcuminoids",
+   "ev": 2,
+   "claim": false,
+   "en": "Trials in knee osteoarthritis show pain relief comparable to mild painkillers.",
+   "es": "Ensayos en artrosis de rodilla muestran alivio del dolor similar a analgésicos suaves."
+  },
+  {
+   "g": "joints",
+   "i": "vitamin_c",
+   "ev": 1,
+   "claim": true,
+   "en": "EU-authorised claim: normal collagen formation for cartilage.",
+   "es": "Declaración autorizada: formación normal de colágeno para el cartílago."
+  },
+  {
+   "g": "joints",
+   "i": "collagen",
+   "ev": 1,
+   "claim": false,
+   "en": "Mixed trials; possible small benefit at 5–10 g a day.",
+   "es": "Ensayos mixtos; posible beneficio pequeño con 5–10 g al día."
+  },
+  {
+   "g": "joints",
+   "i": "epa",
+   "ev": 1,
+   "claim": false,
+   "en": "Small effects on joint stiffness.",
+   "es": "Efectos pequeños sobre la rigidez articular."
+  }
+ ],
+ "products": [
+  {
+   "id": "solgar-gentle-iron",
+   "brand": "Solgar",
+   "name": "Gentle Iron 25 mg",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "90 caps",
+   "vegan": true,
+   "markets": {
+    "ES": "likely",
+    "DE": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "iron",
+     "amt": 25,
+     "form": "bisglycinate (Ferrochel)"
+    }
+   ],
+   "source": "https://medononline.com/product/solgar-gentle-iron-25mg-non-constipating-anaemia-support-capsules-90s-3031"
+  },
+  {
+   "id": "berocca-energia",
+   "brand": "Berocca (Bayer)",
+   "name": "Berocca Energía",
+   "dose": {
+    "en": "1 effervescent tablet a day (label allows 2)",
+    "es": "1 comprimido efervescente al día (la etiqueta permite 2)"
+   },
+   "pack": "30 tabs",
+   "markets": {
+    "ES": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "b1",
+     "amt": 12
+    },
+    {
+     "i": "b2",
+     "amt": 15
+    },
+    {
+     "i": "b3",
+     "amt": 50
+    },
+    {
+     "i": "b5",
+     "amt": 23
+    },
+    {
+     "i": "b6",
+     "amt": 8.2
+    },
+    {
+     "i": "folate",
+     "amt": 400
+    },
+    {
+     "i": "b12",
+     "amt": 10
+    },
+    {
+     "i": "vitamin_c",
+     "amt": 500
+    },
+    {
+     "i": "magnesium",
+     "amt": 100
+    },
+    {
+     "i": "zinc",
+     "amt": 10
+    }
+   ],
+   "flags": [
+    {
+     "en": "At 2 tablets a day, B6 is 16.4 mg — above the EFSA safe upper level of 12 mg.",
+     "es": "Con 2 comprimidos al día, la B6 llega a 16,4 mg, por encima del límite seguro de la EFSA (12 mg)."
+    }
+   ],
+   "source": "https://www.soin-et-nature.com/es/1399-berocca-energie-vitaminas-comprimidos-efervescentes-sin-azucar.html"
+  },
+  {
+   "id": "yesvegan-b-komplex",
+   "brand": "Yes Vegan!",
+   "name": "Vitamin B Komplex hochdosiert",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "180 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "price": {
+    "amt": 24.99,
+    "where": "medpex.de"
+   },
+   "ingredients": [
+    {
+     "i": "b12",
+     "amt": 500
+    },
+    {
+     "i": "folate",
+     "amt": 400
+    },
+    {
+     "i": "b6",
+     "amt": 2.8
+    }
+   ],
+   "partial": true,
+   "source": "https://www.medpex.de/vitamin-b-komplex-hochdosiert-b12-methylcobalamin-180-st/6W7CXFMV"
+  },
+  {
+   "id": "solgar-b12-1000",
+   "brand": "Solgar",
+   "name": "Vitamina B12 1000 µg masticable",
+   "dose": {
+    "en": "1 chewable a day",
+    "es": "1 comprimido masticable al día"
+   },
+   "pack": "100 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "price": {
+    "amt": 17.15,
+    "where": "farmaciajimenez.com"
+   },
+   "ingredients": [
+    {
+     "i": "b12",
+     "amt": 1000,
+     "form": "cyanocobalamin"
+    }
+   ],
+   "source": "https://farmaciajimenez.com/nuestras-marcas/solgar/solgar-vitamina-b12-1000-microgramos-100-comprimidos-masticables"
+  },
+  {
+   "id": "solgar-rhodiola",
+   "brand": "Solgar",
+   "name": "Rhodiola Root Extract",
+   "dose": {
+    "en": "2 capsules a day (label: 1–3)",
+    "es": "2 cápsulas al día (etiqueta: 1–3)"
+   },
+   "pack": "60 caps",
+   "vegan": true,
+   "markets": {
+    "ES": "likely",
+    "DE": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "rhodiola",
+     "amt": 500,
+     "form": "extract, 3% rosavins, 1% salidroside"
+    }
+   ],
+   "source": "https://www.soin-et-nature.com/es/5930-60-vegetable-capsules-rhodiola-solgar.html"
+  },
+  {
+   "id": "aquilea-melatonina-195",
+   "brand": "Aquilea",
+   "name": "Melatonina 1,95 mg",
+   "dose": {
+    "en": "1 tablet before bed",
+    "es": "1 comprimido antes de dormir"
+   },
+   "pack": "60 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "price": {
+    "amt": 13.65,
+    "where": "farma2go.com"
+   },
+   "ingredients": [
+    {
+     "i": "melatonin",
+     "amt": 1.95
+    },
+    {
+     "i": "b6",
+     "amt": null
+    }
+   ],
+   "source": "https://farma2go.com/products/aquilea-melatonina-1-95mg-60-comprimidos"
+  },
+  {
+   "id": "aquilea-sueno-forte",
+   "brand": "Aquilea",
+   "name": "Sueño Forte",
+   "dose": {
+    "en": "1 tablet 30 min before bed",
+    "es": "1 comprimido 30 min antes de dormir"
+   },
+   "pack": "30 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "melatonin",
+     "amt": 1.95
+    },
+    {
+     "i": "htp5",
+     "amt": null
+    },
+    {
+     "i": "passionflower",
+     "amt": null
+    },
+    {
+     "i": "california_poppy",
+     "amt": null
+    },
+    {
+     "i": "valerian",
+     "amt": null
+    },
+    {
+     "i": "lemon_balm",
+     "amt": null
+    },
+    {
+     "i": "b6",
+     "amt": null
+    }
+   ],
+   "source": "https://farmaciajimenez.com/nuestras-marcas/aquilea/aquilea-sueno-forte-30-comprimidos"
+  },
+  {
+   "id": "aquilea-sueno",
+   "brand": "Aquilea",
+   "name": "Sueño",
+   "dose": {
+    "en": "1 tablet 30 min before bed",
+    "es": "1 comprimido 30 min antes de dormir"
+   },
+   "pack": "30 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "price": {
+    "amt": 11.95,
+    "where": "farmaciaevacontreras.com"
+   },
+   "ingredients": [
+    {
+     "i": "melatonin",
+     "amt": null
+    },
+    {
+     "i": "valerian",
+     "amt": null
+    },
+    {
+     "i": "passionflower",
+     "amt": null
+    },
+    {
+     "i": "california_poppy",
+     "amt": null
+    }
+   ],
+   "source": "https://www.farmaciaevacontreras.com/producto/aquilea-sueno-30-comprimidos/"
+  },
+  {
+   "id": "zzzquil-natura",
+   "brand": "Vicks / WICK (P&G)",
+   "name": "ZzzQuil Natura gummies (DE: ZzzQuil Goodnight)",
+   "dose": {
+    "en": "1 gummy 30 min before bed",
+    "es": "1 gominola 30 min antes de dormir"
+   },
+   "pack": "30 gummies",
+   "markets": {
+    "DE": "verified",
+    "ES": "likely"
+   },
+   "price": {
+    "amt": 14.99,
+    "where": "knuspr.de"
+   },
+   "ingredients": [
+    {
+     "i": "melatonin",
+     "amt": 1
+    },
+    {
+     "i": "b6",
+     "amt": 1.4
+    },
+    {
+     "i": "valerian",
+     "amt": 30
+    },
+    {
+     "i": "chamomile",
+     "amt": 10
+    },
+    {
+     "i": "lavender",
+     "amt": 10
+    }
+   ],
+   "source": "https://www.knuspr.de/en-DE/82613-"
+  },
+  {
+   "id": "ne-magnesium-bisglycinat",
+   "brand": "natural elements",
+   "name": "Magnesium Bisglycinat",
+   "dose": {
+    "en": "3 capsules a day",
+    "es": "3 cápsulas al día"
+   },
+   "pack": "180 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "price": {
+    "amt": 23.99,
+    "where": "shop-apotheke.com"
+   },
+   "ingredients": [
+    {
+     "i": "magnesium",
+     "amt": 300,
+     "form": "bisglycinate"
+    }
+   ],
+   "source": "https://www.shop-apotheke.com/arzneimittel/upmCAL7UP/natural-elements-magnesiumbisglycinat.htm"
+  },
+  {
+   "id": "lajusticia-bisglicinato-mg",
+   "brand": "Ana María Lajusticia",
+   "name": "Bisglicinato de magnesio",
+   "dose": {
+    "en": "See label",
+    "es": "Ver etiqueta"
+   },
+   "pack": "60 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "price": {
+    "amt": 17.33,
+    "where": "farma2go.com"
+   },
+   "ingredients": [
+    {
+     "i": "magnesium",
+     "amt": null,
+     "form": "bisglycinate"
+    }
+   ],
+   "source": "https://farma2go.com/products/bisglicinato-magnesio-comprimidos-ana-maria-lajusticia"
+  },
+  {
+   "id": "violila-ashwagandha-ksm66",
+   "brand": "Violila",
+   "name": "Ashwagandha Opti KSM-66",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "180 caps",
+   "markets": {
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "ashwagandha",
+     "amt": 300,
+     "form": "KSM-66 root extract, 5% withanolides"
+    }
+   ],
+   "source": "https://das.medpex.de/catalog/leaflets/11589869-lmiv.pdf"
+  },
+  {
+   "id": "myprotein-ksm66",
+   "brand": "Myprotein",
+   "name": "KSM-66 Ashwagandha",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "30 caps",
+   "markets": {
+    "ES": "likely",
+    "DE": "likely"
+   },
+   "price": {
+    "amt": 8.99,
+    "where": "myprotein.at (sale)"
+   },
+   "ingredients": [
+    {
+     "i": "ashwagandha",
+     "amt": 500,
+     "form": "KSM-66 root extract (as stated by retailer)"
+    }
+   ],
+   "flags": [
+    {
+     "en": "Retailer states 500 mg per capsule — unusual for KSM-66 (normally 300 or 600 mg). Recheck the label.",
+     "es": "La tienda indica 500 mg por cápsula, poco habitual en KSM-66 (normalmente 300 o 600 mg). Revisar etiqueta."
+    }
+   ],
+   "source": "https://www.myprotein.at/p/sporternahrung/ksm-66-ashwagandha-kapseln/12883259"
+  },
+  {
+   "id": "solgar-l-theanine",
+   "brand": "Solgar",
+   "name": "L-Theanine 150 mg",
+   "dose": {
+    "en": "2 capsules a day",
+    "es": "2 cápsulas al día"
+   },
+   "pack": "60 caps",
+   "vegan": true,
+   "markets": {
+    "ES": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "l_theanine",
+     "amt": 300,
+     "form": "Suntheanine"
+    }
+   ],
+   "flags": [
+    {
+     "en": "Listed as discontinued at a UK retailer — confirm EU availability before linking.",
+     "es": "Aparece como descatalogado en una tienda del Reino Unido; confirmar disponibilidad en la UE."
+    }
+   ],
+   "source": "https://www.medino.com/product/solgar-l-theanine-150mg-60-capsules"
+  },
+  {
+   "id": "norsan-omega3-total",
+   "brand": "Norsan",
+   "name": "Omega-3 Total (liquid)",
+   "dose": {
+    "en": "8 ml a day",
+    "es": "8 ml al día"
+   },
+   "pack": "200 ml",
+   "markets": {
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "epa",
+     "amt": 1040
+    },
+    {
+     "i": "dha",
+     "amt": 600
+    },
+    {
+     "i": "vitamin_d",
+     "amt": 20
+    }
+   ],
+   "source": "https://www.shop-apotheke.com/fitness/8107497/norsan-omega-3-total-zitrone.htm"
+  },
+  {
+   "id": "nordic-ultimate-omega",
+   "brand": "Nordic Naturals",
+   "name": "Ultimate Omega 1280 mg",
+   "dose": {
+    "en": "2 softgels a day",
+    "es": "2 cápsulas blandas al día"
+   },
+   "pack": "60 softgels",
+   "markets": {
+    "DE": "verified",
+    "ES": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "epa",
+     "amt": 650
+    },
+    {
+     "i": "dha",
+     "amt": 450
+    }
+   ],
+   "source": "https://www.medpex.de/ultimatives-omega-in-fischgelatine-1280-mg-weichkapseln/RN4FL0K0"
+  },
+  {
+   "id": "solgar-d3-2200",
+   "brand": "Solgar",
+   "name": "Vitamin D3 2200 IU (55 µg)",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "50 caps",
+   "markets": {
+    "ES": "likely",
+    "DE": "likely"
+   },
+   "price": {
+    "amt": 17.95,
+    "where": "mccabespharmacy.com (IE)"
+   },
+   "ingredients": [
+    {
+     "i": "vitamin_d",
+     "amt": 55
+    }
+   ],
+   "source": "https://www.mccabespharmacy.com/products/solgar-vitamin-d3-2200-iu-55-g-vegetable-capsules-50s"
+  },
+  {
+   "id": "vitanatura-d3k2",
+   "brand": "Vita Natura",
+   "name": "Vitamin D3+K2 1000 IE Tropfen",
+   "dose": {
+    "en": "1 drop a day",
+    "es": "1 gota al día"
+   },
+   "pack": "50 ml (~1700 drops)",
+   "markets": {
+    "DE": "verified"
+   },
+   "price": {
+    "amt": 23.99,
+    "where": "docmorris.de"
+   },
+   "ingredients": [
+    {
+     "i": "vitamin_d",
+     "amt": 25
+    },
+    {
+     "i": "vitamin_k2",
+     "amt": 20,
+     "form": "all-trans MK-7"
+    }
+   ],
+   "source": "https://www.docmorris.de/vitamin-d3k2-1000-ie20-g-tropfen/15821458"
+  },
+  {
+   "id": "solgar-zinc-picolinate",
+   "brand": "Solgar",
+   "name": "Zinc Picolinate 22 mg",
+   "dose": {
+    "en": "1 tablet a day with food",
+    "es": "1 comprimido al día con comida"
+   },
+   "pack": "100 tabs",
+   "markets": {
+    "ES": "verified",
+    "DE": "likely"
+   },
+   "price": {
+    "amt": 14.59,
+    "where": "farma2go.com"
+   },
+   "ingredients": [
+    {
+     "i": "zinc",
+     "amt": 22,
+     "form": "picolinate"
+    }
+   ],
+   "source": "https://medononline.com/product/solgar-zinc-picolinate-22mg-tablets-100-tablets-10568"
+  },
+  {
+   "id": "solgar-ester-c-1000",
+   "brand": "Solgar",
+   "name": "Ester-C Plus 1000 mg",
+   "dose": {
+    "en": "1 tablet a day",
+    "es": "1 comprimido al día"
+   },
+   "pack": "90 tabs",
+   "markets": {
+    "ES": "verified",
+    "DE": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "vitamin_c",
+     "amt": 1000
+    }
+   ],
+   "source": "https://www.elcorteingles.es/parafarmacia/A31272454-0033984010529-pr-90-comprimidos-ester-c-plus-solgar/"
+  },
+  {
+   "id": "ne-mariendistel",
+   "brand": "natural elements",
+   "name": "Mariendistel + Artischocke + Löwenzahn",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "120 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "price": {
+    "amt": 22.99,
+    "where": "shop-apotheke.com"
+   },
+   "ingredients": [
+    {
+     "i": "silymarin",
+     "amt": 200
+    },
+    {
+     "i": "artichoke",
+     "amt": 200
+    },
+    {
+     "i": "dandelion",
+     "amt": 50
+    }
+   ],
+   "source": "https://www.shop-apotheke.com/arzneimittel/upmWG7KZC/natural-elements-mariendistel-mit-artischocke-loewenzahn.htm"
+  },
+  {
+   "id": "hsn-cardo-mariano",
+   "brand": "HSN (Essential Series)",
+   "name": "Extracto de cardo mariano 450 mg",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "120 caps",
+   "vegan": true,
+   "markets": {
+    "ES": "verified",
+    "DE": "likely"
+   },
+   "price": {
+    "amt": 9.64,
+    "where": "hsnstore.com (promo)"
+   },
+   "ingredients": [
+    {
+     "i": "silymarin",
+     "amt": 360,
+     "form": "80% standardised"
+    }
+   ],
+   "source": "https://www.hsnstore.com/marcas/essential-series/extracto-de-cardo-mariano-25-1-450mg-120-veg-caps"
+  },
+  {
+   "id": "solgar-cardo-maria",
+   "brand": "Solgar",
+   "name": "Cardo María",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "60 caps",
+   "markets": {
+    "ES": "verified"
+   },
+   "price": {
+    "amt": 29.95,
+    "where": "druni.es"
+   },
+   "ingredients": [
+    {
+     "i": "silymarin",
+     "amt": 360
+    }
+   ],
+   "source": "https://www.druni.es/cardo-maria-solgar-complemento-alimenticio"
+  },
+  {
+   "id": "arkopharma-cardo-mariano",
+   "brand": "Arkopharma",
+   "name": "Arkocápsulas Cardo Mariano",
+   "pack": "84 caps",
+   "markets": {
+    "ES": "verified"
+   },
+   "excluded": "Registered traditional herbal medicine in Spain (AEMPS 74261), not a food supplement — keep out of affiliate recommendations.",
+   "ingredients": [],
+   "source": "https://cima.aemps.es/cima/dochtml/ft/74261/FT_74261.html"
+  },
+  {
+   "id": "omni-biotic-6",
+   "brand": "OMNi-BiOTiC",
+   "name": "OMNi-BiOTiC 6",
+   "dose": {
+    "en": "1 sachet (3 g) a day",
+    "es": "1 sobre (3 g) al día"
+   },
+   "pack": "60 sachets",
+   "markets": {
+    "DE": "likely"
+   },
+   "price": {
+    "amt": 108.5,
+    "where": "shop-apotheke.at"
+   },
+   "ingredients": [
+    {
+     "i": "probiotics",
+     "amt": 3
+    }
+   ],
+   "source": "https://www.shop-apotheke.at/arzneimittel/D2597663/omni-biotic-6.htm"
+  },
+  {
+   "id": "lactoflora-restore",
+   "brand": "Lactoflora (Stada)",
+   "name": "Lactoflora Restore",
+   "dose": {
+    "en": "1 capsule a day after a meal",
+    "es": "1 cápsula al día tras una comida"
+   },
+   "pack": "20 caps",
+   "markets": {
+    "ES": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "probiotics",
+     "amt": 4,
+     "form": "4 strains (NCFM, Lpc-37, Bl-04, Bi-07)"
+    }
+   ],
+   "source": "https://www.lactoflora.es/wp-content/uploads/2023/06/Prospecto_LCT_Restore_23.pdf"
+  },
+  {
+   "id": "sunday-psyllium",
+   "brand": "Sunday Natural",
+   "name": "Bio Flohsamenschalen (powder)",
+   "dose": {
+    "en": "1–2 tsp (≈5 g) a day",
+    "es": "1–2 cucharaditas (≈5 g) al día"
+   },
+   "pack": "400 g",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "price": {
+    "amt": 12.9,
+    "where": "sunday.de"
+   },
+   "ingredients": [
+    {
+     "i": "psyllium",
+     "amt": 5
+    }
+   ],
+   "source": "https://www.sunday.de/flohsamenschalen-gemahlen-bio-pulver-99-rein.html"
+  },
+  {
+   "id": "myvegan-creatine",
+   "brand": "Myprotein",
+   "name": "Creatina monohidrato en polvo (sin sabor)",
+   "dose": {
+    "en": "1 scoop (3 g) a day",
+    "es": "1 cacito (3 g) al día"
+   },
+   "pack": "250 g (83 servings)",
+   "vegan": true,
+   "markets": {
+    "ES": "verified",
+    "DE": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "creatine",
+     "amt": 3
+    }
+   ],
+   "source": "https://www.myprotein.es/p/nutricion-deportiva/myvegan-creatina-monohidrato-en-polvo/12168287"
+  },
+  {
+   "id": "sunday-curcuma",
+   "brand": "Sunday Natural",
+   "name": "Kurkuma-Extrakt + Piperin",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día"
+   },
+   "pack": "180 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "price": {
+    "amt": 17.9,
+    "where": "sunday.de"
+   },
+   "ingredients": [
+    {
+     "i": "curcuminoids",
+     "amt": 150,
+     "form": "with 5.3 mg piperine"
+    }
+   ],
+   "source": "https://www.sunday.de/kurkuma-extrakt-pulver-plus-piperin-kapseln.html"
+  },
+  {
+   "id": "lajusticia-colageno-mg",
+   "brand": "Ana María Lajusticia",
+   "name": "Colágeno con magnesio (comprimidos)",
+   "dose": {
+    "en": "6 tablets a day",
+    "es": "6 comprimidos al día"
+   },
+   "pack": "450 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "collagen",
+     "amt": 3.6
+    },
+    {
+     "i": "magnesium",
+     "amt": 185
+    }
+   ],
+   "source": "https://cosmetis.com/es/ana-maria-lajusticia-collagen-with-magnesium-supplement-tablets-x450"
+  }
+ ]
+}
