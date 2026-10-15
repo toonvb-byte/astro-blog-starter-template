@@ -26,7 +26,7 @@ const C = {
 		editorial: ["Every guide names its author and its reviewer. Health-related content is reviewed by a qualified professional before it’s published and again when it’s updated.", "We cite peer-reviewed research and official bodies such as EFSA, and we don’t make health claims beyond those authorised in the EU."],
 		errors: "Spotted an error?", tell: "Tell us", errorsEnd: "— corrections are noted at the bottom of the article.",
 		team: [
-			["Toon, "Founder & editor-in-chief", "[Bio: ~20 years in European e-commerce; why NutriMetrics exists.]"],
+			["Toon", "Founder & editor-in-chief", "[Bio: ~20 years in European e-commerce; why NutriMetrics exists.]"],
 		],
 		langH: "Built for all of Europe",
 		langP: "Each language edition is localised for its market — local retailers, local shipping, local search terms — not just translated.",
@@ -118,7 +118,7 @@ const ids = ["method", "money", "editorial", "team", "contact"];
 			<div class="grid-auto">
 				{C.team.map(([name, role, bio], i) => (
 					<div class="card person">
-						<span class="avatar" aria-hidden="true" style={`background:${["#E3F1EA", "#E8ECF4"][i]}`}></span>
+						<span class="avatar" aria-hidden="true" style={`background:${["#E3F1EA", "#E8ECF4"][i % 2]}`}></span>
 						<strong style="font-size:18px">{name}</strong>
 						<span style="color:var(--nm-accent);font-weight:600;font-size:14px">{role}</span>
 						<span style="color:var(--nm-ink-2);font-size:15px">{bio}</span>
