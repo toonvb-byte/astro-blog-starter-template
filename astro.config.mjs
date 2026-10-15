@@ -25,7 +25,7 @@ export default defineConfig({
 		// Keystatic's API module imports astro:env, which Vite's dev pre-bundler can't resolve.
 		optimizeDeps: { exclude: ["@keystatic/astro/api"] },
 		// Public name of the GitHub App Keystatic uses (not a secret). Change if the app gets another name.
-		define: { "import.meta.env.PUBLIC_KEYSTATIC_GITHUB_APP_SLUG": JSON.stringify("nutrimetrics-cms") },
+		define: { "import.meta.env.PUBLIC_KEYSTATIC_GITHUB_APP_SLUG": JSON.stringify("nutrimetrics-keystatic-toonvb") },
 		resolve: {
 			alias: process.env.NODE_ENV === "production" ? { "react-dom/server": "react-dom/server.edge" } : {},
 		},

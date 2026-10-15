@@ -26,7 +26,7 @@ Go to `/keystatic` on the live site and log in with GitHub. Every save is a comm
 - New guides start as **Draft** (hidden on the live site) — untick Draft to publish.
 - Page texts (menu, homepage, About, legal) are still code: `src/i18n/ui.ts`, `src/views/*.astro`.
 
-Keystatic needs a GitHub App (`nutrimetrics-cms`) and three Worker secrets:
+Keystatic needs a GitHub App (`nutrimetrics-keystatic-toonvb`) and three Worker secrets:
 `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`.
 Callback URL: `https://<site>/api/keystatic/github/oauth/callback`. Locally (`npm run dev`) Keystatic edits files on disk, no login.
 
