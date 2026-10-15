@@ -20,8 +20,15 @@ Spec: see the implementation brief in the claude.ai project "nutrimetrics.eu".
 
 R2 (images) is not enabled on the account yet.
 
-## Adding content
-New guide = new file in `src/content/guides/{en|es}/*.mdx`. Language versions share `translationKey`. Push to `main` → deploys automatically.
+## Editing content — Keystatic CMS
+Go to `/keystatic` on the live site and log in with GitHub. Every save is a commit to `main` → Cloudflare redeploys in ~1–2 min.
+- Guides: `src/content/guides/{en|es}/{url-slug}.mdx` (file name = URL slug). Language versions share `translationKey`.
+- New guides start as **Draft** (hidden on the live site) — untick Draft to publish.
+- Page texts (menu, homepage, About, legal) are still code: `src/i18n/ui.ts`, `src/views/*.astro`.
+
+Keystatic needs a GitHub App (`nutrimetrics-cms`) and three Worker secrets:
+`KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`.
+Callback URL: `https://<site>/api/keystatic/github/oauth/callback`. Locally (`npm run dev`) Keystatic edits files on disk, no login.
 
 ## Commands
 ```

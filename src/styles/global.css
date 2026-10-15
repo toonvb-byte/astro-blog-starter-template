@@ -199,3 +199,11 @@ p { margin: 0; }
 .prose .table-wrap { font-size: 15px; line-height: 1.5; }
 .prose blockquote { margin: 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--nm-accent); color: var(--nm-ink-2); }
 .placeholder { background: var(--nm-deal-soft); color: var(--nm-deal-ink); padding: 0 4px; border-radius: 4px; }
+
+/* Markdown tables inside articles (Keystatic writes plain Markdown tables) */
+.prose table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; background: var(--nm-surface); border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); overflow: hidden; }
+.prose table th, .prose table td { padding: 12px 18px; border-bottom: 1px solid var(--nm-line-soft); text-align: left; vertical-align: top; }
+.prose table thead th { color: var(--nm-muted); font-size: var(--nm-caption); font-weight: 600; border-bottom-color: var(--nm-line); }
+.prose table tbody tr:last-child > * { border-bottom: 0; }
+.prose table td:first-child { background: var(--nm-surface-alt); }
+@media (max-width: 600px) { .prose table { display: block; overflow-x: auto; } }

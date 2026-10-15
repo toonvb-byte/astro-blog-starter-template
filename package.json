@@ -14,11 +14,16 @@
 	"dependencies": {
 		"@astrojs/cloudflare": "12.6.12",
 		"@astrojs/mdx": "4.3.13",
+		"@astrojs/react": "^4.4.2",
 		"@astrojs/sitemap": "3.6.1",
 		"@fontsource/bricolage-grotesque": "^5.3.0",
 		"@fontsource/ibm-plex-mono": "^5.3.0",
 		"@fontsource/ibm-plex-sans": "^5.3.0",
+		"@keystatic/astro": "^6.0.0",
+		"@keystatic/core": "^0.6.9",
 		"astro": "5.16.9",
+		"react": "^19.3.1",
+		"react-dom": "^19.3.1",
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {

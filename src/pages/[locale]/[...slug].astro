@@ -9,7 +9,7 @@
  */
 import type { GetStaticPaths } from "astro";
 import { LOCALES, ROUTES, type Locale, type RouteKey } from "../../i18n/config";
-import { getGuides, type Guide } from "../../lib/guides";
+import { getGuides, guideLocale, guideSlug, type Guide } from "../../lib/guides";
 import GuidesIndex from "../../views/GuidesIndex.astro";
 import Article from "../../views/Article.astro";
 import About from "../../views/About.astro";
@@ -27,7 +27,7 @@ export const getStaticPaths = (async () => {
 	);
 	const guides = await getGuides();
 	const articles = guides.map((guide) => ({
-		params: { locale: guide.data.locale, slug: `${ROUTES.guides[guide.data.locale]}/${guide.data.slug}` },
+		params: { locale: guideLocale(guide), slug: `${ROUTES.guides[guideLocale(guide)]}/${guideSlug(guide)}` },
 		props: { kind: "article" as const, guide },
 	}));
 	return [...pages, ...articles];
