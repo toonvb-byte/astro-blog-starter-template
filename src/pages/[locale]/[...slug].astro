@@ -4,6 +4,7 @@
  *   /{locale}/{guides}/            → guides index
  *   /{locale}/{guides}/{slug}/     → article
  *   /{locale}/{about}/             → about & methodology
+ *   /{locale}/{finder}/            → supplement goal finder
  *   /{locale}/{prices|compare}/    → coming soon (build steps 3–5)
  *   /{locale}/legal/…              → legal pages
  */
@@ -15,6 +16,7 @@ import Article from "../../views/Article.astro";
 import About from "../../views/About.astro";
 import ComingSoon from "../../views/ComingSoon.astro";
 import Legal from "../../views/Legal.astro";
+import Finder from "../../views/Finder.astro";
 
 type Props = { kind: RouteKey; guide?: undefined } | { kind: "article"; guide: Guide };
 
@@ -39,5 +41,6 @@ const { kind, guide } = Astro.props as Props;
 {kind === "guides" && <GuidesIndex locale={locale} />}
 {kind === "article" && guide && <Article locale={locale} guide={guide} />}
 {kind === "about" && <About locale={locale} />}
+{kind === "finder" && <Finder locale={locale} />}
 {(kind === "prices" || kind === "compare") && <ComingSoon locale={locale} which={kind} />}
 {(kind === "privacy" || kind === "cookies" || kind === "imprint" || kind === "disclosure") && <Legal locale={locale} which={kind} />}

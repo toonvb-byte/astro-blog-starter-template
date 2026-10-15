@@ -75,6 +75,6 @@
   }
 
   const api = { recommend, goalScore, doseFactor, index };
-  if (typeof module !== "undefined") module.exports = api;
-  else root.NMFinder = api;
+  root.NMFinder = api; // browser global (also works when bundlers wrap this file as CommonJS)
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof window !== "undefined" ? window : globalThis);

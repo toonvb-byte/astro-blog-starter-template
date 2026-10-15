@@ -24,6 +24,7 @@ export const DEFAULT_COUNTRY: Record<Locale, string> = { en: "DE", es: "ES" };
 export const ROUTES = {
 	prices: { en: "price-tracker", es: "comparador-precios" },
 	compare: { en: "compare", es: "comparar" },
+	finder: { en: "finder", es: "buscador" },
 	guides: { en: "guides", es: "guias" },
 	about: { en: "about", es: "sobre-nosotros" },
 	privacy: { en: "legal/privacy", es: "legal/privacidad" },
