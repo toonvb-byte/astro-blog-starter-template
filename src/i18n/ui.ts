@@ -40,6 +40,7 @@ const en = {
 	"legal.privacy": "Privacy",
 	"legal.cookies": "Cookies",
 	"legal.imprint": "Imprint",
+	"legal.cookieSettings": "Cookie settings",
 
 	"home.title": "Compare supplement prices across Europe | NutriMetrics",
 	"home.description": "Compare supplement prices across Europe by cost per dose, shipping to your country included. Independent, multilingual, never paid rankings.",
@@ -180,6 +181,7 @@ const es: Dict = {
 	"legal.privacy": "Privacidad",
 	"legal.cookies": "Cookies",
 	"legal.imprint": "Aviso legal",
+	"legal.cookieSettings": "Configurar cookies",
 
 	"home.title": "Compara precios de suplementos en Europa | NutriMetrics",
 	"home.description": "Compara precios de suplementos en Europa por coste por dosis, con el envío a tu país incluido. Independiente y sin clasificaciones pagadas.",
@@ -318,6 +320,7 @@ const de: Dict = {
 	"legal.privacy": "Datenschutz",
 	"legal.cookies": "Cookies",
 	"legal.imprint": "Impressum",
+	"legal.cookieSettings": "Cookie-Einstellungen",
 
 	"home.title": "Preise für Nahrungsergänzungsmittel in Europa vergleichen",
 	"home.description": "Vergleiche Preise für Nahrungsergänzungsmittel in Europa nach Kosten pro Tagesdosis, inklusive Versand in dein Land. Unabhängig, ohne bezahlte Platzierungen.",

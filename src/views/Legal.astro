@@ -1,135 +1,215 @@
 ---
 /**
- * Legal pages — DRAFT SKELETONS. Have them completed/checked before launch
- * (company details, data processors, cookie list). Not legal advice.
+ * Legal pages: Aviso legal / Impressum / Imprint, privacy, cookies, affiliate disclosure.
+ * Operator details, GA and affiliate switches live in src/lib/site.ts — the texts adapt to them.
+ * Written to the usual Spanish (LSSI, RGPD/LOPDGDD) and German (DDG, MStV, DSGVO, TDDDG) requirements.
+ * Not legal advice: have them checked once by a gestor or lawyer.
  */
 import Base from "../layouts/Base.astro";
 import { path, routeAlternates, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
+import { AFFILIATE, GA_ENABLED, OPERATOR as O, SITE_URL } from "../lib/site";
 
 type Which = "privacy" | "cookies" | "imprint" | "disclosure";
 interface Props { locale: Locale; which: Which }
 const { locale, which } = Astro.props;
 const t = useT(locale);
 
-const P = (s: string) => `<span class="placeholder">${s}</span>`;
-const L = {
-	en: {
-		draft: "Draft — to be completed before launch.",
-		privacy: {
-			h1: "Privacy policy",
-			body: [
-				["Who we are", `${P("[Company name, address, email]")} is the controller for personal data processed on nutrimetrics.eu.`],
-				["What we collect", "We don’t use tracking cookies. Analytics are cookie-free and aggregated (Cloudflare Web Analytics). Outbound shop clicks are logged without IP address or personal data. If you sign up for the newsletter or a price alert we store your email address, language and alert settings."],
-				["Legal basis", "Consent (newsletter, price alerts — double opt-in, withdraw any time) and legitimate interest (site security, aggregated statistics)."],
-				["Processors", `Cloudflare (hosting, database). ${P("[Email provider]")} (sending emails).`],
-				["Your rights", `Access, rectification, erasure, restriction, portability and objection. Contact ${P("[privacy email]")}. You can also complain to your national data protection authority.`],
-			],
-		},
-		cookies: {
-			h1: "Cookie policy",
-			body: [
-				["Our approach", "NutriMetrics doesn’t set advertising or tracking cookies, so we don’t need a consent banner for analytics."],
-				["Functional cookies", "We may store your “ship to” country and language choice in a first-party cookie so prices are calculated for the right country."],
-				["Affiliate partners", "When you click through to a shop, that shop or its affiliate network (e.g. AWIN) may set its own cookies on its site. Their cookie policies apply there."],
-			],
-		},
-		imprint: {
-			h1: "Imprint",
-			body: [
-				["Provider", P("[Company name, legal form, registered address]")],
-				["Contact", P("[Email, phone]")],
-				["Registration", P("[Commercial register, number / NIF / VAT ID]")],
-				["Responsible for content", P("[Name, address]")],
-			],
-		},
-		disclosure: {
-			h1: "Affiliate disclosure",
-			body: [
-				["How we make money", "NutriMetrics is free to use. Many shop links are affiliate links through networks such as AWIN or direct partner programmes. If you buy after clicking one, the shop may pay us a commission. The price you pay is the same."],
-				["What never changes", "Results are always ordered by total price (including shipping to your country) or by our published methodology — never by commission. Retailers that pay us nothing are still listed with a plain link."],
-				["How links are marked", "Pages with shop links show a notice at the top, and main buttons carry an “Affiliate link” label. All shop links use rel=\"sponsored\"."],
-			],
-		},
-	},
+const UPDATED = "2026-10-19";
+const mail = (e: string) => `<a href="mailto:${e}">${e}</a>`;
+const addr = `${O.street}, ${O.postcode} ${O.city}, ${O.country[locale]}`;
+const networks = [AFFILIATE.awin && "AWIN", AFFILIATE.amazon && "Amazon"].filter(Boolean) as string[];
+const anyNetwork = networks.length > 0;
+const list = (xs: string[], and: string) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} ${and} ${xs.at(-1)}`);
+const cookieLink = path(locale, "cookies");
+const privacyLink = path(locale, "privacy");
+const settingsBtn = (label: string) => (GA_ENABLED ? ` <button type="button" class="link-btn" data-consent-open>${label}</button>` : "");
+
+type Section = [string, string];
+type Page = { h1: string; intro?: string; body: Section[] };
+
+const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 	es: {
-		draft: "Borrador: completar antes del lanzamiento.",
+		updated: "Última actualización",
+		imprint: {
+			h1: "Aviso legal",
+			intro: "En cumplimiento del artículo 10 de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), se facilitan los siguientes datos.",
+			body: [
+				["Titular del sitio web", `${O.name}<br />NIE: ${O.taxId}<br />Domicilio: ${addr}<br />Correo electrónico: ${mail(O.email)}`],
+				["Objeto", `NutriMetrics.eu (${SITE_URL}) publica guías y comparativas independientes de complementos alimenticios y productos de salud en Europa. El titular actúa como particular; no es un comercio y no vende productos.`],
+				["Información, no consejo médico", "El contenido tiene fines exclusivamente informativos y no sustituye el consejo de un médico, farmacéutico u otro profesional sanitario. Las afirmaciones de salud se basan en fuentes oficiales enlazadas en cada guía. Consulta a un profesional antes de empezar a tomar un complemento, sobre todo si estás embarazada, tomas medicación o tienes una enfermedad."],
+				["Precios y disponibilidad", "Los precios y la disponibilidad que se muestran son orientativos y pueden cambiar. El precio y las condiciones válidos son siempre los de la tienda en el momento de la compra."],
+				["Enlaces externos", "El sitio enlaza a páginas de terceros, incluidas tiendas. El titular no controla esos sitios y no responde de su contenido, aunque retirará cualquier enlace en cuanto tenga conocimiento de que es ilícito."],
+				["Propiedad intelectual", "Los textos, tablas y diseño de este sitio son propiedad del titular, salvo que se indique otra cosa. Puedes citarlos brevemente con enlace a la fuente; para otros usos, solicita autorización."],
+				["Legislación aplicable", "Este sitio se rige por la legislación española."],
+			],
+		},
 		privacy: {
 			h1: "Política de privacidad",
 			body: [
-				["Quiénes somos", `${P("[Nombre de la empresa, dirección, email]")} es el responsable del tratamiento de los datos personales en nutrimetrics.eu.`],
-				["Qué datos recogemos", "No usamos cookies de seguimiento. La analítica es sin cookies y agregada (Cloudflare Web Analytics). Los clics hacia tiendas se registran sin dirección IP ni datos personales. Si te suscribes al boletín o a una alerta de precio, guardamos tu email, idioma y la configuración de la alerta."],
-				["Base jurídica", "Consentimiento (boletín, alertas de precio — doble confirmación, revocable en cualquier momento) e interés legítimo (seguridad del sitio, estadísticas agregadas)."],
-				["Encargados del tratamiento", `Cloudflare (alojamiento, base de datos). ${P("[Proveedor de email]")} (envío de emails).`],
-				["Tus derechos", `Acceso, rectificación, supresión, limitación, portabilidad y oposición. Escribe a ${P("[email de privacidad]")}. También puedes reclamar ante la AEPD.`],
+				["Responsable del tratamiento", `${O.name}, NIE ${O.taxId}, ${addr}. Contacto para privacidad: ${mail(O.privacyEmail)}.`],
+				["Qué datos tratamos y para qué", [
+					"<strong>Visitas al sitio.</strong> Nuestro proveedor de alojamiento, Cloudflare, procesa técnicamente la dirección IP y los datos del navegador para servir las páginas y proteger el sitio frente a abusos. Base jurídica: interés legítimo en un sitio seguro y funcional (art. 6.1.f RGPD).",
+					"<strong>Estadísticas sin cookies.</strong> Usamos Cloudflare Web Analytics, que cuenta visitas de forma agregada, sin cookies y sin identificar a personas.",
+					GA_ENABLED ? `<strong>Google Analytics (solo con tu consentimiento).</strong> Si lo aceptas en el aviso de cookies, usamos Google Analytics 4 para saber qué páginas se leen y mejorar el contenido. Google trata datos de uso y un identificador del navegador. Base jurídica: tu consentimiento (art. 6.1.a RGPD), que puedes retirar en cualquier momento.${settingsBtn("Cambiar preferencias de cookies")}` : "",
+					`<strong>Formulario de contacto y correo.</strong> Si nos escribes, tratamos tu nombre, tu correo electrónico y tu mensaje para responderte. Base jurídica: interés legítimo en atender tu consulta (art. 6.1.f RGPD). Conservamos los mensajes un máximo de 12 meses después de cerrar la conversación, salvo obligación legal.`,
+					"<strong>Clics hacia tiendas.</strong> Cuando haces clic en un enlace a una tienda, registramos solo qué oferta y qué página, sin dirección IP ni datos personales.",
+					"<strong>Preferencias del buscador.</strong> El buscador por objetivo guarda tu selección en el almacenamiento local de tu navegador. Esos datos no se envían a nuestros servidores.",
+				].filter(Boolean).join("<br /><br />")],
+				["Encargados del tratamiento y destinatarios", [
+					"Cloudflare, Inc. (alojamiento, base de datos, estadísticas sin cookies).",
+					GA_ENABLED ? "Google Ireland Ltd. / Google LLC (Google Analytics, solo con consentimiento)." : "",
+					anyNetwork ? `Cuando haces clic en un enlace de afiliado, la tienda y la red de afiliación (${list(networks, "y")}) tratan datos según sus propias políticas de privacidad, como responsables independientes.` : "",
+					"No vendemos datos personales ni los cedemos a terceros con fines publicitarios.",
+				].filter(Boolean).join("<br />")],
+				["Transferencias internacionales", `Cloudflare${GA_ENABLED ? " y Google" : ""} pueden tratar datos en Estados Unidos. ${GA_ENABLED ? "Ambas empresas están adheridas" : "Cloudflare está adherida"} al Marco de Privacidad de Datos UE-EE. UU., que la Comisión Europea considera un nivel de protección adecuado.`],
+				["Tus derechos", `Puedes ejercer tus derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición, y retirar tu consentimiento en cualquier momento, escribiendo a ${mail(O.privacyEmail)}. Si consideras que no hemos atendido bien tu solicitud, puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>).`],
+				["Decisiones automatizadas", "No tomamos decisiones automatizadas ni elaboramos perfiles con efectos jurídicos sobre ti."],
 			],
 		},
 		cookies: {
 			h1: "Política de cookies",
 			body: [
-				["Nuestro enfoque", "NutriMetrics no instala cookies publicitarias ni de seguimiento, por eso no necesitamos un banner de consentimiento para la analítica."],
-				["Cookies funcionales", "Podemos guardar tu país de envío y tu idioma en una cookie propia para calcular los precios para el país correcto."],
-				["Socios de afiliación", "Cuando haces clic hacia una tienda, esa tienda o su red de afiliación (p. ej. AWIN) puede instalar sus propias cookies en su web. Allí se aplican sus políticas."],
-			],
-		},
-		imprint: {
-			h1: "Aviso legal",
-			body: [
-				["Titular", P("[Nombre de la empresa, forma jurídica, domicilio social]")],
-				["Contacto", P("[Email, teléfono]")],
-				["Datos registrales", P("[Registro Mercantil / NIF / IVA]")],
-				["Responsable del contenido", P("[Nombre, dirección]")],
+				["Nuestro enfoque", GA_ENABLED ? "Solo instalamos cookies de análisis si las aceptas. Sin tu consentimiento, el sitio funciona igual y no se carga Google Analytics." : "Este sitio no instala cookies publicitarias ni de análisis. Las estadísticas se obtienen sin cookies (Cloudflare Web Analytics)."],
+				["Cookies y almacenamiento técnicos", "Cloudflare puede instalar cookies técnicas de seguridad (por ejemplo, __cf_bm) para proteger el sitio frente a bots. El buscador por objetivo guarda tu selección en el almacenamiento local del navegador (nm-finder)." + (GA_ENABLED ? " Tu elección sobre las cookies se guarda en el almacenamiento local (nm-consent)." : "") + " Son necesarios para el funcionamiento solicitado y no requieren consentimiento."],
+				...(GA_ENABLED ? [["Cookies de análisis (con consentimiento)", `Google Analytics 4 instala las cookies <code>_ga</code> y <code>_ga_*</code>, que duran hasta 2 años, para distinguir visitas. Solo se instalan si pulsas «Aceptar».${settingsBtn("Cambiar preferencias de cookies")}`] as Section] : []),
+				["Tiendas y redes de afiliación", `Cuando haces clic hacia una tienda${anyNetwork ? ` o una red de afiliación (${list(networks, "y")})` : ""}, esa web puede instalar sus propias cookies en su dominio. Se rigen por sus políticas, no por esta.`],
+				["Cómo borrar o bloquear cookies", "Puedes borrar o bloquear las cookies desde la configuración de tu navegador. Más información en la ayuda de Chrome, Firefox, Safari o Edge."],
 			],
 		},
 		disclosure: {
 			h1: "Aviso de afiliación",
 			body: [
-				["Cómo ganamos dinero", "NutriMetrics es gratis. Muchos enlaces a tiendas son enlaces de afiliado a través de redes como AWIN o programas directos. Si compras después de hacer clic, la tienda puede pagarnos una comisión. Tú pagas lo mismo."],
-				["Lo que nunca cambia", "Los resultados se ordenan siempre por precio total (con el envío a tu país) o por nuestra metodología publicada, nunca por comisión. Las tiendas que no nos pagan nada también aparecen, con un enlace normal."],
-				["Cómo se marcan los enlaces", "Las páginas con enlaces a tiendas muestran un aviso arriba y los botones principales llevan la etiqueta «Enlace de afiliado». Todos los enlaces a tiendas usan rel=\"sponsored\"."],
+				["Cómo ganamos dinero", `NutriMetrics es gratis. Algunos enlaces a tiendas son enlaces de afiliado${anyNetwork ? `, a través de ${list(networks, "y")}` : ""}: si compras después de hacer clic, la tienda puede pagarnos una comisión. Tú pagas lo mismo.`],
+				...(AFFILIATE.amazon ? [["Amazon", "Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables."] as Section] : []),
+				["Lo que nunca cambia", "Las comparativas se ordenan por precio total (con el envío a tu país) o por nuestra metodología publicada, nunca por comisión. Las tiendas que no nos pagan nada también aparecen si tienen el producto."],
+				["Cómo se marcan los enlaces", "Las páginas con enlaces a tiendas muestran un aviso arriba y los enlaces de afiliado llevan la etiqueta «Enlace de afiliado». Todos usan rel=\"sponsored\"."],
+			],
+		},
+	},
+	en: {
+		updated: "Last updated",
+		imprint: {
+			h1: "Imprint",
+			intro: "Legal notice under Article 10 of the Spanish Law 34/2002 on information society services (LSSI) and § 5 of the German Digital Services Act (DDG).",
+			body: [
+				["Website operator", `${O.name}<br />Tax ID (NIE): ${O.taxId}<br />Address: ${addr}<br />Email: ${mail(O.email)}`],
+				["Responsible for content", `${O.name}, ${addr}`],
+				["Purpose", `NutriMetrics.eu (${SITE_URL}) publishes independent guides and comparisons of food supplements and health products in Europe. The operator acts as a private individual; this is not a shop and sells no products.`],
+				["Information, not medical advice", "All content is for information only and does not replace advice from a doctor, pharmacist or other health professional. Health statements are based on the official sources linked in each guide."],
+				["Prices and availability", "Prices and availability shown are indicative and may change. The price and terms that apply are always those of the shop at the time of purchase."],
+				["External links", "This site links to third-party websites, including shops. The operator has no control over them and is not responsible for their content, but will remove any link as soon as it becomes aware that it is unlawful."],
+				["Copyright", "Texts, tables and design on this site belong to the operator unless stated otherwise. Short quotations with a link to the source are welcome; other uses require permission."],
+				["Applicable law", "This site is governed by Spanish law."],
+			],
+		},
+		privacy: {
+			h1: "Privacy policy",
+			body: [
+				["Controller", `${O.name}, Tax ID (NIE) ${O.taxId}, ${addr}. Privacy contact: ${mail(O.privacyEmail)}.`],
+				["What we process and why", [
+					"<strong>Site visits.</strong> Our host, Cloudflare, technically processes your IP address and browser data to deliver pages and protect the site from abuse. Legal basis: legitimate interest in a secure, working site (Art. 6(1)(f) GDPR).",
+					"<strong>Cookie-free statistics.</strong> We use Cloudflare Web Analytics, which counts visits in aggregate, without cookies and without identifying anyone.",
+					GA_ENABLED ? `<strong>Google Analytics (only with your consent).</strong> If you accept in the cookie banner, we use Google Analytics 4 to see which pages are read and improve the content. Google processes usage data and a browser identifier. Legal basis: your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.${settingsBtn("Change cookie settings")}` : "",
+					"<strong>Contact form and email.</strong> If you contact us, we process your name, email address and message to reply. Legal basis: legitimate interest in answering your enquiry (Art. 6(1)(f) GDPR). We keep messages for up to 12 months after the conversation ends, unless the law requires longer.",
+					"<strong>Clicks to shops.</strong> When you click a shop link we only record which offer and which page, without your IP address or any personal data.",
+					"<strong>Goal finder preferences.</strong> The goal finder stores your selection in your browser's local storage. That data is not sent to our servers.",
+				].filter(Boolean).join("<br /><br />")],
+				["Processors and recipients", [
+					"Cloudflare, Inc. (hosting, database, cookie-free statistics).",
+					GA_ENABLED ? "Google Ireland Ltd. / Google LLC (Google Analytics, only with consent)." : "",
+					anyNetwork ? `When you click an affiliate link, the shop and the affiliate network (${list(networks, "and")}) process data under their own privacy policies, as independent controllers.` : "",
+					"We do not sell personal data or share it with third parties for advertising.",
+				].filter(Boolean).join("<br />")],
+				["International transfers", `Cloudflare${GA_ENABLED ? " and Google" : ""} may process data in the United States. ${GA_ENABLED ? "Both companies participate" : "Cloudflare participates"} in the EU-US Data Privacy Framework, which the European Commission recognises as providing adequate protection.`],
+				["Your rights", `You can request access, rectification, erasure, restriction, portability or object to processing, and withdraw consent at any time, by writing to ${mail(O.privacyEmail)}. You can also complain to the Spanish Data Protection Agency (<a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>) or the supervisory authority where you live.`],
+				["Automated decisions", "We do not make automated decisions or create profiles that have legal effects on you."],
+			],
+		},
+		cookies: {
+			h1: "Cookie policy",
+			body: [
+				["Our approach", GA_ENABLED ? "We only set analytics cookies if you accept them. Without your consent the site works the same and Google Analytics is not loaded." : "This site sets no advertising or analytics cookies. Statistics are collected without cookies (Cloudflare Web Analytics)."],
+				["Technical cookies and storage", "Cloudflare may set technical security cookies (for example __cf_bm) to protect the site from bots. The goal finder stores your selection in your browser's local storage (nm-finder)." + (GA_ENABLED ? " Your cookie choice is stored in local storage (nm-consent)." : "") + " These are needed for the functions you use and do not require consent."],
+				...(GA_ENABLED ? [["Analytics cookies (with consent)", `Google Analytics 4 sets the cookies <code>_ga</code> and <code>_ga_*</code>, which last up to 2 years, to distinguish visits. They are only set if you click "Accept".${settingsBtn("Change cookie settings")}`] as Section] : []),
+				["Shops and affiliate networks", `When you click through to a shop${anyNetwork ? ` or an affiliate network (${list(networks, "and")})` : ""}, that website may set its own cookies on its own domain. Their policies apply there, not this one.`],
+				["How to delete or block cookies", "You can delete or block cookies in your browser settings. See the help pages of Chrome, Firefox, Safari or Edge."],
+			],
+		},
+		disclosure: {
+			h1: "Affiliate disclosure",
+			body: [
+				["How we make money", `NutriMetrics is free to use. Some shop links are affiliate links${anyNetwork ? `, through ${list(networks, "and")}` : ""}: if you buy after clicking one, the shop may pay us a commission. You pay the same price.`],
+				...(AFFILIATE.amazon ? [["Amazon", "As an Amazon Associate I earn from qualifying purchases."] as Section] : []),
+				["What never changes", "Comparisons are ordered by total price (including shipping to your country) or by our published methodology — never by commission. Shops that pay us nothing are still listed when they have the product."],
+				["How links are marked", "Pages with shop links show a notice at the top, and affiliate links carry an \"Affiliate link\" label. All of them use rel=\"sponsored\"."],
 			],
 		},
 	},
 	de: {
-		draft: "Entwurf – vor dem Start zu vervollständigen.",
+		updated: "Stand",
+		imprint: {
+			h1: "Impressum",
+			intro: "Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) und Art. 10 des spanischen Gesetzes 34/2002 (LSSI).",
+			body: [
+				["Anbieter", `${O.name}<br />${O.street}<br />${O.postcode} ${O.city}<br />${O.country.de}`],
+				["Kontakt", `E-Mail: ${mail(O.email)}`],
+				["Steuernummer", `NIE (spanische Steuer-Identifikationsnummer): ${O.taxId}`],
+				["Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV", `${O.name}, ${addr}`],
+				["Zweck", `NutriMetrics.eu (${SITE_URL}) veröffentlicht unabhängige Ratgeber und Vergleiche zu Nahrungsergänzungsmitteln und Gesundheitsprodukten in Europa. Der Anbieter handelt als Privatperson; die Website ist kein Shop und verkauft keine Produkte.`],
+				["Keine medizinische Beratung", "Alle Inhalte dienen nur der Information und ersetzen keine Beratung durch Ärztinnen, Ärzte, Apothekerinnen, Apotheker oder andere Fachleute. Gesundheitsaussagen beruhen auf den amtlichen Quellen, die in jedem Ratgeber verlinkt sind."],
+				["Preise und Verfügbarkeit", "Angezeigte Preise und Verfügbarkeiten sind Richtwerte und können sich ändern. Maßgeblich sind immer Preis und Bedingungen des Shops zum Zeitpunkt des Kaufs."],
+				["Haftung für Links", "Diese Website enthält Links zu Websites Dritter, auch zu Shops. Auf deren Inhalte haben wir keinen Einfluss und übernehmen dafür keine Haftung. Rechtswidrige Links entfernen wir umgehend, sobald wir davon Kenntnis erhalten."],
+				["Urheberrecht", "Texte, Tabellen und Gestaltung dieser Website gehören dem Anbieter, sofern nicht anders angegeben. Kurze Zitate mit Link zur Quelle sind willkommen; jede andere Nutzung bedarf der Zustimmung."],
+			],
+		},
 		privacy: {
 			h1: "Datenschutzerklärung",
 			body: [
-				["Verantwortlicher", `${P("[Firmenname, Anschrift, E-Mail]")} ist verantwortlich für die Verarbeitung personenbezogener Daten auf nutrimetrics.eu.`],
-				["Welche Daten wir erheben", "Wir verwenden keine Tracking-Cookies. Die Reichweitenmessung ist cookiefrei und aggregiert (Cloudflare Web Analytics). Klicks zu Shops werden ohne IP-Adresse und ohne personenbezogene Daten protokolliert. Wenn du den Newsletter oder einen Preisalarm abonnierst, speichern wir deine E-Mail-Adresse, Sprache und Alarm-Einstellungen."],
-				["Rechtsgrundlage", "Einwilligung (Newsletter, Preisalarme – Double-Opt-in, jederzeit widerrufbar) und berechtigtes Interesse (Sicherheit der Website, aggregierte Statistiken)."],
-				["Auftragsverarbeiter", `Cloudflare (Hosting, Datenbank). ${P("[E-Mail-Anbieter]")} (Versand von E-Mails).`],
-				["Deine Rechte", `Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Kontakt: ${P("[Datenschutz-E-Mail]")}. Du kannst dich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren.`],
+				["Verantwortlicher", `${O.name}, NIE ${O.taxId}, ${addr}. Kontakt für Datenschutzfragen: ${mail(O.privacyEmail)}.`],
+				["Welche Daten wir verarbeiten und warum", [
+					"<strong>Besuch der Website.</strong> Unser Hosting-Anbieter Cloudflare verarbeitet technisch deine IP-Adresse und Browserdaten, um die Seiten auszuliefern und die Website vor Missbrauch zu schützen. Rechtsgrundlage: berechtigtes Interesse an einer sicheren, funktionierenden Website (Art. 6 Abs. 1 lit. f DSGVO).",
+					"<strong>Cookiefreie Statistik.</strong> Wir nutzen Cloudflare Web Analytics, das Besuche aggregiert zählt, ohne Cookies und ohne Personen zu identifizieren.",
+					GA_ENABLED ? `<strong>Google Analytics (nur mit deiner Einwilligung).</strong> Wenn du im Cookie-Hinweis zustimmst, nutzen wir Google Analytics 4, um zu sehen, welche Seiten gelesen werden, und die Inhalte zu verbessern. Google verarbeitet Nutzungsdaten und eine Browser-Kennung. Rechtsgrundlage: deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG), die du jederzeit widerrufen kannst.${settingsBtn("Cookie-Einstellungen ändern")}` : "",
+					"<strong>Kontaktformular und E-Mail.</strong> Wenn du uns schreibst, verarbeiten wir Name, E-Mail-Adresse und Nachricht, um zu antworten. Rechtsgrundlage: berechtigtes Interesse an der Beantwortung deiner Anfrage (Art. 6 Abs. 1 lit. f DSGVO). Nachrichten löschen wir spätestens 12 Monate nach Abschluss der Kommunikation, sofern keine gesetzliche Aufbewahrungspflicht besteht.",
+					"<strong>Klicks zu Shops.</strong> Klickst du auf einen Shop-Link, speichern wir nur, welches Angebot und welche Seite, ohne IP-Adresse oder personenbezogene Daten.",
+					"<strong>Einstellungen im Zielfinder.</strong> Der Zielfinder speichert deine Auswahl im lokalen Speicher deines Browsers. Diese Daten werden nicht an unsere Server übertragen.",
+				].filter(Boolean).join("<br /><br />")],
+				["Auftragsverarbeiter und Empfänger", [
+					"Cloudflare, Inc. (Hosting, Datenbank, cookiefreie Statistik).",
+					GA_ENABLED ? "Google Ireland Ltd. / Google LLC (Google Analytics, nur mit Einwilligung)." : "",
+					anyNetwork ? `Klickst du auf einen Affiliate-Link, verarbeiten der Shop und das Affiliate-Netzwerk (${list(networks, "und")}) Daten nach ihren eigenen Datenschutzerklärungen als eigenständige Verantwortliche.` : "",
+					"Wir verkaufen keine personenbezogenen Daten und geben sie nicht für Werbezwecke an Dritte weiter.",
+				].filter(Boolean).join("<br />")],
+				["Übermittlung in Drittländer", `Cloudflare${GA_ENABLED ? " und Google" : ""} können Daten in den USA verarbeiten. ${GA_ENABLED ? "Beide Unternehmen sind" : "Cloudflare ist"} nach dem EU-US Data Privacy Framework zertifiziert, für das die EU-Kommission ein angemessenes Schutzniveau festgestellt hat.`],
+				["Deine Rechte", `Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie auf Widerruf einer Einwilligung. Schreib dazu an ${mail(O.privacyEmail)}. Du kannst dich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren, etwa der spanischen AEPD (<a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>) oder der Behörde deines Wohnorts.`],
+				["Automatisierte Entscheidungen", "Wir treffen keine automatisierten Entscheidungen und erstellen keine Profile mit rechtlicher Wirkung für dich."],
 			],
 		},
 		cookies: {
 			h1: "Cookie-Richtlinie",
 			body: [
-				["Unser Ansatz", "NutriMetrics setzt keine Werbe- oder Tracking-Cookies. Für die Reichweitenmessung brauchen wir deshalb kein Cookie-Banner."],
-				["Funktionale Cookies", "Wir speichern eventuell dein Versandland und deine Sprache in einem eigenen Cookie, damit Preise für das richtige Land berechnet werden."],
-				["Affiliate-Partner", "Wenn du zu einem Shop klickst, kann dieser Shop oder sein Affiliate-Netzwerk (z. B. AWIN) auf seiner Website eigene Cookies setzen. Dort gelten deren Cookie-Richtlinien."],
-			],
-		},
-		imprint: {
-			h1: "Impressum",
-			body: [
-				["Anbieter", P("[Firmenname, Rechtsform, Anschrift]")],
-				["Kontakt", P("[E-Mail, Telefon]")],
-				["Register", P("[Handelsregister, Nummer / USt-IdNr.]")],
-				["Verantwortlich für den Inhalt", P("[Name, Anschrift]")],
+				["Unser Ansatz", GA_ENABLED ? "Analyse-Cookies setzen wir nur, wenn du zustimmst. Ohne Einwilligung funktioniert die Website genauso, und Google Analytics wird nicht geladen." : "Diese Website setzt keine Werbe- oder Analyse-Cookies. Statistiken erheben wir cookiefrei (Cloudflare Web Analytics)."],
+				["Technische Cookies und Speicher", "Cloudflare kann technische Sicherheits-Cookies setzen (zum Beispiel __cf_bm), um die Website vor Bots zu schützen. Der Zielfinder speichert deine Auswahl im lokalen Speicher des Browsers (nm-finder)." + (GA_ENABLED ? " Deine Cookie-Entscheidung wird im lokalen Speicher abgelegt (nm-consent)." : "") + " Diese sind für die von dir genutzten Funktionen erforderlich und benötigen keine Einwilligung (§ 25 Abs. 2 TDDDG)."],
+				...(GA_ENABLED ? [["Analyse-Cookies (mit Einwilligung)", `Google Analytics 4 setzt die Cookies <code>_ga</code> und <code>_ga_*</code> mit einer Laufzeit von bis zu 2 Jahren, um Besuche zu unterscheiden. Sie werden nur gesetzt, wenn du auf „Akzeptieren“ klickst.${settingsBtn("Cookie-Einstellungen ändern")}`] as Section] : []),
+				["Shops und Affiliate-Netzwerke", `Wenn du zu einem Shop${anyNetwork ? ` oder einem Affiliate-Netzwerk (${list(networks, "und")})` : ""} weiterklickst, kann diese Website auf ihrer eigenen Domain eigene Cookies setzen. Dort gelten deren Richtlinien, nicht diese.`],
+				["Cookies löschen oder blockieren", "Cookies kannst du in den Einstellungen deines Browsers löschen oder blockieren. Hinweise findest du in der Hilfe von Chrome, Firefox, Safari oder Edge."],
 			],
 		},
 		disclosure: {
 			h1: "Affiliate-Hinweis",
 			body: [
-				["Wie wir Geld verdienen", "NutriMetrics ist kostenlos. Viele Shop-Links sind Affiliate-Links über Netzwerke wie AWIN oder direkte Partnerprogramme. Wenn du nach einem Klick kaufst, zahlt uns der Shop eventuell eine Provision. Dein Preis bleibt gleich."],
-				["Was sich nie ändert", "Ergebnisse werden immer nach Gesamtpreis (inklusive Versand in dein Land) oder nach unserer veröffentlichten Methodik sortiert – nie nach Provision. Shops, die uns nichts zahlen, werden trotzdem mit einem normalen Link gelistet."],
-				["Wie Links gekennzeichnet sind", "Seiten mit Shop-Links zeigen oben einen Hinweis, und Haupt-Buttons tragen die Kennzeichnung „Werbelink“. Alle Shop-Links verwenden rel=\"sponsored\"."],
+				["Wie wir Geld verdienen", `NutriMetrics ist kostenlos. Einige Shop-Links sind Affiliate-Links (Werbelinks)${anyNetwork ? `, über ${list(networks, "und")}` : ""}: Wenn du nach einem Klick kaufst, zahlt uns der Shop eventuell eine Provision. Dein Preis bleibt gleich.`],
+				...(AFFILIATE.amazon ? [["Amazon", "Als Amazon-Partner verdiene ich an qualifizierten Verkäufen."] as Section] : []),
+				["Was sich nie ändert", "Vergleiche werden nach Gesamtpreis (inklusive Versand in dein Land) oder nach unserer veröffentlichten Methodik sortiert – nie nach Provision. Shops, die uns nichts zahlen, werden trotzdem gelistet, wenn sie das Produkt führen."],
+				["Wie Links gekennzeichnet sind", "Seiten mit Shop-Links zeigen oben einen Hinweis, und Affiliate-Links tragen die Kennzeichnung „Werbelink“. Alle verwenden rel=\"sponsored\"."],
 			],
 		},
 	},
-}[locale];
-const page = L[which];
+};
+const C = L[locale];
+const page = C[which];
+const dateLabel = new Date(UPDATED).toLocaleDateString({ en: "en-GB", es: "es-ES", de: "de-DE" }[locale], { day: "numeric", month: "long", year: "numeric" });
 ---
 <Base
 	locale={locale}
@@ -141,13 +221,20 @@ const page = L[which];
 	<div class="container" style="padding-top:56px;padding-bottom:88px">
 		<article class="prose" style="max-width:760px">
 			<h1 class="h1" style="font-size:clamp(2rem,3.4vw,2.8rem)">{page.h1}</h1>
-			{which !== "disclosure" && <p class="art-draft"><span class="placeholder">{L.draft}</span></p>}
+			<p class="muted" style="font-size:14px">{C.updated}: <time datetime={UPDATED}>{dateLabel}</time></p>
+			{page.intro && <p>{page.intro}</p>}
 			{page.body.map(([h, p]) => (
 				<>
 					<h2>{h}</h2>
 					<p set:html={p} />
 				</>
 			))}
+			{which === "privacy" && <p class="muted" style="font-size:14px">→ <a href={cookieLink}>{t("legal.cookies")}</a></p>}
+			{which === "cookies" && <p class="muted" style="font-size:14px">→ <a href={privacyLink}>{t("legal.privacy")}</a></p>}
 		</article>
 	</div>
 </Base>
+
+<style>
+	:global(.link-btn) { background: none; border: 0; padding: 0; font: inherit; color: var(--nm-accent); text-decoration: underline; cursor: pointer; }
+</style>

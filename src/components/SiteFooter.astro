@@ -1,6 +1,7 @@
 ---
 import { ALL_LANGUAGES, LOCALES, path, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
+import { GA_ENABLED } from "../lib/site";
 
 interface Props { locale: Locale; alternates: Partial<Record<Locale, string>> }
 const { locale, alternates } = Astro.props;
@@ -54,6 +55,7 @@ const year = new Date().getFullYear();
 				<a href={path(locale, "privacy")}>{t("legal.privacy")}</a>
 				<a href={path(locale, "cookies")}>{t("legal.cookies")}</a>
 				<a href={path(locale, "imprint")}>{t("legal.imprint")}</a>
+				{GA_ENABLED && <a href={path(locale, "cookies")} data-consent-open>{t("legal.cookieSettings")}</a>}
 			</nav>
 		</div>
 	</div>

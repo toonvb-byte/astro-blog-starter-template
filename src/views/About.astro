@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { ALL_LANGUAGES, path, routeAlternates, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
+import { OPERATOR } from "../lib/site";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -164,7 +165,7 @@ const ids = ["method", "money", "editorial", "team", "contact"];
 			<div style="display:flex;flex-direction:column;gap:12px">
 				<h2 id="contact-h" class="h2">{C.toc[4]}</h2>
 				<p style="color:var(--nm-ink-2)">{C.contactP}</p>
-				<p><span class="placeholder">[hello@nutrimetrics.eu]</span><br /><span class="placeholder">[Company name, address — imprint details]</span></p>
+				<p><a href={`mailto:${OPERATOR.email}`}>{OPERATOR.email}</a><br /><span class="muted">{OPERATOR.name} · {OPERATOR.street}, {OPERATOR.postcode} {OPERATOR.city}, {OPERATOR.country[locale]}</span></p>
 			</div>
 			<form class="card contact-form" onsubmit="return false">
 				<div class="grid-auto" style="--min:200px;gap:16px">

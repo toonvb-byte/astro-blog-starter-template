@@ -1,0 +1,82 @@
+---
+/**
+ * Cookie consent for Google Analytics. Only rendered when GA_MEASUREMENT_ID is set (src/lib/site.ts).
+ * GA is not loaded at all until the visitor clicks "Accept"; "Reject" is equally prominent (AEPD / EDPB guidance).
+ * The choice is kept in localStorage ("nm-consent"); any element with [data-consent-open] reopens the banner.
+ */
+import { path, type Locale } from "../i18n/config";
+import { GA_MEASUREMENT_ID } from "../lib/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const T = {
+	en: { text: "We use Google Analytics cookies to see which pages are useful, only if you agree. The site works the same either way.", accept: "Accept", reject: "Reject", more: "Cookie policy" },
+	es: { text: "Usamos cookies de Google Analytics para saber qué páginas son útiles, solo si lo aceptas. El sitio funciona igual en ambos casos.", accept: "Aceptar", reject: "Rechazar", more: "Política de cookies" },
+	de: { text: "Wir nutzen Cookies von Google Analytics, um zu sehen, welche Seiten hilfreich sind – nur mit deiner Zustimmung. Die Website funktioniert in beiden Fällen gleich.", accept: "Akzeptieren", reject: "Ablehnen", more: "Cookie-Richtlinie" },
+}[locale];
+---
+<div id="nm-consent" class="consent" role="dialog" aria-live="polite" aria-label={T.more} data-ga={GA_MEASUREMENT_ID} hidden>
+	<p>{T.text} <a href={path(locale, "cookies")}>{T.more}</a></p>
+	<div class="consent-btns">
+		<button type="button" class="btn btn-outline" data-consent="denied">{T.reject}</button>
+		<button type="button" class="btn btn-outline" data-consent="granted">{T.accept}</button>
+	</div>
+</div>
+
+<script>
+	const box = document.getElementById("nm-consent") as HTMLElement | null;
+	const id = box?.dataset.ga;
+	const KEY = "nm-consent";
+	const read = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
+	const write = (v: string) => { try { localStorage.setItem(KEY, v); } catch {} };
+	let loaded = false;
+	function loadGA() {
+		if (loaded || !id) return;
+		loaded = true;
+		const s = document.createElement("script");
+		s.async = true;
+		s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+		document.head.appendChild(s);
+		const w = window as any;
+		w.dataLayer = w.dataLayer || [];
+		w.gtag = function () { w.dataLayer.push(arguments); };
+		w.gtag("js", new Date());
+		w.gtag("config", id);
+	}
+	function clearGA() {
+		for (const c of document.cookie.split(";")) {
+			const name = c.split("=")[0].trim();
+			if (!name.startsWith("_ga")) continue;
+			const host = location.hostname.split(".").slice(-2).join(".");
+			for (const domain of ["", `; domain=.${host}`, `; domain=${location.hostname}`]) {
+				document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domain}`;
+			}
+		}
+	}
+	if (box && id) {
+		const state = read();
+		if (state === "granted") loadGA();
+		else if (state !== "denied") box.hidden = false;
+		box.addEventListener("click", (e) => {
+			const b = (e.target as HTMLElement).closest<HTMLButtonElement>("[data-consent]");
+			if (!b) return;
+			const v = b.dataset.consent!;
+			const was = read();
+			write(v);
+			box.hidden = true;
+			if (v === "granted") loadGA();
+			else if (was === "granted") { clearGA(); location.reload(); }
+		});
+		document.addEventListener("click", (e) => {
+			if ((e.target as HTMLElement).closest("[data-consent-open]")) { e.preventDefault(); box.hidden = false; }
+		});
+	}
+</script>
+
+<style>
+	.consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; max-width: 720px; margin: 0 auto; background: #fff; color: var(--nm-ink); border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); padding: 18px 20px; display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: center; font-size: 15px; }
+	.consent[hidden] { display: none; }
+	.consent p { flex: 1 1 320px; margin: 0; }
+	.consent-btns { display: flex; gap: 10px; }
+	.consent-btns .btn { min-width: 120px; }
+</style>

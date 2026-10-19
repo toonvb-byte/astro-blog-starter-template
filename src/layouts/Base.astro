@@ -10,9 +10,10 @@ import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import DisclosureBanner from "../components/DisclosureBanner.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 import { DEFAULT_LOCALE, LOCALES, OG_LOCALE, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
-import { SITE_LIVE, SITE_NAME, SITE_URL } from "../lib/site";
+import { GA_ENABLED, SITE_LIVE, SITE_NAME, SITE_URL } from "../lib/site";
 
 export type NavKey = "home" | "finder" | "prices" | "compare" | "guides" | "about" | "";
 export interface Crumb { name: string; href: string }
@@ -95,5 +96,6 @@ const schema: object[] = [
 			<slot />
 		</main>
 		<SiteFooter locale={locale} alternates={alternates} />
+		{GA_ENABLED && <CookieConsent locale={locale} />}
 	</body>
 </html>
