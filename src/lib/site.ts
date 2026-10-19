@@ -25,7 +25,7 @@ export const OPERATOR = {
  * Empty = GA is not loaded, no consent banner is shown and the legal pages don't mention GA.
  * When set, GA only loads after the visitor accepts analytics cookies in the consent banner.
  */
-export const GA_MEASUREMENT_ID = "";
+export const GA_MEASUREMENT_ID = "G-BV4NJDJT5M";
 export const GA_ENABLED = GA_MEASUREMENT_ID !== "";
 
 /**
