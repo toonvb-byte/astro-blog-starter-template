@@ -90,6 +90,44 @@ const L = {
 			],
 		},
 	},
+	de: {
+		draft: "Entwurf – vor dem Start zu vervollständigen.",
+		privacy: {
+			h1: "Datenschutzerklärung",
+			body: [
+				["Verantwortlicher", `${P("[Firmenname, Anschrift, E-Mail]")} ist verantwortlich für die Verarbeitung personenbezogener Daten auf nutrimetrics.eu.`],
+				["Welche Daten wir erheben", "Wir verwenden keine Tracking-Cookies. Die Reichweitenmessung ist cookiefrei und aggregiert (Cloudflare Web Analytics). Klicks zu Shops werden ohne IP-Adresse und ohne personenbezogene Daten protokolliert. Wenn du den Newsletter oder einen Preisalarm abonnierst, speichern wir deine E-Mail-Adresse, Sprache und Alarm-Einstellungen."],
+				["Rechtsgrundlage", "Einwilligung (Newsletter, Preisalarme – Double-Opt-in, jederzeit widerrufbar) und berechtigtes Interesse (Sicherheit der Website, aggregierte Statistiken)."],
+				["Auftragsverarbeiter", `Cloudflare (Hosting, Datenbank). ${P("[E-Mail-Anbieter]")} (Versand von E-Mails).`],
+				["Deine Rechte", `Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Kontakt: ${P("[Datenschutz-E-Mail]")}. Du kannst dich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren.`],
+			],
+		},
+		cookies: {
+			h1: "Cookie-Richtlinie",
+			body: [
+				["Unser Ansatz", "NutriMetrics setzt keine Werbe- oder Tracking-Cookies. Für die Reichweitenmessung brauchen wir deshalb kein Cookie-Banner."],
+				["Funktionale Cookies", "Wir speichern eventuell dein Versandland und deine Sprache in einem eigenen Cookie, damit Preise für das richtige Land berechnet werden."],
+				["Affiliate-Partner", "Wenn du zu einem Shop klickst, kann dieser Shop oder sein Affiliate-Netzwerk (z. B. AWIN) auf seiner Website eigene Cookies setzen. Dort gelten deren Cookie-Richtlinien."],
+			],
+		},
+		imprint: {
+			h1: "Impressum",
+			body: [
+				["Anbieter", P("[Firmenname, Rechtsform, Anschrift]")],
+				["Kontakt", P("[E-Mail, Telefon]")],
+				["Register", P("[Handelsregister, Nummer / USt-IdNr.]")],
+				["Verantwortlich für den Inhalt", P("[Name, Anschrift]")],
+			],
+		},
+		disclosure: {
+			h1: "Affiliate-Hinweis",
+			body: [
+				["Wie wir Geld verdienen", "NutriMetrics ist kostenlos. Viele Shop-Links sind Affiliate-Links über Netzwerke wie AWIN oder direkte Partnerprogramme. Wenn du nach einem Klick kaufst, zahlt uns der Shop eventuell eine Provision. Dein Preis bleibt gleich."],
+				["Was sich nie ändert", "Ergebnisse werden immer nach Gesamtpreis (inklusive Versand in dein Land) oder nach unserer veröffentlichten Methodik sortiert – nie nach Provision. Shops, die uns nichts zahlen, werden trotzdem mit einem normalen Link gelistet."],
+				["Wie Links gekennzeichnet sind", "Seiten mit Shop-Links zeigen oben einen Hinweis, und Haupt-Buttons tragen die Kennzeichnung „Werbelink“. Alle Shop-Links verwenden rel=\"sponsored\"."],
+			],
+		},
+	},
 }[locale];
 const page = L[which];
 ---

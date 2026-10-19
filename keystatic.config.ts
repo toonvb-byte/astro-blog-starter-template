@@ -9,9 +9,11 @@ import { collection, config, fields } from "@keystatic/core";
 const CATEGORIES = {
 	en: ["Buying guide", "Explainer", "Deals", "Sports nutrition", "Sleep & stress", "Health devices"],
 	es: ["Guía de compra", "Explicación", "Ofertas", "Nutrición deportiva", "Sueño y estrés", "Dispositivos de salud"],
+	de: ["Kaufberatung", "Erklärung", "Angebote", "Sporternährung", "Schlaf & Stress", "Gesundheitsgeräte"],
 };
+const GUIDES_SEGMENT = { en: "guides", es: "guias", de: "ratgeber" };
 
-const guideCollection = (lang: "en" | "es", label: string) =>
+const guideCollection = (lang: "en" | "es" | "de", label: string) =>
 	collection({
 		label,
 		slugField: "title",
@@ -19,7 +21,7 @@ const guideCollection = (lang: "en" | "es", label: string) =>
 		format: { contentField: "content" },
 		entryLayout: "content",
 		columns: ["title", "publishDate"],
-		previewUrl: `/${lang}/${lang === "en" ? "guides" : "guias"}/{slug}/`,
+		previewUrl: `/${lang}/${GUIDES_SEGMENT[lang]}/{slug}/`,
 		schema: {
 			title: fields.slug({
 				name: { label: "Title (H1)", description: "Max 70 characters.", validation: { length: { min: 1, max: 70 } } },
@@ -38,12 +40,12 @@ const guideCollection = (lang: "en" | "es", label: string) =>
 			}),
 			translationKey: fields.text({
 				label: "Translation key",
-				description: "Use the same value in every language version of this guide (e.g. magnesium-forms). Links the EN and ES versions together.",
+				description: "Use the same value in every language version of this guide (e.g. magnesium-forms). Links the EN, ES and DE versions together.",
 				validation: { length: { min: 1 } },
 			}),
 			author: fields.text({ label: "Author", validation: { length: { min: 1 } } }),
 			authorBio: fields.text({ label: "Author bio", multiline: true }),
-			reviewer: fields.text({ label: "Medical reviewer (name, credential)", description: "Leave empty if not reviewed yet." }),
+			reviewer: fields.text({ label: "Medical reviewer (name, credential)", description: "Only fill in if a named professional has actually reviewed this guide. Leave empty otherwise — never use a placeholder." }),
 			publishDate: fields.date({ label: "Published", defaultValue: { kind: "today" }, validation: { isRequired: true } }),
 			updatedDate: fields.date({ label: "Last updated", description: "Set this when you make a meaningful update." }),
 			readingMinutes: fields.integer({ label: "Reading time (minutes)", defaultValue: 5, validation: { isRequired: true, min: 1 } }),
@@ -91,10 +93,11 @@ export default config({
 		: { kind: "github", repo: "toonvb-byte/astro-blog-starter-template" },
 	ui: {
 		brand: { name: "NutriMetrics" },
-		navigation: { Guides: ["guidesEn", "guidesEs"] },
+		navigation: { Guides: ["guidesEn", "guidesEs", "guidesDe"] },
 	},
 	collections: {
 		guidesEn: guideCollection("en", "Guides — English"),
 		guidesEs: guideCollection("es", "Guías — Español"),
+		guidesDe: guideCollection("de", "Ratgeber — Deutsch"),
 	},
 });

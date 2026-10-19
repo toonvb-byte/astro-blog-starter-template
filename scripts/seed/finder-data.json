@@ -9,15 +9,18 @@
   "evidenceScale": {
    "3": {
     "en": "Strong",
-    "es": "Sólida"
+    "es": "Sólida",
+    "de": "Stark"
    },
    "2": {
     "en": "Moderate",
-    "es": "Moderada"
+    "es": "Moderada",
+    "de": "Moderat"
    },
    "1": {
     "en": "Limited",
-    "es": "Limitada"
+    "es": "Limitada",
+    "de": "Begrenzt"
    }
   }
  },
@@ -29,8 +32,10 @@
    "icon": "⚡",
    "desc": {
     "en": "Tiredness, low energy, afternoon slump",
-    "es": "Cansancio, falta de energía, bajón de la tarde"
-   }
+    "es": "Cansancio, falta de energía, bajón de la tarde",
+    "de": "Müdigkeit, wenig Energie, Nachmittagstief"
+   },
+   "de": "Energie & weniger Müdigkeit"
   },
   {
    "id": "sleep",
@@ -39,8 +44,10 @@
    "icon": "☾",
    "desc": {
     "en": "Falling asleep, staying asleep, waking rested",
-    "es": "Dormirse, no despertarse, levantarse descansado"
-   }
+    "es": "Dormirse, no despertarse, levantarse descansado",
+    "de": "Einschlafen, durchschlafen, erholt aufwachen"
+   },
+   "de": "Tiefer Schlaf"
   },
   {
    "id": "stress",
@@ -49,8 +56,10 @@
    "icon": "≈",
    "desc": {
     "en": "Feeling tense, anxious or wound up",
-    "es": "Tensión, nervios, sensación de ir acelerado"
-   }
+    "es": "Tensión, nervios, sensación de ir acelerado",
+    "de": "Angespannt, unruhig oder aufgedreht"
+   },
+   "de": "Stress & Ruhe"
   },
   {
    "id": "focus",
@@ -59,8 +68,10 @@
    "icon": "◎",
    "desc": {
     "en": "Concentration, memory, mental clarity",
-    "es": "Concentración, memoria, claridad mental"
-   }
+    "es": "Concentración, memoria, claridad mental",
+    "de": "Konzentration, Gedächtnis, geistige Klarheit"
+   },
+   "de": "Konzentration & Gehirn"
   },
   {
    "id": "immunity",
@@ -69,8 +80,10 @@
    "icon": "✚",
    "desc": {
     "en": "Fewer colds, winter defences",
-    "es": "Menos resfriados, defensas en invierno"
-   }
+    "es": "Menos resfriados, defensas en invierno",
+    "de": "Weniger Erkältungen, Abwehr im Winter"
+   },
+   "de": "Immunsystem"
   },
   {
    "id": "detox",
@@ -79,12 +92,15 @@
    "icon": "◇",
    "warn": {
     "en": "There is no EU-authorised 'detox' claim. Your liver and kidneys do this job on their own. Ingredients below are the ones marketed for liver support, and the evidence for them is limited.",
-    "es": "No existe ninguna declaración 'detox' autorizada en la UE. El hígado y los riñones ya hacen ese trabajo. Abajo están los ingredientes que se venden para el hígado, y la evidencia es limitada."
+    "es": "No existe ninguna declaración 'detox' autorizada en la UE. El hígado y los riñones ya hacen ese trabajo. Abajo están los ingredientes que se venden para el hígado, y la evidencia es limitada.",
+    "de": "Es gibt keine EU-zugelassene „Detox“-Angabe. Leber und Nieren erledigen diese Aufgabe selbst. Unten stehen die Wirkstoffe, die für die Leber beworben werden – die Beleglage dafür ist begrenzt."
    },
    "desc": {
     "en": "Liver support and 'cleanse' products",
-    "es": "Apoyo al hígado y productos 'depurativos'"
-   }
+    "es": "Apoyo al hígado y productos 'depurativos'",
+    "de": "Leberunterstützung und „Entgiftungs“-Produkte"
+   },
+   "de": "Detox / Leber"
   },
   {
    "id": "gut",
@@ -93,8 +109,10 @@
    "icon": "∿",
    "desc": {
     "en": "Regularity, bloating, gut flora",
-    "es": "Tránsito, hinchazón, flora intestinal"
-   }
+    "es": "Tránsito, hinchazón, flora intestinal",
+    "de": "Regelmäßigkeit, Blähungen, Darmflora"
+   },
+   "de": "Darm & Verdauung"
   },
   {
    "id": "muscle",
@@ -103,8 +121,10 @@
    "icon": "▲",
    "desc": {
     "en": "Strength, training performance, recovery",
-    "es": "Fuerza, rendimiento deportivo, recuperación"
-   }
+    "es": "Fuerza, rendimiento deportivo, recuperación",
+    "de": "Kraft, Trainingsleistung, Regeneration"
+   },
+   "de": "Muskeln & Regeneration"
   },
   {
    "id": "joints",
@@ -113,8 +133,10 @@
    "icon": "⌒",
    "desc": {
     "en": "Stiff or sore joints, cartilage",
-    "es": "Rigidez o dolor articular, cartílago"
-   }
+    "es": "Rigidez o dolor articular, cartílago",
+    "de": "Steife oder schmerzende Gelenke, Knorpel"
+   },
+   "de": "Gelenke"
   }
  ],
  "ingredients": [
@@ -126,8 +148,10 @@
    "effective": 1,
    "caution": {
     "en": "Not for pregnancy, breastfeeding or children. Can interact with sedatives and blood thinners. In Germany it is legally grey as a supplement.",
-    "es": "No apta para embarazo, lactancia ni niños. Puede interactuar con sedantes y anticoagulantes."
-   }
+    "es": "No apta para embarazo, lactancia ni niños. Puede interactuar con sedantes y anticoagulantes.",
+    "de": "Nicht in Schwangerschaft, Stillzeit oder für Kinder. Kann mit Beruhigungsmitteln und Blutverdünnern wechselwirken. In Deutschland ist Melatonin als Nahrungsergänzungsmittel rechtlich umstritten."
+   },
+   "de": "Melatonin"
   },
   {
    "id": "magnesium",
@@ -137,50 +161,58 @@
    "effective": 200,
    "tip": {
     "en": "Bisglycinate and citrate are well absorbed; oxide much less.",
-    "es": "Bisglicinato y citrato se absorben bien; el óxido mucho menos."
-   }
+    "es": "Bisglicinato y citrato se absorben bien; el óxido mucho menos.",
+    "de": "Bisglycinat und Citrat werden gut aufgenommen, Oxid deutlich schlechter."
+   },
+   "de": "Magnesium"
   },
   {
    "id": "valerian",
    "en": "Valerian",
    "es": "Valeriana",
    "unit": "mg",
-   "effective": 300
+   "effective": 300,
+   "de": "Baldrian"
   },
   {
    "id": "passionflower",
    "en": "Passionflower",
    "es": "Pasiflora",
    "unit": "mg",
-   "effective": 200
+   "effective": 200,
+   "de": "Passionsblume"
   },
   {
    "id": "california_poppy",
    "en": "California poppy",
    "es": "Amapola de California",
    "unit": "mg",
-   "effective": 200
+   "effective": 200,
+   "de": "Kalifornischer Mohn"
   },
   {
    "id": "lemon_balm",
    "en": "Lemon balm",
    "es": "Melisa",
    "unit": "mg",
-   "effective": 300
+   "effective": 300,
+   "de": "Melisse"
   },
   {
    "id": "chamomile",
    "en": "Chamomile",
    "es": "Manzanilla",
    "unit": "mg",
-   "effective": 200
+   "effective": 200,
+   "de": "Kamille"
   },
   {
    "id": "lavender",
    "en": "Lavender",
    "es": "Lavanda",
    "unit": "mg",
-   "effective": 80
+   "effective": 80,
+   "de": "Lavendel"
   },
   {
    "id": "htp5",
@@ -190,8 +222,10 @@
    "effective": 100,
    "caution": {
     "en": "Do not combine with antidepressants (serotonin syndrome risk).",
-    "es": "No combinar con antidepresivos (riesgo de síndrome serotoninérgico)."
-   }
+    "es": "No combinar con antidepresivos (riesgo de síndrome serotoninérgico).",
+    "de": "Nicht mit Antidepressiva kombinieren (Risiko eines Serotonin-Syndroms)."
+   },
+   "de": "5-HTP (Griffonia)"
   },
   {
    "id": "ashwagandha",
@@ -201,15 +235,18 @@
    "effective": 300,
    "caution": {
     "en": "Not in pregnancy or with thyroid conditions; rare liver-injury reports; restricted or under review in some EU countries.",
-    "es": "No en embarazo ni con problemas de tiroides; casos raros de daño hepático; restringida o en revisión en algunos países de la UE."
-   }
+    "es": "No en embarazo ni con problemas de tiroides; casos raros de daño hepático; restringida o en revisión en algunos países de la UE.",
+    "de": "Nicht in der Schwangerschaft oder bei Schilddrüsenerkrankungen; seltene Berichte über Leberschäden; in einigen EU-Ländern eingeschränkt oder in Prüfung."
+   },
+   "de": "Ashwagandha"
   },
   {
    "id": "l_theanine",
    "en": "L-theanine",
    "es": "L-teanina",
    "unit": "mg",
-   "effective": 200
+   "effective": 200,
+   "de": "L-Theanin"
   },
   {
    "id": "rhodiola",
@@ -219,8 +256,10 @@
    "effective": 400,
    "caution": {
     "en": "Avoid with bipolar disorder and in pregnancy.",
-    "es": "Evitar con trastorno bipolar y en embarazo."
-   }
+    "es": "Evitar con trastorno bipolar y en embarazo.",
+    "de": "Nicht bei bipolarer Störung und in der Schwangerschaft."
+   },
+   "de": "Rosenwurz (Rhodiola)"
   },
   {
    "id": "iron",
@@ -230,8 +269,10 @@
    "effective": 14,
    "caution": {
     "en": "Only useful if you are low in iron. Get a blood test first; excess iron is harmful.",
-    "es": "Solo útil si tienes el hierro bajo. Haz una analítica antes; el exceso es perjudicial."
-   }
+    "es": "Solo útil si tienes el hierro bajo. Haz una analítica antes; el exceso es perjudicial.",
+    "de": "Nur sinnvoll bei Eisenmangel. Vorher Blutwerte bestimmen lassen; zu viel Eisen schadet."
+   },
+   "de": "Eisen"
   },
   {
    "id": "b12",
@@ -241,8 +282,10 @@
    "effective": 2.5,
    "tip": {
     "en": "Big effect only if you are low (common in vegans and over-50s).",
-    "es": "Efecto notable solo si tienes déficit (frecuente en veganos y mayores de 50)."
-   }
+    "es": "Efecto notable solo si tienes déficit (frecuente en veganos y mayores de 50).",
+    "de": "Deutliche Wirkung nur bei Mangel (häufig bei Veganern und über 50-Jährigen)."
+   },
+   "de": "Vitamin B12"
   },
   {
    "id": "b6",
@@ -250,49 +293,56 @@
    "es": "Vitamina B6",
    "unit": "mg",
    "effective": 1.4,
-   "upper": 12
+   "upper": 12,
+   "de": "Vitamin B6"
   },
   {
    "id": "folate",
    "en": "Folate",
    "es": "Folato",
    "unit": "µg",
-   "effective": 200
+   "effective": 200,
+   "de": "Folat"
   },
   {
    "id": "b1",
    "en": "Vitamin B1",
    "es": "Vitamina B1",
    "unit": "mg",
-   "effective": 1.1
+   "effective": 1.1,
+   "de": "Vitamin B1"
   },
   {
    "id": "b2",
    "en": "Vitamin B2",
    "es": "Vitamina B2",
    "unit": "mg",
-   "effective": 1.4
+   "effective": 1.4,
+   "de": "Vitamin B2"
   },
   {
    "id": "b3",
    "en": "Niacin (B3)",
    "es": "Niacina (B3)",
    "unit": "mg",
-   "effective": 16
+   "effective": 16,
+   "de": "Niacin (B3)"
   },
   {
    "id": "b5",
    "en": "Pantothenic acid (B5)",
    "es": "Ácido pantoténico (B5)",
    "unit": "mg",
-   "effective": 6
+   "effective": 6,
+   "de": "Pantothensäure (B5)"
   },
   {
    "id": "vitamin_c",
    "en": "Vitamin C",
    "es": "Vitamina C",
    "unit": "mg",
-   "effective": 200
+   "effective": 200,
+   "de": "Vitamin C"
   },
   {
    "id": "zinc",
@@ -300,7 +350,8 @@
    "es": "Zinc",
    "unit": "mg",
    "effective": 10,
-   "upper": 25
+   "upper": 25,
+   "de": "Zink"
   },
   {
    "id": "vitamin_d",
@@ -311,8 +362,10 @@
    "upper": 100,
    "tip": {
     "en": "20 µg = 800 IU. Most Northern and Central Europeans run low in winter.",
-    "es": "20 µg = 800 UI. Muy frecuente tenerla baja en invierno."
-   }
+    "es": "20 µg = 800 UI. Muy frecuente tenerla baja en invierno.",
+    "de": "20 µg = 800 IE. Die meisten Menschen in Mittel- und Nordeuropa haben im Winter niedrige Werte."
+   },
+   "de": "Vitamin D3"
   },
   {
    "id": "vitamin_k2",
@@ -322,36 +375,42 @@
    "effective": 75,
    "caution": {
     "en": "Talk to your doctor if you take warfarin/acenocoumarol (Sintrom).",
-    "es": "Consulta a tu médico si tomas Sintrom u otros anticoagulantes."
-   }
+    "es": "Consulta a tu médico si tomas Sintrom u otros anticoagulantes.",
+    "de": "Sprich mit deinem Arzt, wenn du Phenprocoumon (Marcumar) oder Warfarin nimmst."
+   },
+   "de": "Vitamin K2 (MK-7)"
   },
   {
    "id": "dha",
    "en": "Omega-3 DHA",
    "es": "Omega-3 DHA",
    "unit": "mg",
-   "effective": 250
+   "effective": 250,
+   "de": "Omega-3 DHA"
   },
   {
    "id": "epa",
    "en": "Omega-3 EPA",
    "es": "Omega-3 EPA",
    "unit": "mg",
-   "effective": 1000
+   "effective": 1000,
+   "de": "Omega-3 EPA"
   },
   {
    "id": "creatine",
    "en": "Creatine monohydrate",
    "es": "Creatina monohidrato",
    "unit": "g",
-   "effective": 3
+   "effective": 3,
+   "de": "Kreatin-Monohydrat"
   },
   {
    "id": "collagen",
    "en": "Hydrolysed collagen",
    "es": "Colágeno hidrolizado",
    "unit": "g",
-   "effective": 5
+   "effective": 5,
+   "de": "Kollagenhydrolysat"
   },
   {
    "id": "curcuminoids",
@@ -361,8 +420,10 @@
    "effective": 500,
    "caution": {
     "en": "With piperine, absorption rises a lot; rare liver-injury reports. Avoid with gallstones or blood thinners.",
-    "es": "Con piperina se absorbe mucho más; casos raros de daño hepático. Evitar con cálculos biliares o anticoagulantes."
-   }
+    "es": "Con piperina se absorbe mucho más; casos raros de daño hepático. Evitar con cálculos biliares o anticoagulantes.",
+    "de": "Mit Piperin steigt die Aufnahme stark; seltene Berichte über Leberschäden. Nicht bei Gallensteinen oder mit Blutverdünnern."
+   },
+   "de": "Kurkumin (Curcuminoide)"
   },
   {
    "id": "silymarin",
@@ -372,22 +433,26 @@
    "effective": 140,
    "caution": {
     "en": "Possible allergy if sensitive to daisy-family plants.",
-    "es": "Posible alergia si eres sensible a plantas de la familia de las margaritas."
-   }
+    "es": "Posible alergia si eres sensible a plantas de la familia de las margaritas.",
+    "de": "Mögliche Allergie bei Empfindlichkeit gegen Korbblütler."
+   },
+   "de": "Mariendistel (Silymarin)"
   },
   {
    "id": "artichoke",
    "en": "Artichoke extract",
    "es": "Extracto de alcachofa",
    "unit": "mg",
-   "effective": 320
+   "effective": 320,
+   "de": "Artischockenextrakt"
   },
   {
    "id": "dandelion",
    "en": "Dandelion root",
    "es": "Raíz de diente de león",
    "unit": "mg",
-   "effective": 250
+   "effective": 250,
+   "de": "Löwenzahnwurzel"
   },
   {
    "id": "psyllium",
@@ -397,8 +462,10 @@
    "effective": 5,
    "tip": {
     "en": "Drink plenty of water. Take 2 h apart from medicines.",
-    "es": "Bebe mucha agua. Sepáralo 2 h de medicamentos."
-   }
+    "es": "Bebe mucha agua. Sepáralo 2 h de medicamentos.",
+    "de": "Viel trinken. Mit 2 Stunden Abstand zu Medikamenten einnehmen."
+   },
+   "de": "Flohsamenschalen"
   },
   {
    "id": "probiotics",
@@ -408,8 +475,10 @@
    "effective": 1,
    "tip": {
     "en": "Effects are strain-specific; the CFU count alone says little.",
-    "es": "Los efectos dependen de la cepa; las UFC por sí solas dicen poco."
-   }
+    "es": "Los efectos dependen de la cepa; las UFC por sí solas dicen poco.",
+    "de": "Die Wirkung hängt vom Stamm ab; die KBE-Zahl allein sagt wenig."
+   },
+   "de": "Probiotische Kulturen"
   }
  ],
  "goalIngredients": [
@@ -420,7 +489,8 @@
    "claim": true,
    "en": "Reduces tiredness, but only if you are iron-deficient.",
    "es": "Reduce el cansancio, pero solo si tienes déficit de hierro.",
-   "cond": true
+   "cond": true,
+   "de": "Verringert Müdigkeit, aber nur bei Eisenmangel."
   },
   {
    "g": "energy",
@@ -428,7 +498,8 @@
    "ev": 3,
    "claim": true,
    "en": "EU-authorised claim for tiredness and fatigue; strong effect when levels are low.",
-   "es": "Declaración autorizada en la UE sobre el cansancio; efecto claro si hay déficit."
+   "es": "Declaración autorizada en la UE sobre el cansancio; efecto claro si hay déficit.",
+   "de": "EU-zugelassene Angabe zu Müdigkeit und Ermüdung; deutliche Wirkung bei niedrigen Werten."
   },
   {
    "g": "energy",
@@ -436,7 +507,8 @@
    "ev": 2,
    "claim": true,
    "en": "EU-authorised fatigue claim; relevant if your diet is low in greens.",
-   "es": "Declaración autorizada sobre el cansancio; relevante si comes pocas verduras."
+   "es": "Declaración autorizada sobre el cansancio; relevante si comes pocas verduras.",
+   "de": "EU-zugelassene Angabe zu Müdigkeit; relevant, wenn du wenig grünes Gemüse isst."
   },
   {
    "g": "energy",
@@ -444,7 +516,8 @@
    "ev": 2,
    "claim": true,
    "en": "EU-authorised fatigue claim.",
-   "es": "Declaración autorizada sobre el cansancio."
+   "es": "Declaración autorizada sobre el cansancio.",
+   "de": "EU-zugelassene Angabe zu Müdigkeit."
   },
   {
    "g": "energy",
@@ -452,7 +525,8 @@
    "ev": 1,
    "claim": true,
    "en": "Part of energy metabolism; extra helps only if low.",
-   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta.",
+   "de": "Teil des Energiestoffwechsels; mehr hilft nur bei niedrigen Werten."
   },
   {
    "g": "energy",
@@ -460,7 +534,8 @@
    "ev": 1,
    "claim": true,
    "en": "Part of energy metabolism; extra helps only if low.",
-   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta.",
+   "de": "Teil des Energiestoffwechsels; mehr hilft nur bei niedrigen Werten."
   },
   {
    "g": "energy",
@@ -468,7 +543,8 @@
    "ev": 1,
    "claim": true,
    "en": "Part of energy metabolism; extra helps only if low.",
-   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta.",
+   "de": "Teil des Energiestoffwechsels; mehr hilft nur bei niedrigen Werten."
   },
   {
    "g": "energy",
@@ -476,7 +552,8 @@
    "ev": 1,
    "claim": true,
    "en": "Part of energy metabolism; extra helps only if low.",
-   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta."
+   "es": "Interviene en el metabolismo energético; extra solo ayuda si falta.",
+   "de": "Teil des Energiestoffwechsels; mehr hilft nur bei niedrigen Werten."
   },
   {
    "g": "energy",
@@ -484,7 +561,8 @@
    "ev": 2,
    "claim": true,
    "en": "EU-authorised claim for tiredness and fatigue.",
-   "es": "Declaración autorizada en la UE sobre el cansancio."
+   "es": "Declaración autorizada en la UE sobre el cansancio.",
+   "de": "EU-zugelassene Angabe zu Müdigkeit und Ermüdung."
   },
   {
    "g": "energy",
@@ -492,7 +570,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised fatigue claim; most people already get enough.",
-   "es": "Declaración autorizada sobre el cansancio; la mayoría ya toma suficiente."
+   "es": "Declaración autorizada sobre el cansancio; la mayoría ya toma suficiente.",
+   "de": "EU-zugelassene Angabe zu Müdigkeit; die meisten nehmen schon genug auf."
   },
   {
    "g": "energy",
@@ -500,7 +579,8 @@
    "ev": 2,
    "claim": false,
    "en": "Several trials show less mental fatigue under stress.",
-   "es": "Varios ensayos muestran menos fatiga mental bajo estrés."
+   "es": "Varios ensayos muestran menos fatiga mental bajo estrés.",
+   "de": "Mehrere Studien zeigen weniger geistige Ermüdung unter Stress."
   },
   {
    "g": "energy",
@@ -508,7 +588,8 @@
    "ev": 1,
    "claim": false,
    "en": "Small trials on vitality; indirect via stress.",
-   "es": "Ensayos pequeños sobre vitalidad; efecto indirecto vía estrés."
+   "es": "Ensayos pequeños sobre vitalidad; efecto indirecto vía estrés.",
+   "de": "Kleine Studien zur Vitalität; indirekt über Stress."
   },
   {
    "g": "energy",
@@ -516,7 +597,8 @@
    "ev": 1,
    "claim": false,
    "en": "Some data on mental fatigue under sleep loss.",
-   "es": "Algunos datos sobre fatiga mental con falta de sueño."
+   "es": "Algunos datos sobre fatiga mental con falta de sueño.",
+   "de": "Einige Daten zu geistiger Ermüdung bei Schlafmangel."
   },
   {
    "g": "sleep",
@@ -524,7 +606,8 @@
    "ev": 3,
    "claim": true,
    "en": "EU-authorised: 1 mg before bed shortens time to fall asleep. Helps falling asleep more than deep sleep.",
-   "es": "Autorizado en la UE: 1 mg antes de dormir acorta el tiempo para conciliar el sueño. Ayuda más a dormirse que al sueño profundo."
+   "es": "Autorizado en la UE: 1 mg antes de dormir acorta el tiempo para conciliar el sueño. Ayuda más a dormirse que al sueño profundo.",
+   "de": "EU-zugelassen: 1 mg vor dem Schlafengehen verkürzt die Einschlafzeit. Hilft eher beim Einschlafen als beim Tiefschlaf."
   },
   {
    "g": "sleep",
@@ -532,7 +615,8 @@
    "ev": 2,
    "claim": false,
    "en": "Modest benefit, mainly in people who are low; no authorised sleep claim.",
-   "es": "Beneficio modesto, sobre todo si hay déficit; sin declaración autorizada sobre el sueño."
+   "es": "Beneficio modesto, sobre todo si hay déficit; sin declaración autorizada sobre el sueño.",
+   "de": "Geringer Nutzen, vor allem bei niedrigen Werten; keine zugelassene Schlaf-Angabe."
   },
   {
    "g": "sleep",
@@ -540,7 +624,8 @@
    "ev": 2,
    "claim": false,
    "en": "Several RCTs show better sleep quality at 300–600 mg.",
-   "es": "Varios ensayos muestran mejor calidad de sueño con 300–600 mg."
+   "es": "Varios ensayos muestran mejor calidad de sueño con 300–600 mg.",
+   "de": "Mehrere randomisierte Studien zeigen bessere Schlafqualität bei 300–600 mg."
   },
   {
    "g": "sleep",
@@ -548,7 +633,8 @@
    "ev": 1,
    "claim": false,
    "en": "Mixed results; possible small effect after 2–4 weeks.",
-   "es": "Resultados mixtos; posible efecto pequeño tras 2–4 semanas."
+   "es": "Resultados mixtos; posible efecto pequeño tras 2–4 semanas.",
+   "de": "Gemischte Ergebnisse; möglicher kleiner Effekt nach 2–4 Wochen."
   },
   {
    "g": "sleep",
@@ -556,7 +642,8 @@
    "ev": 1,
    "claim": false,
    "en": "Traditional use; little trial data.",
-   "es": "Uso tradicional; pocos ensayos."
+   "es": "Uso tradicional; pocos ensayos.",
+   "de": "Traditionelle Verwendung; kaum Studiendaten."
   },
   {
    "g": "sleep",
@@ -564,7 +651,8 @@
    "ev": 1,
    "claim": false,
    "en": "Traditional use; little trial data.",
-   "es": "Uso tradicional; pocos ensayos."
+   "es": "Uso tradicional; pocos ensayos.",
+   "de": "Traditionelle Verwendung; kaum Studiendaten."
   },
   {
    "g": "sleep",
@@ -572,7 +660,8 @@
    "ev": 1,
    "claim": false,
    "en": "Small trials, often combined with valerian.",
-   "es": "Ensayos pequeños, a menudo junto a valeriana."
+   "es": "Ensayos pequeños, a menudo junto a valeriana.",
+   "de": "Kleine Studien, oft in Kombination mit Baldrian."
   },
   {
    "g": "sleep",
@@ -580,7 +669,8 @@
    "ev": 1,
    "claim": false,
    "en": "Weak evidence; mild effect at best.",
-   "es": "Evidencia débil; efecto leve en el mejor caso."
+   "es": "Evidencia débil; efecto leve en el mejor caso.",
+   "de": "Schwache Belege; bestenfalls milde Wirkung."
   },
   {
    "g": "sleep",
@@ -588,7 +678,8 @@
    "ev": 1,
    "claim": false,
    "en": "Evidence is for a specific oil extract at 80 mg, not small amounts in blends.",
-   "es": "La evidencia es de un aceite concreto a 80 mg, no de cantidades pequeñas en mezclas."
+   "es": "La evidencia es de un aceite concreto a 80 mg, no de cantidades pequeñas en mezclas.",
+   "de": "Die Belege gelten für ein bestimmtes Öl-Extrakt mit 80 mg, nicht für kleine Mengen in Mischungen."
   },
   {
    "g": "sleep",
@@ -596,7 +687,8 @@
    "ev": 1,
    "claim": false,
    "en": "Little good-quality evidence for sleep.",
-   "es": "Poca evidencia de calidad para el sueño."
+   "es": "Poca evidencia de calidad para el sueño.",
+   "de": "Kaum gute Belege für den Schlaf."
   },
   {
    "g": "sleep",
@@ -604,7 +696,8 @@
    "ev": 1,
    "claim": false,
    "en": "Small trials on sleep quality at 200–400 mg.",
-   "es": "Ensayos pequeños sobre calidad de sueño con 200–400 mg."
+   "es": "Ensayos pequeños sobre calidad de sueño con 200–400 mg.",
+   "de": "Kleine Studien zur Schlafqualität bei 200–400 mg."
   },
   {
    "g": "stress",
@@ -612,7 +705,8 @@
    "ev": 2,
    "claim": false,
    "en": "The best-studied herb for perceived stress and cortisol; benefits are moderate.",
-   "es": "La planta más estudiada para el estrés percibido y el cortisol; beneficios moderados."
+   "es": "La planta más estudiada para el estrés percibido y el cortisol; beneficios moderados.",
+   "de": "Das am besten untersuchte Kraut für empfundenen Stress und Cortisol; der Nutzen ist moderat."
   },
   {
    "g": "stress",
@@ -620,7 +714,8 @@
    "ev": 2,
    "claim": true,
    "en": "EU-authorised claim for normal psychological function.",
-   "es": "Declaración autorizada sobre la función psicológica normal."
+   "es": "Declaración autorizada sobre la función psicológica normal.",
+   "de": "EU-zugelassene Angabe zur normalen psychischen Funktion."
   },
   {
    "g": "stress",
@@ -628,7 +723,8 @@
    "ev": 2,
    "claim": false,
    "en": "Calming without drowsiness at 200 mg in several small trials.",
-   "es": "Calma sin somnolencia con 200 mg en varios ensayos pequeños."
+   "es": "Calma sin somnolencia con 200 mg en varios ensayos pequeños.",
+   "de": "Beruhigend ohne Müdigkeit bei 200 mg in mehreren kleinen Studien."
   },
   {
    "g": "stress",
@@ -636,7 +732,8 @@
    "ev": 2,
    "claim": false,
    "en": "Helps stress-related fatigue in several trials.",
-   "es": "Ayuda con la fatiga por estrés en varios ensayos."
+   "es": "Ayuda con la fatiga por estrés en varios ensayos.",
+   "de": "Hilft in mehreren Studien bei stressbedingter Erschöpfung."
   },
   {
    "g": "stress",
@@ -644,7 +741,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised claim for psychological function; helps only if low.",
-   "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta."
+   "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta.",
+   "de": "EU-zugelassene Angabe zur psychischen Funktion; hilft nur bei niedrigen Werten."
   },
   {
    "g": "stress",
@@ -652,7 +750,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised claim for psychological function; helps only if low.",
-   "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta."
+   "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta.",
+   "de": "EU-zugelassene Angabe zur psychischen Funktion; hilft nur bei niedrigen Werten."
   },
   {
    "g": "stress",
@@ -660,7 +759,8 @@
    "ev": 1,
    "claim": false,
    "en": "Small trials on calmness.",
-   "es": "Ensayos pequeños sobre la calma."
+   "es": "Ensayos pequeños sobre la calma.",
+   "de": "Kleine Studien zur Ausgeglichenheit."
   },
   {
    "g": "stress",
@@ -668,7 +768,8 @@
    "ev": 1,
    "claim": false,
    "en": "EPA-rich omega-3 shows small mood benefits.",
-   "es": "El omega-3 rico en EPA muestra pequeños beneficios en el ánimo."
+   "es": "El omega-3 rico en EPA muestra pequeños beneficios en el ánimo.",
+   "de": "EPA-reiches Omega-3 zeigt kleine Vorteile für die Stimmung."
   },
   {
    "g": "stress",
@@ -676,7 +777,8 @@
    "ev": 1,
    "claim": false,
    "en": "Limited data; interaction risks.",
-   "es": "Datos limitados; riesgo de interacciones."
+   "es": "Datos limitados; riesgo de interacciones.",
+   "de": "Wenig Daten; Risiko von Wechselwirkungen."
   },
   {
    "g": "focus",
@@ -684,7 +786,8 @@
    "ev": 2,
    "claim": true,
    "en": "EU-authorised: 250 mg DHA a day maintains normal brain function.",
-   "es": "Autorizado en la UE: 250 mg de DHA al día mantienen la función cerebral normal."
+   "es": "Autorizado en la UE: 250 mg de DHA al día mantienen la función cerebral normal.",
+   "de": "EU-zugelassen: 250 mg DHA täglich tragen zur Erhaltung einer normalen Gehirnfunktion bei."
   },
   {
    "g": "focus",
@@ -693,7 +796,8 @@
    "claim": true,
    "en": "EU-authorised claim for cognitive function; only if deficient.",
    "es": "Declaración autorizada sobre la función cognitiva; solo si hay déficit.",
-   "cond": true
+   "cond": true,
+   "de": "EU-zugelassene Angabe zur kognitiven Funktion; nur bei Mangel."
   },
   {
    "g": "focus",
@@ -701,7 +805,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised claim for cognitive function; only if low.",
-   "es": "Declaración autorizada sobre la función cognitiva; solo si falta."
+   "es": "Declaración autorizada sobre la función cognitiva; solo si falta.",
+   "de": "EU-zugelassene Angabe zur kognitiven Funktion; nur bei niedrigen Werten."
   },
   {
    "g": "focus",
@@ -709,7 +814,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised claim for mental performance; only if low.",
-   "es": "Declaración autorizada sobre el rendimiento intelectual; solo si falta."
+   "es": "Declaración autorizada sobre el rendimiento intelectual; solo si falta.",
+   "de": "EU-zugelassene Angabe zur geistigen Leistung; nur bei niedrigen Werten."
   },
   {
    "g": "focus",
@@ -717,7 +823,8 @@
    "ev": 1,
    "claim": false,
    "en": "Works best paired with caffeine.",
-   "es": "Funciona mejor junto con cafeína."
+   "es": "Funciona mejor junto con cafeína.",
+   "de": "Wirkt am besten zusammen mit Koffein."
   },
   {
    "g": "focus",
@@ -725,7 +832,8 @@
    "ev": 1,
    "claim": false,
    "en": "Some data on concentration under fatigue.",
-   "es": "Algunos datos sobre concentración con fatiga."
+   "es": "Algunos datos sobre concentración con fatiga.",
+   "de": "Einige Daten zur Konzentration bei Erschöpfung."
   },
   {
    "g": "focus",
@@ -733,7 +841,8 @@
    "ev": 1,
    "claim": false,
    "en": "Some memory benefit, mostly in vegetarians and older adults.",
-   "es": "Algún beneficio en memoria, sobre todo en vegetarianos y mayores."
+   "es": "Algún beneficio en memoria, sobre todo en vegetarianos y mayores.",
+   "de": "Etwas Nutzen fürs Gedächtnis, vor allem bei Vegetariern und älteren Menschen."
   },
   {
    "g": "immunity",
@@ -741,7 +850,8 @@
    "ev": 3,
    "claim": true,
    "en": "EU-authorised claim; deficiency is common in winter.",
-   "es": "Declaración autorizada; el déficit es frecuente en invierno."
+   "es": "Declaración autorizada; el déficit es frecuente en invierno.",
+   "de": "EU-zugelassene Angabe; Mangel ist im Winter häufig."
   },
   {
    "g": "immunity",
@@ -749,7 +859,8 @@
    "ev": 3,
    "claim": true,
    "en": "EU-authorised claim; lozenges may shorten colds.",
-   "es": "Declaración autorizada; las pastillas para chupar pueden acortar resfriados."
+   "es": "Declaración autorizada; las pastillas para chupar pueden acortar resfriados.",
+   "de": "EU-zugelassene Angabe; Lutschtabletten können Erkältungen verkürzen."
   },
   {
    "g": "immunity",
@@ -757,7 +868,8 @@
    "ev": 3,
    "claim": true,
    "en": "EU-authorised claim; may slightly shorten colds.",
-   "es": "Declaración autorizada; puede acortar ligeramente los resfriados."
+   "es": "Declaración autorizada; puede acortar ligeramente los resfriados.",
+   "de": "EU-zugelassene Angabe; kann Erkältungen leicht verkürzen."
   },
   {
    "g": "immunity",
@@ -765,7 +877,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised immune claim; only if low.",
-   "es": "Declaración autorizada sobre defensas; solo si falta."
+   "es": "Declaración autorizada sobre defensas; solo si falta.",
+   "de": "EU-zugelassene Angabe zum Immunsystem; nur bei niedrigen Werten."
   },
   {
    "g": "immunity",
@@ -773,7 +886,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised immune claim; only if low.",
-   "es": "Declaración autorizada sobre defensas; solo si falta."
+   "es": "Declaración autorizada sobre defensas; solo si falta.",
+   "de": "EU-zugelassene Angabe zum Immunsystem; nur bei niedrigen Werten."
   },
   {
    "g": "immunity",
@@ -781,7 +895,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised immune claim; only if low.",
-   "es": "Declaración autorizada sobre defensas; solo si falta."
+   "es": "Declaración autorizada sobre defensas; solo si falta.",
+   "de": "EU-zugelassene Angabe zum Immunsystem; nur bei niedrigen Werten."
   },
   {
    "g": "immunity",
@@ -790,7 +905,8 @@
    "claim": true,
    "en": "EU-authorised immune claim; only if deficient.",
    "es": "Declaración autorizada sobre defensas; solo si hay déficit.",
-   "cond": true
+   "cond": true,
+   "de": "EU-zugelassene Angabe zum Immunsystem; nur bei Mangel."
   },
   {
    "g": "immunity",
@@ -798,7 +914,8 @@
    "ev": 1,
    "claim": false,
    "en": "Some strains reduce respiratory infections a little.",
-   "es": "Algunas cepas reducen un poco las infecciones respiratorias."
+   "es": "Algunas cepas reducen un poco las infecciones respiratorias.",
+   "de": "Einige Stämme verringern Atemwegsinfekte ein wenig."
   },
   {
    "g": "detox",
@@ -806,7 +923,8 @@
    "ev": 1,
    "claim": false,
    "en": "Widely sold for the liver; human trials are inconsistent. No authorised claim.",
-   "es": "Muy vendido para el hígado; los ensayos en humanos no son concluyentes. Sin declaración autorizada."
+   "es": "Muy vendido para el hígado; los ensayos en humanos no son concluyentes. Sin declaración autorizada.",
+   "de": "Viel für die Leber verkauft; Studien am Menschen sind uneinheitlich. Keine zugelassene Angabe."
   },
   {
    "g": "detox",
@@ -814,7 +932,8 @@
    "ev": 1,
    "claim": false,
    "en": "Some data on digestion and blood lipids; liver claims unproven.",
-   "es": "Algunos datos sobre digestión y lípidos; efectos hepáticos sin probar."
+   "es": "Algunos datos sobre digestión y lípidos; efectos hepáticos sin probar.",
+   "de": "Einige Daten zu Verdauung und Blutfetten; Leber-Aussagen sind nicht belegt."
   },
   {
    "g": "detox",
@@ -822,7 +941,8 @@
    "ev": 1,
    "claim": false,
    "en": "Traditional use only.",
-   "es": "Solo uso tradicional."
+   "es": "Solo uso tradicional.",
+   "de": "Nur traditionelle Verwendung."
   },
   {
    "g": "detox",
@@ -830,7 +950,8 @@
    "ev": 1,
    "claim": false,
    "en": "Supports regular bowel movements, which is the most concrete thing behind 'cleanse' marketing.",
-   "es": "Favorece el tránsito intestinal, lo más concreto detrás del marketing 'limpieza'."
+   "es": "Favorece el tránsito intestinal, lo más concreto detrás del marketing 'limpieza'.",
+   "de": "Unterstützt eine regelmäßige Verdauung – das Konkreteste hinter „Entgiftungs“-Werbung."
   },
   {
    "g": "gut",
@@ -838,7 +959,8 @@
    "ev": 3,
    "claim": false,
    "en": "Strong evidence for regularity (both constipation and loose stools).",
-   "es": "Evidencia sólida para regular el tránsito (estreñimiento y heces blandas)."
+   "es": "Evidencia sólida para regular el tránsito (estreñimiento y heces blandas).",
+   "de": "Starke Belege für eine regelmäßige Verdauung (bei Verstopfung und bei weichem Stuhl)."
   },
   {
    "g": "gut",
@@ -846,7 +968,8 @@
    "ev": 2,
    "claim": false,
    "en": "Specific strains help with antibiotic-related diarrhoea and IBS symptoms.",
-   "es": "Algunas cepas ayudan con la diarrea por antibióticos y el colon irritable."
+   "es": "Algunas cepas ayudan con la diarrea por antibióticos y el colon irritable.",
+   "de": "Bestimmte Stämme helfen bei antibiotikabedingtem Durchfall und Reizdarm-Beschwerden."
   },
   {
    "g": "gut",
@@ -854,7 +977,8 @@
    "ev": 1,
    "claim": false,
    "en": "Small trials on bloating and indigestion.",
-   "es": "Ensayos pequeños sobre hinchazón y digestiones pesadas."
+   "es": "Ensayos pequeños sobre hinchazón y digestiones pesadas.",
+   "de": "Kleine Studien zu Blähungen und Verdauungsbeschwerden."
   },
   {
    "g": "muscle",
@@ -862,7 +986,8 @@
    "ev": 3,
    "claim": true,
    "en": "EU-authorised: 3 g a day improves performance in short, high-intensity efforts. The best-studied sports supplement.",
-   "es": "Autorizado en la UE: 3 g al día mejoran el rendimiento en esfuerzos cortos e intensos. El suplemento deportivo más estudiado."
+   "es": "Autorizado en la UE: 3 g al día mejoran el rendimiento en esfuerzos cortos e intensos. El suplemento deportivo más estudiado.",
+   "de": "EU-zugelassen: 3 g täglich steigern die Leistung bei kurzen, hochintensiven Belastungen. Das am besten untersuchte Sport-Supplement."
   },
   {
    "g": "muscle",
@@ -870,7 +995,8 @@
    "ev": 2,
    "claim": true,
    "en": "EU-authorised claim for normal muscle function; matters if low.",
-   "es": "Declaración autorizada sobre la función muscular; importa si falta."
+   "es": "Declaración autorizada sobre la función muscular; importa si falta.",
+   "de": "EU-zugelassene Angabe zur normalen Muskelfunktion; wichtig bei niedrigen Werten."
   },
   {
    "g": "muscle",
@@ -878,7 +1004,8 @@
    "ev": 2,
    "claim": true,
    "en": "EU-authorised claim for normal muscle function.",
-   "es": "Declaración autorizada sobre la función muscular normal."
+   "es": "Declaración autorizada sobre la función muscular normal.",
+   "de": "EU-zugelassene Angabe zur normalen Muskelfunktion."
   },
   {
    "g": "muscle",
@@ -886,7 +1013,8 @@
    "ev": 1,
    "claim": false,
    "en": "May reduce muscle soreness slightly.",
-   "es": "Puede reducir ligeramente las agujetas."
+   "es": "Puede reducir ligeramente las agujetas.",
+   "de": "Kann Muskelkater leicht verringern."
   },
   {
    "g": "muscle",
@@ -894,7 +1022,8 @@
    "ev": 1,
    "claim": false,
    "en": "Small trials on strength gains.",
-   "es": "Ensayos pequeños sobre ganancia de fuerza."
+   "es": "Ensayos pequeños sobre ganancia de fuerza.",
+   "de": "Kleine Studien zum Kraftzuwachs."
   },
   {
    "g": "joints",
@@ -902,7 +1031,8 @@
    "ev": 2,
    "claim": false,
    "en": "Trials in knee osteoarthritis show pain relief comparable to mild painkillers.",
-   "es": "Ensayos en artrosis de rodilla muestran alivio del dolor similar a analgésicos suaves."
+   "es": "Ensayos en artrosis de rodilla muestran alivio del dolor similar a analgésicos suaves.",
+   "de": "Studien bei Kniearthrose zeigen eine Schmerzlinderung ähnlich wie leichte Schmerzmittel."
   },
   {
    "g": "joints",
@@ -910,7 +1040,8 @@
    "ev": 1,
    "claim": true,
    "en": "EU-authorised claim: normal collagen formation for cartilage.",
-   "es": "Declaración autorizada: formación normal de colágeno para el cartílago."
+   "es": "Declaración autorizada: formación normal de colágeno para el cartílago.",
+   "de": "EU-zugelassene Angabe: normale Kollagenbildung für die Knorpelfunktion."
   },
   {
    "g": "joints",
@@ -918,7 +1049,8 @@
    "ev": 1,
    "claim": false,
    "en": "Mixed trials; possible small benefit at 5–10 g a day.",
-   "es": "Ensayos mixtos; posible beneficio pequeño con 5–10 g al día."
+   "es": "Ensayos mixtos; posible beneficio pequeño con 5–10 g al día.",
+   "de": "Gemischte Studien; möglicher kleiner Nutzen bei 5–10 g täglich."
   },
   {
    "g": "joints",
@@ -926,7 +1058,8 @@
    "ev": 1,
    "claim": false,
    "en": "Small effects on joint stiffness.",
-   "es": "Efectos pequeños sobre la rigidez articular."
+   "es": "Efectos pequeños sobre la rigidez articular.",
+   "de": "Kleine Effekte auf Gelenksteifigkeit."
   }
  ],
  "products": [
@@ -936,7 +1069,8 @@
    "name": "Gentle Iron 25 mg",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "90 caps",
    "vegan": true,
@@ -959,7 +1093,8 @@
    "name": "Berocca Energía",
    "dose": {
     "en": "1 effervescent tablet a day (label allows 2)",
-    "es": "1 comprimido efervescente al día (la etiqueta permite 2)"
+    "es": "1 comprimido efervescente al día (la etiqueta permite 2)",
+    "de": "1 Brausetablette täglich (laut Etikett bis zu 2)"
    },
    "pack": "30 tabs",
    "markets": {
@@ -1010,7 +1145,8 @@
    "flags": [
     {
      "en": "At 2 tablets a day, B6 is 16.4 mg — above the EFSA safe upper level of 12 mg.",
-     "es": "Con 2 comprimidos al día, la B6 llega a 16,4 mg, por encima del límite seguro de la EFSA (12 mg)."
+     "es": "Con 2 comprimidos al día, la B6 llega a 16,4 mg, por encima del límite seguro de la EFSA (12 mg).",
+     "de": "Bei 2 Tabletten täglich liegt B6 bei 16,4 mg – über dem von der EFSA abgeleiteten sicheren Höchstwert von 12 mg."
     }
    ],
    "source": "https://www.soin-et-nature.com/es/1399-berocca-energie-vitaminas-comprimidos-efervescentes-sin-azucar.html"
@@ -1021,7 +1157,8 @@
    "name": "Vitamin B Komplex hochdosiert",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "180 caps",
    "vegan": true,
@@ -1055,7 +1192,8 @@
    "name": "Vitamina B12 1000 µg masticable",
    "dose": {
     "en": "1 chewable a day",
-    "es": "1 comprimido masticable al día"
+    "es": "1 comprimido masticable al día",
+    "de": "1 Kautablette täglich"
    },
    "pack": "100 tabs",
    "markets": {
@@ -1080,7 +1218,8 @@
    "name": "Rhodiola Root Extract",
    "dose": {
     "en": "2 capsules a day (label: 1–3)",
-    "es": "2 cápsulas al día (etiqueta: 1–3)"
+    "es": "2 cápsulas al día (etiqueta: 1–3)",
+    "de": "2 Kapseln täglich (Etikett: 1–3)"
    },
    "pack": "60 caps",
    "vegan": true,
@@ -1103,7 +1242,8 @@
    "name": "Melatonina 1,95 mg",
    "dose": {
     "en": "1 tablet before bed",
-    "es": "1 comprimido antes de dormir"
+    "es": "1 comprimido antes de dormir",
+    "de": "1 Tablette vor dem Schlafengehen"
    },
    "pack": "60 tabs",
    "markets": {
@@ -1131,7 +1271,8 @@
    "name": "Sueño Forte",
    "dose": {
     "en": "1 tablet 30 min before bed",
-    "es": "1 comprimido 30 min antes de dormir"
+    "es": "1 comprimido 30 min antes de dormir",
+    "de": "1 Tablette 30 Min. vor dem Schlafengehen"
    },
    "pack": "30 tabs",
    "markets": {
@@ -1175,7 +1316,8 @@
    "name": "Sueño",
    "dose": {
     "en": "1 tablet 30 min before bed",
-    "es": "1 comprimido 30 min antes de dormir"
+    "es": "1 comprimido 30 min antes de dormir",
+    "de": "1 Tablette 30 Min. vor dem Schlafengehen"
    },
    "pack": "30 tabs",
    "markets": {
@@ -1211,7 +1353,8 @@
    "name": "ZzzQuil Natura gummies (DE: ZzzQuil Goodnight)",
    "dose": {
     "en": "1 gummy 30 min before bed",
-    "es": "1 gominola 30 min antes de dormir"
+    "es": "1 gominola 30 min antes de dormir",
+    "de": "1 Fruchtgummi 30 Min. vor dem Schlafengehen"
    },
    "pack": "30 gummies",
    "markets": {
@@ -1252,7 +1395,8 @@
    "name": "Magnesium Bisglycinat",
    "dose": {
     "en": "3 capsules a day",
-    "es": "3 cápsulas al día"
+    "es": "3 cápsulas al día",
+    "de": "3 Kapseln täglich"
    },
    "pack": "180 caps",
    "vegan": true,
@@ -1278,7 +1422,8 @@
    "name": "Bisglicinato de magnesio",
    "dose": {
     "en": "See label",
-    "es": "Ver etiqueta"
+    "es": "Ver etiqueta",
+    "de": "Siehe Etikett"
    },
    "pack": "60 tabs",
    "markets": {
@@ -1303,7 +1448,8 @@
    "name": "Ashwagandha Opti KSM-66",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "180 caps",
    "markets": {
@@ -1324,7 +1470,8 @@
    "name": "KSM-66 Ashwagandha",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "30 caps",
    "markets": {
@@ -1345,7 +1492,8 @@
    "flags": [
     {
      "en": "Retailer states 500 mg per capsule — unusual for KSM-66 (normally 300 or 600 mg). Recheck the label.",
-     "es": "La tienda indica 500 mg por cápsula, poco habitual en KSM-66 (normalmente 300 o 600 mg). Revisar etiqueta."
+     "es": "La tienda indica 500 mg por cápsula, poco habitual en KSM-66 (normalmente 300 o 600 mg). Revisar etiqueta.",
+     "de": "Der Shop gibt 500 mg pro Kapsel an – ungewöhnlich für KSM-66 (meist 300 oder 600 mg). Etikett erneut prüfen."
     }
    ],
    "source": "https://www.myprotein.at/p/sporternahrung/ksm-66-ashwagandha-kapseln/12883259"
@@ -1356,7 +1504,8 @@
    "name": "L-Theanine 150 mg",
    "dose": {
     "en": "2 capsules a day",
-    "es": "2 cápsulas al día"
+    "es": "2 cápsulas al día",
+    "de": "2 Kapseln täglich"
    },
    "pack": "60 caps",
    "vegan": true,
@@ -1373,7 +1522,8 @@
    "flags": [
     {
      "en": "Listed as discontinued at a UK retailer — confirm EU availability before linking.",
-     "es": "Aparece como descatalogado en una tienda del Reino Unido; confirmar disponibilidad en la UE."
+     "es": "Aparece como descatalogado en una tienda del Reino Unido; confirmar disponibilidad en la UE.",
+     "de": "Bei einem britischen Shop als eingestellt gelistet – EU-Verfügbarkeit vor dem Verlinken bestätigen."
     }
    ],
    "source": "https://www.medino.com/product/solgar-l-theanine-150mg-60-capsules"
@@ -1384,7 +1534,8 @@
    "name": "Omega-3 Total (liquid)",
    "dose": {
     "en": "8 ml a day",
-    "es": "8 ml al día"
+    "es": "8 ml al día",
+    "de": "8 ml täglich"
    },
    "pack": "200 ml",
    "markets": {
@@ -1412,7 +1563,8 @@
    "name": "Ultimate Omega 1280 mg",
    "dose": {
     "en": "2 softgels a day",
-    "es": "2 cápsulas blandas al día"
+    "es": "2 cápsulas blandas al día",
+    "de": "2 Weichkapseln täglich"
    },
    "pack": "60 softgels",
    "markets": {
@@ -1437,7 +1589,8 @@
    "name": "Vitamin D3 2200 IU (55 µg)",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "50 caps",
    "markets": {
@@ -1462,7 +1615,8 @@
    "name": "Vitamin D3+K2 1000 IE Tropfen",
    "dose": {
     "en": "1 drop a day",
-    "es": "1 gota al día"
+    "es": "1 gota al día",
+    "de": "1 Tropfen täglich"
    },
    "pack": "50 ml (~1700 drops)",
    "markets": {
@@ -1491,7 +1645,8 @@
    "name": "Zinc Picolinate 22 mg",
    "dose": {
     "en": "1 tablet a day with food",
-    "es": "1 comprimido al día con comida"
+    "es": "1 comprimido al día con comida",
+    "de": "1 Tablette täglich zu einer Mahlzeit"
    },
    "pack": "100 tabs",
    "markets": {
@@ -1517,7 +1672,8 @@
    "name": "Ester-C Plus 1000 mg",
    "dose": {
     "en": "1 tablet a day",
-    "es": "1 comprimido al día"
+    "es": "1 comprimido al día",
+    "de": "1 Tablette täglich"
    },
    "pack": "90 tabs",
    "markets": {
@@ -1538,7 +1694,8 @@
    "name": "Mariendistel + Artischocke + Löwenzahn",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "120 caps",
    "vegan": true,
@@ -1571,7 +1728,8 @@
    "name": "Extracto de cardo mariano 450 mg",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "120 caps",
    "vegan": true,
@@ -1598,7 +1756,8 @@
    "name": "Cardo María",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "60 caps",
    "markets": {
@@ -1634,7 +1793,8 @@
    "name": "OMNi-BiOTiC 6",
    "dose": {
     "en": "1 sachet (3 g) a day",
-    "es": "1 sobre (3 g) al día"
+    "es": "1 sobre (3 g) al día",
+    "de": "1 Beutel (3 g) täglich"
    },
    "pack": "60 sachets",
    "markets": {
@@ -1658,7 +1818,8 @@
    "name": "Lactoflora Restore",
    "dose": {
     "en": "1 capsule a day after a meal",
-    "es": "1 cápsula al día tras una comida"
+    "es": "1 cápsula al día tras una comida",
+    "de": "1 Kapsel täglich nach einer Mahlzeit"
    },
    "pack": "20 caps",
    "markets": {
@@ -1679,7 +1840,8 @@
    "name": "Bio Flohsamenschalen (powder)",
    "dose": {
     "en": "1–2 tsp (≈5 g) a day",
-    "es": "1–2 cucharaditas (≈5 g) al día"
+    "es": "1–2 cucharaditas (≈5 g) al día",
+    "de": "1–2 TL (≈5 g) täglich"
    },
    "pack": "400 g",
    "vegan": true,
@@ -1704,7 +1866,8 @@
    "name": "Creatina monohidrato en polvo (sin sabor)",
    "dose": {
     "en": "1 scoop (3 g) a day",
-    "es": "1 cacito (3 g) al día"
+    "es": "1 cacito (3 g) al día",
+    "de": "1 Messlöffel (3 g) täglich"
    },
    "pack": "250 g (83 servings)",
    "vegan": true,
@@ -1726,7 +1889,8 @@
    "name": "Kurkuma-Extrakt + Piperin",
    "dose": {
     "en": "1 capsule a day",
-    "es": "1 cápsula al día"
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
    },
    "pack": "180 caps",
    "vegan": true,
@@ -1752,7 +1916,8 @@
    "name": "Colágeno con magnesio (comprimidos)",
    "dose": {
     "en": "6 tablets a day",
-    "es": "6 comprimidos al día"
+    "es": "6 comprimidos al día",
+    "de": "6 Tabletten täglich"
    },
    "pack": "450 tabs",
    "markets": {

@@ -63,7 +63,7 @@
       for (const gi of Object.values(ix.byGoal[g] || {})) {
         const e = (ingScores[gi.i] ||= { i: gi.i, score: 0, goals: [] });
         e.score += ((w * gi.ev) / 3) * (gi.cond ? 0.5 : 1);
-        e.goals.push({ g, ev: gi.ev, claim: gi.claim, cond: !!gi.cond, en: gi.en, es: gi.es });
+        e.goals.push({ g, ev: gi.ev, claim: gi.claim, cond: !!gi.cond, en: gi.en, es: gi.es, de: gi.de ?? gi.en });
       }
     }
     const ingredients = Object.values(ingScores)

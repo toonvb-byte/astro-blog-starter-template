@@ -1,5 +1,5 @@
 /** Launch locales. Add a locale here + in ui.ts + ROUTES below to switch it on. */
-export const LOCALES = ["en", "es"] as const;
+export const LOCALES = ["en", "es", "de"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 
@@ -15,22 +15,22 @@ export const ALL_LANGUAGES: { code: string; name: string }[] = [
 	{ code: "pt", name: "Português" },
 ];
 
-export const OG_LOCALE: Record<Locale, string> = { en: "en_GB", es: "es_ES" };
+export const OG_LOCALE: Record<Locale, string> = { en: "en_GB", es: "es_ES", de: "de_DE" };
 
 /** Default "ship to" country per locale (overridable by the visitor later). */
-export const DEFAULT_COUNTRY: Record<Locale, string> = { en: "DE", es: "ES" };
+export const DEFAULT_COUNTRY: Record<Locale, string> = { en: "DE", es: "ES", de: "DE" };
 
 /** Localised URL segments for every non-article page. */
 export const ROUTES = {
-	prices: { en: "price-tracker", es: "comparador-precios" },
-	compare: { en: "compare", es: "comparar" },
-	finder: { en: "finder", es: "buscador" },
-	guides: { en: "guides", es: "guias" },
-	about: { en: "about", es: "sobre-nosotros" },
-	privacy: { en: "legal/privacy", es: "legal/privacidad" },
-	cookies: { en: "legal/cookies", es: "legal/cookies" },
-	imprint: { en: "legal/imprint", es: "legal/aviso-legal" },
-	disclosure: { en: "legal/affiliate-disclosure", es: "legal/divulgacion-afiliados" },
+	prices: { en: "price-tracker", es: "comparador-precios", de: "preisvergleich" },
+	compare: { en: "compare", es: "comparar", de: "vergleichen" },
+	finder: { en: "finder", es: "buscador", de: "zielfinder" },
+	guides: { en: "guides", es: "guias", de: "ratgeber" },
+	about: { en: "about", es: "sobre-nosotros", de: "ueber-uns" },
+	privacy: { en: "legal/privacy", es: "legal/privacidad", de: "rechtliches/datenschutz" },
+	cookies: { en: "legal/cookies", es: "legal/cookies", de: "rechtliches/cookies" },
+	imprint: { en: "legal/imprint", es: "legal/aviso-legal", de: "rechtliches/impressum" },
+	disclosure: { en: "legal/affiliate-disclosure", es: "legal/divulgacion-afiliados", de: "rechtliches/affiliate-hinweis" },
 } as const satisfies Record<string, Record<Locale, string>>;
 export type RouteKey = keyof typeof ROUTES;
 

@@ -23,7 +23,7 @@ const C = {
 		],
 		money: ["NutriMetrics is free. Many shop links are affiliate links through networks such as AWIN and direct partner programmes: if you buy after clicking, the shop may pay us a commission. You pay the same price.", "Retailers we don’t earn from are still listed when they have the product. Every affiliate link is marked."],
 		promises: ["Rankings follow price and methodology, never commission.", "No paid placements or sponsored rankings.", "Brands can’t pay to review or edit our guides."],
-		editorial: ["Every guide names its author and its reviewer. Health-related content is reviewed by a qualified professional before it’s published and again when it’s updated.", "We cite peer-reviewed research and official bodies such as EFSA, and we don’t make health claims beyond those authorised in the EU."],
+		editorial: ["Every guide names its author and shows when its evidence was last checked. We are not doctors, so we don’t give our own medical opinions: every health statement links to an official source — the EU register of health claims, EFSA, or a national authority such as AESAN (Spain) or BfR (Germany) — and to systematic reviews where they exist.", "We only use health claims in the wording authorised in the EU, we never claim that a supplement treats, cures or prevents a disease, and we say so when the evidence is weak. None of our guides is described as medically reviewed unless a named professional has reviewed it."],
 		errors: "Spotted an error?", tell: "Tell us", errorsEnd: "— corrections are noted at the bottom of the article.",
 		team: [
 			["Toon", "Founder & editor-in-chief", "[Bio: ~20 years in European e-commerce; why NutriMetrics exists.]"],
@@ -48,7 +48,7 @@ const C = {
 		],
 		money: ["NutriMetrics es gratis. Muchos enlaces a tiendas son enlaces de afiliado a través de redes como AWIN y programas directos: si compras después de hacer clic, la tienda puede pagarnos una comisión. Tú pagas lo mismo.", "Las tiendas con las que no ganamos nada también aparecen si tienen el producto. Todos los enlaces de afiliado están marcados."],
 		promises: ["Las clasificaciones siguen el precio y la metodología, nunca la comisión.", "Sin posiciones pagadas ni clasificaciones patrocinadas.", "Las marcas no pueden pagar para revisar o editar nuestras guías."],
-		editorial: ["Cada guía indica su autor y su revisor. El contenido relacionado con la salud lo revisa un profesional cualificado antes de publicarse y cada vez que se actualiza.", "Citamos investigación revisada por pares y organismos oficiales como la EFSA, y no hacemos declaraciones de salud más allá de las autorizadas en la UE."],
+		editorial: ["Cada guía indica su autor y cuándo se comprobó la evidencia por última vez. No somos médicos, así que no damos opiniones médicas propias: cada afirmación de salud enlaza a una fuente oficial —el registro de declaraciones de propiedades saludables de la UE, la EFSA o una autoridad nacional como la AESAN (España) o el BfR (Alemania)— y a revisiones sistemáticas cuando existen.", "Solo usamos declaraciones de salud con la redacción autorizada en la UE, nunca decimos que un suplemento trate, cure o prevenga una enfermedad, y lo indicamos cuando la evidencia es débil. Ninguna guía se presenta como revisada por un médico salvo que la haya revisado un profesional con nombre propio."],
 		errors: "¿Has visto un error?", tell: "Dínoslo", errorsEnd: ": las correcciones se indican al final del artículo.",
 		team: [
 			["Toon", "Fundador y director editorial", "[Bio: ~20 años en e-commerce europeo; por qué existe NutriMetrics.]"],
@@ -57,6 +57,31 @@ const C = {
 		langP: "Cada edición está localizada para su mercado (tiendas locales, envíos locales, búsquedas locales), no solo traducida.",
 		contactP: "¿Preguntas, correcciones o tienes una tienda y quieres aparecer? Escríbenos.",
 		form: { name: "Nombre", email: "Email", topic: "Tema", message: "Mensaje", send: "Enviar mensaje", topics: ["Pregunta general", "Informar de un error", "Tienda / colaboración", "Prensa"], soon: "El formulario se abre en el lanzamiento; mientras tanto, escríbenos por email." },
+	},
+	de: {
+		title: "Über NutriMetrics & unsere Methodik",
+		description: "Wie NutriMetrics Preise für Nahrungsergänzungsmittel in Europa vergleicht, wie wir Geld verdienen, unsere redaktionellen Grundsätze und Kontakt.",
+		eyebrow: "Über uns",
+		h1: "Preise für Nahrungsergänzungsmittel in Europa sind undurchsichtig. Wir machen sie vergleichbar.",
+		lead: "Packungsgrößen, Dosierungen und Versandkosten unterscheiden sich stark zwischen Ländern und Shops. NutriMetrics macht aus jedem Angebot eine ehrliche Zahl – die Kosten pro Dosis – und zeigt die Qualitätsinformationen direkt daneben.",
+		toc: ["So vergleichen wir Preise", "Wie wir Geld verdienen", "Redaktionelle Grundsätze", "Team", "Kontakt"],
+		steps: [
+			["01 · Sammeln", "Preise aus Shop-Feeds", "Wir lesen Produkt-Feeds von Shops und Affiliate-Netzwerken und aktualisieren sie alle [24] Stunden."],
+			["02 · Zuordnen", "Gleiches Produkt, jeder Shop", "Angebote werden über EAN/GTIN zugeordnet und von Hand geprüft, damit ein Produkt alle Shops zeigt, in denen es erhältlich ist."],
+			["03 · Umrechnen", "Kosten pro Dosis, mit Versand", "Gesamtpreis in dein Land geteilt durch die Portionen – oder durch die Gramm Wirkstoff."],
+			["04 · Einordnen", "Qualitätsmerkmale daneben", "Verbindung, Dosis, unabhängige Tests und Zusatzstoffe stehen neben dem Preis – nie dahinter versteckt."],
+		],
+		money: ["NutriMetrics ist kostenlos. Viele Shop-Links sind Affiliate-Links über Netzwerke wie AWIN und direkte Partnerprogramme: Wenn du nach dem Klick kaufst, zahlt uns der Shop eventuell eine Provision. Du zahlst denselben Preis.", "Shops, an denen wir nichts verdienen, werden trotzdem gelistet, wenn sie das Produkt führen. Jeder Affiliate-Link ist gekennzeichnet."],
+		promises: ["Rangfolgen richten sich nach Preis und Methodik, nie nach Provision.", "Keine bezahlten Platzierungen oder gesponserten Rankings.", "Marken können nicht dafür bezahlen, unsere Ratgeber zu prüfen oder zu ändern."],
+		editorial: ["Jeder Ratgeber nennt seinen Autor und zeigt, wann die Belege zuletzt geprüft wurden. Wir sind keine Ärzte und geben deshalb keine eigenen medizinischen Einschätzungen: Jede Gesundheitsaussage verweist auf eine amtliche Quelle – das EU-Register für gesundheitsbezogene Angaben, die EFSA oder eine nationale Behörde wie das BfR – und, wo vorhanden, auf systematische Übersichtsarbeiten.", "Wir verwenden gesundheitsbezogene Angaben nur im in der EU zugelassenen Wortlaut, behaupten nie, dass ein Nahrungsergänzungsmittel eine Krankheit behandelt, heilt oder verhindert, und sagen es offen, wenn die Beleglage schwach ist. Kein Ratgeber wird als medizinisch geprüft bezeichnet, solange ihn keine namentlich genannte Fachperson geprüft hat."],
+		errors: "Einen Fehler entdeckt?", tell: "Schreib uns", errorsEnd: "– Korrekturen vermerken wir am Ende des Artikels.",
+		team: [
+			["Toon", "Gründer & Chefredakteur", "[Bio: ~20 Jahre europäischer E-Commerce; warum es NutriMetrics gibt.]"],
+		],
+		langH: "Gemacht für ganz Europa",
+		langP: "Jede Sprachausgabe ist auf ihren Markt zugeschnitten – lokale Shops, lokaler Versand, lokale Suchbegriffe – und nicht nur übersetzt.",
+		contactP: "Fragen, Korrekturen oder du betreibst einen Shop und möchtest gelistet werden? Schreib uns.",
+		form: { name: "Name", email: "E-Mail", topic: "Thema", message: "Nachricht", send: "Nachricht senden", topics: ["Allgemeine Frage", "Fehler melden", "Shop / Partnerschaft", "Presse"], soon: "Das Kontaktformular öffnet zum Start – bis dahin bitte per E-Mail." },
 	},
 }[locale];
 const ids = ["method", "money", "editorial", "team", "contact"];

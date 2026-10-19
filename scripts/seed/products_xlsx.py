@@ -29,6 +29,7 @@ BASE = [  # (key, header, width, help)
     ("servings", "Servings per pack", 10, "Number of daily doses in the pack (whole number)"),
     ("dose_en", "Daily dose (EN)", 26, "e.g. 2 capsules a day"),
     ("dose_es", "Daily dose (ES)", 26, "e.g. 2 cápsulas al día"),
+    ("dose_de", "Daily dose (DE)", 26, "e.g. 2 Kapseln täglich"),
     ("vegan", "Vegan", 8, "Yes / No / empty if unknown"),
     ("source", "Label source URL", 34, "Page where you read the ingredient amounts"),
     ("price", "Price €", 9, "Indicative price incl. VAT"),
@@ -37,6 +38,7 @@ BASE = [  # (key, header, width, help)
     ("partial", "Label incomplete?", 10, "Yes if the label hides amounts or you could not capture everything"),
     ("flag_en", "Warning (EN)", 30, "Optional warning shown on the product card"),
     ("flag_es", "Warning (ES)", 30, "Same warning in Spanish"),
+    ("flag_de", "Warning (DE)", 30, "Same warning in German"),
     ("excluded", "Exclude because", 24, "Fill in to keep it OUT of recommendations, e.g. registered medicine"),
     ("notes", "Your notes", 24, "Not imported. Anything for yourself."),
 ]
@@ -130,13 +132,14 @@ def export(path):
             "status": "Ready", "id": p["id"], "brand": p["brand"], "name": p["name"], "ean": p.get("ean"),
             "ES": (p.get("markets") or {}).get("ES"), "DE": (p.get("markets") or {}).get("DE"),
             "pack": p.get("pack"), "servings": p.get("servings"),
-            "dose_en": (p.get("dose") or {}).get("en"), "dose_es": (p.get("dose") or {}).get("es"),
+            "dose_en": (p.get("dose") or {}).get("en"), "dose_es": (p.get("dose") or {}).get("es"), "dose_de": (p.get("dose") or {}).get("de"),
             "vegan": "Yes" if p.get("vegan") else None, "source": p.get("source"),
             "price": (p.get("price") or {}).get("amt"), "price_where": (p.get("price") or {}).get("where"),
             "price_date": d["meta"]["checked"] if p.get("price") else None,
             "partial": "Yes" if p.get("partial") else None,
             "flag_en": " | ".join(f["en"] for f in p.get("flags", [])) or None,
             "flag_es": " | ".join(f["es"] for f in p.get("flags", [])) or None,
+            "flag_de": " | ".join(f.get("de", f["en"]) for f in p.get("flags", [])) or None,
             "excluded": p.get("excluded"),
         }
         for n, x in enumerate(p["ingredients"][:SLOTS], 1):
@@ -237,7 +240,7 @@ def import_(path):
         if r.get("servings"):
             p["servings"] = int(r["servings"])
         if r.get("dose_en") or r.get("dose_es"):
-            p["dose"] = {"en": r.get("dose_en") or r.get("dose_es"), "es": r.get("dose_es") or r.get("dose_en")}
+            p["dose"] = {"en": r.get("dose_en") or r.get("dose_es"), "es": r.get("dose_es") or r.get("dose_en"), "de": r.get("dose_de") or r.get("dose_en") or r.get("dose_es")}
         p["markets"] = {m: r[m].strip().lower() for m in ("ES", "DE") if r.get(m)}
         if not p["markets"] and not r.get("excluded"):
             errors.append(f"row {rn} ({pid}): no market set (Spain/Germany)")
@@ -248,7 +251,7 @@ def import_(path):
         else:
             p.pop("price", None)
         if r.get("flag_en"):
-            p["flags"] = [{"en": r["flag_en"], "es": r.get("flag_es") or r["flag_en"]}]
+            p["flags"] = [{"en": r["flag_en"], "es": r.get("flag_es") or r["flag_en"], "de": r.get("flag_de") or r["flag_en"]}]
         else:
             p.pop("flags", None)
         if r.get("excluded"):

@@ -6,7 +6,7 @@ export type Guide = CollectionEntry<"guides">;
 /** Locale + URL slug come from the file path: {locale}/{slug}.mdx */
 export function guideLocale(g: Guide): Locale {
 	const l = g.id.split("/")[0];
-	if (!isLocale(l)) throw new Error(`Guide "${g.id}" is not inside a locale folder (en/, es/)`);
+	if (!isLocale(l)) throw new Error(`Guide "${g.id}" is not inside a locale folder (en/, es/, de/)`);
 	return l;
 }
 export const guideSlug = (g: Guide) => g.id.split("/").slice(1).join("/");

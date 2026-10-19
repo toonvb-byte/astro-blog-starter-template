@@ -17,7 +17,7 @@ export default defineConfig({
 		mdx(),
 		sitemap({
 			filter: (page) => !page.includes("/go/") && !page.includes("/keystatic"),
-			i18n: { defaultLocale: "en", locales: { en: "en", es: "es" } },
+			i18n: { defaultLocale: "en", locales: { en: "en", es: "es", de: "de" } },
 		}),
 	],
 	// React 19 on Workers needs the edge build of react-dom/server (used by the Keystatic admin page).
