@@ -21,7 +21,11 @@ const toc = [
 	...(d.faq.length ? [{ slug: "faq", text: t("article.faq") }] : []),
 	...(d.sources.length ? [{ slug: "sources", text: t("article.sources") }] : []),
 ];
-const related = (await getGuides(locale)).filter((g) => g.id !== guide.id).slice(0, 3);
+// Related: same category first, then guides this article links to, then the newest (all in this language).
+const body = guide.body ?? "";
+const others = (await getGuides(locale)).filter((g) => g.id !== guide.id);
+const score = (g: Guide) => (g.data.category === d.category ? 0 : 2) - (body.includes(guideUrl(g)) ? 1 : 0);
+const related = others.map((g, i) => ({ g, s: score(g), i })).sort((a, b) => a.s - b.s || a.i - b.i).slice(0, 3).map((x) => x.g);
 
 const jsonLd: object[] = [
 	{
@@ -32,10 +36,15 @@ const jsonLd: object[] = [
 		inLanguage: locale,
 		datePublished: d.publishDate.toISOString(),
 		dateModified: updated.toISOString(),
-		author: { "@type": "Person", name: d.author },
+		author: { "@type": "Person", name: d.author, url: new URL(`${path(locale, "about")}#team`, SITE_URL).href },
 		...(d.reviewer ? { reviewedBy: { "@type": "Person", name: d.reviewer } } : {}),
-		publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+		publisher: { "@id": `${SITE_URL}/#org` },
 		mainEntityOfPage: new URL(url, SITE_URL).href,
+		isAccessibleForFree: true,
+		articleSection: d.category,
+		...(d.sources.some((s) => s.url)
+			? { citation: d.sources.filter((s) => s.url).map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })) }
+			: {}),
 	},
 	...(d.faq.length
 		? [{
