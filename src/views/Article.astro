@@ -5,6 +5,7 @@ import { LOCALES, path, type Locale } from "../i18n/config";
 import { useT, formatDate } from "../i18n/ui";
 import { getGuides, guideAlternates, guideUrl, inlineMd, type Guide } from "../lib/guides";
 import { SITE_NAME, SITE_URL } from "../lib/site";
+import { hubsForGuide, hubUrl } from "../lib/hubs";
 
 interface Props { locale: Locale; guide: Guide }
 const { locale, guide } = Astro.props;
@@ -14,6 +15,7 @@ const { Content, headings } = await render(guide);
 const alternates = await guideAlternates(guide);
 const url = guideUrl(guide);
 const updated = d.updatedDate ?? d.publishDate;
+const partOf = await hubsForGuide(d.translationKey, locale);
 
 const toc = [
 	...(d.takeaways.length ? [{ slug: "takeaways", text: t("article.takeaways") }] : []),
@@ -97,6 +99,12 @@ const jsonLd: object[] = [
 					</span>
 				)}
 			</div>
+			{partOf.length > 0 && (
+				<p class="part-of">
+					<span class="muted">{t("hub.partOf")}</span>
+					{partOf.map((h) => <a href={hubUrl(h)} class="hub-pill">{h.data.name} →</a>)}
+				</p>
+			)}
 			<p role="note" class="art-note">{t("article.note")}</p>
 		</header>
 
@@ -170,6 +178,9 @@ const jsonLd: object[] = [
 	.byline { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; align-items: center; padding-top: 16px; border-top: 1px solid var(--nm-line); }
 	.byline a { font-weight: 600; }
 	.lang-pill { margin-left: 6px; padding: 4px 8px; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-sm); text-decoration: none; font-size: 13px; }
+	.part-of { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; }
+	.hub-pill { font-weight: 600; text-decoration: none; padding: 6px 12px; border-radius: var(--nm-pill); background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.hub-pill:hover { background: var(--nm-accent); color: #fff; }
 	.art-note { font-size: 13px; color: var(--nm-deal-ink); background: var(--nm-deal-soft); padding: 10px 14px; border-radius: var(--nm-radius); }
 	.art-layout { display: grid; grid-template-columns: 240px minmax(0, 760px); gap: 56px; padding-bottom: 32px; }
 	.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }

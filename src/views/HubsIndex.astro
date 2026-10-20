@@ -1,0 +1,98 @@
+---
+/** Supplements A–Z: every hub in this language, goal hubs first, then grouped by type. */
+import Base from "../layouts/Base.astro";
+import { path, routeAlternates, type Locale } from "../i18n/config";
+import { useT } from "../i18n/ui";
+import { HUB_GROUPS } from "../lib/hub-groups";
+import { getHubs, hubUrl } from "../lib/hubs";
+import { SITE_URL } from "../lib/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+const all = await getHubs(locale);
+const goals = all.filter((h) => h.data.kind === "goal");
+const groups = HUB_GROUPS.map((g) => ({ g, items: all.filter((h) => h.data.kind === "ingredient" && h.data.group === g) })).filter((x) => x.items.length);
+const label = (g: string) => t(`group.${g}` as "group.vitamins");
+
+const jsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		name: t("hubs.h1"),
+		description: t("hubs.description"),
+		inLanguage: locale,
+		url: new URL(path(locale, "supplements"), SITE_URL).href,
+		publisher: { "@id": `${SITE_URL}/#org` },
+		mainEntity: {
+			"@type": "ItemList",
+			itemListElement: all.map((h, i) => ({ "@type": "ListItem", position: i + 1, name: h.data.name, url: new URL(hubUrl(h), SITE_URL).href })),
+		},
+	},
+];
+---
+<Base
+	locale={locale}
+	title={t("hubs.title")}
+	description={t("hubs.description")}
+	alternates={routeAlternates("supplements")}
+	active="supplements"
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: t("nav.supplements"), href: path(locale, "supplements") }]}
+	jsonLd={jsonLd}
+>
+	<header class="container idx-head">
+		<h1 class="h1">{t("hubs.h1")}</h1>
+		<p class="lead">{t("hubs.lead")}</p>
+		<nav aria-label={t("hubs.h1")} class="jump">
+			{goals.length > 0 && <a href="#goals" class="chip">{t("group.goals")}</a>}
+			{groups.map((x) => <a href={`#${x.g}`} class="chip">{label(x.g)}</a>)}
+		</nav>
+	</header>
+
+	<div class="container" style="padding-bottom:var(--nm-section-gap);display:flex;flex-direction:column;gap:48px">
+		{goals.length > 0 && (
+			<section id="goals" aria-labelledby="goals-h" class="grp">
+				<div>
+					<h2 id="goals-h" class="h2">{t("group.goals")}</h2>
+					<p class="muted">{t("hubs.goalsLead")}</p>
+				</div>
+				<div class="grid-auto" style="--min:280px">
+					{goals.map((h) => (
+						<a href={hubUrl(h)} class="card hub-card goal">
+							<span class="hub-name">{h.data.name}</span>
+							<span class="hub-desc">{h.data.description}</span>
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+
+		{groups.map((x) => (
+			<section id={x.g} aria-labelledby={`${x.g}-h`} class="grp">
+				<h2 id={`${x.g}-h`} class="h2">{label(x.g)}</h2>
+				<div class="grid-auto" style="--min:260px">
+					{x.items.map((h) => (
+						<a href={hubUrl(h)} class="card hub-card">
+							<span class="hub-name">{h.data.name}</span>
+							<span class="hub-desc">{h.data.description}</span>
+						</a>
+					))}
+				</div>
+			</section>
+		))}
+	</div>
+</Base>
+
+<style>
+	.idx-head { padding-top: 56px; padding-bottom: 32px; display: flex; flex-direction: column; gap: 16px; }
+	.idx-head .lead { max-width: 760px; }
+	.jump { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px; }
+	.grp { display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 16px; }
+	.hub-card { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; text-decoration: none; color: var(--nm-ink); }
+	.hub-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.hub-card.goal { background: var(--nm-accent-soft); border-color: transparent; }
+	.hub-card.goal:hover { border-color: var(--nm-accent); }
+	.hub-name { font-family: var(--nm-font-display); font-weight: 600; font-size: 21px; line-height: 1.2; }
+	.hub-desc { font-size: 14px; line-height: 1.5; color: var(--nm-ink-2); }
+	@media (max-width: 600px) { .idx-head { padding-top: 36px; } }
+</style>

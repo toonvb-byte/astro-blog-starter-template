@@ -187,6 +187,8 @@ const copy = {
 	const D: any = DATA;
 	const ING: Record<string, any> = Object.fromEntries(D.ingredients.map((i: any) => [i.id, i]));
 	const GOAL: Record<string, any> = Object.fromEntries(D.goals.map((g: any) => [g.id, g]));
+	// ?goal=sleep (linked from the goal hubs) starts with that one goal at "Top".
+	try { const qg = new URLSearchParams(location.search).get("goal"); if (qg && GOAL[qg]) S.w = { [qg]: 3 }; } catch {}
 
 	$("nmf-goals").innerHTML = D.goals.map((g: any) => `
 		<div class="nmf-goal">

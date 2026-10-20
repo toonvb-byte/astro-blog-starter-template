@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { LOCALES, path } from "../i18n/config";
 import { getGuides, guideUrl, guideLocale } from "../lib/guides";
+import { getHubs, hubUrl, hubLocale } from "../lib/hubs";
 import { SITE_NAME, SITE_URL } from "../lib/site";
 
 /**
@@ -13,6 +14,7 @@ const LANG: Record<string, string> = { en: "English", es: "Español", de: "Deuts
 
 export const GET: APIRoute = async () => {
 	const guides = await getGuides();
+	const hubs = await getHubs();
 	const abs = (p: string) => new URL(p, SITE_URL).href;
 	const lines: string[] = [
 		`# ${SITE_NAME}`,
@@ -22,7 +24,14 @@ export const GET: APIRoute = async () => {
 		`- Methodology and editorial policy: ${abs(path("en", "about"))}`,
 		`- Affiliate disclosure: ${abs(path("en", "disclosure"))}`,
 		`- Supplement goal finder (evidence by goal): ${abs(path("en", "finder"))}`,
+		`- Supplements A–Z (one page per ingredient: forms, doses, EU claims, limits, label-checked products): ${abs(path("en", "supplements"))}`,
 	];
+	for (const l of LOCALES) {
+		const list = hubs.filter((h) => hubLocale(h) === l);
+		if (!list.length) continue;
+		lines.push("", `## Supplement pages — ${LANG[l] ?? l}`, "");
+		for (const h of list) lines.push(`- [${h.data.title}](${abs(hubUrl(h))}): ${h.data.description.replace(/\s+/g, " ").trim()}`);
+	}
 	for (const l of LOCALES) {
 		const list = guides.filter((g) => guideLocale(g) === l);
 		if (!list.length) continue;

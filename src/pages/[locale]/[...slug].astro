@@ -5,20 +5,28 @@
  *   /{locale}/{guides}/{slug}/     → article
  *   /{locale}/{about}/             → about & methodology
  *   /{locale}/{finder}/            → supplement goal finder
+ *   /{locale}/{supplements}/       → supplements A–Z (hub index)
+ *   /{locale}/{supplements}/{slug}/ → supplement hub (one ingredient or goal)
  *   /{locale}/{prices|compare}/    → coming soon (build steps 3–5)
  *   /{locale}/legal/…              → legal pages
  */
 import type { GetStaticPaths } from "astro";
 import { LOCALES, ROUTES, type Locale, type RouteKey } from "../../i18n/config";
 import { getGuides, guideLocale, guideSlug, type Guide } from "../../lib/guides";
+import { getHubs, hubLocale, hubSlug, type Hub } from "../../lib/hubs";
 import GuidesIndex from "../../views/GuidesIndex.astro";
 import Article from "../../views/Article.astro";
 import About from "../../views/About.astro";
 import ComingSoon from "../../views/ComingSoon.astro";
 import Legal from "../../views/Legal.astro";
 import Finder from "../../views/Finder.astro";
+import HubsIndex from "../../views/HubsIndex.astro";
+import HubView from "../../views/Hub.astro";
 
-type Props = { kind: RouteKey; guide?: undefined } | { kind: "article"; guide: Guide };
+type Props =
+	| { kind: RouteKey; guide?: undefined; hub?: undefined }
+	| { kind: "article"; guide: Guide; hub?: undefined }
+	| { kind: "hub"; hub: Hub; guide?: undefined };
 
 export const getStaticPaths = (async () => {
 	const pages = LOCALES.flatMap((locale) =>
@@ -32,15 +40,21 @@ export const getStaticPaths = (async () => {
 		params: { locale: guideLocale(guide), slug: `${ROUTES.guides[guideLocale(guide)]}/${guideSlug(guide)}` },
 		props: { kind: "article" as const, guide },
 	}));
-	return [...pages, ...articles];
+	const hubs = (await getHubs()).map((hub) => ({
+		params: { locale: hubLocale(hub), slug: `${ROUTES.supplements[hubLocale(hub)]}/${hubSlug(hub)}` },
+		props: { kind: "hub" as const, hub },
+	}));
+	return [...pages, ...articles, ...hubs];
 }) satisfies GetStaticPaths;
 
 const locale = Astro.params.locale as Locale;
-const { kind, guide } = Astro.props as Props;
+const { kind, guide, hub } = Astro.props as Props;
 ---
 {kind === "guides" && <GuidesIndex locale={locale} />}
 {kind === "article" && guide && <Article locale={locale} guide={guide} />}
 {kind === "about" && <About locale={locale} />}
 {kind === "finder" && <Finder locale={locale} />}
+{kind === "supplements" && <HubsIndex locale={locale} />}
+{kind === "hub" && hub && <HubView locale={locale} hub={hub} />}
 {(kind === "prices" || kind === "compare") && <ComingSoon locale={locale} which={kind} />}
 {(kind === "privacy" || kind === "cookies" || kind === "imprint" || kind === "disclosure") && <Legal locale={locale} which={kind} />}

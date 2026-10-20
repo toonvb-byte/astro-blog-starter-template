@@ -25,6 +25,7 @@ export const ROUTES = {
 	prices: { en: "price-tracker", es: "comparador-precios", de: "preisvergleich" },
 	compare: { en: "compare", es: "comparar", de: "vergleichen" },
 	finder: { en: "finder", es: "buscador", de: "zielfinder" },
+	supplements: { en: "supplements", es: "suplementos", de: "nahrungsergaenzung" },
 	guides: { en: "guides", es: "guias", de: "ratgeber" },
 	about: { en: "about", es: "sobre-nosotros", de: "ueber-uns" },
 	privacy: { en: "legal/privacy", es: "legal/privacidad", de: "rechtliches/datenschutz" },

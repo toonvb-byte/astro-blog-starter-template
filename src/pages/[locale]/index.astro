@@ -4,6 +4,7 @@ import ArticleCard from "../../components/ArticleCard.astro";
 import { LOCALES, path, routeAlternates, type Locale } from "../../i18n/config";
 import { useT } from "../../i18n/ui";
 import { getGuides, guideUrl } from "../../lib/guides";
+import { getHubs, hubUrl } from "../../lib/hubs";
 
 export function getStaticPaths() {
 	return LOCALES.map((locale) => ({ params: { locale } }));
@@ -21,6 +22,7 @@ const PICKS = ["magnesium-forms", "creatine-guide", "vitamin-d-winter", "omega3-
 const picks = PICKS.map((k) => all.find((g) => g.data.translationKey === k)).filter((g) => g !== undefined);
 const posts = all.filter((g) => !picks.includes(g)).slice(0, 3);
 const chipLink = (c: string) => `${guides}?q=${encodeURIComponent(c)}`;
+const hubs = await getHubs(locale);
 ---
 <Base locale={locale} title={t("home.title")} description={t("home.description")} alternates={routeAlternates()} active="home">
 	<section aria-labelledby="hero-h" style="background:var(--nm-surface);border-bottom:1px solid var(--nm-line)">
@@ -71,6 +73,18 @@ const chipLink = (c: string) => `${guides}?q=${encodeURIComponent(c)}`;
 			))}
 		</ol>
 	</section>
+
+	{hubs.length > 0 && (
+		<section aria-labelledby="cat-h" class="container section">
+			<div class="section-head">
+				<h2 id="cat-h" class="h2">{t("home.catH")}</h2>
+				<a href={path(locale, "supplements")} class="link-strong">{t("hub.all")} →</a>
+			</div>
+			<ul class="hub-chips">
+				{hubs.map((h) => <li><a href={hubUrl(h)} class={`chip${h.data.kind === "goal" ? " chip-goal" : ""}`}>{h.data.name}</a></li>)}
+			</ul>
+		</section>
+	)}
 
 	{picks.length > 0 && (
 		<section aria-labelledby="cmp-h" class="container section">
@@ -140,6 +154,8 @@ const chipLink = (c: string) => `${guides}?q=${encodeURIComponent(c)}`;
 	.trust { padding-top: 22px; padding-bottom: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; font-size: 15px; color: var(--nm-ink-2); }
 	.trust div { display: flex; align-items: center; gap: 10px; }
 	.how { list-style: none; margin: 0; padding: 0; }
+	.hub-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+	.chip-goal { background: var(--nm-accent-soft); border-color: transparent; font-weight: 600; color: var(--nm-accent-ink); }
 	.how li { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 	.cmp-card { display: flex; flex-direction: column; gap: 14px; padding: 22px; text-decoration: none; color: var(--nm-ink); }
 	.cmp-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
