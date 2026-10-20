@@ -1,0 +1,20 @@
+---
+/** Decorative card visual until real images exist: tinted panel with a capsule motif. */
+interface Props { tint?: string; style?: string }
+const { tint = "var(--nm-accent-soft)", style = "" } = Astro.props;
+---
+<div class="img-ph card-art" style={`--tint:${tint};${style}`} aria-hidden="true">
+	<svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid meet">
+		<g fill="none" stroke="#0B6B4F" stroke-width="2.5" opacity="0.55">
+			<rect x="22" y="38" width="62" height="24" rx="12" transform="rotate(-24 53 50)" />
+			<line x1="53" y1="38" x2="53" y2="62" transform="rotate(-24 53 50)" />
+			<circle cx="112" cy="40" r="13" />
+			<circle cx="104" cy="70" r="9" />
+			<circle cx="128" cy="68" r="6" />
+		</g>
+	</svg>
+</div>
+<style>
+	.card-art { align-items: center; justify-content: center; padding: 0; }
+	.card-art svg { width: 60%; max-width: 220px; height: auto; }
+</style>

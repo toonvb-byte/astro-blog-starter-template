@@ -16,7 +16,7 @@ export default defineConfig({
 		keystatic(),
 		mdx(),
 		sitemap({
-			filter: (page) => !page.includes("/go/") && !page.includes("/keystatic"),
+			filter: (page) => !page.includes("/go/") && !page.includes("/keystatic") && !/\/(price-tracker|comparador-precios|preisvergleich|compare|comparar|vergleichen)\/$/.test(page),
 			i18n: { defaultLocale: "en", locales: { en: "en", es: "es", de: "de" } },
 		}),
 	],

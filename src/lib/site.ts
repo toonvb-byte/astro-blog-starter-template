@@ -2,11 +2,10 @@ export const SITE_NAME = "NutriMetrics.eu";
 export const SITE_URL = "https://nutrimetrics.eu";
 
 /**
- * Pre-launch guard. While false, every page gets <meta name="robots" content="noindex">
- * so placeholder content never lands in Google. Set to true on launch day
- * (also set SITE_LIVE="true" in wrangler.json so /robots.txt opens up).
+ * Launch switch. While false, every page gets <meta name="robots" content="noindex">
+ * and robots.txt disallows everything. Live since 20 Oct 2026.
  */
-export const SITE_LIVE = false;
+export const SITE_LIVE = true;
 
 /** Operator details — used on the legal pages (Aviso legal / Impressum / Imprint) and the About page. */
 export const OPERATOR = {

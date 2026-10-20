@@ -29,9 +29,11 @@ interface Props {
 	breadcrumbs?: Crumb[];
 	jsonLd?: object[];
 	ogType?: "website" | "article";
+	/** Keep this page out of search results (e.g. placeholder pages). */
+	noindex?: boolean;
 }
 
-const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website" } = Astro.props;
+const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website", noindex = false } = Astro.props;
 const t = useT(locale);
 const canonical = new URL(alternates[locale] ?? Astro.url.pathname, SITE_URL).href;
 
@@ -76,6 +78,7 @@ const schema: object[] = [
 		))}
 		{alternates[DEFAULT_LOCALE] && <link rel="alternate" hreflang="x-default" href={new URL(alternates[DEFAULT_LOCALE]!, SITE_URL).href} />}
 		{!SITE_LIVE && <meta name="robots" content="noindex, nofollow" />}
+		{SITE_LIVE && noindex && <meta name="robots" content="noindex, follow" />}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="theme-color" content="#0B6B4F" />
 		<meta property="og:type" content={ogType} />

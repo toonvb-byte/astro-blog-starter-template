@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import ArticleCard from "../components/ArticleCard.astro";
-import NewsletterBlock from "../components/NewsletterBlock.astro";
+import CardArt from "../components/CardArt.astro";
 import { path, routeAlternates, type Locale } from "../i18n/config";
 import { useT, formatDate } from "../i18n/ui";
 import { getGuides, guideUrl } from "../lib/guides";
@@ -39,7 +39,7 @@ const meta = (g: (typeof all)[number]) =>
 
 		{featured && (
 			<article class="card featured" data-search={`${featured.data.title} ${featured.data.dek} ${featured.data.category}`.toLowerCase()}>
-				<div class="img-ph" style={`--tint:${featured.data.tint};aspect-ratio:auto;min-height:260px`} aria-hidden="true">[Image: {featured.data.imageLabel}]</div>
+				<CardArt tint={featured.data.tint} style="aspect-ratio:auto;min-height:260px" />
 				<div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
 					<span style="font-size:13px;font-weight:600;color:var(--nm-accent)">{t("guides.featured")} · {featured.data.category}</span>
 					<h2 class="h2"><a href={guideUrl(featured)} style="color:var(--nm-ink);text-decoration:none">{featured.data.title}</a></h2>
@@ -63,7 +63,7 @@ const meta = (g: (typeof all)[number]) =>
 		)}
 		<p id="no-match" class="lead" hidden>{t("guides.noMatch")}</p>
 
-		<NewsletterBlock locale={locale} />
+		
 	</div>
 </Base>
 

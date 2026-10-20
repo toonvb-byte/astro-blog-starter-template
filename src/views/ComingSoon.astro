@@ -1,6 +1,5 @@
 ---
 import Base from "../layouts/Base.astro";
-import NewsletterBlock from "../components/NewsletterBlock.astro";
 import { path, routeAlternates, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
 
@@ -15,6 +14,7 @@ const k = which === "prices" ? "soon.prices" : "soon.compare";
 	description={t(`${k}.p` as "soon.prices.p").slice(0, 155)}
 	alternates={routeAlternates(which)}
 	active={which}
+	noindex
 >
 	<div class="container" style="padding-top:72px;padding-bottom:88px;display:flex;flex-direction:column;gap:48px">
 		<div style="max-width:720px;display:flex;flex-direction:column;gap:20px">
@@ -23,6 +23,6 @@ const k = which === "prices" ? "soon.prices" : "soon.compare";
 			<p class="lead">{t(`${k}.p` as "soon.prices.p")}</p>
 			<a href={path(locale, "guides")} class="link-strong">{t("soon.back")}</a>
 		</div>
-		<NewsletterBlock locale={locale} />
+		
 	</div>
 </Base>

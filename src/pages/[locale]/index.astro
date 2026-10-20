@@ -1,9 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
-import NewsletterBlock from "../../components/NewsletterBlock.astro";
 import { LOCALES, path, routeAlternates, type Locale } from "../../i18n/config";
-import { useT, formatDate } from "../../i18n/ui";
+import { useT } from "../../i18n/ui";
 import { getGuides, guideUrl } from "../../lib/guides";
 
 export function getStaticPaths() {
@@ -12,49 +11,18 @@ export function getStaticPaths() {
 
 const locale = Astro.params.locale as Locale;
 const t = useT(locale);
-const compare = path(locale, "compare");
-const prices = path(locale, "prices");
 const about = path(locale, "about");
 const guides = path(locale, "guides");
+const finder = path(locale, "finder");
 
-// ---- Sample data (from the design). Replace with D1 queries in build step 7. ----
-const snapshot = [
-	{ shop: "Retailer A", per: "€0.16", total: "€15.90", best: true },
-	{ shop: "Retailer B", per: "€0.18", total: "€17.49" },
-	{ shop: "Retailer C", per: "€0.21", total: "€20.95" },
-	{ shop: "Retailer D", per: "€0.24", total: "€23.80" },
-];
-const comparisons = {
-	en: [
-		{ cat: "Minerals", title: "Magnesium: bisglycinate vs citrate vs oxide", meta: "[N] products · cost per 100 mg elemental Mg" },
-		{ cat: "Sports nutrition", title: "Creatine monohydrate: cheapest per 5 g", meta: "[N] products · cost per serving" },
-		{ cat: "Vitamins", title: "Vitamin D3 + K2: drops vs capsules", meta: "[N] products · cost per 1,000 IU" },
-		{ cat: "Omega & fatty acids", title: "Omega-3: fish oil vs algae oil", meta: "[N] products · cost per g EPA + DHA" },
-	],
-	es: [
-		{ cat: "Minerales", title: "Magnesio: bisglicinato vs citrato vs óxido", meta: "[N] productos · coste por 100 mg de Mg elemental" },
-		{ cat: "Nutrición deportiva", title: "Creatina monohidrato: la más barata por 5 g", meta: "[N] productos · coste por toma" },
-		{ cat: "Vitaminas", title: "Vitamina D3 + K2: gotas vs cápsulas", meta: "[N] productos · coste por 1.000 UI" },
-		{ cat: "Omega y ácidos grasos", title: "Omega-3: aceite de pescado vs de algas", meta: "[N] productos · coste por g de EPA + DHA" },
-	],
-	de: [
-		{ cat: "Mineralstoffe", title: "Magnesium: Bisglycinat vs. Citrat vs. Oxid", meta: "[N] Produkte · Kosten pro 100 mg elementares Mg" },
-		{ cat: "Sporternährung", title: "Kreatin-Monohydrat: am günstigsten pro 5 g", meta: "[N] Produkte · Kosten pro Portion" },
-		{ cat: "Vitamine", title: "Vitamin D3 + K2: Tropfen vs. Kapseln", meta: "[N] Produkte · Kosten pro 1.000 IE" },
-		{ cat: "Omega & Fettsäuren", title: "Omega-3: Fischöl vs. Algenöl", meta: "[N] Produkte · Kosten pro g EPA + DHA" },
-	],
-}[locale];
-const drops = [
-	{ name: "[Brand] Magnesium Bisglycinate · 120 caps", price: "€14.20", per: "€0.24", change: "−18%", shop: "Retailer A" },
-	{ name: "[Brand] Creatine Monohydrate · 1 kg", price: "€24.90", per: "€0.12", change: "−15%", shop: "Retailer C" },
-	{ name: "[Brand] Vitamin D3 4000 IU · 365 softgels", price: "€11.95", per: "€0.03", change: "−12%", shop: "Retailer B" },
-	{ name: "[Brand] Algae Omega-3 · 60 caps", price: "€19.50", per: "€0.65", change: "−11%", shop: "Retailer D" },
-	{ name: "[Brand] Whey Isolate · 2 kg", price: "€54.00", per: "€0.81", change: "−9%", shop: "Retailer A" },
-];
-const posts = (await getGuides(locale)).slice(0, 3);
-const today = formatDate(new Date(), locale);
+const all = await getGuides(locale);
+// Hand-picked cornerstone guides (by translationKey), shown if they exist in this language.
+const PICKS = ["magnesium-forms", "creatine-guide", "vitamin-d-winter", "omega3-sources"];
+const picks = PICKS.map((k) => all.find((g) => g.data.translationKey === k)).filter((g) => g !== undefined);
+const posts = all.filter((g) => !picks.includes(g)).slice(0, 3);
+const chipLink = (c: string) => `${guides}?q=${encodeURIComponent(c)}`;
 ---
-<Base locale={locale} title={t("home.title")} description={t("home.description")} alternates={routeAlternates()} active="home" disclosure>
+<Base locale={locale} title={t("home.title")} description={t("home.description")} alternates={routeAlternates()} active="home">
 	<section aria-labelledby="hero-h" style="background:var(--nm-surface);border-bottom:1px solid var(--nm-line)">
 		<div class="container hero">
 			<div class="hero-copy">
@@ -64,38 +32,26 @@ const today = formatDate(new Date(), locale);
 				<form role="search" action={guides} method="get" class="hero-search">
 					<label for="hero-q" class="sr-only">{t("home.searchLabel")}</label>
 					<input id="hero-q" name="q" type="search" placeholder={t("home.searchPlaceholder")} class="hero-q" />
-					<label for="hero-ship" class="sr-only">{t("home.shipTo")}</label>
-					<select id="hero-ship" name="ship" class="input hero-ship">
-						{t("countries").map((c, i) => <option selected={locale === "es" ? i === 0 : i === 1}>{t("home.shipTo")}: {c}</option>)}
-					</select>
 					<button type="submit" class="btn btn-primary btn-lg">{t("home.cta")}</button>
 				</form>
 				<div class="chips">
 					<span class="muted" style="font-size:14px;margin-right:4px">{t("home.popular")}</span>
-					{t("chips").map((c) => <a href={compare} class="chip">{c}</a>)}
+					{t("chips").map((c) => <a href={chipLink(c)} class="chip">{c}</a>)}
 				</div>
 			</div>
-			<aside aria-label={t("home.snapshotTitle")} class="snapshot">
-				<div class="snap-head">
-					<div>
-						<span class="muted" style="font-size:13px;display:block">{t("home.snapshotProduct")}</span>
-						<span style="font-family:var(--nm-font-display);font-weight:600;font-size:20px">{t("home.snapshotTitle")}</span>
-					</div>
-					<span class="badge-deal">{t("sample")}</span>
-				</div>
-				{snapshot.map((r) => (
-					<div class:list={["snap-row", { best: r.best }]}>
-						<span style="flex:1 1 auto;font-weight:500">{r.shop}</span>
-						<span class="mono" style="font-weight:600">{r.per}</span>
-						<span class="mono muted" style="font-size:13px;width:64px;text-align:right">{r.total}</span>
-					</div>
-				))}
-				<a href={prices} class="link-strong" style="font-size:15px">{t("home.snapshotLink")}</a>
+			<aside aria-labelledby="finder-h" class="snapshot">
+				<span class="eyebrow" style="font-size:12px">{t("nav.finder")}</span>
+				<h2 id="finder-h" style="font-family:var(--nm-font-display);font-weight:600;font-size:22px;line-height:1.25;margin:0">{t("home.finderH")}</h2>
+				<p style="color:var(--nm-ink-2);margin:0">{t("home.finderP")}</p>
+				<ul class="finder-goals">
+					{t("home.finderGoals").map((g) => <li>{g}</li>)}
+				</ul>
+				<a href={finder} class="btn btn-primary" style="align-self:flex-start">{t("home.finderCta")}</a>
 			</aside>
 		</div>
 	</section>
 
-	<section aria-label="Why trust us" style="border-bottom:1px solid var(--nm-line)">
+	<section aria-label={t("home.trustLabel")} style="border-bottom:1px solid var(--nm-line)">
 		<div class="container trust">
 			{[t("home.trust1"), t("home.trust2"), t("home.trust3"), t("home.trust4")].map((s) => (
 				<div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B6B4F" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>{s}</div>
@@ -116,71 +72,24 @@ const today = formatDate(new Date(), locale);
 		</ol>
 	</section>
 
-	<section aria-labelledby="cmp-h" class="container section">
-		<div class="section-head">
-			<h2 id="cmp-h" class="h2">{t("home.cmpH")}</h2>
-			<a href={compare} class="link-strong">{t("home.cmpLink")}</a>
-		</div>
-		<div class="grid-auto">
-			{comparisons.map((c) => (
-				<a href={compare} class="card cmp-card">
-					<span style="font-size:13px;font-weight:600;color:var(--nm-accent)">{c.cat}</span>
-					<span style="font-family:var(--nm-font-display);font-weight:600;font-size:21px;line-height:1.2">{c.title}</span>
-					<span class="muted" style="font-size:14px">{c.meta}</span>
-					<span class="muted cmp-foot">{t("home.updated")} {today}</span>
-				</a>
-			))}
-		</div>
-	</section>
-
-	<section aria-labelledby="drops-h" class="container section" style="gap:20px">
-		<div class="section-head">
-			<div style="display:flex;flex-direction:column;gap:6px">
-				<h2 id="drops-h" class="h2">{t("home.dropsH")}</h2>
-				<span class="muted" style="font-size:14px">{t("home.dropsSub")} <span style="font-weight:600;color:var(--nm-deal)">{t("sample")}</span></span>
+	{picks.length > 0 && (
+		<section aria-labelledby="cmp-h" class="container section">
+			<div class="section-head">
+				<h2 id="cmp-h" class="h2">{t("home.cmpH")}</h2>
+				<a href={guides} class="link-strong">{t("home.blogAll")}</a>
 			</div>
-			<a href={prices} class="link-strong">{t("home.dropsAll")}</a>
-		</div>
-		<div class="table-wrap">
-			<table class="table" style="min-width:760px">
-				<thead>
-					<tr>
-						<th scope="col">{t("home.thProduct")}</th>
-						<th scope="col">{t("home.thBest")}</th>
-						<th scope="col">{t("home.thPer")}</th>
-						<th scope="col">{t("home.thChange")}</th>
-						<th scope="col">{t("home.thRetailer")}</th>
-						<th scope="col"><span class="sr-only">{t("home.thAction")}</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					{drops.map((d) => (
-						<tr>
-							<td><a href={prices} style="color:var(--nm-ink);font-weight:500;text-decoration:none">{d.name}</a></td>
-							<td class="mono" style="font-weight:600">{d.price}</td>
-							<td class="mono">{d.per}</td>
-							<td><span class="mono badge-deal" style="font-size:14px">{d.change}</span></td>
-							<td style="color:var(--nm-ink-2)">{d.shop}</td>
-							<td style="text-align:right;padding-top:10px;padding-bottom:10px">
-								{/* Sample rows: real rows use <AffiliateLink offerId={…} placement="home:drops"> */}
-								<a href={prices} class="btn btn-primary" style="font-size:14px">{t("home.viewDeal")}</a>
-							</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
-		</div>
-		<p class="muted" style="font-size:13px">{t("home.dropsNote")} <a href={`${about}#money`}>{t("disclosure.more")}</a></p>
-	</section>
-
-	<section aria-labelledby="cat-h" class="container section">
-		<h2 id="cat-h" class="h2">{t("home.catH")}</h2>
-		<div class="grid-auto" style="--min:200px;gap:12px">
-			{t("cats").map((k) => (
-				<a href={compare} class="cat-tile">{k}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B6B4F" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
-			))}
-		</div>
-	</section>
+			<div class="grid-auto">
+				{picks.map((g) => (
+					<a href={guideUrl(g)} class="card cmp-card">
+						<span style="font-size:13px;font-weight:600;color:var(--nm-accent)">{g.data.category}</span>
+						<span style="font-family:var(--nm-font-display);font-weight:600;font-size:21px;line-height:1.2">{g.data.title}</span>
+						<span class="muted" style="font-size:14px">{g.data.description}</span>
+						<span class="muted cmp-foot">{g.data.readingMinutes} {t("guides.read")}</span>
+					</a>
+				))}
+			</div>
+		</section>
+	)}
 
 	{posts.length > 0 && (
 		<section aria-labelledby="blog-h" class="container section">
@@ -195,7 +104,6 @@ const today = formatDate(new Date(), locale);
 						category={p.data.category}
 						title={p.data.title}
 						meta={`${p.data.readingMinutes} ${t("guides.read")}${p.data.reviewer ? ` · ${t("guides.reviewedBy")} ${p.data.reviewer}` : ""}`}
-						imageLabel={p.data.imageLabel}
 						tint={p.data.tint}
 					/>
 				))}
@@ -218,9 +126,6 @@ const today = formatDate(new Date(), locale);
 		</div>
 	</section>
 
-	<section aria-label={t("nl.h")} class="container" style="padding-top:var(--nm-section-gap);padding-bottom:88px">
-		<NewsletterBlock locale={locale} />
-	</section>
 </Base>
 
 <style>
@@ -228,12 +133,10 @@ const today = formatDate(new Date(), locale);
 	.hero-copy { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 	.hero-search { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 0; padding: 10px; background: #fff; border: 1px solid var(--nm-input-line); border-radius: 14px; max-width: 680px; }
 	.hero-q { flex: 1 1 260px; min-width: 0; height: 52px; padding: 0 16px; border: 0; font: inherit; font-size: 17px; color: var(--nm-ink); background: transparent; }
-	.hero-ship { height: 52px; border-color: var(--nm-line); }
 	.chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-	.snapshot { flex: 1 1 380px; min-width: 0; background: var(--nm-ground); border: 1px solid var(--nm-line); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
-	.snap-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-	.snap-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid var(--nm-line); border-radius: 12px; }
-	.snap-row.best { border-color: var(--nm-accent); box-shadow: inset 0 0 0 1px var(--nm-accent); }
+	.snapshot { flex: 1 1 360px; min-width: 0; background: var(--nm-ground); border: 1px solid var(--nm-line); border-radius: 18px; padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+	.finder-goals { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+	.finder-goals li { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-pill); padding: 6px 12px; font-size: 14px; }
 	.trust { padding-top: 22px; padding-bottom: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; font-size: 15px; color: var(--nm-ink-2); }
 	.trust div { display: flex; align-items: center; gap: 10px; }
 	.how { list-style: none; margin: 0; padding: 0; }
@@ -241,7 +144,5 @@ const today = formatDate(new Date(), locale);
 	.cmp-card { display: flex; flex-direction: column; gap: 14px; padding: 22px; text-decoration: none; color: var(--nm-ink); }
 	.cmp-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
 	.cmp-foot { margin-top: auto; font-size: 13px; border-top: 1px solid var(--nm-line-soft); padding-top: 12px; }
-	.cat-tile { display: flex; justify-content: space-between; align-items: center; min-height: 64px; padding: 0 20px; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); text-decoration: none; color: var(--nm-ink); font-weight: 500; }
-	.cat-tile:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
 	@media (max-width: 600px) { .hero { padding-top: 40px; padding-bottom: 40px; } }
 </style>

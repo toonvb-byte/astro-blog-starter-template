@@ -1,4 +1,5 @@
 ---
+import CardArt from "./CardArt.astro";
 interface Props {
 	href: string;
 	category: string;
@@ -8,10 +9,10 @@ interface Props {
 	imageLabel: string;
 	tint?: string;
 }
-const { href, category, title, dek, meta, imageLabel, tint = "var(--nm-accent-soft)" } = Astro.props;
+const { href, category, title, dek, meta, tint = "var(--nm-accent-soft)" } = Astro.props;
 ---
 <article class="article-card" data-search={`${title} ${dek ?? ""} ${category}`.toLowerCase()}>
-	<div class="img-ph" style={`--tint:${tint}`} aria-hidden="true">[Image: {imageLabel}]</div>
+	<CardArt tint={tint} />
 	<span class="cat">{category}</span>
 	<h3><a href={href}>{title}</a></h3>
 	{dek && <p class="dek">{dek}</p>}

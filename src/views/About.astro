@@ -17,7 +17,7 @@ const C = {
 		lead: "Pack sizes, doses and shipping costs vary wildly between countries and shops. NutriMetrics turns every offer into one honest number — cost per dose — and puts quality information right next to it.",
 		toc: ["How we compare prices", "How we make money", "Editorial policy", "Team", "Contact"],
 		steps: [
-			["01 · Collect", "Prices from retailer feeds", "We read product feeds from retailers and affiliate networks, and refresh them every [24] hours."],
+			["01 · Collect", "Product data from shops", "We record dose, form, pack size and price from retailer pages and product feeds, and re-check them before a guide is published or updated."],
 			["02 · Match", "Same product, every shop", "Offers are matched by EAN/GTIN and checked by hand, so one product shows every place it’s sold."],
 			["03 · Normalise", "Cost per dose, shipping in", "Total price to your country divided by servings, or by grams of active ingredient."],
 			["04 · Qualify", "Quality signals alongside", "Form, dose, third-party testing and additives are shown with the price — never hidden behind it."],
@@ -32,7 +32,7 @@ const C = {
 		langH: "Built for all of Europe",
 		langP: "Each language edition is localised for its market — local retailers, local shipping, local search terms — not just translated.",
 		contactP: "Questions, corrections, or you run a shop and want to be listed? Write to us.",
-		form: { name: "Name", email: "Email", topic: "Topic", message: "Message", send: "Send message", topics: ["General question", "Report an error", "Retailer / partnership", "Press"], soon: "The contact form opens at launch — email us in the meantime." },
+		form: { name: "Name", email: "Email", topic: "Topic", message: "Message", send: "Send message", topics: ["General question", "Report an error", "Retailer / partnership", "Press"], sending: "Sending…", ok: "Thanks — your message has arrived. We usually reply within a few working days.", err: "Sorry, that didn’t work. Please email us instead.", invalid: "Please fill in your name, a valid email and a message.", note: "We use your details only to reply. See our privacy policy." },
 	},
 	es: {
 		title: "Quiénes somos y nuestra metodología",
@@ -42,7 +42,7 @@ const C = {
 		lead: "Los tamaños de envase, las dosis y los gastos de envío cambian muchísimo entre países y tiendas. NutriMetrics convierte cada oferta en una sola cifra honesta, el coste por dosis, y pone la información de calidad justo al lado.",
 		toc: ["Cómo comparamos precios", "Cómo ganamos dinero", "Política editorial", "Equipo", "Contacto"],
 		steps: [
-			["01 · Recopilar", "Precios de los catálogos de tiendas", "Leemos los catálogos de productos de tiendas y redes de afiliación y los actualizamos cada [24] horas."],
+			["01 · Recopilar", "Datos de producto de las tiendas", "Anotamos dosis, forma, tamaño del envase y precio desde las fichas y catálogos de las tiendas, y los revisamos antes de publicar o actualizar una guía."],
 			["02 · Emparejar", "El mismo producto, en cada tienda", "Las ofertas se emparejan por EAN/GTIN y se revisan a mano, para que cada producto muestre todos los sitios donde se vende."],
 			["03 · Normalizar", "Coste por dosis, envío incluido", "Precio total a tu país dividido entre las tomas, o entre los gramos de ingrediente activo."],
 			["04 · Calificar", "Señales de calidad al lado", "Forma, dosis, análisis independientes y aditivos se muestran junto al precio, nunca escondidos."],
@@ -57,7 +57,7 @@ const C = {
 		langH: "Hecho para toda Europa",
 		langP: "Cada edición está localizada para su mercado (tiendas locales, envíos locales, búsquedas locales), no solo traducida.",
 		contactP: "¿Preguntas, correcciones o tienes una tienda y quieres aparecer? Escríbenos.",
-		form: { name: "Nombre", email: "Email", topic: "Tema", message: "Mensaje", send: "Enviar mensaje", topics: ["Pregunta general", "Informar de un error", "Tienda / colaboración", "Prensa"], soon: "El formulario se abre en el lanzamiento; mientras tanto, escríbenos por email." },
+		form: { name: "Nombre", email: "Email", topic: "Tema", message: "Mensaje", send: "Enviar mensaje", topics: ["Pregunta general", "Informar de un error", "Tienda / colaboración", "Prensa"], sending: "Enviando…", ok: "Gracias, hemos recibido tu mensaje. Solemos responder en pocos días laborables.", err: "Lo sentimos, no ha funcionado. Escríbenos por email.", invalid: "Indica tu nombre, un email válido y un mensaje.", note: "Usamos tus datos solo para responderte. Consulta nuestra política de privacidad." },
 	},
 	de: {
 		title: "Über NutriMetrics & unsere Methodik",
@@ -67,7 +67,7 @@ const C = {
 		lead: "Packungsgrößen, Dosierungen und Versandkosten unterscheiden sich stark zwischen Ländern und Shops. NutriMetrics macht aus jedem Angebot eine ehrliche Zahl – die Kosten pro Dosis – und zeigt die Qualitätsinformationen direkt daneben.",
 		toc: ["So vergleichen wir Preise", "Wie wir Geld verdienen", "Redaktionelle Grundsätze", "Team", "Kontakt"],
 		steps: [
-			["01 · Sammeln", "Preise aus Shop-Feeds", "Wir lesen Produkt-Feeds von Shops und Affiliate-Netzwerken und aktualisieren sie alle [24] Stunden."],
+			["01 · Sammeln", "Produktdaten aus Shops", "Wir erfassen Dosis, Form, Packungsgröße und Preis aus Produktseiten und Feeds der Shops und prüfen sie erneut, bevor ein Ratgeber erscheint oder aktualisiert wird."],
 			["02 · Zuordnen", "Gleiches Produkt, jeder Shop", "Angebote werden über EAN/GTIN zugeordnet und von Hand geprüft, damit ein Produkt alle Shops zeigt, in denen es erhältlich ist."],
 			["03 · Umrechnen", "Kosten pro Dosis, mit Versand", "Gesamtpreis in dein Land geteilt durch die Portionen – oder durch die Gramm Wirkstoff."],
 			["04 · Einordnen", "Qualitätsmerkmale daneben", "Verbindung, Dosis, unabhängige Tests und Zusatzstoffe stehen neben dem Preis – nie dahinter versteckt."],
@@ -82,7 +82,7 @@ const C = {
 		langH: "Gemacht für ganz Europa",
 		langP: "Jede Sprachausgabe ist auf ihren Markt zugeschnitten – lokale Shops, lokaler Versand, lokale Suchbegriffe – und nicht nur übersetzt.",
 		contactP: "Fragen, Korrekturen oder du betreibst einen Shop und möchtest gelistet werden? Schreib uns.",
-		form: { name: "Name", email: "E-Mail", topic: "Thema", message: "Nachricht", send: "Nachricht senden", topics: ["Allgemeine Frage", "Fehler melden", "Shop / Partnerschaft", "Presse"], soon: "Das Kontaktformular öffnet zum Start – bis dahin bitte per E-Mail." },
+		form: { name: "Name", email: "E-Mail", topic: "Thema", message: "Nachricht", send: "Nachricht senden", topics: ["Allgemeine Frage", "Fehler melden", "Shop / Partnerschaft", "Presse"], sending: "Wird gesendet …", ok: "Danke – deine Nachricht ist angekommen. Wir antworten meist innerhalb weniger Werktage.", err: "Das hat leider nicht geklappt. Bitte schreib uns per E-Mail.", invalid: "Bitte Name, gültige E-Mail-Adresse und Nachricht angeben.", note: "Wir nutzen deine Angaben nur für die Antwort. Mehr in unserer Datenschutzerklärung." },
 	},
 }[locale];
 const ids = ["method", "money", "editorial", "team", "contact"];
@@ -167,15 +167,18 @@ const ids = ["method", "money", "editorial", "team", "contact"];
 				<p style="color:var(--nm-ink-2)">{C.contactP}</p>
 				<p><a href={`mailto:${OPERATOR.email}`}>{OPERATOR.email}</a><br /><span class="muted">{OPERATOR.name} · {OPERATOR.street}, {OPERATOR.postcode} {OPERATOR.city}, {OPERATOR.country[locale]}</span></p>
 			</div>
-			<form class="card contact-form" onsubmit="return false">
+			<form class="card contact-form" id="contact-form" method="post" action="/api/contact" data-msgs={JSON.stringify({ sending: C.form.sending, ok: C.form.ok, err: C.form.err, invalid: C.form.invalid })}>
+				<input type="hidden" name="locale" value={locale} />
+				<div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
 				<div class="grid-auto" style="--min:200px;gap:16px">
-					<label>{C.form.name}<input class="input" type="text" autocomplete="name" disabled /></label>
-					<label>{C.form.email}<input class="input" type="email" autocomplete="email" disabled /></label>
+					<label>{C.form.name}<input class="input" type="text" name="name" autocomplete="name" required maxlength="120" /></label>
+					<label>{C.form.email}<input class="input" type="email" name="email" autocomplete="email" required maxlength="200" /></label>
 				</div>
-				<label>{C.form.topic}<select class="input" disabled>{C.form.topics.map((o) => <option>{o}</option>)}</select></label>
-				<label>{C.form.message}<textarea class="input" rows="5" disabled></textarea></label>
-				<button type="submit" class="btn btn-primary btn-lg" style="align-self:flex-start" disabled>{C.form.send}</button>
-				<p class="muted" style="font-size:13px">{C.form.soon}</p>
+				<label>{C.form.topic}<select class="input" name="topic">{C.form.topics.map((o) => <option>{o}</option>)}</select></label>
+				<label>{C.form.message}<textarea class="input" name="message" rows="5" required minlength="5" maxlength="5000"></textarea></label>
+				<button type="submit" class="btn btn-primary btn-lg" style="align-self:flex-start">{C.form.send}</button>
+				<p class="muted" style="font-size:13px"><a href={path(locale, "privacy")}>{C.form.note}</a></p>
+				<p class="form-status" role="status" aria-live="polite"></p>
 			</form>
 		</section>
 	</div>
@@ -195,5 +198,29 @@ const ids = ["method", "money", "editorial", "team", "contact"];
 	.langs li { padding: 8px 14px; border: 1px solid var(--nm-line); border-radius: var(--nm-pill); font-size: 15px; }
 	.contact-form { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
 	.contact-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 500; font-size: 14px; }
+	.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+	.form-status { font-weight: 500; margin: 0; }
+	.form-status:empty { display: none; }
 	.contact-form textarea.input { height: auto; padding: 12px 14px; resize: vertical; }
 </style>
+
+<script>
+	const f = document.getElementById("contact-form") as HTMLFormElement | null;
+	if (f) {
+		const msgs = JSON.parse(f.dataset.msgs ?? "{}");
+		const status = f.querySelector<HTMLElement>(".form-status")!;
+		const btn = f.querySelector<HTMLButtonElement>("button[type=submit]")!;
+		f.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			if (!f.checkValidity()) { status.textContent = msgs.invalid; return; }
+			btn.disabled = true; status.textContent = msgs.sending;
+			try {
+				const r = await fetch(f.action, { method: "POST", body: new FormData(f) });
+				const d = await r.json().catch(() => ({}));
+				if (r.ok && d.ok) { f.reset(); status.textContent = msgs.ok; }
+				else status.textContent = d.error === "invalid" ? msgs.invalid : msgs.err;
+			} catch { status.textContent = msgs.err; }
+			btn.disabled = false;
+		});
+	}
+</script>
