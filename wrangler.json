@@ -27,8 +27,14 @@
 			"binding": "CACHE",
 			"id": "f3007eacfc254ca2a71c8ea768895250"
 		}
+	],
+	// Contact form → inbox. Uses Cloudflare Email Routing on nutrimetrics.eu.
+	// The recipient comes from the secret CONTACT_TO (a verified destination address).
+	"send_email": [
+		{ "name": "EMAIL" }
 	]
 	// Launch switch (noindex + robots.txt) lives in src/lib/site.ts → SITE_LIVE.
 	// Secrets (set in dashboard → Worker → Settings → Variables, type "Secret"):
 	//   AWIN_PUBLISHER_ID
+	//   CONTACT_TO  (verified Email Routing destination for contact-form messages)
 }
