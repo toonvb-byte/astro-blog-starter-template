@@ -10,7 +10,7 @@ import { LOCALES, path, type Locale } from "../i18n/config";
 import { useT, formatDate } from "../i18n/ui";
 import { getGuides, guideUrl, inlineMd } from "../lib/guides";
 import {
-	getHubs, hubAlternates, hubUrl, productsFor, goalRows, ingredient, amount, evidenceLabel, finderChecked, type Hub,
+	getHubs, hubAlternates, hubUrl, productsFor, goalRows, ingredient, amount, evidenceLabel, checkedDate, type Hub,
 } from "../lib/hubs";
 import { SITE_URL } from "../lib/site";
 
@@ -27,7 +27,9 @@ const hubsHere = await getHubs(locale);
 // Goal hubs show the finder's evidence map; their product table covers every ingredient of the goal.
 const rows = d.finderGoal ? goalRows(d.finderGoal) : [];
 const ingIds = d.finderGoal ? rows.map((r) => r.i) : d.finderIngredients;
-const products = productsFor(ingIds, Boolean(d.finderGoal));
+const products = productsFor(ingIds, d.finderGoal ? undefined : d.hubKey);
+// Nutrients shown per product: the hub's own ingredients plus any extras listed in finderShow.
+const showIds = [...ingIds, ...d.finderShow.filter((i) => !ingIds.includes(i))];
 const hubForIngredient = (id: string) => hubsHere.find((h) => h.data.kind === "ingredient" && h.data.finderIngredients.includes(id));
 
 const guidesHere = await getGuides(locale);
@@ -218,17 +220,21 @@ const jsonLd: object[] = [
 									<thead><tr><th scope="col">{t("hub.thProduct")}</th><th scope="col">{t("hub.thAmount")}</th><th scope="col">{t("hub.thMarkets")}</th><th scope="col">{t("hub.thLabel")}</th></tr></thead>
 									<tbody>
 										{products.map((p) => {
-											const rel = p.ingredients.filter((x) => ingIds.includes(x.i));
+											const rel = p.ingredients.filter((x) => showIds.includes(x.i));
 											return (
 												<tr>
-													<th scope="row"><span class="brand">{p.brand}</span> {p.name}<span class="dose">{p.dose[locale]}</span></th>
+													<th scope="row">
+														<span class="brand">{p.brand}</span> {p.name}<span class="dose">{p.dose[locale]}</span>
+														{p.partial && <span class="pflag">{t("hub.partial")}</span>}
+														{(p.flags ?? []).map((f) => <span class="pflag warn">{f[locale]}</span>)}
+													</th>
 													<td data-label={t("hub.thAmount")}>
 														{rel.map((x) => {
 															const ing = ingredient(x.i);
 															const a = amount(x.amt, ing?.unit ?? "", locale);
 															return (
 																<span class="amt">
-																	{rel.length > 1 || d.finderGoal ? <span class="amt-ing">{ing?.[locale] ?? x.i}: </span> : null}
+																	{rel.length > 1 || d.finderGoal || showIds.length > 1 ? <span class="amt-ing">{ing?.[locale] ?? x.i}: </span> : null}
 																	{a ? <span class="mono">{a}</span> : <span class="nd">{t("hub.notDisclosed")}</span>}
 																	{x.form && <span class="amt-form"> · {x.form}</span>}
 																</span>
@@ -241,7 +247,7 @@ const jsonLd: object[] = [
 											);
 										})}
 									</tbody>
-									<caption>{t("hub.updated")}: {formatDate(new Date(finderChecked), locale)}</caption>
+									<caption>{t("hub.updated")}: {formatDate(new Date(checkedDate(products)), locale)}</caption>
 								</table>
 							</div>
 						</>
@@ -367,6 +373,8 @@ const jsonLd: object[] = [
 	.amt-ing { color: var(--nm-ink-2); }
 	.amt-form { color: var(--nm-muted); font-size: 13px; }
 	.nd { color: var(--nm-muted); font-style: italic; }
+	.pflag { display: block; margin-top: 6px; font-size: 13px; line-height: 1.4; font-weight: 400; color: var(--nm-ink-2); }
+	.pflag.warn { color: var(--nm-deal-ink); background: var(--nm-deal-soft); padding: 4px 8px; border-radius: var(--nm-radius-sm); }
 	@media (max-width: 640px) {
 		.stack thead { display: none; }
 		.stack, .stack tbody, .stack tr, .stack th, .stack td { display: block; width: 100%; }

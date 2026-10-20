@@ -65,6 +65,7 @@ const hubs = defineCollection({
 		notClaims: z.array(z.string()).default([]),
 		cautions: z.array(z.string()).default([]),
 		finderIngredients: z.array(z.string()).default([]),
+		finderShow: z.array(z.string()).default([]),
 		finderGoal: optionalString,
 		guides: z.array(z.string()).default([]),
 		faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),

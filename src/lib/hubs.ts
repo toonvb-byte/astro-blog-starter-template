@@ -56,6 +56,12 @@ export interface FinderProduct {
 	ingredients: { i: string; amt: number | null; form?: string | null }[];
 	source?: string;
 	note?: Partial<L10n>;
+	/** Explicit hub membership (hubKeys). When set, it replaces the main-ingredient rule. */
+	hubs?: string[];
+	flags?: L10n[];
+	partial?: boolean;
+	excluded?: string;
+	checked?: string;
 }
 export interface GoalLink extends L10n { g: string; i: string; ev: 1 | 2 | 3; claim: boolean; cond?: boolean | null }
 
@@ -72,17 +78,21 @@ export const evidenceLabel = (ev: number, locale: Locale) => D.meta.evidenceScal
 export const ingredient = (id: string) => D.ingredients.find((i) => i.id === id);
 
 /**
- * Products that contain any of the given ingredients; products where it is the main ingredient come first.
- * mainOnly (goal hubs): only products whose first-listed ingredient is one of them, so a collagen or
- * multivitamin product with a little magnesium does not show up under "Sleep".
+ * Products for a hub. A product belongs to an ingredient hub when its main (first-listed) ingredient is one of the
+ * hub's finderIngredients, or — if the product has an explicit `hubs` list — only when that list names the hub.
+ * Goal hubs use the main-ingredient rule over the goal's ingredients. Sorted A–Z by brand and name.
  */
-export function productsFor(ids: string[], mainOnly = false): FinderProduct[] {
-	if (!ids.length) return [];
-	const main = (p: FinderProduct) => (ids.includes(p.ingredients[0]?.i) ? 0 : 1);
+export function productsFor(ids: string[], hubKey?: string): FinderProduct[] {
+	const inHub = (p: FinderProduct) =>
+		p.hubs?.length ? Boolean(hubKey && p.hubs.includes(hubKey)) : ids.includes(p.ingredients[0]?.i);
 	return D.products
-		.filter((p) => (mainOnly ? main(p) === 0 : p.ingredients.some((x) => ids.includes(x.i))))
-		.sort((a, b) => main(a) - main(b) || `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`));
+		.filter((p) => !p.excluded && inHub(p))
+		.sort((a, b) => `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`));
 }
+
+/** Latest label-check date among the given products (falls back to the dataset date). */
+export const checkedDate = (ps: FinderProduct[]) =>
+	ps.map((p) => p.checked ?? D.meta.checked).sort().at(-1) ?? D.meta.checked;
 
 /** Evidence rows for a finder goal, strongest first. */
 export function goalRows(goalId: string): GoalLink[] {

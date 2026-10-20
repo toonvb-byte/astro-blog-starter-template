@@ -151,6 +151,11 @@ const hubCollection = (lang: "en" | "es" | "de", label: string) =>
 				description: "Ids from scripts/seed/finder-data.json, e.g. magnesium, vitamin_d.",
 				itemLabel: (p) => p.value || "id",
 			}),
+			finderShow: fields.array(fields.text({ label: "Ingredient id" }), {
+				label: "Extra nutrients to show in the product table",
+				description: "e.g. zinc, selenium for biotin products",
+				itemLabel: (p) => p.value || "id",
+			}),
 			finderGoal: fields.text({ label: "Finder goal id (goal hubs only)", description: "e.g. sleep, gut" }),
 			guides: fields.array(fields.text({ label: "Guide translation key" }), { label: "Related guides (translation keys)", itemLabel: (p) => p.value || "key" }),
 			faq: fields.array(

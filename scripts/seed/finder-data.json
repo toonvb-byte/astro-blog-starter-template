@@ -479,6 +479,92 @@
     "de": "Die Wirkung hängt vom Stamm ab; die KBE-Zahl allein sagt wenig."
    },
    "de": "Probiotische Kulturen"
+  },
+  {
+   "id": "biotin",
+   "en": "Biotin",
+   "es": "Biotina",
+   "de": "Biotin",
+   "unit": "µg",
+   "effective": 50,
+   "caution": {
+    "en": "High doses can distort some blood tests (thyroid, troponin). Tell your doctor before a blood test.",
+    "es": "Las dosis altas pueden alterar algunos análisis (tiroides, troponina). Avisa a tu médico antes de un análisis.",
+    "de": "Hohe Dosen können manche Bluttests verfälschen (Schilddrüse, Troponin). Vor einem Bluttest Bescheid sagen."
+   }
+  },
+  {
+   "id": "selenium",
+   "en": "Selenium",
+   "es": "Selenio",
+   "de": "Selen",
+   "unit": "µg",
+   "effective": 55,
+   "upper": 255
+  },
+  {
+   "id": "vitamin_a",
+   "en": "Vitamin A",
+   "es": "Vitamina A",
+   "de": "Vitamin A",
+   "unit": "µg",
+   "effective": 800,
+   "upper": 3000,
+   "caution": {
+    "en": "Avoid high-dose vitamin A in pregnancy; smokers should avoid beta-carotene supplements.",
+    "es": "Evita la vitamina A en dosis altas en el embarazo; los fumadores deben evitar suplementos de betacaroteno.",
+    "de": "Hoch dosiertes Vitamin A in der Schwangerschaft meiden; Raucher sollten kein Betacarotin nehmen."
+   }
+  },
+  {
+   "id": "hyaluronic_acid",
+   "en": "Hyaluronic acid",
+   "es": "Ácido hialurónico",
+   "de": "Hyaluronsäure",
+   "unit": "mg",
+   "effective": 120
+  },
+  {
+   "id": "glucosamine",
+   "en": "Glucosamine",
+   "es": "Glucosamina",
+   "de": "Glucosamin",
+   "unit": "mg",
+   "effective": 1500,
+   "caution": {
+    "en": "Often made from shellfish; high doses may interact with warfarin.",
+    "es": "Suele proceder del marisco; en dosis altas puede interactuar con la warfarina y el Sintrom.",
+    "de": "Oft aus Schalentieren; hohe Dosen können mit Warfarin und Marcumar wechselwirken."
+   }
+  },
+  {
+   "id": "chondroitin",
+   "en": "Chondroitin",
+   "es": "Condroitina",
+   "de": "Chondroitin",
+   "unit": "mg",
+   "effective": 800
+  },
+  {
+   "id": "msm",
+   "en": "MSM",
+   "es": "MSM",
+   "de": "MSM",
+   "unit": "mg",
+   "effective": 1500
+  },
+  {
+   "id": "coq10",
+   "en": "Coenzyme Q10",
+   "es": "Coenzima Q10",
+   "de": "Coenzym Q10",
+   "unit": "mg",
+   "effective": 100,
+   "caution": {
+    "en": "May interact with warfarin and some cancer treatments.",
+    "es": "Puede interactuar con la warfarina y algunos tratamientos contra el cáncer.",
+    "de": "Kann mit Warfarin und manchen Krebstherapien wechselwirken."
+   }
   }
  ],
  "goalIngredients": [
@@ -1933,7 +2019,629 @@
      "amt": 185
     }
    ],
-   "source": "https://cosmetis.com/es/ana-maria-lajusticia-collagen-with-magnesium-supplement-tablets-x450"
+   "source": "https://cosmetis.com/es/ana-maria-lajusticia-collagen-with-magnesium-supplement-tablets-x450",
+   "hubs": [
+    "collagen",
+    "magnesium"
+   ]
+  },
+  {
+   "id": "vitamaze-biotin-zink-selen",
+   "brand": "Vitamaze",
+   "name": "Biotin 10.000 µg + Zink + Selen",
+   "dose": {
+    "en": "1 tablet a day",
+    "es": "1 comprimido al día",
+    "de": "1 Tablette täglich"
+   },
+   "pack": "365 tabs",
+   "vegan": true,
+   "markets": {
+    "ES": "verified",
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "biotin",
+     "amt": 10000
+    },
+    {
+     "i": "zinc",
+     "amt": 10,
+     "form": "gluconate"
+    },
+    {
+     "i": "selenium",
+     "amt": 50,
+     "form": "sodium selenate"
+    }
+   ],
+   "source": "https://www.vitalabo.com/vitamaze/biotin-3",
+   "flags": [
+    {
+     "en": "Zinc 10 mg is above Germany's BfR guidance of 6.5 mg per daily dose.",
+     "es": "El zinc (10 mg) supera la recomendación alemana del BfR de 6,5 mg por dosis diaria.",
+     "de": "Zink (10 mg) liegt über der BfR-Empfehlung von 6,5 mg pro Tagesdosis."
+    }
+   ],
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "natugena-biotin-zink-selen",
+   "brand": "NatuGena",
+   "name": "Biotin, Zink & Selen",
+   "dose": {
+    "en": "1 tablet a day",
+    "es": "1 comprimido al día",
+    "de": "1 Pressling täglich"
+   },
+   "pack": "365 tabs",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "biotin",
+     "amt": 10000
+    },
+    {
+     "i": "zinc",
+     "amt": 10
+    },
+    {
+     "i": "selenium",
+     "amt": 50
+    }
+   ],
+   "source": "https://www.docmorris.de/biotin-zink-selen/20339290",
+   "flags": [
+    {
+     "en": "Zinc 10 mg is above Germany's BfR guidance of 6.5 mg per daily dose.",
+     "es": "El zinc (10 mg) supera la recomendación alemana del BfR de 6,5 mg por dosis diaria.",
+     "de": "Zink (10 mg) liegt über der BfR-Empfehlung von 6,5 mg pro Tagesdosis."
+    }
+   ],
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "aldous-biotina-complex",
+   "brand": "Aldous",
+   "name": "Biotina Complex 12.000 µg + Zinc + Selenio + D3 + E",
+   "dose": {
+    "en": "1 tablet a day",
+    "es": "1 comprimido al día",
+    "de": "1 Tablette täglich"
+   },
+   "pack": "400 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "biotin",
+     "amt": 12000
+    },
+    {
+     "i": "zinc",
+     "amt": 15,
+     "form": "citrate"
+    },
+    {
+     "i": "selenium",
+     "amt": 60,
+     "form": "sodium selenite"
+    },
+    {
+     "i": "vitamin_d",
+     "amt": 50
+    }
+   ],
+   "source": "https://www.primor.eu/es_es/aldous-comprimidos-biotina-complex-12000-mcg-zinc-selenio-vitaminas-d3-e-152314.html",
+   "flags": [
+    {
+     "en": "Contains 50 µg (2,000 IU) of vitamin D a day: count it if you also take vitamin D.",
+     "es": "Aporta 50 µg (2.000 UI) de vitamina D al día: súmala si ya tomas vitamina D.",
+     "de": "Enthält 50 µg (2.000 IE) Vitamin D pro Tag: mitrechnen, wenn du schon Vitamin D nimmst."
+    }
+   ],
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "multicentrum-mujer-50",
+   "brand": "Multicentrum (Haleon)",
+   "name": "Mujer 50+",
+   "dose": {
+    "en": "1 tablet a day",
+    "es": "1 comprimido al día",
+    "de": "1 Tablette täglich"
+   },
+   "pack": "30/90 tabs",
+   "markets": {
+    "ES": "verified"
+   },
+   "hubs": [
+    "multivitamins"
+   ],
+   "ingredients": [
+    {
+     "i": "vitamin_d",
+     "amt": 15
+    },
+    {
+     "i": "iron",
+     "amt": 4.2,
+     "form": "ferrous fumarate"
+    },
+    {
+     "i": "folate",
+     "amt": 300
+    },
+    {
+     "i": "b12",
+     "amt": 7.5
+    },
+    {
+     "i": "b6",
+     "amt": 2.1
+    },
+    {
+     "i": "vitamin_a",
+     "amt": 800,
+     "form": "50% as beta-carotene"
+    },
+    {
+     "i": "zinc",
+     "amt": 5,
+     "form": "oxide"
+    }
+   ],
+   "source": "https://farmaprincipal.es/nutricion-vitaminas-y-minerales/4859-multicentrum-mujer-50-90-comprimidos173189-8470001731890.html",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "centrum-a-zink",
+   "brand": "Centrum (Haleon)",
+   "name": "Centrum A–Zink",
+   "dose": {
+    "en": "1 tablet a day",
+    "es": "1 comprimido al día",
+    "de": "1 Tablette täglich"
+   },
+   "pack": "30/100 tabs",
+   "markets": {
+    "DE": "verified"
+   },
+   "hubs": [
+    "multivitamins"
+   ],
+   "ingredients": [
+    {
+     "i": "vitamin_d",
+     "amt": 5
+    },
+    {
+     "i": "iron",
+     "amt": 5
+    },
+    {
+     "i": "folate",
+     "amt": 200
+    },
+    {
+     "i": "b12",
+     "amt": 2.5
+    },
+    {
+     "i": "b6",
+     "amt": 2
+    },
+    {
+     "i": "vitamin_a",
+     "amt": 800,
+     "form": "25% as beta-carotene"
+    },
+    {
+     "i": "zinc",
+     "amt": 5
+    }
+   ],
+   "source": "https://das.medpex.de/catalog/leaflets/14170467-lmiv.pdf",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "centrum-generation-50",
+   "brand": "Centrum (Haleon)",
+   "name": "Centrum Generation 50+",
+   "dose": {
+    "en": "1 tablet a day",
+    "es": "1 comprimido al día",
+    "de": "1 Tablette täglich"
+   },
+   "pack": "180 tabs",
+   "markets": {
+    "DE": "verified"
+   },
+   "hubs": [
+    "multivitamins"
+   ],
+   "ingredients": [
+    {
+     "i": "vitamin_d",
+     "amt": 5
+    },
+    {
+     "i": "iron",
+     "amt": 2.1
+    },
+    {
+     "i": "folate",
+     "amt": 300
+    },
+    {
+     "i": "b12",
+     "amt": 3
+    },
+    {
+     "i": "b6",
+     "amt": 2.1
+    },
+    {
+     "i": "vitamin_a",
+     "amt": 800
+    },
+    {
+     "i": "zinc",
+     "amt": 5
+    }
+   ],
+   "source": "https://www.knuspr.de/97269-centrum-generation-50-tabletten",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "aldous-colageno-hialuronico",
+   "brand": "Aldous",
+   "name": "Cápsulas Colágeno + Ácido Hialurónico",
+   "dose": {
+    "en": "2 capsules a day",
+    "es": "2 cápsulas al día",
+    "de": "2 Kapseln täglich"
+   },
+   "pack": "150 caps",
+   "markets": {
+    "ES": "verified"
+   },
+   "hubs": [
+    "collagen",
+    "hyaluronic-acid"
+   ],
+   "ingredients": [
+    {
+     "i": "collagen",
+     "amt": 0.8,
+     "form": "hydrolysed bovine"
+    },
+    {
+     "i": "hyaluronic_acid",
+     "amt": 220,
+     "form": "sodium hyaluronate"
+    },
+    {
+     "i": "vitamin_c",
+     "amt": 30
+    },
+    {
+     "i": "zinc",
+     "amt": 10
+    },
+    {
+     "i": "biotin",
+     "amt": 150
+    },
+    {
+     "i": "selenium",
+     "amt": 27.5
+    }
+   ],
+   "source": "https://www.primor.eu/es_es/aldous-capsulas-colageno-acido-hialuronico-152310.html",
+   "flags": [
+    {
+     "en": "Only 0.8 g of collagen a day, far below the 2.5–10 g used in studies.",
+     "es": "Solo 0,8 g de colágeno al día, muy por debajo de los 2,5–10 g de los estudios.",
+     "de": "Nur 0,8 g Kollagen pro Tag, weit unter den 2,5–10 g aus Studien."
+    }
+   ],
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "sunday-hyaluronsaeure-250",
+   "brand": "Sunday Natural",
+   "name": "Hyaluronsäure 250 mg",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
+   },
+   "pack": "60 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "hyaluronic_acid",
+     "amt": 250,
+     "form": "from fermentation, high molecular weight"
+    }
+   ],
+   "source": "https://sunday.de/en/hyaluronic-acid-250mg-premium-vegan-from-fermentation.html",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "naturtheke-hyaluronsaeure",
+   "brand": "Naturtheke",
+   "name": "Hyaluronsäure Kapseln",
+   "dose": {
+    "en": "2 capsules a day",
+    "es": "2 cápsulas al día",
+    "de": "2 Kapseln täglich"
+   },
+   "pack": "60/120 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "hyaluronic_acid",
+     "amt": 600
+    }
+   ],
+   "source": "https://www.vitalabo.com/naturtheke/hyaluronic-acid-8",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "vitamaze-glucosamin-chondroitin-msm",
+   "brand": "Vitamaze",
+   "name": "Glucosamin + Chondroitin + MSM",
+   "dose": {
+    "en": "4 capsules a day (2 × 2)",
+    "es": "4 cápsulas al día (2 × 2)",
+    "de": "4 Kapseln täglich (2 × 2)"
+   },
+   "pack": "240 caps",
+   "markets": {
+    "DE": "verified",
+    "ES": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "glucosamine",
+     "amt": 625,
+     "form": "sulphate, from crustaceans"
+    },
+    {
+     "i": "chondroitin",
+     "amt": 625,
+     "form": "sodium chondroitin sulphate"
+    },
+    {
+     "i": "msm",
+     "amt": 1000
+    },
+    {
+     "i": "vitamin_c",
+     "amt": 80
+    }
+   ],
+   "source": "https://vitalabo.com/vitamaze/glucosamine-chondroitin-msm",
+   "flags": [
+    {
+     "en": "625 mg of glucosamine sulphate a day, well below the 1,500 mg used in trials.",
+     "es": "625 mg de sulfato de glucosamina al día, muy por debajo de los 1.500 mg de los ensayos.",
+     "de": "625 mg Glucosaminsulfat pro Tag, deutlich unter den 1.500 mg aus Studien."
+    }
+   ],
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "nutralie-glucosamin-complex",
+   "brand": "Nutralie",
+   "name": "Glucosamina Complex (glucosamina, condroitina, MSM, colágeno)",
+   "dose": {
+    "en": "2 tablets a day",
+    "es": "2 comprimidos al día",
+    "de": "2 Tabletten täglich"
+   },
+   "pack": "120 tabs",
+   "markets": {
+    "ES": "verified",
+    "DE": "verified"
+   },
+   "partial": true,
+   "ingredients": [
+    {
+     "i": "glucosamine",
+     "amt": 1000,
+     "form": "sulphate"
+    },
+    {
+     "i": "chondroitin",
+     "amt": 500,
+     "form": "sulphate"
+    },
+    {
+     "i": "msm",
+     "amt": 450
+    },
+    {
+     "i": "collagen",
+     "amt": 0.08,
+     "form": "hydrolysed"
+    }
+   ],
+   "source": "https://www.shop-apotheke.com/arzneimittel/upmMYARF2/nutralie-glucosamin-chondroitin-hochdosiert-mit-msm-und-kollagen.htm",
+   "flags": [
+    {
+     "en": "Retailer listing gives glucosamine and chondroitin as 'a dose' without saying per tablet or per day; hyaluronic acid, boswellia, zinc and selenium amounts not stated.",
+     "es": "La ficha da la glucosamina y la condroitina como «una dosis» sin aclarar si es por comprimido o por día; no indica las cantidades de ácido hialurónico, boswellia, zinc y selenio.",
+     "de": "Die Händlerangabe nennt Glucosamin und Chondroitin als „eine Dosis“, ohne pro Tablette oder Tag zu klären; Mengen für Hyaluronsäure, Boswellia, Zink und Selen fehlen."
+    }
+   ],
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "vegavero-msm-pulver",
+   "brand": "Vegavero",
+   "name": "MSM Pulver / MSM en polvo",
+   "dose": {
+    "en": "2 × 1 g of powder a day",
+    "es": "2 × 1 g de polvo al día",
+    "de": "2 × 1 g Pulver täglich"
+   },
+   "pack": "1 kg",
+   "vegan": true,
+   "markets": {
+    "ES": "verified",
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "msm",
+     "amt": 2000,
+     "form": "99.9% pure"
+    }
+   ],
+   "source": "https://www.shop-apotheke.com/arzneimittel/upmTLUPGT/vegavero-msm-pulver-dose.htm",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "vitamaze-q10-200",
+   "brand": "Vitamaze",
+   "name": "Coenzym Q10 200 mg",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
+   },
+   "pack": "120 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified",
+    "ES": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "coq10",
+     "amt": 200,
+     "form": "ubiquinone"
+    }
+   ],
+   "source": "https://www.vitalabo.com/vitamaze/coenzyme-q10-8",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "nutravita-q10-200",
+   "brand": "Nutravita",
+   "name": "Co-Enzyme Q10 200 mg",
+   "dose": {
+    "en": "1 capsule a day",
+    "es": "1 cápsula al día",
+    "de": "1 Kapsel täglich"
+   },
+   "pack": "120 caps",
+   "vegan": true,
+   "markets": {
+    "ES": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "coq10",
+     "amt": 200,
+     "form": "ubiquinone, fermented"
+    }
+   ],
+   "source": "https://www.superdrug.com/natural-pain-relief/health/vitamins-supplements/immune-defence/nutravita-co-enzyme-q10-coq10-200mg-120-vegan-capsules/p/mp-00011568",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "vitabay-ubiquinol-200",
+   "brand": "Vitabay",
+   "name": "Coenzym Q10 Ubiquinol 200 mg",
+   "dose": {
+    "en": "2 capsules a day",
+    "es": "2 cápsulas al día",
+    "de": "2 Kapseln täglich"
+   },
+   "pack": "60 caps",
+   "markets": {
+    "ES": "verified",
+    "DE": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "coq10",
+     "amt": 400,
+     "form": "ubiquinol"
+    }
+   ],
+   "source": "https://www.les-calories.com/showroom/vitabay/produits-services/coenzyme-q10-ubiquinol-200-mg-60-gelules-de-coenzyme-q10-bioactif-et-a-liberation-prolongee-sans-additifs-et-a-dosage-eleve-verifie-en-laboratoire",
+   "flags": [
+    {
+     "en": "The label's 2 capsules a day give 400 mg of ubiquinol, double the usual 100–200 mg.",
+     "es": "Las 2 cápsulas diarias de la etiqueta dan 400 mg de ubiquinol, el doble de lo habitual (100–200 mg).",
+     "de": "Die 2 Kapseln laut Etikett liefern 400 mg Ubichinol, doppelt so viel wie üblich (100–200 mg)."
+    }
+   ],
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "solgar-ubiquinol-100",
+   "brand": "Solgar",
+   "name": "Ubiquinol 100 mg",
+   "dose": {
+    "en": "1 softgel a day",
+    "es": "1 cápsula blanda al día",
+    "de": "1 Weichkapsel täglich"
+   },
+   "pack": "50 softgels",
+   "markets": {
+    "DE": "verified",
+    "ES": "likely"
+   },
+   "ingredients": [
+    {
+     "i": "coq10",
+     "amt": 100,
+     "form": "ubiquinol"
+    }
+   ],
+   "source": "https://www.shop-apotheke.com/arzneimittel/18814631/solgar-coenzym-q10.htm",
+   "checked": "2026-10-20"
+  },
+  {
+   "id": "ne-coenzym-q10",
+   "brand": "natural elements",
+   "name": "Coenzym Q10",
+   "dose": {
+    "en": "1–2 capsules a day",
+    "es": "1–2 cápsulas al día",
+    "de": "1–2 Kapseln täglich"
+   },
+   "pack": "120 caps",
+   "vegan": true,
+   "markets": {
+    "DE": "verified"
+   },
+   "ingredients": [
+    {
+     "i": "coq10",
+     "amt": 200,
+     "form": "from yeast fermentation (at 2 capsules)"
+    }
+   ],
+   "source": "https://www.vitalabo.com/natural-elements/coenzyme-q10",
+   "checked": "2026-10-20"
   }
  ]
 }

@@ -185,6 +185,7 @@ const en = {
 	"hub.partOf": "Compare forms, doses and products:",
 	"hub.all": "All supplements",
 	"hub.updated": "Checked",
+	"hub.partial": "Label only partly captured",
 
 	"soon.prices.title": "Supplement price tracker | NutriMetrics",
 	"soon.prices.h1": "Price tracker",
@@ -383,6 +384,7 @@ const es: Dict = {
 	"hub.partOf": "Compara formas, dosis y productos:",
 	"hub.all": "Todos los suplementos",
 	"hub.updated": "Revisado",
+	"hub.partial": "Etiqueta recogida solo en parte",
 
 	"soon.prices.title": "Comparador de precios de suplementos | NutriMetrics",
 	"soon.prices.h1": "Comparador de precios",
@@ -579,6 +581,7 @@ const de: Dict = {
 	"hub.partOf": "Formen, Dosis und Produkte vergleichen:",
 	"hub.all": "Alle Wirkstoffe",
 	"hub.updated": "Geprüft",
+	"hub.partial": "Etikett nur teilweise erfasst",
 
 	"soon.prices.title": "Preisvergleich für Nahrungsergänzungsmittel | NutriMetrics",
 	"soon.prices.h1": "Preisvergleich",

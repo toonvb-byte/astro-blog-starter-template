@@ -34,7 +34,7 @@ for n, p in enumerate(d["products"], 5001):
     for x in p["ingredients"]:
         out.append(f"INSERT OR REPLACE INTO product_ingredients VALUES ({n}, {ING(x['i'])}, {q(x.get('amt'))}, {q(x.get('form'))});")
     for c, st in (p.get("markets") or {}).items():
-        out.append(f"INSERT OR REPLACE INTO product_markets VALUES ({n}, {q(c)}, {q(st)}, {q(checked)});")
+        out.append(f"INSERT OR REPLACE INTO product_markets VALUES ({n}, {q(c)}, {q(st)}, {q(p.get('checked', checked))});")
     out.append(f"DELETE FROM product_notes WHERE product_id={n};")
     for f in p.get("flags", []):
         for loc in ("en", "es"):
