@@ -1,0 +1,646 @@
+---
+/**
+ * Spanish-only product landing page for EnergyProDetox (Nutrición Científica Barcelona).
+ * Used as the Google Ads (Search) landing page: it has to carry original analysis, not just a link
+ * (Google Ads "Insufficient original content" policy rejects pure bridge pages).
+ *
+ * Shop links go through /go/{OFFER_ID} (D1: offers.id 1 → retailers.id 1 NCB, product 9001).
+ * The merchant URL with the ENERGIA10 code lives in D1, so it can change without a redeploy.
+ * Label data: manufacturer product page, checked 21 Oct 2026. Only EU-authorised claims (Reg. 432/2012).
+ */
+import Base from "../../../layouts/Base.astro";
+import AffiliateLink from "../../../components/AffiliateLink.astro";
+import { path } from "../../../i18n/config";
+import { SITE_URL } from "../../../lib/site";
+
+const OFFER_ID = 1;
+const CODE = "ENERGIA10";
+const PRICE = 79.9;
+const SACHETS = 22;
+const CHECKED = "2026-10-21";
+const CHECKED_LABEL = "21 oct 2026";
+const SOURCE = "https://nutricioncientificabarcelona.com/products/energy-pro-detox";
+const URL_PATH = "/es/productos/energyprodetox/";
+const AUTHOR = "Toon Van Buylaere";
+
+const eur = (n: number) => new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(n);
+const perDay = eur(PRICE / SACHETS);
+
+type Claim = "si" | "no" | "espera" | "poco";
+interface Row { name: string; form?: string; amount: string; nrv?: string; claim: Claim; note?: string }
+interface Group { id: string; h: string; intro?: string; nrv: boolean; rows: Row[]; foot?: string }
+
+const groups: Group[] = [
+	{
+		id: "vitaminas",
+		h: "Vitaminas",
+		nrv: true,
+		rows: [
+			{ name: "Vitamina C", form: "ácido ascórbico", amount: "350 mg", nrv: "438 %", claim: "si" },
+			{ name: "Vitamina B1", form: "tiamina", amount: "5 mg", nrv: "455 %", claim: "si" },
+			{ name: "Vitamina B2", form: "riboflavina", amount: "7 mg", nrv: "500 %", claim: "si" },
+			{ name: "Niacina (B3)", form: "nicotinamida", amount: "100 mg", nrv: "625 %", claim: "si" },
+			{ name: "Ácido pantoténico (B5)", form: "D-pantotenato cálcico", amount: "30 mg", nrv: "500 %", claim: "si" },
+			{ name: "Vitamina B6", form: "piridoxina", amount: "7 mg", nrv: "500 %", claim: "si" },
+			{ name: "Biotina (B7)", amount: "250 µg", nrv: "500 %", claim: "si" },
+			{ name: "Folato (B9)", form: "metilfolato cálcico", amount: "1.000 µg", nrv: "500 %", claim: "si", note: "Igual al máximo tolerable de la EFSA para adultos" },
+			{ name: "Vitamina B12", form: "metilcobalamina", amount: "12,5 µg", nrv: "500 %", claim: "si" },
+		],
+	},
+	{
+		id: "minerales",
+		h: "Minerales",
+		nrv: true,
+		rows: [
+			{ name: "Magnesio", form: "bisglicinato 350 mg + citrato 125 mg", amount: "≈70 mg*", nrv: "≈19 %*", claim: "si" },
+			{ name: "Zinc", form: "citrato 10 mg", amount: "≈3,2 mg*", nrv: "≈32 %*", claim: "si" },
+			{ name: "Selenio", form: "selenito sódico 80 µg", amount: "≈37 µg*", nrv: "≈66 %*", claim: "si" },
+			{ name: "Molibdeno", form: "molibdato sódico 100 µg", amount: "≈40 µg*", nrv: "≈79 %*", claim: "si" },
+			{ name: "Manganeso", form: "gluconato 3 mg", amount: "≈0,35 mg*", nrv: "≈17 %*", claim: "si" },
+			{ name: "Cobre", form: "gluconato 1 mg", amount: "≈0,14 mg*", nrv: "≈14 %*", claim: "poco" },
+		],
+		foot: "* La ficha del fabricante da el peso de la sal mineral (por ejemplo, 350 mg de bisglicinato de magnesio). El mineral puro, que es lo que cuenta para el %VRN, es menor. Lo estimamos con la proporción de mineral de cada sal; si el fabricante se refiere al mineral puro, las cifras serían más altas.",
+	},
+	{
+		id: "aminoacidos",
+		h: "Aminoácidos y compuestos afines",
+		intro: "Casi 5 g por sobre. Es la parte más grande de la fórmula y la que lo diferencia de un multivitamínico.",
+		nrv: false,
+		rows: [
+			{ name: "Taurina", amount: "1.500 mg", claim: "no" },
+			{ name: "Acetil-L-carnitina", amount: "1.500 mg", claim: "no" },
+			{ name: "L-glutamina", amount: "1.000 mg", claim: "no" },
+			{ name: "N-acetilcisteína (NAC)", amount: "250 mg", claim: "no" },
+			{ name: "Glicina", amount: "250 mg", claim: "no" },
+			{ name: "Betaína", form: "trimetilglicina", amount: "250 mg", claim: "no", note: "La declaración sobre la homocisteína exige 1,5 g al día" },
+			{ name: "Glucuronolactona", amount: "100 mg", claim: "no" },
+			{ name: "Ácido R-lipoico", amount: "30 mg", claim: "no" },
+			{ name: "NADH", amount: "5 mg", claim: "no" },
+		],
+	},
+	{
+		id: "plantas",
+		h: "Extractos vegetales y otros",
+		nrv: false,
+		rows: [
+			{ name: "Trans-resveratrol", form: "raíz de Polygonum cuspidatum", amount: "250 mg", claim: "no" },
+			{ name: "Chlorella", form: "Chlorella pyrenoidosa", amount: "200 mg", claim: "no" },
+			{ name: "Lecitina de girasol", amount: "150 mg", claim: "no" },
+			{ name: "Alcachofa", form: "extracto 10:1, 5 % cinarina", amount: "125 mg", claim: "espera" },
+			{ name: "Cardo mariano", form: "extracto 25:1, 80 % silimarina", amount: "100 mg", claim: "espera" },
+			{ name: "Bioflavonoides cítricos", amount: "100 mg", claim: "no" },
+			{ name: "Lepidium latifolium", form: "extracto de raíz", amount: "50 mg", claim: "no" },
+			{ name: "Diente de león", form: "extracto 11:1", amount: "25 mg", claim: "espera" },
+		],
+		foot: "También lleva isomaltulosa (palatinosa) como endulzante y aroma natural de naranja, sin cantidad indicada.",
+	},
+];
+
+const claimLabel: Record<Claim, string> = {
+	si: "Sí",
+	no: "No",
+	espera: "En espera en la UE",
+	poco: "No (menos del 15 % del VRN)",
+};
+
+const benefits = [
+	{
+		h: "Energía y menos cansancio",
+		items: [
+			["contribuyen a disminuir el cansancio y la fatiga", "Vitamina C, B2, niacina, B5, B6, B12, folato y magnesio"],
+			["contribuyen al metabolismo energético normal", "Vitamina C, B1, B2, niacina, B5, B6, B12, biotina, magnesio y manganeso"],
+		],
+	},
+	{
+		h: "Defensas",
+		items: [["contribuyen al funcionamiento normal del sistema inmunitario", "Vitamina C, B6, B12, folato, zinc y selenio"]],
+	},
+	{
+		h: "Mente y sistema nervioso",
+		items: [
+			["contribuyen a la función psicológica normal", "Vitamina C, B1, niacina, B6, B12, biotina, folato y magnesio"],
+			["contribuyen al funcionamiento normal del sistema nervioso", "Vitamina C, B1, B2, niacina, B6, B12, biotina y magnesio"],
+			["contribuyen al rendimiento intelectual y a la función cognitiva normales", "Ácido pantoténico (B5) y zinc"],
+		],
+	},
+	{
+		h: "Protección de las células",
+		items: [["contribuyen a la protección de las células frente al daño oxidativo", "Vitamina C, B2, zinc, selenio y manganeso"]],
+	},
+	{
+		h: "Piel, cabello y uñas",
+		items: [
+			["contribuyen al mantenimiento de la piel en condiciones normales", "Biotina, niacina, B2 y zinc"],
+			["contribuyen al mantenimiento del cabello y de las uñas en condiciones normales", "Biotina (cabello), zinc y selenio"],
+			["contribuye a la formación normal de colágeno para el funcionamiento normal de la piel", "Vitamina C"],
+		],
+	},
+	{
+		h: "Músculos y metabolismo",
+		items: [
+			["contribuye al funcionamiento normal de los músculos", "Magnesio"],
+			["contribuyen al metabolismo normal de la homocisteína", "Vitamina B6, B12 y folato"],
+			["contribuye al metabolismo normal de los aminoácidos azufrados", "Molibdeno"],
+		],
+	},
+];
+
+const faq = [
+	{
+		q: "¿Qué es EnergyProDetox?",
+		a: "Un complemento alimenticio en polvo de Nutrición Científica Barcelona (NCB). Cada sobre de 10 g combina vitaminas del grupo B y C, minerales, unos 5 g de aminoácidos (taurina, acetil-L-carnitina, glutamina y otros) y extractos de plantas como cardo mariano, alcachofa y resveratrol.",
+	},
+	{
+		q: "¿Cómo se toma?",
+		a: "Según el fabricante, un sobre al día disuelto en un vaso grande de agua, en ayunas. Tiene sabor a naranja.",
+	},
+	{
+		q: "¿Cuánto cuesta al día?",
+		a: `La caja de ${SACHETS} sobres cuesta ${eur(PRICE)} en la tienda oficial (precio comprobado el ${CHECKED_LABEL}), unos ${perDay} al día. El código ${CODE} reduce el precio en la tienda oficial y también hay packs de 3 y 6 cajas.`,
+	},
+	{
+		q: `¿Cómo uso el código ${CODE}?`,
+		a: `Entra desde los botones de esta página: el enlace aplica el código ${CODE} automáticamente en la tienda de NCB. Si no lo ves en la cesta, escríbelo en el campo de código de descuento al pagar.`,
+	},
+	{
+		q: "¿Puedo tomarlo si tomo medicación?",
+		a: "Consúltalo antes con tu médico o farmacéutico. Lleva trans-resveratrol, y la normativa europea exige que los complementos con resveratrol indiquen que quien toma medicamentos debe tomarlos solo bajo supervisión médica.",
+	},
+	{
+		q: "¿Sirve para desintoxicar el cuerpo?",
+		a: "Ningún complemento alimenticio tiene en la UE una declaración autorizada para «desintoxicar» o eliminar toxinas o metales pesados; «Detox» forma parte del nombre comercial. Lo que sí está autorizado son los efectos de sus vitaminas y minerales, por ejemplo sobre el cansancio, el metabolismo energético y el sistema inmunitario.",
+	},
+	{
+		q: "¿Es apto para niños?",
+		a: "Nuestro análisis es para adultos. Con 1.000 µg de folato al día supera el nivel máximo tolerable que la EFSA fija para menores de 18 años, y la vitamina B6 supera el de los niños de hasta 10 años. Para un niño, consulta antes con su pediatra.",
+	},
+];
+
+const sources = [
+	{ title: "Nutrición Científica Barcelona — ficha de EnergyProDetox (composición y modo de empleo)", url: SOURCE },
+	{ title: "Comisión Europea — Registro de declaraciones nutricionales y de propiedades saludables", url: "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/nutrition-and-health-claims/eu-register-health-claims_en" },
+	{ title: "Reglamento (UE) n.º 432/2012 — lista de declaraciones de propiedades saludables autorizadas", url: "https://eur-lex.europa.eu/eli/reg/2012/432/oj" },
+	{ title: "Reglamento de Ejecución (UE) 2021/51 — condiciones de uso del trans-resveratrol como nuevo alimento", url: "https://eur-lex.europa.eu/eli/reg_impl/2021/51/oj" },
+	{ title: "EFSA — Resumen de niveles máximos tolerables de ingesta (folato, vitamina B6 y otros)", url: "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf" },
+];
+
+const title = "EnergyProDetox: ingredientes, dosis y código descuento";
+const description = `Análisis de EnergyProDetox: sus más de 30 ingredientes con dosis, qué beneficios autoriza la UE, cuánto cuesta al día y cómo usar el código ${CODE}.`;
+const abs = (p: string) => new URL(p, SITE_URL).href;
+
+const jsonLd: object[] = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: "EnergyProDetox: ingredientes, dosis y para quién es",
+		description,
+		inLanguage: "es",
+		url: abs(URL_PATH),
+		datePublished: `${CHECKED}T00:00:00.000Z`,
+		dateModified: `${CHECKED}T00:00:00.000Z`,
+		about: { "@type": "Product", name: "EnergyProDetox", brand: { "@type": "Brand", name: "Nutrición Científica Barcelona" } },
+		author: { "@type": "Person", name: AUTHOR, url: abs(`${path("es", "about")}#team`) },
+		publisher: { "@id": `${SITE_URL}/#org` },
+		isPartOf: { "@id": `${SITE_URL}/#website` },
+		citation: sources.map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })),
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+	},
+];
+
+const toc = [
+	{ slug: "resumen", text: "En resumen" },
+	{ slug: "ingredientes", text: "Ingredientes y dosis" },
+	{ slug: "beneficios", text: "Beneficios autorizados" },
+	{ slug: "no-promete", text: "Lo que no puede prometer" },
+	{ slug: "valoracion", text: "Nuestra valoración" },
+	{ slug: "precauciones", text: "Precauciones" },
+	{ slug: "precio", text: "Precio y código" },
+	{ slug: "faq", text: "Preguntas frecuentes" },
+	{ slug: "fuentes", text: "Fuentes" },
+];
+---
+<Base
+	locale="es"
+	title={title}
+	description={description}
+	alternates={{ es: URL_PATH }}
+	active="supplements"
+	ogType="article"
+	disclosure
+	breadcrumbs={[
+		{ name: "Inicio", href: path("es") },
+		{ name: "Suplementos", href: path("es", "supplements") },
+		{ name: "EnergyProDetox", href: URL_PATH },
+	]}
+	jsonLd={jsonLd}
+>
+	<div class="container">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				<li><a href={path("es")}>Inicio</a></li>
+				<li><a href={path("es", "supplements")}>Suplementos</a></li>
+				<li aria-current="page">EnergyProDetox</li>
+			</ol>
+		</nav>
+
+		<header class="hero">
+			<div class="hero-text">
+				<span class="eyebrow">Análisis de producto</span>
+				<h1 class="h1">EnergyProDetox: ingredientes, dosis y para quién es</h1>
+				<p class="lead">
+					Un sobre al día con vitaminas B y C, minerales, aminoácidos y extractos de plantas. Aquí tienes cada
+					ingrediente con su dosis, los beneficios que autoriza la UE y lo que cuesta al día.
+				</p>
+
+				<div class="coupon" aria-labelledby="coupon-h">
+					<div class="coupon-top">
+						<p id="coupon-h" class="coupon-label">Código de descuento en la tienda oficial</p>
+						<div class="code-row">
+							<span class="code mono" id="code">{CODE}</span>
+							<button type="button" class="copy" data-copy={CODE} aria-describedby="code">Copiar</button>
+							<span class="copied" role="status" aria-live="polite"></span>
+						</div>
+					</div>
+					<AffiliateLink offerId={OFFER_ID} placement="epd:hero" class="btn-lg cta">
+						Ver EnergyProDetox con el código {CODE} <span aria-hidden="true">→</span>
+					</AffiliateLink>
+					<p class="coupon-note">
+						Te llevamos a nutricioncientificabarcelona.com y el código se aplica al entrar.
+						Enlace de afiliado: si compras, NutriMetrics recibe una comisión sin coste para ti.
+					</p>
+				</div>
+			</div>
+
+			<aside class="pack" aria-label="Ficha rápida">
+				<p class="pack-brand">Nutrición Científica Barcelona</p>
+				<p class="pack-name">EnergyProDetox</p>
+				<dl class="pack-facts">
+					<div><dt>Dosis diaria</dt><dd>1 sobre de 10 g</dd></div>
+					<div><dt>Sobres por caja</dt><dd class="mono">{SACHETS}</dd></div>
+					<div><dt>Ingredientes con dosis</dt><dd>más de 30</dd></div>
+					<div><dt>Formato</dt><dd>Polvo, sabor naranja</dd></div>
+					<div><dt>Precio por caja</dt><dd class="mono">{eur(PRICE)}</dd></div>
+					<div class="pack-hl"><dt>Coste por día</dt><dd class="mono">{perDay}</dd></div>
+				</dl>
+				<p class="pack-note">Sin gluten ni lactosa, según el fabricante. Precio sin descuento, comprobado el {CHECKED_LABEL}.</p>
+			</aside>
+		</header>
+
+		<div class="byline">
+			<span><span class="muted">Análisis de</span> <a href={`${path("es", "about")}#team`}>{AUTHOR}</a></span>
+			<span><span class="muted">Composición comprobada</span> <time datetime={CHECKED}>{CHECKED_LABEL}</time></span>
+		</div>
+
+		<div class="layout">
+			<aside aria-labelledby="toc-h" class="toc">
+				<h2 id="toc-h">En esta página</h2>
+				<ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+			</aside>
+
+			<article class="prose">
+				<section id="resumen" aria-labelledby="resumen-h" class="quick">
+					<h2 id="resumen-h">En resumen</h2>
+					<ul>
+						<li><strong>Todo en un sobre:</strong> vitaminas B y C en dosis altas (de 4 a 6 veces el VRN), algo de magnesio y zinc, casi 5 g de taurina, acetil-L-carnitina, glutamina y otros aminoácidos, y extractos de cardo mariano, alcachofa y resveratrol.</li>
+						<li><strong>Beneficios autorizados:</strong> sus vitaminas y minerales tienen declaraciones aprobadas por la UE sobre el cansancio, el metabolismo energético, las defensas y el sistema nervioso.</li>
+						<li><strong>Etiqueta transparente:</strong> indica la cantidad de cada ingrediente, sin «mezclas exclusivas», y usa formas bien absorbidas como metilcobalamina, metilfolato y bisglicinato de magnesio.</li>
+						<li><strong>Precio:</strong> {eur(PRICE)} la caja de {SACHETS} sobres, unos {perDay} al día antes del descuento del código {CODE}.</li>
+						<li><strong>Para adultos.</strong> Consulta antes si tomas medicación, estás embarazada o das el pecho, o ya tomas otro suplemento con ácido fólico.</li>
+					</ul>
+				</section>
+
+				<section id="ingredientes" aria-labelledby="ing-h">
+					<h2 id="ing-h">Ingredientes y dosis por sobre</h2>
+					<p>
+						Esta es la composición por dosis diaria (un sobre de 10 g) que publica el fabricante. Para las vitaminas
+						y los minerales añadimos el %VRN, el porcentaje del valor de referencia de nutrientes de la UE. La última
+						columna indica si la UE ha autorizado alguna declaración de salud para ese ingrediente.
+					</p>
+					{groups.map((g) => (
+						<div class="group" id={g.id}>
+							<h3>{g.h}</h3>
+							{g.intro && <p class="group-intro">{g.intro}</p>}
+							<div class="table-wrap">
+								<table class="table stack ing">
+									<thead>
+										<tr>
+											<th scope="col">Ingrediente</th>
+											<th scope="col">Por sobre</th>
+											{g.nrv && <th scope="col">%VRN</th>}
+											<th scope="col">Declaración UE</th>
+										</tr>
+									</thead>
+									<tbody>
+										{g.rows.map((r) => (
+											<tr>
+												<th scope="row">{r.name}{r.form && <span class="form">{r.form}</span>}</th>
+												<td data-label="Por sobre" class="mono">{r.amount}</td>
+												{g.nrv && <td data-label="%VRN" class="mono">{r.nrv}</td>}
+												<td data-label="Declaración UE">
+													<span class={`claim claim-${r.claim}`}>{claimLabel[r.claim]}</span>
+													{r.note && <span class="row-note">{r.note}</span>}
+												</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
+							{g.foot && <p class="foot">{g.foot}</p>}
+						</div>
+					))}
+					<p class="foot">
+						«En espera en la UE»: la Comisión Europea todavía no ha evaluado las declaraciones de las plantas, así que
+						hoy no hay ninguna autorizada. Fuente de la composición: <a href={SOURCE} rel="noopener nofollow" target="_blank">ficha del fabricante</a>, consultada el {CHECKED_LABEL}.
+					</p>
+				</section>
+
+				<aside class="mid-cta" aria-label="Comprar con descuento">
+					<p><strong>¿Te encaja la fórmula?</strong> Con el código <span class="mono">{CODE}</span> lo tienes con descuento en la tienda oficial.</p>
+					<AffiliateLink offerId={OFFER_ID} placement="epd:ingredientes">Ir a la tienda con {CODE} <span aria-hidden="true">→</span></AffiliateLink>
+				</aside>
+
+				<section id="beneficios" aria-labelledby="ben-h">
+					<h2 id="ben-h">Beneficios autorizados en la UE</h2>
+					<p>
+						Estas son las declaraciones que el Reglamento (UE) 432/2012 permite para las vitaminas y minerales que
+						EnergyProDetox aporta en cantidad significativa (al menos el 15 % del VRN por sobre). Son las únicas que
+						cualquier marca puede usar legalmente para hablar de lo que hace un complemento.
+					</p>
+					<div class="benefits">
+						{benefits.map((b) => (
+							<div class="benefit">
+								<h3>{b.h}</h3>
+								<ul>
+									{b.items.map(([claim, who]) => (
+										<li><strong>{who}</strong> {claim}.</li>
+									))}
+								</ul>
+							</div>
+						))}
+					</div>
+				</section>
+
+				<section id="no-promete" aria-labelledby="np-h">
+					<h2 id="np-h">Lo que no puede prometer</h2>
+					<p>
+						La mayor parte de la fórmula en gramos (taurina, acetil-L-carnitina, glutamina, NAC, resveratrol,
+						chlorella, ácido R-lipoico, NADH) no tiene ninguna declaración de salud autorizada en la UE. Eso no
+						significa que no hagan nada, sino que nadie puede atribuirles legalmente un efecto concreto en un complemento.
+					</p>
+					<p>
+						Lo mismo vale para la palabra «detox». Ningún complemento alimenticio tiene en la UE una declaración
+						autorizada para desintoxicar, depurar o eliminar toxinas o metales pesados: el hígado y los riñones
+						ya hacen ese trabajo. En EnergyProDetox, «Detox» es parte del nombre comercial.
+					</p>
+				</section>
+
+				<section id="valoracion" aria-labelledby="val-h">
+					<h2 id="val-h">Nuestra valoración</h2>
+					<div class="verdict">
+						<div class="v-box yes">
+							<h3>A favor</h3>
+							<ul>
+								<li>Sustituye varios botes: complejo B, vitamina C, minerales y aminoácidos en una sola toma.</li>
+								<li>Etiqueta transparente, con la cantidad de cada ingrediente.</li>
+								<li>Formas bien elegidas: metilcobalamina (B12), metilfolato (B9), bisglicinato y citrato de magnesio, citrato de zinc.</li>
+								<li>Formato bebible, útil si no te gusta tragar cápsulas.</li>
+							</ul>
+						</div>
+						<div class="v-box neutral">
+							<h3>A tener en cuenta</h3>
+							<ul>
+								<li>Las vitaminas B van en dosis altas: más del VRN no aporta beneficio extra demostrado si tu dieta ya es variada.</li>
+								<li>El magnesio es modesto (unos 70 mg). Si lo buscas para dormir o para calambres, necesitarás más.</li>
+								<li>Es caro comparado con un multivitamínico; lo que pagas de más son los aminoácidos y los extractos.</li>
+								<li>Los minerales figuran como peso de la sal, no como mineral puro.</li>
+							</ul>
+						</div>
+					</div>
+					<p>
+						<strong>Para quién tiene sentido:</strong> adultos que quieren simplificar su rutina con una sola toma diaria
+						que cubra las vitaminas B y C y que valoran los aminoácidos y extractos de la fórmula, aunque no tengan
+						beneficios autorizados. Si solo buscas cubrir vitaminas, un multivitamínico básico cuesta mucho menos.
+					</p>
+				</section>
+
+				<section id="precauciones" aria-labelledby="pre-h" class="careful">
+					<h2 id="pre-h">Precauciones</h2>
+					<ul>
+						<li><strong>Medicación:</strong> consulta antes con tu médico. Lleva 250 mg de trans-resveratrol, y la normativa europea exige que los complementos con resveratrol avisen de que quien toma medicamentos debe tomarlos solo bajo supervisión médica.</li>
+						<li><strong>Otros suplementos con ácido fólico:</strong> con 1.000 µg de folato, un sobre ya llega al nivel máximo tolerable de la EFSA para adultos. No lo combines con un multivitamínico ni con otro producto con folato.</li>
+						<li><strong>Embarazo y lactancia:</strong> consúltalo con tu médico o matrona; varios de sus ingredientes no se han estudiado en estas etapas.</li>
+						<li><strong>Niños y adolescentes:</strong> el folato supera el máximo tolerable de la EFSA para menores de 18 años y la vitamina B6, el de los niños de hasta 10 años.</li>
+						<li><strong>Alergias:</strong> contiene alcachofa, cardo mariano y diente de león (familia de las compuestas), cítricos y lecitina de girasol.</li>
+					</ul>
+				</section>
+
+				<section id="precio" aria-labelledby="precio-h">
+					<h2 id="precio-h">Precio y código de descuento</h2>
+					<div class="table-wrap">
+						<table class="table price">
+							<tbody>
+								<tr><th scope="row">Caja de {SACHETS} sobres</th><td class="mono">{eur(PRICE)}</td></tr>
+								<tr><th scope="row">Coste por día (1 sobre)</th><td class="mono">{perDay}</td></tr>
+								<tr><th scope="row">Packs</th><td>También en packs de 3 y 6 cajas</td></tr>
+								<tr><th scope="row">Código</th><td><span class="mono">{CODE}</span>, se aplica al entrar desde esta página</td></tr>
+							</tbody>
+							<caption>Precio sin descuento en la tienda oficial, comprobado el {CHECKED_LABEL}. Puede cambiar.</caption>
+						</table>
+					</div>
+					<p>
+						EnergyProDetox se vende en la tienda oficial de Nutrición Científica Barcelona. Al entrar desde nuestros
+						botones, el código {CODE} se aplica solo; si no aparece en la cesta, escríbelo en el campo de código de descuento.
+					</p>
+				</section>
+
+				<section id="faq" aria-labelledby="faq-h">
+					<h2 id="faq-h">Preguntas frecuentes</h2>
+					{faq.map((f, i) => (
+						<details class="faq" open={i === 0}>
+							<summary>{f.q}</summary>
+							<p>{f.a}</p>
+						</details>
+					))}
+				</section>
+
+				<section aria-labelledby="more-h" class="more">
+					<h2 id="more-h">Si buscas algo más concreto</h2>
+					<ul class="chips">
+						<li><a class="chip" href={path("es", "supplements", "multivitaminicos")}>Multivitamínicos</a></li>
+						<li><a class="chip" href={path("es", "supplements", "magnesio")}>Magnesio</a></li>
+						<li><a class="chip" href={path("es", "supplements", "vitamina-b12")}>Vitamina B12</a></li>
+						<li><a class="chip" href={path("es", "guides", "merecen-la-pena-los-multivitaminicos")}>¿Merecen la pena los multivitamínicos?</a></li>
+						<li><a class="chip" href={path("es", "guides", "como-leer-etiqueta-suplemento")}>Cómo leer la etiqueta de un suplemento</a></li>
+					</ul>
+				</section>
+
+				<section id="fuentes" aria-labelledby="src-h">
+					<h2 id="src-h">Fuentes</h2>
+					<ol class="sources">
+						{sources.map((s) => <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a></li>)}
+					</ol>
+					<p class="foot">
+						NutriMetrics no tiene revisor médico: cada afirmación de salud de esta página enlaza a una fuente oficial.
+						Esta información no sustituye el consejo de un profesional sanitario.
+					</p>
+				</section>
+			</article>
+		</div>
+
+		<section class="final" aria-labelledby="final-h">
+			<div>
+				<h2 id="final-h" class="h2">EnergyProDetox con el código {CODE}</h2>
+				<p>Un sobre al día, {SACHETS} sobres por caja, en la tienda oficial de Nutrición Científica Barcelona.</p>
+			</div>
+			<div class="final-cta">
+				<AffiliateLink offerId={OFFER_ID} placement="epd:final" variant="outline" class="btn-lg">
+					Ver EnergyProDetox <span aria-hidden="true">→</span>
+				</AffiliateLink>
+				<span class="final-note">Enlace de afiliado</span>
+			</div>
+		</section>
+	</div>
+</Base>
+
+<script>
+	// Copy-code button.
+	document.querySelectorAll<HTMLButtonElement>("button[data-copy]").forEach((btn) => {
+		btn.addEventListener("click", async () => {
+			const status = btn.parentElement?.querySelector(".copied");
+			try {
+				await navigator.clipboard.writeText(btn.dataset.copy ?? "");
+				if (status) status.textContent = "Copiado";
+			} catch {
+				if (status) status.textContent = "Selecciona y copia el código";
+			}
+			setTimeout(() => { if (status) status.textContent = ""; }, 2500);
+		});
+	});
+
+	// Shop clicks go through our own /go/ redirect, so GA doesn't see them as outbound.
+	// Send an event when GA has been loaded (only after cookie consent). Mark it as a key event in GA4 to import into Google Ads.
+	document.querySelectorAll<HTMLAnchorElement>('a[href^="/go/"]').forEach((a) => {
+		a.addEventListener("click", () => {
+			const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+			const placement = new URL(a.href).searchParams.get("p") ?? "";
+			w.gtag?.("event", "affiliate_click", { merchant: "ncb", product: "energyprodetox", placement });
+		});
+	});
+</script>
+
+<style>
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 0 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+
+	.hero { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 48px; align-items: start; padding: 28px 0 28px; }
+	.hero-text { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+	.hero h1 { font-size: clamp(2rem, 3.6vw, 3rem); }
+	@media (max-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+	@media (max-width: 600px) { .hero { padding-top: 20px; } .hero-text { gap: 14px; } .hero .lead { font-size: 17px; } .coupon { padding: 16px; } }
+
+	.coupon { background: var(--nm-surface); border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; max-width: 620px; }
+	.coupon-top { display: flex; flex-direction: column; gap: 8px; }
+	.coupon-label { margin: 0; font-size: 14px; color: var(--nm-muted); font-weight: 500; }
+	.code-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+	.code { font-size: 22px; font-weight: 600; letter-spacing: 0.06em; color: var(--nm-accent-ink); background: var(--nm-accent-soft); border: 2px dashed var(--nm-accent); border-radius: var(--nm-radius); padding: 6px 14px; }
+	.copy { font: inherit; font-size: 14px; font-weight: 600; min-height: var(--nm-touch); padding: 0 14px; border-radius: var(--nm-radius); border: 1px solid var(--nm-input-line); background: #fff; color: var(--nm-ink); cursor: pointer; }
+	.copy:hover { border-color: var(--nm-accent); color: var(--nm-accent); }
+	.copied { font-size: 14px; color: var(--nm-accent-ink); }
+	.coupon :global(.cta) { white-space: normal; text-align: center; line-height: 1.3; padding-top: 10px; padding-bottom: 10px; }
+	.coupon-note { margin: 0; font-size: 13px; line-height: 1.5; color: var(--nm-muted); }
+
+	.pack { background: var(--nm-ink); color: var(--nm-dark-text); border-radius: var(--nm-radius-xl); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 6px; }
+	.pack-brand { margin: 0; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nm-dark-muted); }
+	.pack-name { margin: 0 0 10px; font-family: var(--nm-font-display); font-size: 30px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+	.pack-facts { margin: 0; display: flex; flex-direction: column; }
+	.pack-facts div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--nm-dark-line); font-size: 15px; }
+	.pack-facts dt { color: var(--nm-dark-muted); }
+	.pack-facts dd { margin: 0; color: #fff; font-weight: 600; text-align: right; }
+	.pack-facts .pack-hl dd { font-size: 20px; color: #9FE0C3; }
+	.pack-note { margin: 8px 0 0; font-size: 13px; line-height: 1.45; color: var(--nm-dark-muted); }
+
+	.byline { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; align-items: center; padding: 16px 0 32px; border-top: 1px solid var(--nm-line); }
+	.byline a { font-weight: 600; }
+
+	.layout { display: grid; grid-template-columns: 240px minmax(0, 800px); gap: 56px; padding-bottom: 32px; }
+	.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }
+	.toc h2 { font-family: var(--nm-font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nm-muted); margin-bottom: 10px; }
+	.toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--nm-line); }
+	.toc a { display: block; padding: 7px 14px; color: var(--nm-ink-2); text-decoration: none; }
+	.toc a:hover { color: var(--nm-accent); }
+	@media (max-width: 900px) {
+		.layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+		.toc { position: static; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px; }
+	}
+
+	.quick { background: var(--nm-accent-soft); border-radius: var(--nm-radius-lg); padding: 24px 28px; }
+	.quick h2 { margin-top: 0; font-size: 22px; }
+	.quick ul { margin-top: 12px; }
+
+	.group { margin-top: 28px; }
+	.group h3 { margin: 0 0 6px; }
+	.group-intro { font-size: 16px; color: var(--nm-ink-2); margin: 0 0 12px; }
+	.group .table-wrap { margin-top: 10px; }
+	.ing th[scope="row"] { font-weight: 600; min-width: 180px; }
+	.form { display: block; font-size: 13px; color: var(--nm-muted); font-weight: 400; margin-top: 2px; }
+	.table td, .table th { vertical-align: top; }
+	.prose .table-wrap .table { font-size: 15px; }
+	.claim { font-size: 13px; font-weight: 600; padding: 3px 8px; border-radius: var(--nm-radius-sm); white-space: nowrap; }
+	.claim-si { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.claim-no, .claim-poco { background: var(--nm-line-soft); color: var(--nm-ink-2); }
+	.claim-espera { background: #EEF3E6; color: #3D5418; }
+	.row-note { display: block; margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--nm-ink-2); }
+	.foot { font-size: 14px; line-height: 1.55; color: var(--nm-muted); }
+
+	@media (max-width: 640px) {
+		.stack thead { display: none; }
+		.stack, .stack tbody, .stack tr, .stack th, .stack td { display: block; width: 100%; }
+		.stack tr { padding: 14px 0; border-bottom: 1px solid var(--nm-line-soft); }
+		.stack tbody tr:last-child { border-bottom: 0; }
+		.stack th[scope="row"], .stack td { border: 0; padding: 4px 16px; background: none; }
+		.stack td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--nm-muted); font-family: var(--nm-font-body); }
+	}
+
+	.mid-cta { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 18px 22px; }
+	.mid-cta p { flex: 1 1 300px; min-width: 0; margin: 0; font-size: 16px; line-height: 1.5; }
+
+	.benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 14px; margin-top: 18px; }
+	.benefit { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 18px 20px; }
+	.benefit h3 { margin: 0 0 8px; font-size: 18px; color: var(--nm-accent-ink); }
+	.benefit ul { margin: 0; padding-left: 1.1em; font-size: 15px; line-height: 1.55; }
+	.benefit li strong { font-weight: 600; }
+
+	.verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 14px; }
+	.v-box { border-radius: var(--nm-radius-md); padding: 18px 20px; font-size: 16px; line-height: 1.55; }
+	.v-box h3 { margin: 0 0 8px; font-size: 16px; }
+	.v-box ul { margin: 0; }
+	.v-box.yes { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.v-box.neutral { background: #fff; border: 1px solid var(--nm-line); color: var(--nm-ink-2); }
+
+	.careful { background: var(--nm-deal-soft); color: var(--nm-deal-ink); border-radius: var(--nm-radius-lg); padding: 20px 26px; }
+	.careful h2 { margin-top: 0; font-size: 22px; color: var(--nm-deal-ink); }
+	.careful ul { margin-top: 10px; font-size: 16px; }
+
+	.price th[scope="row"] { width: 45%; }
+
+	.faq { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 0 20px; font-size: 16px; }
+	.faq + .faq { margin-top: 10px; }
+	.faq summary { cursor: pointer; font-weight: 600; padding: 14px 0; }
+	.faq p { margin: 0 0 16px; color: var(--nm-ink-2); line-height: 1.6; }
+
+	.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+	.chips li + li { margin-top: 0; }
+	.sources { font-size: 15px; line-height: 1.5; }
+
+	.final { margin: 24px 0 var(--nm-section-gap); background: var(--nm-ink); color: var(--nm-dark-text); border-radius: var(--nm-radius-xl); padding: 40px 48px; display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center; justify-content: space-between; }
+	.final > div:first-child { flex: 1 1 360px; min-width: 0; }
+	.final h2 { color: #fff; }
+	.final p { color: var(--nm-dark-muted); font-size: 17px; margin: 8px 0 0; }
+	.final-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+	.final-note { font-size: 13px; color: var(--nm-dark-muted); }
+	@media (max-width: 600px) { .final { padding: 28px 20px; } }
+</style>
