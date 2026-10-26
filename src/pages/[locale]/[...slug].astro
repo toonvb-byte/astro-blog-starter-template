@@ -7,6 +7,7 @@
  *   /{locale}/{finder}/            → supplement goal finder
  *   /{locale}/{supplements}/       → supplements A–Z (hub index)
  *   /{locale}/{supplements}/{slug}/ → supplement hub (one ingredient or goal)
+ *   /{locale}/{glossary}/          → glossary of ingredients, forms and label terms
  *   /{locale}/{prices|compare}/    → coming soon (build steps 3–5)
  *   /{locale}/legal/…              → legal pages
  */
@@ -22,6 +23,7 @@ import Legal from "../../views/Legal.astro";
 import Finder from "../../views/Finder.astro";
 import HubsIndex from "../../views/HubsIndex.astro";
 import HubView from "../../views/Hub.astro";
+import Glossary from "../../views/Glossary.astro";
 
 type Props =
 	| { kind: RouteKey; guide?: undefined; hub?: undefined }
@@ -56,5 +58,6 @@ const { kind, guide, hub } = Astro.props as Props;
 {kind === "finder" && <Finder locale={locale} />}
 {kind === "supplements" && <HubsIndex locale={locale} />}
 {kind === "hub" && hub && <HubView locale={locale} hub={hub} />}
+{kind === "glossary" && <Glossary locale={locale} />}
 {(kind === "prices" || kind === "compare") && <ComingSoon locale={locale} which={kind} />}
 {(kind === "privacy" || kind === "cookies" || kind === "imprint" || kind === "disclosure") && <Legal locale={locale} which={kind} />}

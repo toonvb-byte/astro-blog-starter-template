@@ -1,0 +1,308 @@
+[
+  {
+    "id": "ashwagandha",
+    "claim": "onhold",
+    "hub": "ashwagandha",
+    "guide": "ashwagandha",
+    "src": [
+      ["NIH ODS — Ashwagandha", "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/"],
+      ["BfR — Ashwagandha preparations with possible health risks (2024)", "https://www.bfr.bund.de/cm/343/ashwagandha-schlafbeeren-praeparate-mit-moeglichen-gesundheitsrisiken.pdf"]
+    ],
+    "en": {
+      "name": "Ashwagandha",
+      "aka": "Withania somnifera, winter cherry, KSM-66, Sensoril",
+      "desc": "Root (sometimes leaf) extract of an Ayurvedic plant, sold for stress and sleep. Trials use 300–600 mg of extract a day for 8–12 weeks. Rare cases of liver injury have been reported; Denmark banned it in supplements and the Netherlands has proposed banning the leaf.",
+      "facts": ["Germany (BfR, 2024): no safe daily amount could be derived", "Not in pregnancy or with thyroid conditions"]
+    },
+    "es": {
+      "name": "Ashwagandha",
+      "aka": "Withania somnifera, ginseng indio, KSM-66, Sensoril",
+      "desc": "Extracto de raíz (a veces de hoja) de una planta ayurvédica que se vende para el estrés y el sueño. Los ensayos usan 300–600 mg de extracto al día durante 8–12 semanas. Se han descrito casos raros de daño hepático; Dinamarca la prohibió en suplementos y Países Bajos ha propuesto prohibir la hoja.",
+      "facts": ["Alemania (BfR, 2024): no se pudo establecer una cantidad diaria segura", "No apta en el embarazo ni con enfermedades del tiroides"]
+    },
+    "de": {
+      "name": "Ashwagandha",
+      "aka": "Withania somnifera, Schlafbeere, Winterkirsche, KSM-66, Sensoril",
+      "desc": "Wurzel- (teils Blatt-)Extrakt einer ayurvedischen Pflanze, verkauft gegen Stress und für den Schlaf. Studien verwenden 300–600 mg Extrakt pro Tag über 8–12 Wochen. Es gibt seltene Berichte über Leberschäden; Dänemark hat Ashwagandha in Nahrungsergänzungsmitteln verboten, die Niederlande wollen das Blatt verbieten.",
+      "facts": ["Deutschland (BfR, 2024): Eine sichere Tagesmenge ließ sich nicht ableiten", "Nicht in der Schwangerschaft oder bei Schilddrüsenerkrankungen"]
+    }
+  },
+  {
+    "id": "rhodiola",
+    "claim": "onhold",
+    "hub": null,
+    "guide": null,
+    "src": [["NIH NCCIH — Rhodiola", "https://www.nccih.nih.gov/health/rhodiola"]],
+    "en": {
+      "name": "Rhodiola",
+      "aka": "Rhodiola rosea, roseroot, golden root",
+      "desc": "Root extract of a plant from cold regions, traditionally used against fatigue and stress. Several trials suggest less stress-related fatigue, but the studies are small.",
+      "facts": ["Avoid with bipolar disorder and in pregnancy"]
+    },
+    "es": {
+      "name": "Rhodiola",
+      "aka": "Rhodiola rosea, raíz dorada, raíz ártica",
+      "desc": "Extracto de raíz de una planta de regiones frías, usada tradicionalmente contra la fatiga y el estrés. Varios ensayos apuntan a menos fatiga ligada al estrés, pero son estudios pequeños.",
+      "facts": ["Evítala si tienes trastorno bipolar y en el embarazo"]
+    },
+    "de": {
+      "name": "Rosenwurz (Rhodiola)",
+      "aka": "Rhodiola rosea, Goldene Wurzel",
+      "desc": "Wurzelextrakt einer Pflanze aus kalten Regionen, traditionell gegen Erschöpfung und Stress verwendet. Mehrere Studien deuten auf weniger stressbedingte Müdigkeit hin, sie sind aber klein.",
+      "facts": ["Nicht bei bipolarer Störung und in der Schwangerschaft"]
+    }
+  },
+  {
+    "id": "valerian",
+    "claim": "onhold",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["NIH NCCIH — Valerian", "https://www.nccih.nih.gov/health/valerian"]],
+    "en": {
+      "name": "Valerian",
+      "aka": "Valeriana officinalis, valerian root",
+      "desc": "Root traditionally used for sleep and nervous tension, often combined with hops or lemon balm. Trial results are mixed, with at best a small effect after 2–4 weeks.",
+      "facts": []
+    },
+    "es": {
+      "name": "Valeriana",
+      "aka": "Valeriana officinalis, raíz de valeriana",
+      "desc": "Raíz usada tradicionalmente para el sueño y la tensión nerviosa, a menudo con lúpulo o melisa. Los ensayos dan resultados dispares, con un efecto pequeño como mucho tras 2–4 semanas.",
+      "facts": []
+    },
+    "de": {
+      "name": "Baldrian",
+      "aka": "Valeriana officinalis, Baldrianwurzel",
+      "desc": "Wurzel, die traditionell bei Schlafproblemen und nervöser Unruhe verwendet wird, oft mit Hopfen oder Melisse kombiniert. Die Studienergebnisse sind uneinheitlich, mit allenfalls kleinem Effekt nach 2–4 Wochen.",
+      "facts": []
+    }
+  },
+  {
+    "id": "passionflower",
+    "claim": "onhold",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["NIH NCCIH — Passionflower", "https://www.nccih.nih.gov/health/passionflower"]],
+    "en": {
+      "name": "Passionflower",
+      "aka": "Passiflora incarnata",
+      "desc": "Flowering plant traditionally used for nervousness and sleep, often in blends with valerian or lemon balm. There is little trial data.",
+      "facts": []
+    },
+    "es": {
+      "name": "Pasiflora",
+      "aka": "Passiflora incarnata, flor de la pasión",
+      "desc": "Planta usada tradicionalmente para el nerviosismo y el sueño, a menudo mezclada con valeriana o melisa. Hay pocos ensayos.",
+      "facts": []
+    },
+    "de": {
+      "name": "Passionsblume",
+      "aka": "Passiflora incarnata",
+      "desc": "Pflanze, die traditionell bei Nervosität und Schlafproblemen verwendet wird, oft in Mischungen mit Baldrian oder Melisse. Es gibt nur wenige Studien.",
+      "facts": []
+    }
+  },
+  {
+    "id": "california-poppy",
+    "claim": "onhold",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["EMA — Eschscholziae herba (herbal medicinal product)", "https://www.ema.europa.eu/en/medicines/herbal/eschscholziae-herba"]],
+    "en": {
+      "name": "California poppy",
+      "aka": "Eschscholzia californica",
+      "desc": "Herb traditionally used for mild nervous tension and sleep, usually in blends. The European Medicines Agency has assessed it as a traditional herbal medicine.",
+      "facts": []
+    },
+    "es": {
+      "name": "Amapola de California",
+      "aka": "Eschscholzia californica",
+      "desc": "Planta usada tradicionalmente para la tensión nerviosa leve y el sueño, casi siempre en mezclas. La Agencia Europea de Medicamentos la ha evaluado como medicamento tradicional a base de plantas.",
+      "facts": []
+    },
+    "de": {
+      "name": "Kalifornischer Mohn",
+      "aka": "Eschscholzia californica, Goldmohn",
+      "desc": "Pflanze, die traditionell bei leichter nervöser Anspannung und Schlafproblemen verwendet wird, meist in Mischungen. Die Europäische Arzneimittel-Agentur hat sie als traditionelles pflanzliches Arzneimittel bewertet.",
+      "facts": []
+    }
+  },
+  {
+    "id": "lemon-balm",
+    "claim": "onhold",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["EMA — Melissae folium (herbal medicinal product)", "https://www.ema.europa.eu/en/medicines/herbal/melissae-folium"]],
+    "en": {
+      "name": "Lemon balm",
+      "aka": "Melissa officinalis, melissa",
+      "desc": "Leaf traditionally used for calm and sleep and for mild digestive complaints; the European Medicines Agency has assessed it as a traditional herbal medicine. Trials are small and often combine it with valerian.",
+      "facts": []
+    },
+    "es": {
+      "name": "Melisa",
+      "aka": "Melissa officinalis, toronjil",
+      "desc": "Hoja usada tradicionalmente para la calma y el sueño y para molestias digestivas leves; la Agencia Europea de Medicamentos la ha evaluado como medicamento tradicional a base de plantas. Los ensayos son pequeños y a menudo la combinan con valeriana.",
+      "facts": []
+    },
+    "de": {
+      "name": "Melisse",
+      "aka": "Melissa officinalis, Zitronenmelisse",
+      "desc": "Blatt, das traditionell zur Beruhigung, für den Schlaf und bei leichten Magen-Darm-Beschwerden verwendet wird; die Europäische Arzneimittel-Agentur hat es als traditionelles pflanzliches Arzneimittel bewertet. Die Studien sind klein und kombinieren Melisse oft mit Baldrian.",
+      "facts": []
+    }
+  },
+  {
+    "id": "chamomile",
+    "claim": "onhold",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["NIH NCCIH — Chamomile", "https://www.nccih.nih.gov/health/chamomile"]],
+    "en": {
+      "name": "Chamomile",
+      "aka": "Matricaria chamomilla, German chamomile",
+      "desc": "Flower used as tea and extract for relaxation and digestion. Evidence for sleep is weak. People allergic to daisy-family plants can react to it.",
+      "facts": []
+    },
+    "es": {
+      "name": "Manzanilla",
+      "aka": "Matricaria chamomilla, camomila",
+      "desc": "Flor que se toma en infusión o extracto para relajarse y para la digestión. La evidencia sobre el sueño es débil. Quien tiene alergia a las plantas de la familia de las margaritas puede reaccionar a ella.",
+      "facts": []
+    },
+    "de": {
+      "name": "Kamille",
+      "aka": "Matricaria chamomilla, Echte Kamille",
+      "desc": "Blüte, die als Tee oder Extrakt zur Entspannung und für die Verdauung verwendet wird. Die Belege für den Schlaf sind schwach. Wer auf Korbblütler allergisch ist, kann darauf reagieren.",
+      "facts": []
+    }
+  },
+  {
+    "id": "lavender",
+    "claim": "onhold",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["NIH NCCIH — Lavender", "https://www.nccih.nih.gov/health/lavender"]],
+    "en": {
+      "name": "Lavender",
+      "aka": "Lavandula angustifolia, lavender oil",
+      "desc": "Flower and essential oil traditionally used for calm and sleep. The trial evidence is for a specific standardised lavender oil in capsules (80 mg a day), not for small amounts in blends or teas.",
+      "facts": []
+    },
+    "es": {
+      "name": "Lavanda",
+      "aka": "Lavandula angustifolia, aceite de lavanda",
+      "desc": "Flor y aceite esencial usados tradicionalmente para la calma y el sueño. Los ensayos se hicieron con un aceite de lavanda estandarizado concreto en cápsulas (80 mg al día), no con pequeñas cantidades en mezclas o infusiones.",
+      "facts": []
+    },
+    "de": {
+      "name": "Lavendel",
+      "aka": "Lavandula angustifolia, Lavendelöl",
+      "desc": "Blüte und ätherisches Öl, traditionell zur Beruhigung und für den Schlaf verwendet. Die Studien beziehen sich auf ein bestimmtes standardisiertes Lavendelöl in Kapseln (80 mg pro Tag), nicht auf kleine Mengen in Mischungen oder Tees.",
+      "facts": []
+    }
+  },
+  {
+    "id": "turmeric",
+    "claim": "onhold",
+    "hub": "turmeric",
+    "guide": "turmeric-safety",
+    "src": [
+      ["NIH NCCIH — Turmeric", "https://www.nccih.nih.gov/health/turmeric"],
+      ["EFSA (2010) — Re-evaluation of curcumin (E 100) as a food additive", "https://www.efsa.europa.eu/en/efsajournal/pub/1679"]
+    ],
+    "en": {
+      "name": "Turmeric and curcumin",
+      "aka": "Curcuma longa, curcuminoids, piperine",
+      "desc": "Curcumin is the yellow compound in turmeric root. It is poorly absorbed, so many products add piperine or use special formulations, which also raise exposure. Rare cases of liver injury have been reported; Italy now requires a warning on the label.",
+      "facts": ["EFSA acceptable daily intake for curcumin (as food colour E 100): 3 mg per kg body weight, about 210 mg a day at 70 kg", "Avoid with gallstones or blood thinners"]
+    },
+    "es": {
+      "name": "Cúrcuma y curcumina",
+      "aka": "Curcuma longa, curcuminoides, piperina",
+      "desc": "La curcumina es el compuesto amarillo de la raíz de cúrcuma. Se absorbe mal, por eso muchos productos añaden piperina o usan formulaciones especiales, que también aumentan la exposición. Se han descrito casos raros de daño hepático; Italia exige ahora una advertencia en la etiqueta.",
+      "facts": ["Ingesta diaria admisible de la EFSA para la curcumina (como colorante E 100): 3 mg por kg de peso, unos 210 mg al día con 70 kg", "Evítala si tienes cálculos biliares o tomas anticoagulantes"]
+    },
+    "de": {
+      "name": "Kurkuma und Curcumin",
+      "aka": "Curcuma longa, Curcuminoide, Piperin",
+      "desc": "Curcumin ist der gelbe Stoff in der Kurkumawurzel. Es wird schlecht aufgenommen, daher setzen viele Produkte Piperin zu oder nutzen spezielle Formulierungen, die auch die Belastung erhöhen. Es gibt seltene Berichte über Leberschäden; Italien schreibt inzwischen einen Warnhinweis auf dem Etikett vor.",
+      "facts": ["Akzeptable Tagesdosis der EFSA für Curcumin (als Farbstoff E 100): 3 mg pro kg Körpergewicht, etwa 210 mg pro Tag bei 70 kg", "Nicht bei Gallensteinen oder mit Blutverdünnern"]
+    }
+  },
+  {
+    "id": "milk-thistle",
+    "claim": "onhold",
+    "hub": null,
+    "guide": null,
+    "src": [["NIH NCCIH — Milk thistle", "https://www.nccih.nih.gov/health/milk-thistle"]],
+    "en": {
+      "name": "Milk thistle (silymarin)",
+      "aka": "Silybum marianum, silymarin",
+      "desc": "Seed extract widely sold for the liver; silymarin is its mix of active compounds. Human trials in liver disease give inconsistent results.",
+      "facts": ["People allergic to daisy-family plants can react to it"]
+    },
+    "es": {
+      "name": "Cardo mariano (silimarina)",
+      "aka": "Silybum marianum, silimarina",
+      "desc": "Extracto de semilla que se vende mucho para el hígado; la silimarina es su mezcla de compuestos activos. Los ensayos en personas con enfermedad hepática dan resultados inconsistentes.",
+      "facts": ["Quien tiene alergia a las plantas de la familia de las margaritas puede reaccionar a él"]
+    },
+    "de": {
+      "name": "Mariendistel (Silymarin)",
+      "aka": "Silybum marianum, Silymarin",
+      "desc": "Samenextrakt, der viel für die Leber verkauft wird; Silymarin ist sein Gemisch aus Wirkstoffen. Studien bei Lebererkrankungen liefern widersprüchliche Ergebnisse.",
+      "facts": ["Wer auf Korbblütler allergisch ist, kann darauf reagieren"]
+    }
+  },
+  {
+    "id": "artichoke",
+    "claim": "onhold",
+    "hub": "gut",
+    "guide": null,
+    "src": [["EMA — Cynarae folium (herbal medicinal product)", "https://www.ema.europa.eu/en/medicines/herbal/cynarae-folium"]],
+    "en": {
+      "name": "Artichoke leaf",
+      "aka": "Cynara scolymus, artichoke extract",
+      "desc": "Leaf extract traditionally used for indigestion and bloating; the European Medicines Agency has assessed it as a traditional herbal medicine. Liver \"detox\" effects are unproven.",
+      "facts": []
+    },
+    "es": {
+      "name": "Hoja de alcachofa",
+      "aka": "Cynara scolymus, extracto de alcachofa",
+      "desc": "Extracto de hoja usado tradicionalmente para la indigestión y la hinchazón; la Agencia Europea de Medicamentos lo ha evaluado como medicamento tradicional a base de plantas. Los efectos «detox» sobre el hígado no están demostrados.",
+      "facts": []
+    },
+    "de": {
+      "name": "Artischockenblätter",
+      "aka": "Cynara scolymus, Artischockenextrakt",
+      "desc": "Blattextrakt, traditionell bei Verdauungsbeschwerden und Blähungen verwendet; die Europäische Arzneimittel-Agentur hat ihn als traditionelles pflanzliches Arzneimittel bewertet. Eine „Detox“-Wirkung auf die Leber ist nicht belegt.",
+      "facts": []
+    }
+  },
+  {
+    "id": "dandelion",
+    "claim": "onhold",
+    "hub": null,
+    "guide": null,
+    "src": [["NIH NCCIH — Dandelion", "https://www.nccih.nih.gov/health/dandelion"]],
+    "en": {
+      "name": "Dandelion root",
+      "aka": "Taraxacum officinale",
+      "desc": "Root and leaf traditionally used for digestion and as a mild diuretic. There is little clinical evidence.",
+      "facts": []
+    },
+    "es": {
+      "name": "Raíz de diente de león",
+      "aka": "Taraxacum officinale",
+      "desc": "Raíz y hoja usadas tradicionalmente para la digestión y como diurético suave. Hay poca evidencia clínica.",
+      "facts": []
+    },
+    "de": {
+      "name": "Löwenzahnwurzel",
+      "aka": "Taraxacum officinale",
+      "desc": "Wurzel und Blatt, traditionell für die Verdauung und als mildes Entwässerungsmittel verwendet. Klinische Belege gibt es kaum.",
+      "facts": []
+    }
+  }
+]

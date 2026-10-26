@@ -1,0 +1,255 @@
+[
+  {
+    "id": "bisglycinate",
+    "claim": null,
+    "hub": "magnesium",
+    "guide": "magnesium-forms",
+    "src": [["NIH ODS — Magnesium (forms and absorption)", "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"]],
+    "en": {
+      "name": "Bisglycinate",
+      "aka": "glycinate, chelate, e.g. magnesium bisglycinate, iron bisglycinate (Ferrochel)",
+      "desc": "A mineral bound to two molecules of the amino acid glycine. Often chosen by people with a sensitive stomach, but it is heavy: 1,000 mg of magnesium bisglycinate contains only about 140 mg of magnesium.",
+      "facts": []
+    },
+    "es": {
+      "name": "Bisglicinato",
+      "aka": "glicinato, quelato, p. ej. bisglicinato de magnesio, bisglicinato ferroso (Ferrochel)",
+      "desc": "Mineral unido a dos moléculas del aminoácido glicina. Lo eligen a menudo quienes tienen el estómago sensible, pero pesa mucho: 1.000 mg de bisglicinato de magnesio aportan solo unos 140 mg de magnesio.",
+      "facts": []
+    },
+    "de": {
+      "name": "Bisglycinat",
+      "aka": "Glycinat, Chelat, z. B. Magnesiumbisglycinat, Eisenbisglycinat (Ferrochel)",
+      "desc": "Ein Mineralstoff, gebunden an zwei Moleküle der Aminosäure Glycin. Wird oft bei empfindlichem Magen gewählt, ist aber schwer: 1.000 mg Magnesiumbisglycinat liefern nur etwa 140 mg Magnesium.",
+      "facts": []
+    }
+  },
+  {
+    "id": "citrate",
+    "claim": null,
+    "hub": "magnesium",
+    "guide": "magnesium-forms",
+    "src": [["NIH ODS — Magnesium (forms and absorption)", "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"]],
+    "en": {
+      "name": "Citrate",
+      "aka": "e.g. magnesium citrate, zinc citrate, calcium citrate",
+      "desc": "A mineral bound to citric acid. It dissolves well in water, and the NIH notes that well-dissolving forms of magnesium are absorbed better than poorly soluble ones such as oxide. A common middle ground between price and absorption.",
+      "facts": []
+    },
+    "es": {
+      "name": "Citrato",
+      "aka": "p. ej. citrato de magnesio, citrato de zinc, citrato de calcio",
+      "desc": "Mineral unido al ácido cítrico. Se disuelve bien en agua, y el NIH señala que las formas de magnesio que se disuelven bien se absorben mejor que las poco solubles como el óxido. Un término medio habitual entre precio y absorción.",
+      "facts": []
+    },
+    "de": {
+      "name": "Citrat",
+      "aka": "z. B. Magnesiumcitrat, Zinkcitrat, Calciumcitrat",
+      "desc": "Ein Mineralstoff, gebunden an Zitronensäure. Löst sich gut in Wasser; laut NIH werden gut lösliche Magnesiumformen besser aufgenommen als schwer lösliche wie Oxid. Ein üblicher Mittelweg zwischen Preis und Aufnahme.",
+      "facts": []
+    }
+  },
+  {
+    "id": "oxide",
+    "claim": null,
+    "hub": "magnesium",
+    "guide": "magnesium-forms",
+    "src": [["NIH ODS — Magnesium (forms and absorption)", "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"]],
+    "en": {
+      "name": "Oxide",
+      "aka": "e.g. magnesium oxide, zinc oxide",
+      "desc": "A mineral bound to oxygen. It packs a lot of mineral into a small tablet (magnesium oxide is about 60 % magnesium) but dissolves poorly, so less of it is absorbed.",
+      "facts": []
+    },
+    "es": {
+      "name": "Óxido",
+      "aka": "p. ej. óxido de magnesio, óxido de zinc",
+      "desc": "Mineral unido al oxígeno. Mete mucho mineral en un comprimido pequeño (el óxido de magnesio es magnesio en un 60 % aproximadamente), pero se disuelve mal, así que se absorbe menos.",
+      "facts": []
+    },
+    "de": {
+      "name": "Oxid",
+      "aka": "z. B. Magnesiumoxid, Zinkoxid",
+      "desc": "Ein Mineralstoff, gebunden an Sauerstoff. Bringt viel Mineralstoff in eine kleine Tablette (Magnesiumoxid besteht zu etwa 60 % aus Magnesium), löst sich aber schlecht und wird deshalb weniger aufgenommen.",
+      "facts": []
+    }
+  },
+  {
+    "id": "cholecalciferol",
+    "claim": null,
+    "hub": "vitamin-d",
+    "guide": "vitamin-d-winter",
+    "src": [
+      ["Tripkovic L et al. Comparison of vitamin D2 and vitamin D3 supplementation. Am J Clin Nutr, 2012", "https://pmc.ncbi.nlm.nih.gov/articles/PMC3349454/"],
+      ["NIH ODS — Vitamin D", "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"]
+    ],
+    "en": {
+      "name": "Cholecalciferol (D3) and ergocalciferol (D2)",
+      "aka": "vitamin D3, vitamin D2",
+      "desc": "Cholecalciferol is vitamin D3, the form the skin makes. It usually comes from lanolin (sheep's wool) or, in vegan products, from lichen. Ergocalciferol (D2) comes from fungi and yeast and raises blood levels less than D3.",
+      "facts": []
+    },
+    "es": {
+      "name": "Colecalciferol (D3) y ergocalciferol (D2)",
+      "aka": "vitamina D3, vitamina D2",
+      "desc": "El colecalciferol es la vitamina D3, la forma que fabrica la piel. Suele obtenerse de la lanolina (lana de oveja) o, en los productos veganos, de líquenes. El ergocalciferol (D2) procede de hongos y levaduras y eleva menos los niveles en sangre que la D3.",
+      "facts": []
+    },
+    "de": {
+      "name": "Cholecalciferol (D3) und Ergocalciferol (D2)",
+      "aka": "Vitamin D3, Vitamin D2",
+      "desc": "Cholecalciferol ist Vitamin D3, die Form, die die Haut bildet. Es stammt meist aus Lanolin (Schafwolle), in veganen Produkten aus Flechten. Ergocalciferol (D2) stammt aus Pilzen und Hefen und hebt den Blutspiegel weniger stark an als D3.",
+      "facts": []
+    }
+  },
+  {
+    "id": "mk-7",
+    "claim": null,
+    "hub": "vitamin-d",
+    "guide": "d3-k2",
+    "src": [["NIH ODS — Vitamin K", "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/"]],
+    "en": {
+      "name": "MK-7 (menaquinone-7)",
+      "aka": "vitamin K2 MK-7",
+      "desc": "Form of vitamin K2 that stays in the blood much longer than vitamin K1 or MK-4. Most vitamin D3 + K2 products use it.",
+      "facts": []
+    },
+    "es": {
+      "name": "MK-7 (menaquinona-7)",
+      "aka": "vitamina K2 MK-7",
+      "desc": "Forma de vitamina K2 que permanece en la sangre mucho más tiempo que la vitamina K1 o la MK-4. La usan la mayoría de productos de vitamina D3 + K2.",
+      "facts": []
+    },
+    "de": {
+      "name": "MK-7 (Menachinon-7)",
+      "aka": "Vitamin K2 MK-7",
+      "desc": "Form von Vitamin K2, die viel länger im Blut bleibt als Vitamin K1 oder MK-4. Die meisten Vitamin-D3-K2-Präparate verwenden sie.",
+      "facts": []
+    }
+  },
+  {
+    "id": "cobalamin-forms",
+    "claim": null,
+    "hub": "vitamin-b12",
+    "guide": "b12-guide",
+    "src": [["NIH ODS — Vitamin B12", "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/"]],
+    "en": {
+      "name": "Cyanocobalamin and methylcobalamin",
+      "aka": "vitamin B12 forms, hydroxocobalamin, adenosylcobalamin",
+      "desc": "Forms of vitamin B12. Cyanocobalamin is the most studied and most stable. Methylcobalamin is often sold as the \"active\" form, but the NIH says there is no evidence that it works better.",
+      "facts": []
+    },
+    "es": {
+      "name": "Cianocobalamina y metilcobalamina",
+      "aka": "formas de vitamina B12, hidroxocobalamina, adenosilcobalamina",
+      "desc": "Formas de vitamina B12. La cianocobalamina es la más estudiada y la más estable. La metilcobalamina se vende a menudo como la forma «activa», pero el NIH indica que no hay pruebas de que funcione mejor.",
+      "facts": []
+    },
+    "de": {
+      "name": "Cyanocobalamin und Methylcobalamin",
+      "aka": "Vitamin-B12-Formen, Hydroxocobalamin, Adenosylcobalamin",
+      "desc": "Formen von Vitamin B12. Cyanocobalamin ist am besten untersucht und am stabilsten. Methylcobalamin wird oft als „aktive“ Form verkauft, laut NIH gibt es aber keine Belege, dass es besser wirkt.",
+      "facts": []
+    }
+  },
+  {
+    "id": "methylfolate",
+    "claim": null,
+    "hub": "multivitamins",
+    "guide": null,
+    "src": [["NIH ODS — Folate", "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/"]],
+    "en": {
+      "name": "Methylfolate (5-MTHF)",
+      "aka": "L-methylfolate, 5-methyltetrahydrofolate, Quatrefolic, Metafolin",
+      "desc": "The form of folate that circulates in the blood; folic acid is the synthetic form the body has to convert first. The pregnancy studies behind the official folic acid advice used folic acid.",
+      "facts": []
+    },
+    "es": {
+      "name": "Metilfolato (5-MTHF)",
+      "aka": "L-metilfolato, 5-metiltetrahidrofolato, Quatrefolic, Metafolin",
+      "desc": "La forma de folato que circula en la sangre; el ácido fólico es la forma sintética que el cuerpo tiene que convertir antes. Los estudios en el embarazo en los que se basa la recomendación oficial usaron ácido fólico.",
+      "facts": []
+    },
+    "de": {
+      "name": "Methylfolat (5-MTHF)",
+      "aka": "L-Methylfolat, 5-Methyltetrahydrofolat, Quatrefolic, Metafolin",
+      "desc": "Die Form von Folat, die im Blut zirkuliert; Folsäure ist die synthetische Form, die der Körper erst umwandeln muss. Die Schwangerschaftsstudien hinter der offiziellen Folsäure-Empfehlung wurden mit Folsäure gemacht.",
+      "facts": []
+    }
+  },
+  {
+    "id": "creapure",
+    "claim": null,
+    "hub": "creatine",
+    "guide": "brands-hsn-myprotein-prozis",
+    "src": [["HSN — Creatine Excell 100% Creapure (origin)", "https://www.hsnstore.eu/brands/raw-series/creatine-excell-100-creapure-powder"]],
+    "en": {
+      "name": "Creapure",
+      "aka": "branded creatine monohydrate",
+      "desc": "Brand of creatine monohydrate made in Germany by AlzChem. Chemically it is the same monohydrate as generic creatine; the extra price buys a known manufacturer and purity testing.",
+      "facts": []
+    },
+    "es": {
+      "name": "Creapure",
+      "aka": "creatina monohidrato de marca",
+      "desc": "Marca de creatina monohidrato fabricada en Alemania por AlzChem. Químicamente es el mismo monohidrato que la creatina genérica; el sobreprecio paga un fabricante conocido y controles de pureza.",
+      "facts": []
+    },
+    "de": {
+      "name": "Creapure",
+      "aka": "Marken-Kreatin-Monohydrat",
+      "desc": "Marke für Kreatin-Monohydrat, hergestellt in Deutschland von AlzChem. Chemisch ist es dasselbe Monohydrat wie No-Name-Kreatin; der Aufpreis bezahlt einen bekannten Hersteller und Reinheitsprüfungen.",
+      "facts": []
+    }
+  },
+  {
+    "id": "piperine",
+    "claim": null,
+    "hub": "turmeric",
+    "guide": "turmeric-safety",
+    "src": [["NIH NCCIH — Turmeric", "https://www.nccih.nih.gov/health/turmeric"]],
+    "en": {
+      "name": "Piperine",
+      "aka": "black pepper extract, BioPerine",
+      "desc": "Compound from black pepper added to turmeric products to increase how much curcumin is absorbed. It can also change how the body breaks down some medicines, so check with a pharmacist if you take regular medication.",
+      "facts": []
+    },
+    "es": {
+      "name": "Piperina",
+      "aka": "extracto de pimienta negra, BioPerine",
+      "desc": "Compuesto de la pimienta negra que se añade a los productos de cúrcuma para que se absorba más curcumina. También puede cambiar cómo el cuerpo procesa algunos medicamentos, así que consulta en la farmacia si tomas medicación habitual.",
+      "facts": []
+    },
+    "de": {
+      "name": "Piperin",
+      "aka": "Schwarzer-Pfeffer-Extrakt, BioPerine",
+      "desc": "Stoff aus schwarzem Pfeffer, der Kurkuma-Produkten zugesetzt wird, damit mehr Curcumin aufgenommen wird. Er kann auch den Abbau mancher Arzneimittel verändern; frag in der Apotheke nach, wenn du regelmäßig Medikamente nimmst.",
+      "facts": []
+    }
+  },
+  {
+    "id": "standardised-extract",
+    "claim": null,
+    "hub": "ashwagandha",
+    "guide": "ashwagandha",
+    "src": [["NIH ODS — Ashwagandha (extracts used in trials)", "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/"]],
+    "en": {
+      "name": "Standardised extract",
+      "aka": "e.g. \"5 % withanolides\", KSM-66, Sensoril",
+      "desc": "A plant extract adjusted to contain a fixed share of a marker compound. Branded extracts such as KSM-66 or Sensoril (ashwagandha) were tested in specific trials, so those results don't automatically apply to other extracts or to plain powdered root.",
+      "facts": []
+    },
+    "es": {
+      "name": "Extracto estandarizado",
+      "aka": "p. ej. «5 % de witanólidos», KSM-66, Sensoril",
+      "desc": "Extracto vegetal ajustado para contener un porcentaje fijo de un compuesto de referencia. Extractos de marca como KSM-66 o Sensoril (ashwagandha) se probaron en ensayos concretos, así que esos resultados no se aplican sin más a otros extractos ni a la raíz en polvo.",
+      "facts": []
+    },
+    "de": {
+      "name": "Standardisierter Extrakt",
+      "aka": "z. B. „5 % Withanolide“, KSM-66, Sensoril",
+      "desc": "Ein Pflanzenextrakt, der auf einen festen Anteil eines Leitstoffs eingestellt ist. Markenextrakte wie KSM-66 oder Sensoril (Ashwagandha) wurden in bestimmten Studien getestet; die Ergebnisse gelten nicht automatisch für andere Extrakte oder einfaches Wurzelpulver.",
+      "facts": []
+    }
+  }
+]

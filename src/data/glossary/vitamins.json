@@ -1,0 +1,318 @@
+[
+  {
+    "id": "vitamin-a",
+    "claim": "authorised",
+    "hub": null,
+    "guide": "multivitamin-worth-it",
+    "src": [
+      ["NIH ODS — Vitamin A and carotenoids", "https://ods.od.nih.gov/factsheets/Vitamina-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Vitamin A",
+      "aka": "retinol, retinyl acetate, retinyl palmitate, beta-carotene",
+      "desc": "Fat-soluble vitamin needed for vision, skin and the immune system. Supplements contain preformed vitamin A (retinol) or beta-carotene, which the body converts into vitamin A as needed.",
+      "facts": ["NRV: 800 µg a day", "EFSA upper level: 3,000 µg a day of preformed vitamin A (not beta-carotene)", "EU claims: normal vision, skin, mucous membranes, immune system and iron metabolism", "Avoid high-dose vitamin A in pregnancy; smokers should avoid beta-carotene supplements"]
+    },
+    "es": {
+      "name": "Vitamina A",
+      "aka": "retinol, acetato de retinilo, palmitato de retinilo, betacaroteno",
+      "desc": "Vitamina liposoluble necesaria para la vista, la piel y el sistema inmunitario. Los suplementos llevan vitamina A preformada (retinol) o betacaroteno, que el cuerpo convierte en vitamina A según lo necesita.",
+      "facts": ["VRN: 800 µg al día", "Nivel máximo de la EFSA: 3.000 µg al día de vitamina A preformada (no betacaroteno)", "Declaraciones UE: visión, piel y mucosas normales, sistema inmunitario y metabolismo del hierro", "Evita dosis altas de vitamina A en el embarazo; si fumas, evita los suplementos de betacaroteno"]
+    },
+    "de": {
+      "name": "Vitamin A",
+      "aka": "Retinol, Retinylacetat, Retinylpalmitat, Beta-Carotin",
+      "desc": "Fettlösliches Vitamin für Sehkraft, Haut und Immunsystem. Präparate enthalten vorgeformtes Vitamin A (Retinol) oder Beta-Carotin, das der Körper bei Bedarf in Vitamin A umwandelt.",
+      "facts": ["NRV: 800 µg pro Tag", "EFSA-Höchstmenge: 3.000 µg pro Tag vorgeformtes Vitamin A (nicht Beta-Carotin)", "EU-Angaben: normale Sehkraft, Haut, Schleimhäute, Immunsystem und Eisenstoffwechsel", "In der Schwangerschaft kein hoch dosiertes Vitamin A; Raucher sollten auf Beta-Carotin-Präparate verzichten"]
+    }
+  },
+  {
+    "id": "vitamin-b1",
+    "claim": "authorised",
+    "hub": "multivitamins",
+    "guide": null,
+    "src": [["NIH ODS — Thiamin", "https://ods.od.nih.gov/factsheets/Thiamin-HealthProfessional/"]],
+    "en": {
+      "name": "Vitamin B1 (thiamin)",
+      "aka": "thiamine, thiamine hydrochloride, thiamine mononitrate",
+      "desc": "B vitamin the body needs to turn carbohydrates into energy and for nerve function. A varied diet usually covers it; heavy alcohol use is the main cause of deficiency.",
+      "facts": ["NRV: 1.1 mg a day", "EFSA upper level: not set", "EU claims: energy-yielding metabolism, nervous system, psychological function, heart function"]
+    },
+    "es": {
+      "name": "Vitamina B1 (tiamina)",
+      "aka": "tiamina, clorhidrato de tiamina, mononitrato de tiamina",
+      "desc": "Vitamina del grupo B que el cuerpo necesita para convertir los hidratos de carbono en energía y para el funcionamiento de los nervios. Una dieta variada suele cubrirla; el consumo elevado de alcohol es la causa principal de déficit.",
+      "facts": ["VRN: 1,1 mg al día", "Nivel máximo de la EFSA: no establecido", "Declaraciones UE: metabolismo energético, sistema nervioso, función psicológica, función cardiaca"]
+    },
+    "de": {
+      "name": "Vitamin B1 (Thiamin)",
+      "aka": "Thiaminhydrochlorid, Thiaminmononitrat",
+      "desc": "B-Vitamin, das der Körper braucht, um Kohlenhydrate in Energie umzuwandeln, und für die Nervenfunktion. Eine abwechslungsreiche Ernährung deckt den Bedarf meist; viel Alkohol ist die häufigste Ursache für einen Mangel.",
+      "facts": ["NRV: 1,1 mg pro Tag", "EFSA-Höchstmenge: nicht festgelegt", "EU-Angaben: Energiestoffwechsel, Nervensystem, psychische Funktion, Herzfunktion"]
+    }
+  },
+  {
+    "id": "vitamin-b2",
+    "claim": "authorised",
+    "hub": "multivitamins",
+    "guide": null,
+    "src": [["NIH ODS — Riboflavin", "https://ods.od.nih.gov/factsheets/Riboflavin-HealthProfessional/"]],
+    "en": {
+      "name": "Vitamin B2 (riboflavin)",
+      "aka": "riboflavin, riboflavin-5'-phosphate",
+      "desc": "B vitamin involved in energy metabolism and in activating other B vitamins. Higher doses turn urine bright yellow, which is harmless.",
+      "facts": ["NRV: 1.4 mg a day", "EFSA upper level: not set", "EU claims: energy-yielding metabolism, reduction of tiredness and fatigue, normal vision, skin and red blood cells, protection of cells from oxidative stress"]
+    },
+    "es": {
+      "name": "Vitamina B2 (riboflavina)",
+      "aka": "riboflavina, riboflavina-5'-fosfato",
+      "desc": "Vitamina del grupo B que interviene en el metabolismo energético y en la activación de otras vitaminas B. En dosis altas tiñe la orina de amarillo intenso, algo inofensivo.",
+      "facts": ["VRN: 1,4 mg al día", "Nivel máximo de la EFSA: no establecido", "Declaraciones UE: metabolismo energético, disminución del cansancio y la fatiga, visión, piel y glóbulos rojos normales, protección de las células frente al daño oxidativo"]
+    },
+    "de": {
+      "name": "Vitamin B2 (Riboflavin)",
+      "aka": "Riboflavin, Riboflavin-5'-phosphat",
+      "desc": "B-Vitamin für den Energiestoffwechsel und die Aktivierung anderer B-Vitamine. Höhere Dosen färben den Urin leuchtend gelb, was harmlos ist.",
+      "facts": ["NRV: 1,4 mg pro Tag", "EFSA-Höchstmenge: nicht festgelegt", "EU-Angaben: Energiestoffwechsel, Verringerung von Müdigkeit und Ermüdung, normale Sehkraft, Haut und rote Blutkörperchen, Schutz der Zellen vor oxidativem Stress"]
+    }
+  },
+  {
+    "id": "vitamin-b3",
+    "claim": "authorised",
+    "hub": "multivitamins",
+    "guide": null,
+    "src": [
+      ["NIH ODS — Niacin", "https://ods.od.nih.gov/factsheets/Niacin-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Vitamin B3 (niacin)",
+      "aka": "nicotinamide, niacinamide, nicotinic acid",
+      "desc": "B vitamin used in energy metabolism. Labels list it as nicotinamide (niacinamide) or nicotinic acid; nicotinic acid causes skin flushing at much lower doses and has a far lower upper level.",
+      "facts": ["NRV: 16 mg a day", "EFSA upper levels: 10 mg a day as nicotinic acid, 900 mg a day as nicotinamide", "EU claims: energy-yielding metabolism, nervous system, psychological function, skin, reduction of tiredness and fatigue"]
+    },
+    "es": {
+      "name": "Vitamina B3 (niacina)",
+      "aka": "nicotinamida, niacinamida, ácido nicotínico",
+      "desc": "Vitamina del grupo B que interviene en el metabolismo energético. En la etiqueta aparece como nicotinamida (niacinamida) o ácido nicotínico; el ácido nicotínico enrojece la piel con dosis mucho más bajas y tiene un nivel máximo muy inferior.",
+      "facts": ["VRN: 16 mg al día", "Niveles máximos de la EFSA: 10 mg al día como ácido nicotínico, 900 mg al día como nicotinamida", "Declaraciones UE: metabolismo energético, sistema nervioso, función psicológica, piel, disminución del cansancio y la fatiga"]
+    },
+    "de": {
+      "name": "Vitamin B3 (Niacin)",
+      "aka": "Nicotinamid, Niacinamid, Nicotinsäure",
+      "desc": "B-Vitamin für den Energiestoffwechsel. Auf dem Etikett steht Nicotinamid (Niacinamid) oder Nicotinsäure; Nicotinsäure verursacht schon in viel kleineren Dosen Hautrötungen (Flush) und hat eine deutlich niedrigere Höchstmenge.",
+      "facts": ["NRV: 16 mg pro Tag", "EFSA-Höchstmengen: 10 mg pro Tag als Nicotinsäure, 900 mg pro Tag als Nicotinamid", "EU-Angaben: Energiestoffwechsel, Nervensystem, psychische Funktion, Haut, Verringerung von Müdigkeit und Ermüdung"]
+    }
+  },
+  {
+    "id": "vitamin-b5",
+    "claim": "authorised",
+    "hub": "multivitamins",
+    "guide": null,
+    "src": [["NIH ODS — Pantothenic acid", "https://ods.od.nih.gov/factsheets/PantothenicAcid-HealthProfessional/"]],
+    "en": {
+      "name": "Vitamin B5 (pantothenic acid)",
+      "aka": "calcium D-pantothenate, pantethine",
+      "desc": "B vitamin present in almost all foods and needed to make coenzyme A, a key molecule in energy metabolism. Deficiency is very rare.",
+      "facts": ["NRV: 6 mg a day", "EFSA upper level: not set", "EU claims: energy-yielding metabolism, normal mental performance, synthesis of steroid hormones, vitamin D and some neurotransmitters, reduction of tiredness and fatigue"]
+    },
+    "es": {
+      "name": "Vitamina B5 (ácido pantoténico)",
+      "aka": "D-pantotenato cálcico, pantetina",
+      "desc": "Vitamina del grupo B presente en casi todos los alimentos y necesaria para fabricar la coenzima A, una molécula clave del metabolismo energético. El déficit es muy raro.",
+      "facts": ["VRN: 6 mg al día", "Nivel máximo de la EFSA: no establecido", "Declaraciones UE: metabolismo energético, rendimiento intelectual normal, síntesis de hormonas esteroideas, vitamina D y algunos neurotransmisores, disminución del cansancio y la fatiga"]
+    },
+    "de": {
+      "name": "Vitamin B5 (Pantothensäure)",
+      "aka": "Calcium-D-pantothenat, Pantethin",
+      "desc": "B-Vitamin, das in fast allen Lebensmitteln vorkommt und für die Bildung von Coenzym A gebraucht wird, einem Schlüsselmolekül des Energiestoffwechsels. Ein Mangel ist sehr selten.",
+      "facts": ["NRV: 6 mg pro Tag", "EFSA-Höchstmenge: nicht festgelegt", "EU-Angaben: Energiestoffwechsel, normale geistige Leistung, Synthese von Steroidhormonen, Vitamin D und einigen Neurotransmittern, Verringerung von Müdigkeit und Ermüdung"]
+    }
+  },
+  {
+    "id": "vitamin-b6",
+    "claim": "authorised",
+    "hub": "multivitamins",
+    "guide": null,
+    "src": [
+      ["NIH ODS — Vitamin B6", "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Vitamin B6",
+      "aka": "pyridoxine hydrochloride, pyridoxal-5'-phosphate (P-5-P)",
+      "desc": "B vitamin involved in protein metabolism, red blood cell formation and the nervous system. It is often added to magnesium products. Taking too much for a long time can damage nerves, so add up the B6 from all your supplements.",
+      "facts": ["NRV: 1.4 mg a day", "EFSA upper level: 12 mg a day from all sources", "EU claims: energy-yielding metabolism, nervous system, psychological function, immune system, red blood cell formation, reduction of tiredness and fatigue, regulation of hormonal activity"]
+    },
+    "es": {
+      "name": "Vitamina B6",
+      "aka": "clorhidrato de piridoxina, piridoxal-5'-fosfato (P-5-P)",
+      "desc": "Vitamina del grupo B que interviene en el metabolismo de las proteínas, la formación de glóbulos rojos y el sistema nervioso. Se añade a menudo a los productos de magnesio. Tomar demasiada durante mucho tiempo puede dañar los nervios, así que suma la B6 de todos tus suplementos.",
+      "facts": ["VRN: 1,4 mg al día", "Nivel máximo de la EFSA: 12 mg al día de todas las fuentes", "Declaraciones UE: metabolismo energético, sistema nervioso, función psicológica, sistema inmunitario, formación de glóbulos rojos, disminución del cansancio y la fatiga, regulación de la actividad hormonal"]
+    },
+    "de": {
+      "name": "Vitamin B6",
+      "aka": "Pyridoxinhydrochlorid, Pyridoxal-5'-phosphat (P-5-P)",
+      "desc": "B-Vitamin für den Eiweißstoffwechsel, die Bildung roter Blutkörperchen und das Nervensystem. Es steckt oft in Magnesiumpräparaten. Zu viel über lange Zeit kann Nerven schädigen; rechne deshalb das B6 aus allen Präparaten zusammen.",
+      "facts": ["NRV: 1,4 mg pro Tag", "EFSA-Höchstmenge: 12 mg pro Tag aus allen Quellen", "EU-Angaben: Energiestoffwechsel, Nervensystem, psychische Funktion, Immunsystem, Bildung roter Blutkörperchen, Verringerung von Müdigkeit und Ermüdung, Regulierung der Hormontätigkeit"]
+    }
+  },
+  {
+    "id": "folate",
+    "claim": "authorised",
+    "hub": "multivitamins",
+    "guide": "multivitamin-worth-it",
+    "src": [
+      ["NIH ODS — Folate", "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Folate (folic acid)",
+      "aka": "folic acid, vitamin B9, 5-MTHF, L-methylfolate",
+      "desc": "B vitamin needed for cell division and blood formation. Folic acid is the synthetic form used in most supplements. Taking it before and in early pregnancy lowers the risk of neural tube defects in the baby.",
+      "facts": ["NRV: 200 µg a day", "EFSA upper level: 1,000 µg a day of folic acid from supplements and fortified foods (folate from food not counted)", "Before and in early pregnancy: 400 µg folic acid a day is the usual recommendation", "EU claims: blood formation, cell division, maternal tissue growth in pregnancy, immune system, psychological function, reduction of tiredness and fatigue"]
+    },
+    "es": {
+      "name": "Folato (ácido fólico)",
+      "aka": "ácido fólico, vitamina B9, 5-MTHF, L-metilfolato",
+      "desc": "Vitamina del grupo B necesaria para la división celular y la formación de la sangre. El ácido fólico es la forma sintética que llevan casi todos los suplementos. Tomarlo antes y al principio del embarazo reduce el riesgo de defectos del tubo neural en el bebé.",
+      "facts": ["VRN: 200 µg al día", "Nivel máximo de la EFSA: 1.000 µg al día de ácido fólico de suplementos y alimentos enriquecidos (no cuenta el folato de los alimentos)", "Antes y al principio del embarazo: la recomendación habitual es 400 µg de ácido fólico al día", "Declaraciones UE: formación de la sangre, división celular, crecimiento de los tejidos maternos en el embarazo, sistema inmunitario, función psicológica, disminución del cansancio y la fatiga"]
+    },
+    "de": {
+      "name": "Folat (Folsäure)",
+      "aka": "Folsäure, Vitamin B9, 5-MTHF, L-Methylfolat",
+      "desc": "B-Vitamin für Zellteilung und Blutbildung. Folsäure ist die synthetische Form in den meisten Präparaten. Vor und in der Frühschwangerschaft eingenommen, senkt sie das Risiko für Neuralrohrdefekte beim Kind.",
+      "facts": ["NRV: 200 µg pro Tag", "EFSA-Höchstmenge: 1.000 µg pro Tag Folsäure aus Präparaten und angereicherten Lebensmitteln (Folat aus Lebensmitteln zählt nicht)", "Vor und in der Frühschwangerschaft: üblich empfohlen sind 400 µg Folsäure pro Tag", "EU-Angaben: Blutbildung, Zellteilung, Wachstum des mütterlichen Gewebes in der Schwangerschaft, Immunsystem, psychische Funktion, Verringerung von Müdigkeit und Ermüdung"]
+    }
+  },
+  {
+    "id": "vitamin-b12",
+    "claim": "authorised",
+    "hub": "vitamin-b12",
+    "guide": "b12-guide",
+    "src": [["NIH ODS — Vitamin B12", "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/"]],
+    "en": {
+      "name": "Vitamin B12",
+      "aka": "cobalamin, cyanocobalamin, methylcobalamin, hydroxocobalamin",
+      "desc": "Needed for red blood cells and the nervous system. It occurs almost only in animal foods, so vegans need a supplement or fortified foods. The body absorbs only a small share of large doses: about 1.3 % of 1,000 µg.",
+      "facts": ["NRV: 2.5 µg a day", "EFSA adequate intake: 4 µg a day", "EFSA upper level: not set", "EU claims: reduction of tiredness and fatigue, energy-yielding metabolism, red blood cell formation, nervous system, psychological function, immune system"]
+    },
+    "es": {
+      "name": "Vitamina B12",
+      "aka": "cobalamina, cianocobalamina, metilcobalamina, hidroxocobalamina",
+      "desc": "Necesaria para los glóbulos rojos y el sistema nervioso. Está casi solo en alimentos de origen animal, por eso quien sigue una dieta vegana necesita un suplemento o alimentos enriquecidos. El cuerpo absorbe solo una pequeña parte de las dosis altas: alrededor del 1,3 % de 1.000 µg.",
+      "facts": ["VRN: 2,5 µg al día", "Ingesta adecuada de la EFSA: 4 µg al día", "Nivel máximo de la EFSA: no establecido", "Declaraciones UE: disminución del cansancio y la fatiga, metabolismo energético, formación de glóbulos rojos, sistema nervioso, función psicológica, sistema inmunitario"]
+    },
+    "de": {
+      "name": "Vitamin B12",
+      "aka": "Cobalamin, Cyanocobalamin, Methylcobalamin, Hydroxocobalamin",
+      "desc": "Wichtig für rote Blutkörperchen und das Nervensystem. Es kommt fast nur in tierischen Lebensmitteln vor, deshalb brauchen Veganer ein Präparat oder angereicherte Lebensmittel. Von großen Dosen nimmt der Körper nur einen kleinen Teil auf: etwa 1,3 % von 1.000 µg.",
+      "facts": ["NRV: 2,5 µg pro Tag", "EFSA-Schätzwert für die angemessene Zufuhr: 4 µg pro Tag", "EFSA-Höchstmenge: nicht festgelegt", "EU-Angaben: Verringerung von Müdigkeit und Ermüdung, Energiestoffwechsel, Bildung roter Blutkörperchen, Nervensystem, psychische Funktion, Immunsystem"]
+    }
+  },
+  {
+    "id": "biotin",
+    "claim": "authorised",
+    "hub": "biotin",
+    "guide": "biotin-hair",
+    "src": [["NIH ODS — Biotin", "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/"]],
+    "en": {
+      "name": "Biotin",
+      "aka": "vitamin B7, vitamin H, D-biotin",
+      "desc": "B vitamin involved in the metabolism of fats, carbohydrates and protein. It is sold for hair and nails, but deficiency is rare. Doses of several thousand µg can distort some blood tests, including thyroid and heart tests.",
+      "facts": ["NRV: 50 µg a day", "EFSA upper level: not set", "EU claims: maintenance of normal hair, skin and mucous membranes, energy-yielding metabolism, nervous system, psychological function", "Tell your doctor or lab you take biotin before a blood test"]
+    },
+    "es": {
+      "name": "Biotina",
+      "aka": "vitamina B7, vitamina H, D-biotina",
+      "desc": "Vitamina del grupo B que interviene en el metabolismo de grasas, hidratos de carbono y proteínas. Se vende para el pelo y las uñas, pero su déficit es raro. Dosis de varios miles de µg pueden falsear algunos análisis de sangre, como los de tiroides o los cardiacos.",
+      "facts": ["VRN: 50 µg al día", "Nivel máximo de la EFSA: no establecido", "Declaraciones UE: mantenimiento del cabello, la piel y las mucosas en condiciones normales, metabolismo energético, sistema nervioso, función psicológica", "Antes de un análisis de sangre, avisa al médico o al laboratorio de que tomas biotina"]
+    },
+    "de": {
+      "name": "Biotin",
+      "aka": "Vitamin B7, Vitamin H, D-Biotin",
+      "desc": "B-Vitamin für den Stoffwechsel von Fetten, Kohlenhydraten und Eiweiß. Es wird für Haare und Nägel verkauft, ein Mangel ist aber selten. Dosen von mehreren Tausend µg können manche Blutwerte verfälschen, etwa Schilddrüsen- und Herzwerte.",
+      "facts": ["NRV: 50 µg pro Tag", "EFSA-Höchstmenge: nicht festgelegt", "EU-Angaben: Erhaltung normaler Haare, Haut und Schleimhäute, Energiestoffwechsel, Nervensystem, psychische Funktion", "Vor einer Blutuntersuchung Arzt oder Labor über die Biotin-Einnahme informieren"]
+    }
+  },
+  {
+    "id": "vitamin-c",
+    "claim": "authorised",
+    "hub": "vitamin-c",
+    "guide": "colds-zinc-vitamin-c",
+    "src": [["NIH ODS — Vitamin C", "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/"]],
+    "en": {
+      "name": "Vitamin C",
+      "aka": "ascorbic acid, sodium ascorbate, calcium ascorbate",
+      "desc": "Water-soluble vitamin needed to form collagen and for the immune system; it also increases iron absorption from food. Doses of a gram or more can upset the stomach.",
+      "facts": ["NRV: 80 mg a day", "EFSA upper level: not set", "Germany (BfR guidance): 250 mg per daily dose", "EU claims: immune system, collagen formation for blood vessels, bones, cartilage, gums, skin and teeth, reduction of tiredness and fatigue, iron absorption, protection of cells from oxidative stress"]
+    },
+    "es": {
+      "name": "Vitamina C",
+      "aka": "ácido ascórbico, ascorbato sódico, ascorbato cálcico",
+      "desc": "Vitamina hidrosoluble necesaria para formar colágeno y para el sistema inmunitario; además aumenta la absorción del hierro de los alimentos. Dosis de un gramo o más pueden sentar mal al estómago.",
+      "facts": ["VRN: 80 mg al día", "Nivel máximo de la EFSA: no establecido", "Alemania (recomendación BfR): 250 mg por dosis diaria", "Declaraciones UE: sistema inmunitario, formación de colágeno para vasos sanguíneos, huesos, cartílagos, encías, piel y dientes, disminución del cansancio y la fatiga, absorción del hierro, protección de las células frente al daño oxidativo"]
+    },
+    "de": {
+      "name": "Vitamin C",
+      "aka": "Ascorbinsäure, Natriumascorbat, Calciumascorbat",
+      "desc": "Wasserlösliches Vitamin für die Kollagenbildung und das Immunsystem; außerdem verbessert es die Eisenaufnahme aus der Nahrung. Dosen ab einem Gramm können auf den Magen schlagen.",
+      "facts": ["NRV: 80 mg pro Tag", "EFSA-Höchstmenge: nicht festgelegt", "Deutschland (BfR-Empfehlung): 250 mg pro Tagesdosis", "EU-Angaben: Immunsystem, Kollagenbildung für Blutgefäße, Knochen, Knorpel, Zahnfleisch, Haut und Zähne, Verringerung von Müdigkeit und Ermüdung, Eisenaufnahme, Schutz der Zellen vor oxidativem Stress"]
+    }
+  },
+  {
+    "id": "vitamin-d",
+    "claim": "authorised",
+    "hub": "vitamin-d",
+    "guide": "vitamin-d-winter",
+    "src": [
+      ["NIH ODS — Vitamin D", "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"],
+      ["EFSA (2023) — Tolerable upper intake level for vitamin D", "https://efsa.europa.eu/en/efsajournal/pub/8145"],
+      ["BfR — Recommended maximum levels for vitamins and minerals in food supplements", "https://www.bfr.bund.de/cm/343/hoechstmengenempfehlungen-des-bfr.pdf"]
+    ],
+    "en": {
+      "name": "Vitamin D",
+      "aka": "cholecalciferol (vitamin D3), ergocalciferol (vitamin D2)",
+      "desc": "Fat-soluble vitamin that the skin makes in sunlight; in winter, much of Europe gets too little UVB for that. Needed for calcium absorption, bones, muscles and the immune system. Most supplements contain vitamin D3.",
+      "facts": ["NRV on labels: 5 µg (200 IU) a day", "EFSA adequate intake: 15 µg (600 IU) a day", "EFSA upper level: 100 µg (4,000 IU) a day from all sources", "Germany (BfR guidance): 20 µg (800 IU) per daily dose", "EU claims: immune system, bones, teeth, muscle function, calcium absorption"]
+    },
+    "es": {
+      "name": "Vitamina D",
+      "aka": "colecalciferol (vitamina D3), ergocalciferol (vitamina D2)",
+      "desc": "Vitamina liposoluble que la piel fabrica con el sol; en invierno, buena parte de Europa recibe demasiada poca radiación UVB para ello. Necesaria para absorber el calcio y para los huesos, los músculos y el sistema inmunitario. La mayoría de suplementos llevan vitamina D3.",
+      "facts": ["VRN en la etiqueta: 5 µg (200 UI) al día", "Ingesta adecuada de la EFSA: 15 µg (600 UI) al día", "Nivel máximo de la EFSA: 100 µg (4.000 UI) al día de todas las fuentes", "Alemania (recomendación BfR): 20 µg (800 UI) por dosis diaria", "Declaraciones UE: sistema inmunitario, huesos, dientes, función muscular, absorción del calcio"]
+    },
+    "de": {
+      "name": "Vitamin D",
+      "aka": "Cholecalciferol (Vitamin D3), Ergocalciferol (Vitamin D2)",
+      "desc": "Fettlösliches Vitamin, das die Haut im Sonnenlicht bildet; im Winter reicht die UVB-Strahlung dafür in weiten Teilen Europas nicht aus. Wichtig für die Calciumaufnahme, Knochen, Muskeln und das Immunsystem. Die meisten Präparate enthalten Vitamin D3.",
+      "facts": ["NRV auf dem Etikett: 5 µg (200 IE) pro Tag", "EFSA-Schätzwert für die angemessene Zufuhr: 15 µg (600 IE) pro Tag", "EFSA-Höchstmenge: 100 µg (4.000 IE) pro Tag aus allen Quellen", "Deutschland (BfR-Empfehlung): 20 µg (800 IE) pro Tagesdosis", "EU-Angaben: Immunsystem, Knochen, Zähne, Muskelfunktion, Calciumaufnahme"]
+    }
+  },
+  {
+    "id": "vitamin-k2",
+    "claim": "authorised",
+    "hub": "vitamin-d",
+    "guide": "d3-k2",
+    "src": [["NIH ODS — Vitamin K", "https://ods.od.nih.gov/factsheets/VitaminK-HealthProfessional/"]],
+    "en": {
+      "name": "Vitamin K2",
+      "aka": "menaquinone, MK-7, MK-4; vitamin K1 = phylloquinone",
+      "desc": "Form of vitamin K, which is needed for blood clotting and bone metabolism. It is often combined with vitamin D3. If you take vitamin K antagonist blood thinners (warfarin, acenocoumarol/Sintrom, phenprocoumon/Marcumar), talk to your doctor first.",
+      "facts": ["NRV (vitamin K): 75 µg a day", "EFSA upper level: not set", "EU claims (vitamin K): normal blood clotting, maintenance of normal bones"]
+    },
+    "es": {
+      "name": "Vitamina K2",
+      "aka": "menaquinona, MK-7, MK-4; vitamina K1 = filoquinona",
+      "desc": "Forma de vitamina K, necesaria para la coagulación de la sangre y el metabolismo óseo. Suele combinarse con vitamina D3. Si tomas anticoagulantes antivitamina K (acenocumarol/Sintrom, warfarina), consulta antes con tu médico.",
+      "facts": ["VRN (vitamina K): 75 µg al día", "Nivel máximo de la EFSA: no establecido", "Declaraciones UE (vitamina K): coagulación sanguínea normal, mantenimiento de los huesos en condiciones normales"]
+    },
+    "de": {
+      "name": "Vitamin K2",
+      "aka": "Menachinon, MK-7, MK-4; Vitamin K1 = Phyllochinon",
+      "desc": "Form von Vitamin K, das für die Blutgerinnung und den Knochenstoffwechsel gebraucht wird. Wird oft mit Vitamin D3 kombiniert. Wer Gerinnungshemmer vom Vitamin-K-Antagonisten-Typ nimmt (Phenprocoumon/Marcumar, Warfarin), sollte vorher mit dem Arzt sprechen.",
+      "facts": ["NRV (Vitamin K): 75 µg pro Tag", "EFSA-Höchstmenge: nicht festgelegt", "EU-Angaben (Vitamin K): normale Blutgerinnung, Erhaltung normaler Knochen"]
+    }
+  }
+]

@@ -1,0 +1,298 @@
+[
+  {
+    "id": "creatine",
+    "claim": "authorised",
+    "hub": "creatine",
+    "guide": "creatine-guide",
+    "src": [
+      ["NIH ODS — Dietary supplements for exercise and athletic performance", "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/"],
+      ["Commission Implementing Regulation (EU) 2017/672 — creatine and resistance training in adults over 55", "https://eur-lex.europa.eu/eli/reg_impl/2017/672/oj"]
+    ],
+    "en": {
+      "name": "Creatine",
+      "aka": "creatine monohydrate, Creapure",
+      "desc": "Compound made from amino acids and stored in muscle, where it supplies quick energy for short, intense efforts. Monohydrate is the form used in almost all studies; it is about 88 % creatine.",
+      "facts": ["EU claim: increases performance in repeated short bursts of high-intensity exercise (3 g creatine a day)", "EU claim, adults over 55: enhances the effect of resistance training on muscle strength (3 g a day)", "Usual dose: 3–5 g a day"]
+    },
+    "es": {
+      "name": "Creatina",
+      "aka": "creatina monohidrato, Creapure",
+      "desc": "Compuesto formado a partir de aminoácidos que se almacena en el músculo y aporta energía rápida para esfuerzos cortos e intensos. El monohidrato es la forma que usan casi todos los estudios; es creatina en un 88 % aproximadamente.",
+      "facts": ["Declaración UE: aumenta el rendimiento en series sucesivas de ejercicio breve de alta intensidad (3 g de creatina al día)", "Declaración UE, mayores de 55 años: potencia el efecto del entrenamiento de fuerza sobre la fuerza muscular (3 g al día)", "Dosis habitual: 3–5 g al día"]
+    },
+    "de": {
+      "name": "Kreatin",
+      "aka": "Kreatin-Monohydrat, Creapure",
+      "desc": "Aus Aminosäuren gebildeter Stoff, der im Muskel gespeichert wird und schnelle Energie für kurze, intensive Belastungen liefert. Monohydrat ist die Form aus fast allen Studien; es besteht zu etwa 88 % aus Kreatin.",
+      "facts": ["EU-Angabe: erhöht die Leistung bei wiederholten kurzen, intensiven Belastungen (3 g Kreatin pro Tag)", "EU-Angabe, Erwachsene über 55: verstärkt die Wirkung von Krafttraining auf die Muskelkraft (3 g pro Tag)", "Übliche Dosis: 3–5 g pro Tag"]
+    }
+  },
+  {
+    "id": "collagen",
+    "claim": "none",
+    "hub": "collagen",
+    "guide": "collagen-combos",
+    "src": [["Commission Regulation (EU) No 379/2012 — refused health claims, including collagen hydrolysate", "https://eur-lex.europa.eu/eli/reg/2012/379/oj"]],
+    "en": {
+      "name": "Collagen",
+      "aka": "hydrolysed collagen, collagen peptides, collagen hydrolysate; types I, II, III",
+      "desc": "Main structural protein of skin, tendons, cartilage and bone. Supplements contain collagen broken down into small peptides (hydrolysed), from cattle, pigs, fish or chicken.",
+      "facts": ["No authorised EU claim; a joint claim for collagen hydrolysate was refused in 2012", "Dose used in studies: 2.5–10 g a day", "Products often add vitamin C, which carries the authorised collagen-formation claim"]
+    },
+    "es": {
+      "name": "Colágeno",
+      "aka": "colágeno hidrolizado, péptidos de colágeno; tipos I, II, III",
+      "desc": "Principal proteína estructural de la piel, los tendones, los cartílagos y los huesos. Los suplementos llevan colágeno partido en pequeños péptidos (hidrolizado), de origen bovino, porcino, marino o de pollo.",
+      "facts": ["Sin declaración UE autorizada; en 2012 se rechazó una declaración sobre articulaciones para el colágeno hidrolizado", "Dosis usada en los estudios: 2,5–10 g al día", "Muchos productos añaden vitamina C, que sí tiene la declaración autorizada sobre la formación de colágeno"]
+    },
+    "de": {
+      "name": "Kollagen",
+      "aka": "Kollagenhydrolysat, Kollagenpeptide; Typ I, II, III",
+      "desc": "Wichtigstes Strukturprotein von Haut, Sehnen, Knorpel und Knochen. Präparate enthalten in kleine Peptide zerlegtes Kollagen (hydrolysiert) von Rind, Schwein, Fisch oder Huhn.",
+      "facts": ["Keine zugelassene EU-Angabe; eine Gelenk-Angabe für Kollagenhydrolysat wurde 2012 abgelehnt", "Dosis in Studien: 2,5–10 g pro Tag", "Oft wird Vitamin C zugesetzt, das die zugelassene Angabe zur Kollagenbildung trägt"]
+    }
+  },
+  {
+    "id": "hyaluronic-acid",
+    "claim": "none",
+    "hub": "hyaluronic-acid",
+    "guide": "collagen-combos",
+    "src": [
+      ["Amin P et al. Oral hyaluronic acid supplement: skin hydration, elasticity and wrinkle depth (meta-analysis, 2025)", "https://jddonline.com/articles/oral-hyaluronic-acid-supplement-efficacy-in-skin-hydration-elasticity-wrinkle-depth-reduction-s1545961625p8542x"],
+      ["European Commission — EU Register of nutrition and health claims", "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/nutrition-and-health-claims/eu-register-health-claims_en"]
+    ],
+    "en": {
+      "name": "Hyaluronic acid",
+      "aka": "sodium hyaluronate",
+      "desc": "Water-binding substance found in skin and joint fluid. Most supplement hyaluronic acid is made by bacterial fermentation; some comes from rooster combs. A 2025 meta-analysis of 7 small trials found better skin hydration, elasticity and wrinkle depth.",
+      "facts": ["No authorised EU claim"]
+    },
+    "es": {
+      "name": "Ácido hialurónico",
+      "aka": "hialuronato sódico",
+      "desc": "Sustancia que retiene agua y está presente en la piel y el líquido articular. La mayoría del ácido hialurónico de los suplementos se obtiene por fermentación bacteriana; una parte procede de crestas de gallo. Un metaanálisis de 2025 con 7 ensayos pequeños encontró mejor hidratación, elasticidad y profundidad de arrugas.",
+      "facts": ["Sin declaración UE autorizada"]
+    },
+    "de": {
+      "name": "Hyaluronsäure",
+      "aka": "Natriumhyaluronat",
+      "desc": "Wasserbindender Stoff in Haut und Gelenkflüssigkeit. Die meiste Hyaluronsäure in Präparaten wird durch bakterielle Fermentation hergestellt, ein Teil stammt aus Hahnenkämmen. Eine Metaanalyse von 2025 mit 7 kleinen Studien fand bessere Hautfeuchtigkeit, Elastizität und Faltentiefe.",
+      "facts": ["Keine zugelassene EU-Angabe"]
+    }
+  },
+  {
+    "id": "glucosamine",
+    "claim": "none",
+    "hub": "joints",
+    "guide": "glucosamine-chondroitin",
+    "src": [
+      ["NIH NCCIH — Glucosamine and chondroitin for osteoarthritis", "https://www.nccih.nih.gov/health/glucosamine-and-chondroitin-for-osteoarthritis-what-you-need-to-know"],
+      ["EFSA (2009) — Glucosamine and maintenance of joints", "https://efsa.europa.eu/en/efsajournal/pub/1264"]
+    ],
+    "en": {
+      "name": "Glucosamine",
+      "aka": "glucosamine sulphate, glucosamine hydrochloride",
+      "desc": "Building block of cartilage, usually made from shellfish shells. It is sold for joints, but trial results for knee pain are mixed.",
+      "facts": ["No authorised EU claim: EFSA found no cause-and-effect relationship for joint claims", "Dose used in trials: 1,500 mg a day", "Often made from shellfish (allergy); high doses may interact with warfarin"]
+    },
+    "es": {
+      "name": "Glucosamina",
+      "aka": "sulfato de glucosamina, clorhidrato de glucosamina",
+      "desc": "Componente del cartílago, normalmente fabricado a partir del caparazón de mariscos. Se vende para las articulaciones, pero los ensayos sobre el dolor de rodilla dan resultados dispares.",
+      "facts": ["Sin declaración UE autorizada: la EFSA no encontró relación causa-efecto en las declaraciones sobre articulaciones", "Dosis usada en los ensayos: 1.500 mg al día", "Suele proceder de mariscos (alergia); en dosis altas puede interactuar con la warfarina"]
+    },
+    "de": {
+      "name": "Glucosamin",
+      "aka": "Glucosaminsulfat, Glucosaminhydrochlorid",
+      "desc": "Baustein des Knorpels, meist aus den Schalen von Krebstieren gewonnen. Es wird für die Gelenke verkauft, doch die Studienergebnisse zu Knieschmerzen sind uneinheitlich.",
+      "facts": ["Keine zugelassene EU-Angabe: Die EFSA fand keinen Ursache-Wirkungs-Zusammenhang für Gelenk-Angaben", "Dosis in Studien: 1.500 mg pro Tag", "Oft aus Krebstieren (Allergie); hohe Dosen können mit Warfarin wechselwirken"]
+    }
+  },
+  {
+    "id": "chondroitin",
+    "claim": "none",
+    "hub": "joints",
+    "guide": "glucosamine-chondroitin",
+    "src": [["NIH NCCIH — Glucosamine and chondroitin for osteoarthritis", "https://www.nccih.nih.gov/health/glucosamine-and-chondroitin-for-osteoarthritis-what-you-need-to-know"]],
+    "en": {
+      "name": "Chondroitin",
+      "aka": "chondroitin sulphate",
+      "desc": "Component of cartilage, extracted from cattle, pig, chicken or fish cartilage. Usually combined with glucosamine.",
+      "facts": ["No authorised EU claim", "Dose used in trials: 800–1,200 mg a day"]
+    },
+    "es": {
+      "name": "Condroitina",
+      "aka": "sulfato de condroitina",
+      "desc": "Componente del cartílago que se extrae de cartílago bovino, porcino, de pollo o de pescado. Suele combinarse con glucosamina.",
+      "facts": ["Sin declaración UE autorizada", "Dosis usada en los ensayos: 800–1.200 mg al día"]
+    },
+    "de": {
+      "name": "Chondroitin",
+      "aka": "Chondroitinsulfat",
+      "desc": "Bestandteil des Knorpels, gewonnen aus Knorpel von Rind, Schwein, Huhn oder Fisch. Meist mit Glucosamin kombiniert.",
+      "facts": ["Keine zugelassene EU-Angabe", "Dosis in Studien: 800–1.200 mg pro Tag"]
+    }
+  },
+  {
+    "id": "msm",
+    "claim": "none",
+    "hub": "joints",
+    "guide": "glucosamine-chondroitin",
+    "src": [
+      ["NIH NCCIH — DMSO and MSM for osteoarthritis", "https://www.nccih.nih.gov/health/dimethyl-sulfoxide-dmso-and-methylsulfonylmethane-msm-for-osteoarthritis"],
+      ["EFSA (2010) — Health claims related to methylsulphonylmethane (MSM)", "https://efsa.europa.eu/en/efsajournal/pub/1746"]
+    ],
+    "en": {
+      "name": "MSM (methylsulfonylmethane)",
+      "aka": "methylsulphonylmethane, organic sulphur",
+      "desc": "Sulphur compound sold for joints, often together with glucosamine. The evidence comes from a few small trials.",
+      "facts": ["No authorised EU claim: EFSA assessed claims on collagen formation, hair, nails and joints"]
+    },
+    "es": {
+      "name": "MSM (metilsulfonilmetano)",
+      "aka": "metilsulfonilmetano, azufre orgánico",
+      "desc": "Compuesto de azufre que se vende para las articulaciones, a menudo junto con glucosamina. La evidencia procede de unos pocos ensayos pequeños.",
+      "facts": ["Sin declaración UE autorizada: la EFSA evaluó declaraciones sobre formación de colágeno, cabello, uñas y articulaciones"]
+    },
+    "de": {
+      "name": "MSM (Methylsulfonylmethan)",
+      "aka": "Methylsulfonylmethan, organischer Schwefel",
+      "desc": "Schwefelverbindung, die für die Gelenke verkauft wird, oft zusammen mit Glucosamin. Die Belege stammen aus wenigen kleinen Studien.",
+      "facts": ["Keine zugelassene EU-Angabe: Die EFSA hat Angaben zu Kollagenbildung, Haaren, Nägeln und Gelenken geprüft"]
+    }
+  },
+  {
+    "id": "melatonin",
+    "claim": "authorised",
+    "hub": "melatonin",
+    "guide": "melatonin",
+    "src": [
+      ["NIH NCCIH — Melatonin: what you need to know", "https://www.nccih.nih.gov/health/melatonin-what-you-need-to-know"],
+      ["AEMPS — Withdrawal of a 3 mg melatonin supplement (medicine from 2 mg)", "https://www.aemps.gob.es/informa/retirada-del-complemento-alimenticio-miracle-sleep-pildoras/"]
+    ],
+    "en": {
+      "name": "Melatonin",
+      "aka": "N-acetyl-5-methoxytryptamine",
+      "desc": "Hormone the body releases in the evening to signal night-time. Supplements can shorten the time to fall asleep a little and ease jet lag. In several countries higher doses are legally a medicine.",
+      "facts": ["EU claims: reduces the time taken to fall asleep (1 mg close to bedtime); eases jet lag (0.5 mg on travel days)", "Spain: below 2 mg a day as a supplement; 2 mg or more is a medicine", "Not for pregnancy, breastfeeding or children"]
+    },
+    "es": {
+      "name": "Melatonina",
+      "aka": "N-acetil-5-metoxitriptamina",
+      "desc": "Hormona que el cuerpo libera por la tarde-noche para marcar la hora de dormir. Los suplementos pueden acortar un poco el tiempo que tardas en dormirte y aliviar el jet lag. En varios países, las dosis altas son legalmente un medicamento.",
+      "facts": ["Declaraciones UE: reduce el tiempo necesario para conciliar el sueño (1 mg poco antes de acostarse); alivia el jet lag (0,5 mg los días de viaje)", "España: menos de 2 mg al día como complemento alimenticio; 2 mg o más es un medicamento", "No apta para embarazo, lactancia ni niños"]
+    },
+    "de": {
+      "name": "Melatonin",
+      "aka": "N-Acetyl-5-methoxytryptamin",
+      "desc": "Hormon, das der Körper am Abend ausschüttet und das die Nacht ankündigt. Präparate können die Einschlafzeit etwas verkürzen und Jetlag lindern. In mehreren Ländern gelten höhere Dosen rechtlich als Arzneimittel.",
+      "facts": ["EU-Angaben: verkürzt die Einschlafzeit (1 mg kurz vor dem Schlafengehen); lindert Jetlag (0,5 mg an Reisetagen)", "Deutschland: Rechtsstatus als Nahrungsergänzungsmittel umstritten", "Nicht in Schwangerschaft, Stillzeit oder für Kinder"]
+    }
+  },
+  {
+    "id": "l-theanine",
+    "claim": "none",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["EFSA (2011) — Health claims related to L-theanine (cognition, stress, sleep)", "https://www.efsa.europa.eu/en/efsajournal/pub/2238"]],
+    "en": {
+      "name": "L-theanine",
+      "aka": "theanine, Suntheanine",
+      "desc": "Amino acid found in tea leaves. Small trials at about 200 mg suggest a calming effect without drowsiness, often combined with caffeine.",
+      "facts": ["No authorised EU claim: EFSA (2011) found claims on cognition, stress and sleep not substantiated"]
+    },
+    "es": {
+      "name": "L-teanina",
+      "aka": "teanina, Suntheanine",
+      "desc": "Aminoácido presente en las hojas de té. Ensayos pequeños con unos 200 mg apuntan a un efecto calmante sin somnolencia, a menudo combinado con cafeína.",
+      "facts": ["Sin declaración UE autorizada: la EFSA (2011) consideró no demostradas las declaraciones sobre cognición, estrés y sueño"]
+    },
+    "de": {
+      "name": "L-Theanin",
+      "aka": "Theanin, Suntheanine",
+      "desc": "Aminosäure aus Teeblättern. Kleine Studien mit etwa 200 mg deuten auf eine beruhigende Wirkung ohne Müdigkeit hin, oft in Kombination mit Koffein.",
+      "facts": ["Keine zugelassene EU-Angabe: Die EFSA (2011) sah Angaben zu Kognition, Stress und Schlaf als nicht belegt an"]
+    }
+  },
+  {
+    "id": "5-htp",
+    "claim": "none",
+    "hub": "sleep",
+    "guide": null,
+    "src": [["Hinz M et al. 5-HTP efficacy and contraindications (2012)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC3415362/"]],
+    "en": {
+      "name": "5-HTP (griffonia)",
+      "aka": "5-hydroxytryptophan, Griffonia simplicifolia seed extract",
+      "desc": "Precursor the body uses to make serotonin, extracted from the seeds of the African Griffonia plant. Good-quality evidence for sleep or mood is limited.",
+      "facts": ["No authorised EU claim", "Do not combine with antidepressants or other drugs that raise serotonin (risk of serotonin syndrome)"]
+    },
+    "es": {
+      "name": "5-HTP (griffonia)",
+      "aka": "5-hidroxitriptófano, extracto de semilla de Griffonia simplicifolia",
+      "desc": "Precursor que el cuerpo usa para fabricar serotonina, extraído de las semillas de la planta africana Griffonia. La evidencia de calidad sobre el sueño o el ánimo es escasa.",
+      "facts": ["Sin declaración UE autorizada", "No lo combines con antidepresivos ni otros fármacos que aumentan la serotonina (riesgo de síndrome serotoninérgico)"]
+    },
+    "de": {
+      "name": "5-HTP (Griffonia)",
+      "aka": "5-Hydroxytryptophan, Griffonia-simplicifolia-Samenextrakt",
+      "desc": "Vorstufe, aus der der Körper Serotonin bildet, gewonnen aus den Samen der afrikanischen Griffonia-Pflanze. Gute Belege für Schlaf oder Stimmung gibt es kaum.",
+      "facts": ["Keine zugelassene EU-Angabe", "Nicht mit Antidepressiva oder anderen serotoninsteigernden Mitteln kombinieren (Risiko eines Serotonin-Syndroms)"]
+    }
+  },
+  {
+    "id": "psyllium",
+    "claim": null,
+    "hub": "gut",
+    "guide": null,
+    "src": [
+      ["MedlinePlus — Psyllium", "https://medlineplus.gov/druginfo/meds/a601104.html"],
+      ["EFSA — Dietary reference values (fibre)", "https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values"]
+    ],
+    "en": {
+      "name": "Psyllium husk",
+      "aka": "ispaghula, Plantago ovata",
+      "desc": "Husk of Plantago ovata seeds: a soluble fibre that absorbs water and forms a gel, adding bulk to stools. It is used for both constipation and loose stools; always take it with plenty of water.",
+      "facts": ["EFSA adequate fibre intake for adults: 25 g a day", "Also sold as a medicine for constipation"]
+    },
+    "es": {
+      "name": "Psyllium (cáscara de plantago)",
+      "aka": "ispágula, Plantago ovata",
+      "desc": "Cáscara de las semillas de Plantago ovata: una fibra soluble que absorbe agua y forma un gel que da volumen a las heces. Se usa tanto para el estreñimiento como para las heces blandas; tómalo siempre con abundante agua.",
+      "facts": ["Ingesta adecuada de fibra de la EFSA para adultos: 25 g al día", "También se vende como medicamento para el estreñimiento"]
+    },
+    "de": {
+      "name": "Flohsamenschalen",
+      "aka": "Psyllium, Plantago ovata, indische Flohsamen",
+      "desc": "Schalen der Samen von Plantago ovata: ein löslicher Ballaststoff, der Wasser bindet, ein Gel bildet und das Stuhlvolumen erhöht. Wird bei Verstopfung und bei weichem Stuhl eingesetzt; immer mit reichlich Wasser einnehmen.",
+      "facts": ["EFSA-Schätzwert für die angemessene Ballaststoffzufuhr bei Erwachsenen: 25 g pro Tag", "Auch als Arzneimittel gegen Verstopfung erhältlich"]
+    }
+  },
+  {
+    "id": "probiotics",
+    "claim": "none",
+    "hub": "gut",
+    "guide": null,
+    "src": [
+      ["NIH NCCIH — Probiotics: what you need to know", "https://www.nccih.nih.gov/health/probiotics-what-you-need-to-know"],
+      ["Hempel S et al. Probiotics for antibiotic-associated diarrhea. JAMA, 2012", "https://pubmed.ncbi.nlm.nih.gov/22570464/"]
+    ],
+    "en": {
+      "name": "Probiotics",
+      "aka": "live cultures, Lactobacillus, Bifidobacterium, Saccharomyces boulardii",
+      "desc": "Live microorganisms, mostly bacteria and some yeasts. Effects depend on the strain: some strains help with antibiotic-related diarrhoea, many have no proven effect. Compare products by strain name and CFU per daily dose.",
+      "facts": ["No authorised EU claim for any strain"]
+    },
+    "es": {
+      "name": "Probióticos",
+      "aka": "cultivos vivos, Lactobacillus, Bifidobacterium, Saccharomyces boulardii",
+      "desc": "Microorganismos vivos, sobre todo bacterias y algunas levaduras. El efecto depende de la cepa: algunas ayudan con la diarrea asociada a los antibióticos y muchas no tienen efecto demostrado. Compara los productos por el nombre de la cepa y las UFC por dosis diaria.",
+      "facts": ["Ninguna cepa tiene una declaración UE autorizada"]
+    },
+    "de": {
+      "name": "Probiotika",
+      "aka": "lebende Kulturen, Lactobacillus, Bifidobacterium, Saccharomyces boulardii",
+      "desc": "Lebende Mikroorganismen, meist Bakterien, teils Hefen. Die Wirkung hängt vom Stamm ab: Einige Stämme helfen bei Durchfall durch Antibiotika, viele haben keine belegte Wirkung. Vergleiche Produkte nach Stammbezeichnung und KBE pro Tagesdosis.",
+      "facts": ["Für keinen Stamm gibt es eine zugelassene EU-Angabe"]
+    }
+  }
+]

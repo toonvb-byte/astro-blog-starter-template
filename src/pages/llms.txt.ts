@@ -25,6 +25,7 @@ export const GET: APIRoute = async () => {
 		`- Affiliate disclosure: ${abs(path("en", "disclosure"))}`,
 		`- Supplement goal finder (evidence by goal): ${abs(path("en", "finder"))}`,
 		`- Supplements A–Z (one page per ingredient: forms, doses, EU claims, limits, label-checked products): ${abs(path("en", "supplements"))}`,
+		`- Glossary of ingredients, label forms and EU legal terms, with NRVs, EFSA upper levels and EU claim status: ${abs(path("en", "glossary"))} (Español: ${abs(path("es", "glossary"))}, Deutsch: ${abs(path("de", "glossary"))})`,
 	];
 	for (const l of LOCALES) {
 		const list = hubs.filter((h) => hubLocale(h) === l);

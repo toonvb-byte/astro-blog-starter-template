@@ -28,6 +28,7 @@ export const ROUTES = {
 	supplements: { en: "supplements", es: "suplementos", de: "nahrungsergaenzung" },
 	guides: { en: "guides", es: "guias", de: "ratgeber" },
 	about: { en: "about", es: "sobre-nosotros", de: "ueber-uns" },
+	glossary: { en: "glossary", es: "glosario", de: "glossar" },
 	privacy: { en: "legal/privacy", es: "legal/privacidad", de: "rechtliches/datenschutz" },
 	cookies: { en: "legal/cookies", es: "legal/cookies", de: "rechtliches/cookies" },
 	imprint: { en: "legal/imprint", es: "legal/aviso-legal", de: "rechtliches/impressum" },

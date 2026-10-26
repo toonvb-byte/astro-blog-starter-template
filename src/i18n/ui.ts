@@ -136,6 +136,7 @@ const en = {
 	"article.keepReading": "Keep reading",
 
 	"footer.supplements": "Supplements A–Z",
+	"footer.glossary": "Glossary",
 	"group.vitamins": "Vitamins",
 	"group.minerals": "Minerals",
 	"group.fatty": "Omega-3 & CoQ10",
@@ -335,6 +336,7 @@ const es: Dict = {
 	"article.keepReading": "Sigue leyendo",
 
 	"footer.supplements": "Suplementos de la A a la Z",
+	"footer.glossary": "Glosario",
 	"group.vitamins": "Vitaminas",
 	"group.minerals": "Minerales",
 	"group.fatty": "Omega-3 y coenzima Q10",
@@ -532,6 +534,7 @@ const de: Dict = {
 	"article.keepReading": "Weiterlesen",
 
 	"footer.supplements": "Wirkstoffe von A bis Z",
+	"footer.glossary": "Glossar",
 	"group.vitamins": "Vitamine",
 	"group.minerals": "Mineralstoffe",
 	"group.fatty": "Omega-3 & Coenzym Q10",

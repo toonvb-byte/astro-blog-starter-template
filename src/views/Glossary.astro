@@ -1,0 +1,242 @@
+---
+/**
+ * Glossary: every ingredient in the finder plus label forms and legal terms, in the page's language.
+ * Data: src/data/glossary/*.json via lib/glossary.ts. Each term has a stable anchor (#id).
+ */
+import Base from "../layouts/Base.astro";
+import { path, routeAlternates, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { GLOSSARY_CHECKED, GLOSSARY_GROUPS, sortedEntries, type ClaimStatus } from "../lib/glossary";
+import { getHubs, hubUrl } from "../lib/hubs";
+import { getGuides, guideUrl } from "../lib/guides";
+import { SITE_URL } from "../lib/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+
+const copy = {
+	en: {
+		title: "Supplement glossary: ingredients, nutrients, label terms",
+		description: "Plain-language glossary of supplement ingredients, vitamins, minerals and label terms, with EU reference intakes, EFSA safe upper levels and EU claim status.",
+		h1: "Supplement glossary",
+		lead: "What each ingredient is, how it appears on the label, the EU reference intake and safe upper level where they exist, and whether it may carry an authorised EU health claim.",
+		search: "Filter the glossary",
+		placeholder: "e.g. magnesium, NRV, ashwagandha",
+		none: "No term matches. Try another word.",
+		groups: { vitamins: "Vitamins", minerals: "Minerals", fats: "Fatty acids and coenzymes", other: "Amino acids, fibre and other substances", botanicals: "Plants", forms: "Forms on the label", label: "Label and law terms" },
+		claim: { authorised: "Authorised EU claims", none: "No authorised EU claim", onhold: "EU claims on hold" },
+		aka: "Also called",
+		terms: "terms",
+		more: "More",
+		source: "Source",
+		sources: "Sources",
+		aboutH: "About this glossary",
+		about: "Reference intakes (NRV) come from Regulation (EU) 1169/2011, safe upper levels from EFSA's 2024 summary, and claim status from the EU Register of nutrition and health claims. Claims are summarised; the exact wording and the minimum amount per daily dose are in the register. Information only, not medical advice.",
+		checked: "Facts checked",
+		crumb: "Glossary",
+	},
+	es: {
+		title: "Glosario de suplementos: ingredientes, nutrientes, etiqueta",
+		description: "Glosario de ingredientes, vitaminas, minerales y términos de etiqueta de suplementos, con VRN de la UE, niveles máximos de la EFSA y declaraciones autorizadas.",
+		h1: "Glosario de suplementos",
+		lead: "Qué es cada ingrediente, cómo aparece en la etiqueta, su valor de referencia (VRN) y su nivel máximo seguro cuando existen, y si puede llevar una declaración de salud autorizada en la UE.",
+		search: "Filtrar el glosario",
+		placeholder: "p. ej. magnesio, VRN, ashwagandha",
+		none: "Ningún término coincide. Prueba con otra palabra.",
+		groups: { vitamins: "Vitaminas", minerals: "Minerales", fats: "Ácidos grasos y coenzimas", other: "Aminoácidos, fibra y otras sustancias", botanicals: "Plantas", forms: "Formas en la etiqueta", label: "Términos de etiqueta y normativa" },
+		claim: { authorised: "Declaraciones UE autorizadas", none: "Sin declaración UE autorizada", onhold: "Declaraciones UE en espera" },
+		aka: "También",
+		terms: "términos",
+		more: "Más",
+		source: "Fuente",
+		sources: "Fuentes",
+		aboutH: "Sobre este glosario",
+		about: "Los valores de referencia (VRN) proceden del Reglamento (UE) 1169/2011, los niveles máximos seguros del resumen de la EFSA de 2024 y el estado de las declaraciones del Registro de la UE de declaraciones nutricionales y de propiedades saludables. Las declaraciones están resumidas; la redacción exacta y la cantidad mínima por dosis diaria figuran en el registro. Solo información, no consejo médico.",
+		checked: "Datos revisados el",
+		crumb: "Glosario",
+	},
+	de: {
+		title: "Glossar Nahrungsergänzung: Wirkstoffe, Nährstoffe, Etikett",
+		description: "Verständliches Glossar zu Wirkstoffen, Vitaminen, Mineralstoffen und Etikettbegriffen von Nahrungsergänzungsmitteln – mit NRV, EFSA-Höchstmengen und EU-Angaben.",
+		h1: "Glossar Nahrungsergänzung",
+		lead: "Was jeder Wirkstoff ist, wie er auf dem Etikett steht, Nährstoffbezugswert (NRV) und sichere Höchstmenge, soweit es sie gibt, und ob er eine zugelassene gesundheitsbezogene EU-Angabe tragen darf.",
+		search: "Glossar filtern",
+		placeholder: "z. B. Magnesium, NRV, Ashwagandha",
+		none: "Kein Begriff passt. Versuch ein anderes Wort.",
+		groups: { vitamins: "Vitamine", minerals: "Mineralstoffe", fats: "Fettsäuren und Coenzyme", other: "Aminosäuren, Ballaststoffe und weitere Stoffe", botanicals: "Pflanzen", forms: "Verbindungen auf dem Etikett", label: "Begriffe zu Etikett und Recht" },
+		claim: { authorised: "Zugelassene EU-Angaben", none: "Keine zugelassene EU-Angabe", onhold: "EU-Angaben zurückgestellt" },
+		aka: "Auch",
+		terms: "Begriffe",
+		more: "Mehr",
+		source: "Quelle",
+		sources: "Quellen",
+		aboutH: "Über dieses Glossar",
+		about: "Die Nährstoffbezugswerte (NRV) stammen aus der Verordnung (EU) 1169/2011, die sicheren Höchstmengen aus der EFSA-Übersicht von 2024 und der Status der Angaben aus dem EU-Register für nährwert- und gesundheitsbezogene Angaben. Die Angaben sind zusammengefasst; den genauen Wortlaut und die Mindestmenge pro Tagesdosis nennt das Register. Nur zur Information, keine medizinische Beratung.",
+		checked: "Fakten geprüft am",
+		crumb: "Glossar",
+	},
+}[locale];
+
+const hubs = await getHubs(locale);
+const guides = await getGuides(locale);
+const hubFor = (key: string | null) => (key ? hubs.find((h) => h.data.hubKey === key) : undefined);
+const guideFor = (key: string | null) => (key ? guides.find((g) => g.data.translationKey === key) : undefined);
+
+const groups = GLOSSARY_GROUPS.map((g) => ({
+	key: g.key as keyof typeof copy.groups,
+	entries: sortedEntries(g.entries, locale).map((e) => ({ e, x: e[locale], hub: hubFor(e.hub), guide: guideFor(e.guide) })),
+}));
+const total = groups.reduce((n, g) => n + g.entries.length, 0);
+const pageUrl = new URL(path(locale, "glossary"), SITE_URL).href;
+const claimLabel = (c: ClaimStatus) => (c ? copy.claim[c] : "");
+const searchText = (x: { name: string; aka: string; desc: string }) => `${x.name} ${x.aka} ${x.desc}`.toLowerCase();
+
+const jsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "DefinedTermSet",
+		"@id": `${pageUrl}#set`,
+		name: copy.h1,
+		description: copy.description,
+		url: pageUrl,
+		inLanguage: locale,
+		publisher: { "@id": `${SITE_URL}/#org` },
+		dateModified: GLOSSARY_CHECKED,
+		hasDefinedTerm: groups.flatMap((g) =>
+			g.entries.map(({ e, x }) => ({
+				"@type": "DefinedTerm",
+				"@id": `${pageUrl}#${e.id}`,
+				name: x.name,
+				...(x.aka ? { alternateName: x.aka.split(/,\s*/).slice(0, 6) } : {}),
+				description: x.desc,
+				url: `${pageUrl}#${e.id}`,
+				inDefinedTermSet: `${pageUrl}#set`,
+			})),
+		),
+	},
+];
+---
+<Base
+	locale={locale}
+	title={copy.title}
+	description={copy.description}
+	alternates={routeAlternates("glossary")}
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: copy.crumb, href: path(locale, "glossary") }]}
+	jsonLd={jsonLd}
+>
+	<header class="container idx-head">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				<li><a href={path(locale)}>{t("article.home")}</a></li>
+				<li aria-current="page">{copy.crumb}</li>
+			</ol>
+		</nav>
+		<h1 class="h1">{copy.h1}</h1>
+		<p class="lead">{copy.lead}</p>
+		<p class="muted meta">{total} {copy.terms} · {copy.checked} <time datetime={GLOSSARY_CHECKED}>{formatDate(new Date(GLOSSARY_CHECKED), locale)}</time></p>
+		<div class="gl-tools">
+			<label class="gl-search">
+				<span class="sr-only">{copy.search}</span>
+				<input type="search" class="input" id="gl-filter" placeholder={copy.placeholder} autocomplete="off" />
+			</label>
+			<nav aria-label={copy.h1} class="jump">
+				{groups.map((g) => <a href={`#g-${g.key}`} class="chip">{copy.groups[g.key]} <span class="count">{g.entries.length}</span></a>)}
+			</nav>
+		</div>
+	</header>
+
+	<div class="container gl-body">
+		<p id="gl-none" class="muted" hidden>{copy.none}</p>
+		{groups.map((g) => (
+			<section id={`g-${g.key}`} class="gl-group" aria-labelledby={`g-${g.key}-h`}>
+				<h2 id={`g-${g.key}-h`} class="h2">{copy.groups[g.key]}</h2>
+				<div class="gl-list">
+					{g.entries.map(({ e, x, hub, guide }) => (
+						<article id={e.id} class="term" data-search={searchText(x)}>
+							<div class="term-head">
+								<h3>{x.name}</h3>
+								{e.claim && <span class={`claim claim-${e.claim}`}>{claimLabel(e.claim)}</span>}
+							</div>
+							{x.aka && <p class="aka"><span class="muted">{copy.aka}:</span> {x.aka}</p>}
+							<p class="desc">{x.desc}</p>
+							{x.facts.length > 0 && <ul class="facts">{x.facts.map((f) => <li>{f}</li>)}</ul>}
+							{(hub || guide) && (
+								<p class="links">
+									<span class="muted">{copy.more}:</span>
+									{hub && <a href={hubUrl(hub)}>{hub.data.name}</a>}
+									{guide && <a href={guideUrl(guide)}>{guide.data.title}</a>}
+								</p>
+							)}
+							{e.src.length > 0 && (
+								<p class="links srcs">
+									<span class="muted">{e.src.length > 1 ? copy.sources : copy.source}:</span>
+									{e.src.map(([title, url]) => <a href={url} rel="noopener" class="src">{title}</a>)}
+								</p>
+							)}
+						</article>
+					))}
+				</div>
+			</section>
+		))}
+
+		<section class="gl-about" aria-labelledby="gl-about-h">
+			<h2 id="gl-about-h" class="h3">{copy.aboutH}</h2>
+			<p>{copy.about}</p>
+		</section>
+	</div>
+</Base>
+
+<script>
+	const input = document.getElementById("gl-filter") as HTMLInputElement | null;
+	const none = document.getElementById("gl-none");
+	const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+	if (input) {
+		const terms = Array.from(document.querySelectorAll<HTMLElement>(".term"));
+		const groups = Array.from(document.querySelectorAll<HTMLElement>(".gl-group"));
+		const index = terms.map((el) => norm(el.dataset.search ?? ""));
+		input.addEventListener("input", () => {
+			const q = norm(input.value.trim());
+			let shown = 0;
+			terms.forEach((el, i) => {
+				const hit = !q || index[i].includes(q);
+				el.hidden = !hit;
+				if (hit) shown++;
+			});
+			groups.forEach((g) => { g.hidden = !g.querySelector(".term:not([hidden])"); });
+			if (none) none.hidden = shown > 0;
+		});
+	}
+</script>
+
+<style>
+	.idx-head { padding-top: 40px; padding-bottom: 24px; display: flex; flex-direction: column; gap: 14px; }
+	.idx-head .lead { max-width: 760px; }
+	.meta { font-size: var(--nm-small); margin: 0; }
+	.gl-tools { display: flex; flex-direction: column; gap: 12px; padding-top: 4px; }
+	.gl-search .input { width: 100%; max-width: 420px; }
+	.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+	.count { color: var(--nm-muted); font-weight: 400; margin-left: 2px; }
+	.gl-body { padding-bottom: var(--nm-section-gap); display: flex; flex-direction: column; gap: 44px; }
+	.gl-group { display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 16px; }
+	.gl-list { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr)); align-items: start; }
+	.term { background: var(--nm-surface); border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; scroll-margin-top: 16px; }
+	.term:target { border-color: var(--nm-accent); box-shadow: 0 0 0 2px var(--nm-accent-soft); }
+	.term-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 12px; }
+	.term h3 { font-family: var(--nm-font-display); font-size: 20px; font-weight: 600; line-height: 1.25; margin: 0; }
+	.claim { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: var(--nm-radius-sm); white-space: nowrap; }
+	.claim-authorised { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.claim-none { background: var(--nm-surface-alt); color: var(--nm-ink-2); border: 1px solid var(--nm-line); }
+	.claim-onhold { background: var(--nm-deal-soft); color: var(--nm-deal-ink); }
+	.aka { font-size: 13px; color: var(--nm-ink-2); margin: 0; }
+	.desc { font-size: 15px; line-height: 1.55; margin: 0; color: var(--nm-ink); }
+	.facts { margin: 0; padding-left: 1.1em; font-size: 14px; line-height: 1.5; color: var(--nm-ink-2); display: flex; flex-direction: column; gap: 3px; }
+	.links { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; margin: 2px 0 0; }
+	.links .src { color: var(--nm-muted); }
+	.srcs { font-size: 12px; margin-top: 0; }
+	.gl-about { max-width: 760px; font-size: 14px; color: var(--nm-ink-2); border-top: 1px solid var(--nm-line); padding-top: 20px; }
+	.gl-about p { margin: 8px 0 0; }
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	@media (max-width: 600px) { .idx-head { padding-top: 28px; } .term { padding: 16px; } }
+</style>

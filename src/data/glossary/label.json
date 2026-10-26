@@ -1,0 +1,539 @@
+[
+  {
+    "id": "food-supplement",
+    "claim": null,
+    "hub": null,
+    "guide": "read-supplement-label",
+    "src": [
+      ["Directive 2002/46/EC on food supplements", "https://eur-lex.europa.eu/eli/dir/2002/46/oj"],
+      ["AESAN — Food supplements", "https://www.aesan.gob.es/en/seguridad-alimentaria/alimentos-especificos/complementos-alimenticios"]
+    ],
+    "en": {
+      "name": "Food supplement",
+      "aka": "dietary supplement",
+      "desc": "Legally a food in concentrated form (capsules, tablets, powders, drops) that supplements the normal diet, governed by Directive 2002/46/EC. It needs no approval before sale: the company notifies the authorities (in Spain via AESAN, in Germany the BVL). It may not claim to prevent, treat or cure a disease.",
+      "facts": []
+    },
+    "es": {
+      "name": "Complemento alimenticio",
+      "aka": "suplemento alimenticio, suplemento dietético",
+      "desc": "Legalmente es un alimento en forma concentrada (cápsulas, comprimidos, polvo, gotas) que complementa la dieta normal, regulado por la Directiva 2002/46/CE. No necesita aprobación previa: la empresa lo notifica a las autoridades (en España a través de la AESAN, en Alemania al BVL). No puede atribuirse la prevención, el tratamiento ni la curación de enfermedades.",
+      "facts": []
+    },
+    "de": {
+      "name": "Nahrungsergänzungsmittel",
+      "aka": "NEM, Supplement",
+      "desc": "Rechtlich ein Lebensmittel in konzentrierter Form (Kapseln, Tabletten, Pulver, Tropfen), das die normale Ernährung ergänzt, geregelt durch die Richtlinie 2002/46/EG. Es braucht keine Zulassung: Der Hersteller zeigt es den Behörden an (in Deutschland beim BVL, in Spanien über die AESAN). Es darf nicht behaupten, Krankheiten zu verhüten, zu behandeln oder zu heilen.",
+      "facts": []
+    }
+  },
+  {
+    "id": "nrv",
+    "claim": null,
+    "hub": "multivitamins",
+    "guide": "read-supplement-label",
+    "src": [["Regulation (EU) No 1169/2011 on food information to consumers, Annex XIII", "https://eur-lex.europa.eu/eli/reg/2011/1169/oj"]],
+    "en": {
+      "name": "NRV (nutrient reference value)",
+      "aka": "% NRV, formerly RDA",
+      "desc": "The EU reference amount of a vitamin or mineral per day used on labels, set in Regulation (EU) 1169/2011. \"% NRV\" shows how much of that amount one daily dose gives. It is a labelling benchmark, not a personal requirement and not a safety limit.",
+      "facts": ["A nutrient may use its authorised EU claims from 15 % of the NRV per daily dose"]
+    },
+    "es": {
+      "name": "VRN (valor de referencia de nutrientes)",
+      "aka": "% VRN, antes CDR",
+      "desc": "Cantidad de referencia diaria de una vitamina o mineral que se usa en las etiquetas de la UE, fijada en el Reglamento (UE) 1169/2011. El «% VRN» indica qué parte de esa cantidad aporta una dosis diaria. Es una referencia para el etiquetado, no tu necesidad personal ni un límite de seguridad.",
+      "facts": ["Un nutriente puede usar sus declaraciones UE autorizadas a partir del 15 % del VRN por dosis diaria"]
+    },
+    "de": {
+      "name": "NRV (Nährstoffbezugswert)",
+      "aka": "% NRV, früher RDA, % Referenzmenge",
+      "desc": "Der EU-weite Tagesbezugswert für ein Vitamin oder einen Mineralstoff auf Etiketten, festgelegt in der Verordnung (EU) 1169/2011. „% NRV“ zeigt, welchen Anteil davon eine Tagesdosis liefert. Er ist eine Kennzeichnungsgröße, kein persönlicher Bedarf und keine Sicherheitsgrenze.",
+      "facts": ["Ab 15 % des NRV pro Tagesdosis darf ein Nährstoff seine zugelassenen EU-Angaben tragen"]
+    }
+  },
+  {
+    "id": "elemental",
+    "claim": null,
+    "hub": "magnesium",
+    "guide": "magnesium-forms",
+    "src": [["Directive 2002/46/EC on food supplements (labelling, Article 8)", "https://eur-lex.europa.eu/eli/dir/2002/46/oj"]],
+    "en": {
+      "name": "Elemental amount",
+      "aka": "elemental magnesium, elemental iron",
+      "desc": "The weight of the mineral itself rather than the whole compound. 1,000 mg of magnesium bisglycinate contains only about 140 mg of elemental magnesium. The nutrition table gives the amount of the nutrient per daily dose; the front of the pack often shows the compound weight.",
+      "facts": []
+    },
+    "es": {
+      "name": "Cantidad elemental",
+      "aka": "magnesio elemental, hierro elemental",
+      "desc": "El peso del mineral en sí, no del compuesto entero. 1.000 mg de bisglicinato de magnesio solo contienen unos 140 mg de magnesio elemental. La tabla nutricional indica la cantidad del nutriente por dosis diaria; la parte delantera del envase muchas veces muestra el peso del compuesto.",
+      "facts": []
+    },
+    "de": {
+      "name": "Elementare Menge",
+      "aka": "elementares Magnesium, elementares Eisen",
+      "desc": "Das Gewicht des Mineralstoffs selbst statt der ganzen Verbindung. 1.000 mg Magnesiumbisglycinat enthalten nur etwa 140 mg elementares Magnesium. Die Nährwerttabelle nennt die Menge des Nährstoffs pro Tagesdosis; vorne auf der Packung steht oft das Gewicht der Verbindung.",
+      "facts": []
+    }
+  },
+  {
+    "id": "daily-dose",
+    "claim": null,
+    "hub": null,
+    "guide": "read-supplement-label",
+    "src": [["Directive 2002/46/EC on food supplements (labelling, Articles 6 and 8)", "https://eur-lex.europa.eu/eli/dir/2002/46/oj"]],
+    "en": {
+      "name": "Recommended daily dose",
+      "aka": "daily portion, serving",
+      "desc": "The amount the label tells you to take per day. All amounts and % NRV on a supplement label refer to this daily dose, and the label must warn not to exceed it. Compare products per daily dose, not per capsule.",
+      "facts": []
+    },
+    "es": {
+      "name": "Dosis diaria recomendada",
+      "aka": "porción diaria, toma diaria",
+      "desc": "La cantidad que la etiqueta indica tomar al día. Todas las cantidades y el % VRN de la etiqueta de un suplemento se refieren a esta dosis diaria, y la etiqueta debe advertir de que no se supere. Compara los productos por dosis diaria, no por cápsula.",
+      "facts": []
+    },
+    "de": {
+      "name": "Empfohlene tägliche Verzehrmenge",
+      "aka": "Tagesdosis, Portion",
+      "desc": "Die Menge, die das Etikett pro Tag empfiehlt. Alle Mengen und % NRV auf dem Etikett eines Nahrungsergänzungsmittels beziehen sich auf diese Tagesdosis, und das Etikett muss davor warnen, sie zu überschreiten. Vergleiche Produkte pro Tagesdosis, nicht pro Kapsel.",
+      "facts": []
+    }
+  },
+  {
+    "id": "upper-level",
+    "claim": null,
+    "hub": null,
+    "guide": "supplement-limits-europe",
+    "src": [["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]],
+    "en": {
+      "name": "Tolerable upper intake level (UL)",
+      "aka": "upper level, safe upper level, safe level of intake",
+      "desc": "The highest daily intake from all sources that EFSA considers unlikely to harm healthy people over the long term. It is a ceiling, not a target. Where the data are too limited for a UL, EFSA sometimes sets a \"safe level of intake\" instead (for example 40 mg a day for iron).",
+      "facts": []
+    },
+    "es": {
+      "name": "Nivel máximo de ingesta tolerable (UL)",
+      "aka": "nivel máximo, nivel de ingesta segura",
+      "desc": "La mayor ingesta diaria, de todas las fuentes, que según la EFSA es poco probable que perjudique a personas sanas a largo plazo. Es un techo, no un objetivo. Cuando los datos no bastan para un UL, la EFSA fija a veces un «nivel de ingesta segura» (por ejemplo, 40 mg al día para el hierro).",
+      "facts": []
+    },
+    "de": {
+      "name": "Tolerierbare Höchstaufnahmemenge (UL)",
+      "aka": "Höchstmenge, sichere Zufuhrmenge",
+      "desc": "Die höchste tägliche Zufuhr aus allen Quellen, die nach Einschätzung der EFSA gesunden Menschen auch langfristig wahrscheinlich nicht schadet. Sie ist eine Obergrenze, kein Ziel. Reichen die Daten nicht für einen UL, legt die EFSA teils eine „sichere Zufuhrmenge“ fest (zum Beispiel 40 mg pro Tag für Eisen).",
+      "facts": []
+    }
+  },
+  {
+    "id": "reference-intake",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [["EFSA — Dietary reference values", "https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values"]],
+    "en": {
+      "name": "Adequate intake (AI) and population reference intake (PRI)",
+      "aka": "dietary reference values (DRVs)",
+      "desc": "EFSA's daily intake references for healthy people. A PRI covers the needs of almost everyone in a group; an adequate intake is used where the data are too limited for a PRI. They differ from the NRV on labels: for vitamin D the adequate intake is 15 µg, the NRV 5 µg.",
+      "facts": []
+    },
+    "es": {
+      "name": "Ingesta adecuada (IA) e ingesta de referencia para la población (PRI)",
+      "aka": "valores dietéticos de referencia (VDR)",
+      "desc": "Referencias diarias de la EFSA para personas sanas. La PRI cubre las necesidades de casi todas las personas de un grupo; la ingesta adecuada se usa cuando los datos no bastan para fijar una PRI. No son lo mismo que el VRN de la etiqueta: para la vitamina D la ingesta adecuada es 15 µg y el VRN, 5 µg.",
+      "facts": []
+    },
+    "de": {
+      "name": "Angemessene Zufuhr (AI) und Populationsreferenzwert (PRI)",
+      "aka": "Referenzwerte für die Nährstoffzufuhr (DRV)",
+      "desc": "Tägliche Zufuhrempfehlungen der EFSA für gesunde Menschen. Der PRI deckt den Bedarf fast aller Personen einer Gruppe; ein Schätzwert für die angemessene Zufuhr wird verwendet, wenn die Daten für einen PRI nicht reichen. Sie unterscheiden sich vom NRV auf dem Etikett: Für Vitamin D liegt die angemessene Zufuhr bei 15 µg, der NRV bei 5 µg.",
+      "facts": []
+    }
+  },
+  {
+    "id": "maximum-levels",
+    "claim": null,
+    "hub": null,
+    "guide": "supplement-limits-europe",
+    "src": [
+      ["Directive 2002/46/EC on food supplements (Article 5)", "https://eur-lex.europa.eu/eli/dir/2002/46/oj"],
+      ["BfR — Recommended maximum levels for vitamins and minerals in food supplements", "https://www.bfr.bund.de/cm/343/hoechstmengenempfehlungen-des-bfr.pdf"]
+    ],
+    "en": {
+      "name": "Maximum levels in supplements",
+      "aka": "national maximum levels, BfR maximum level recommendations (Höchstmengenempfehlungen)",
+      "desc": "The EU has never set common maximum amounts of vitamins and minerals per daily dose in supplements, so each country decides. Some have binding limits; Germany's BfR publishes recommended maximums (for example 20 µg vitamin D and 250 mg magnesium); Spain has no national maximum for most vitamins and minerals.",
+      "facts": []
+    },
+    "es": {
+      "name": "Cantidades máximas en suplementos",
+      "aka": "máximos nacionales, recomendaciones de cantidades máximas del BfR",
+      "desc": "La UE nunca ha fijado cantidades máximas comunes de vitaminas y minerales por dosis diaria en los suplementos, así que cada país decide. Algunos tienen límites obligatorios; el BfR alemán publica máximos recomendados (por ejemplo, 20 µg de vitamina D y 250 mg de magnesio); España no tiene un máximo nacional para la mayoría de vitaminas y minerales.",
+      "facts": []
+    },
+    "de": {
+      "name": "Höchstmengen in Nahrungsergänzungsmitteln",
+      "aka": "nationale Höchstmengen, BfR-Höchstmengenempfehlungen",
+      "desc": "Die EU hat nie gemeinsame Höchstmengen für Vitamine und Mineralstoffe pro Tagesdosis in Nahrungsergänzungsmitteln festgelegt, daher entscheidet jedes Land selbst. Manche haben verbindliche Grenzen; das deutsche BfR veröffentlicht empfohlene Höchstmengen (zum Beispiel 20 µg Vitamin D und 250 mg Magnesium); Spanien hat für die meisten Vitamine und Mineralstoffe keine nationale Höchstmenge.",
+      "facts": []
+    }
+  },
+  {
+    "id": "health-claim",
+    "claim": null,
+    "hub": null,
+    "guide": "eu-health-claims",
+    "src": [
+      ["Regulation (EC) No 1924/2006 on nutrition and health claims", "https://eur-lex.europa.eu/eli/reg/2006/1924/oj"],
+      ["European Commission — EU Register of nutrition and health claims", "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/nutrition-and-health-claims/eu-register-health-claims_en"]
+    ],
+    "en": {
+      "name": "Health claim",
+      "aka": "authorised health claim, EU claim",
+      "desc": "Any statement that a food or ingredient benefits health, such as \"contributes to the normal function of the immune system\". In the EU only claims listed as authorised in the EU Register may be used, in wording close to the approved text and only when the product contains enough of the nutrient.",
+      "facts": []
+    },
+    "es": {
+      "name": "Declaración de propiedades saludables",
+      "aka": "declaración de salud autorizada, alegación de salud",
+      "desc": "Cualquier afirmación de que un alimento o ingrediente beneficia la salud, como «contribuye al funcionamiento normal del sistema inmunitario». En la UE solo pueden usarse las declaraciones autorizadas del Registro de la UE, con una redacción fiel al texto aprobado y solo si el producto contiene suficiente cantidad del nutriente.",
+      "facts": []
+    },
+    "de": {
+      "name": "Gesundheitsbezogene Angabe",
+      "aka": "Health Claim, zugelassene EU-Angabe",
+      "desc": "Jede Aussage, dass ein Lebensmittel oder Inhaltsstoff der Gesundheit nützt, etwa „trägt zu einer normalen Funktion des Immunsystems bei“. In der EU dürfen nur Angaben verwendet werden, die im EU-Register zugelassen sind, nah am genehmigten Wortlaut und nur, wenn das Produkt genug von dem Nährstoff enthält.",
+      "facts": []
+    }
+  },
+  {
+    "id": "on-hold-claims",
+    "claim": null,
+    "hub": null,
+    "guide": "eu-health-claims",
+    "src": [["European Commission — Nutrition and health claims (overview and legislation)", "https://food.ec.europa.eu/safety/labelling-and-nutrition/nutrition-and-health-claims"]],
+    "en": {
+      "name": "Claims on hold (botanicals)",
+      "aka": "on-hold claims, botanical claims",
+      "desc": "Health claims for plant ingredients, such as ashwagandha, turmeric or valerian, have been \"on hold\" at EU level since 2010: neither authorised nor rejected. Some countries tolerate them on labels under transitional rules. NutriMetrics treats them as not authorised.",
+      "facts": []
+    },
+    "es": {
+      "name": "Declaraciones en espera (plantas)",
+      "aka": "declaraciones «on hold», declaraciones sobre botánicos",
+      "desc": "Las declaraciones de salud de ingredientes vegetales, como la ashwagandha, la cúrcuma o la valeriana, están «en espera» a nivel de la UE desde 2010: ni autorizadas ni rechazadas. Algunos países las toleran en la etiqueta por normas transitorias. NutriMetrics las trata como no autorizadas.",
+      "facts": []
+    },
+    "de": {
+      "name": "Zurückgestellte Angaben (Pflanzen)",
+      "aka": "„On hold“-Angaben, Botanicals",
+      "desc": "Gesundheitsbezogene Angaben für pflanzliche Stoffe wie Ashwagandha, Kurkuma oder Baldrian sind auf EU-Ebene seit 2010 zurückgestellt („on hold“): weder zugelassen noch abgelehnt. Manche Länder dulden sie auf Etiketten nach Übergangsregeln. NutriMetrics behandelt sie als nicht zugelassen.",
+      "facts": []
+    }
+  },
+  {
+    "id": "novel-food",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [["Regulation (EU) 2015/2283 on novel foods", "https://eur-lex.europa.eu/eli/reg/2015/2283/oj"]],
+    "en": {
+      "name": "Novel food",
+      "aka": "novel food authorisation",
+      "desc": "A food or ingredient that was not consumed to a significant degree in the EU before 15 May 1997. It needs EU authorisation before it can be sold, often with conditions such as a maximum daily amount or a label warning.",
+      "facts": []
+    },
+    "es": {
+      "name": "Nuevo alimento (novel food)",
+      "aka": "autorización de nuevo alimento",
+      "desc": "Alimento o ingrediente que no se consumía en cantidad significativa en la UE antes del 15 de mayo de 1997. Necesita una autorización de la UE antes de venderse, a menudo con condiciones como una cantidad máxima diaria o una advertencia en la etiqueta.",
+      "facts": []
+    },
+    "de": {
+      "name": "Neuartiges Lebensmittel (Novel Food)",
+      "aka": "Novel-Food-Zulassung",
+      "desc": "Ein Lebensmittel oder Inhaltsstoff, der vor dem 15. Mai 1997 in der EU nicht in nennenswertem Umfang verzehrt wurde. Er braucht vor dem Verkauf eine EU-Zulassung, oft mit Auflagen wie einer Tageshöchstmenge oder einem Warnhinweis.",
+      "facts": []
+    }
+  },
+  {
+    "id": "mutual-recognition",
+    "claim": null,
+    "hub": null,
+    "guide": "supplement-limits-europe",
+    "src": [["Regulation (EU) 2019/515 on mutual recognition of goods", "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R0515"]],
+    "en": {
+      "name": "Mutual recognition",
+      "aka": "mutual recognition principle",
+      "desc": "EU principle that a product lawfully sold in one member state can in principle also be sold in another, even if it does not meet that country's own rules, unless the authorities justify a restriction (for example on health grounds). It explains why some supplements on Spanish or German shelves exceed national guidance.",
+      "facts": []
+    },
+    "es": {
+      "name": "Reconocimiento mutuo",
+      "aka": "principio de reconocimiento mutuo",
+      "desc": "Principio de la UE por el que un producto vendido legalmente en un Estado miembro puede, en principio, venderse también en otro aunque no cumpla las normas propias de ese país, salvo que las autoridades justifiquen una restricción (por ejemplo, por motivos de salud). Explica por qué algunos suplementos en tiendas españolas o alemanas superan las recomendaciones nacionales.",
+      "facts": []
+    },
+    "de": {
+      "name": "Gegenseitige Anerkennung",
+      "aka": "Prinzip der gegenseitigen Anerkennung",
+      "desc": "EU-Prinzip, nach dem ein Produkt, das in einem Mitgliedstaat rechtmäßig verkauft wird, grundsätzlich auch in einem anderen verkauft werden darf, selbst wenn es dessen eigene Regeln nicht erfüllt, es sei denn, die Behörden begründen eine Beschränkung (etwa aus Gesundheitsgründen). Deshalb überschreiten manche Präparate in deutschen oder spanischen Regalen nationale Empfehlungen.",
+      "facts": []
+    }
+  },
+  {
+    "id": "traditional-herbal-medicine",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [["Directive 2004/24/EC on traditional herbal medicinal products", "https://eur-lex.europa.eu/eli/dir/2004/24/oj"]],
+    "en": {
+      "name": "Traditional herbal medicine",
+      "aka": "traditional herbal medicinal product, THMP",
+      "desc": "A registered medicine whose approval rests on long-standing use rather than clinical trials, under Directive 2004/24/EC. The same plant can be sold as a supplement or as a medicine; only the medicine may state what it is used for, such as \"to aid sleep\".",
+      "facts": []
+    },
+    "es": {
+      "name": "Medicamento tradicional a base de plantas",
+      "aka": "MTP, medicamento a base de plantas de uso tradicional",
+      "desc": "Medicamento registrado cuya autorización se basa en un uso prolongado y no en ensayos clínicos, según la Directiva 2004/24/CE. La misma planta puede venderse como complemento alimenticio o como medicamento; solo el medicamento puede indicar para qué sirve, como «para ayudar a dormir».",
+      "facts": []
+    },
+    "de": {
+      "name": "Traditionelles pflanzliches Arzneimittel",
+      "aka": "registriertes traditionelles Arzneimittel",
+      "desc": "Ein registriertes Arzneimittel, dessen Zulassung auf langjähriger Anwendung statt auf klinischen Studien beruht, nach der Richtlinie 2004/24/EG. Dieselbe Pflanze kann als Nahrungsergänzungsmittel oder als Arzneimittel verkauft werden; nur das Arzneimittel darf sagen, wofür es angewendet wird, etwa „als Einschlafhilfe“.",
+      "facts": []
+    }
+  },
+  {
+    "id": "efsa",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [["EFSA — Dietary reference values", "https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values"]],
+    "en": {
+      "name": "EFSA",
+      "aka": "European Food Safety Authority",
+      "desc": "The EU's food safety agency in Parma. It assesses the science behind health claims, novel foods and safe intake levels; the European Commission and the member states then decide the law.",
+      "facts": []
+    },
+    "es": {
+      "name": "EFSA",
+      "aka": "Autoridad Europea de Seguridad Alimentaria",
+      "desc": "La agencia de seguridad alimentaria de la UE, con sede en Parma. Evalúa la ciencia detrás de las declaraciones de salud, los nuevos alimentos y los niveles seguros de ingesta; después, la Comisión Europea y los Estados miembros deciden la normativa.",
+      "facts": []
+    },
+    "de": {
+      "name": "EFSA",
+      "aka": "Europäische Behörde für Lebensmittelsicherheit",
+      "desc": "Die EU-Behörde für Lebensmittelsicherheit in Parma. Sie bewertet die Wissenschaft hinter gesundheitsbezogenen Angaben, neuartigen Lebensmitteln und sicheren Zufuhrmengen; über die Rechtsvorschriften entscheiden dann die EU-Kommission und die Mitgliedstaaten.",
+      "facts": []
+    }
+  },
+  {
+    "id": "aesan",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [["AESAN — Food supplements", "https://www.aesan.gob.es/en/seguridad-alimentaria/alimentos-especificos/complementos-alimenticios"]],
+    "en": {
+      "name": "AESAN",
+      "aka": "Spanish Agency for Food Safety and Nutrition",
+      "desc": "Spain's food safety agency. Supplements sold in Spain are notified to the authorities before sale, and AESAN publishes a searchable list of notified products. A notification is not an approval or a quality check.",
+      "facts": []
+    },
+    "es": {
+      "name": "AESAN",
+      "aka": "Agencia Española de Seguridad Alimentaria y Nutrición",
+      "desc": "La agencia española de seguridad alimentaria. Los complementos alimenticios que se venden en España se notifican a las autoridades antes de comercializarse, y la AESAN publica un buscador de productos notificados. Una notificación no es una aprobación ni un control de calidad.",
+      "facts": []
+    },
+    "de": {
+      "name": "AESAN",
+      "aka": "Spanische Agentur für Lebensmittelsicherheit und Ernährung",
+      "desc": "Spaniens Behörde für Lebensmittelsicherheit. Nahrungsergänzungsmittel werden in Spanien vor dem Verkauf bei den Behörden angezeigt, und die AESAN veröffentlicht eine durchsuchbare Liste der angezeigten Produkte. Eine Anzeige ist keine Zulassung und keine Qualitätsprüfung.",
+      "facts": []
+    }
+  },
+  {
+    "id": "bfr",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [["BfR — Recommended maximum levels for vitamins and minerals in food supplements", "https://www.bfr.bund.de/cm/343/hoechstmengenempfehlungen-des-bfr.pdf"]],
+    "en": {
+      "name": "BfR",
+      "aka": "German Federal Institute for Risk Assessment (Bundesinstitut für Risikobewertung)",
+      "desc": "Germany's scientific agency for food and product risks. It publishes the recommended maximum amounts of vitamins and minerals per daily dose that German supplements are measured against, and risk assessments of ingredients such as ashwagandha.",
+      "facts": []
+    },
+    "es": {
+      "name": "BfR",
+      "aka": "Instituto Federal Alemán de Evaluación de Riesgos (Bundesinstitut für Risikobewertung)",
+      "desc": "La agencia científica alemana de riesgos de alimentos y productos. Publica las cantidades máximas recomendadas de vitaminas y minerales por dosis diaria con las que se comparan los suplementos en Alemania, y evaluaciones de riesgo de ingredientes como la ashwagandha.",
+      "facts": []
+    },
+    "de": {
+      "name": "BfR",
+      "aka": "Bundesinstitut für Risikobewertung",
+      "desc": "Deutschlands wissenschaftliche Behörde für Risiken von Lebensmitteln und Produkten. Es veröffentlicht die empfohlenen Höchstmengen für Vitamine und Mineralstoffe pro Tagesdosis, an denen Nahrungsergänzungsmittel in Deutschland gemessen werden, sowie Risikobewertungen zu Stoffen wie Ashwagandha.",
+      "facts": []
+    }
+  },
+  {
+    "id": "iu",
+    "claim": null,
+    "hub": "vitamin-d",
+    "guide": "vitamin-d-winter",
+    "src": [["NIH ODS — Vitamin D", "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"]],
+    "en": {
+      "name": "IU (international unit)",
+      "aka": "IE, UI",
+      "desc": "Older unit of biological activity still printed for vitamin D (and sometimes A and E). For vitamin D, 1 µg = 40 IU, so 20 µg = 800 IU.",
+      "facts": []
+    },
+    "es": {
+      "name": "UI (unidad internacional)",
+      "aka": "IU, IE",
+      "desc": "Unidad antigua de actividad biológica que todavía aparece para la vitamina D (y a veces la A y la E). Para la vitamina D, 1 µg = 40 UI, así que 20 µg = 800 UI.",
+      "facts": []
+    },
+    "de": {
+      "name": "IE (Internationale Einheit)",
+      "aka": "IU, I.E.",
+      "desc": "Ältere Einheit der biologischen Aktivität, die bei Vitamin D (manchmal auch A und E) noch angegeben wird. Für Vitamin D gilt: 1 µg = 40 IE, also 20 µg = 800 IE.",
+      "facts": []
+    }
+  },
+  {
+    "id": "units",
+    "claim": null,
+    "hub": null,
+    "guide": "read-supplement-label",
+    "src": [],
+    "en": {
+      "name": "µg, mg and g",
+      "aka": "microgram (mcg), milligram, gram",
+      "desc": "1 g = 1,000 mg and 1 mg = 1,000 µg (also written mcg). Vitamins B12, D, K, biotin, folate, selenium and iodine are counted in µg; magnesium, iron, zinc and vitamin C in mg. Mixing them up means a 1,000-fold error.",
+      "facts": []
+    },
+    "es": {
+      "name": "µg, mg y g",
+      "aka": "microgramo (mcg), miligramo, gramo",
+      "desc": "1 g = 1.000 mg y 1 mg = 1.000 µg (también se escribe mcg). La vitamina B12, D, K, la biotina, el folato, el selenio y el yodo se cuentan en µg; el magnesio, el hierro, el zinc y la vitamina C, en mg. Confundirlos supone un error de 1.000 veces.",
+      "facts": []
+    },
+    "de": {
+      "name": "µg, mg und g",
+      "aka": "Mikrogramm (mcg), Milligramm, Gramm",
+      "desc": "1 g = 1.000 mg und 1 mg = 1.000 µg (auch mcg geschrieben). Vitamin B12, D, K, Biotin, Folat, Selen und Jod werden in µg angegeben, Magnesium, Eisen, Zink und Vitamin C in mg. Wer sie verwechselt, liegt um den Faktor 1.000 daneben.",
+      "facts": []
+    }
+  },
+  {
+    "id": "cfu",
+    "claim": null,
+    "hub": "gut",
+    "guide": null,
+    "src": [["NIH NCCIH — Probiotics: what you need to know", "https://www.nccih.nih.gov/health/probiotics-what-you-need-to-know"]],
+    "en": {
+      "name": "CFU (colony-forming units)",
+      "aka": "billion CFU",
+      "desc": "The number of live microorganisms in a probiotic, usually in billions per daily dose. It only means something together with the strain name, and only if the amount is guaranteed until the best-before date rather than at manufacture.",
+      "facts": []
+    },
+    "es": {
+      "name": "UFC (unidades formadoras de colonias)",
+      "aka": "CFU, miles de millones de UFC",
+      "desc": "El número de microorganismos vivos de un probiótico, normalmente en miles de millones por dosis diaria. Solo tiene sentido junto con el nombre de la cepa y si la cantidad está garantizada hasta la fecha de consumo preferente, no solo al fabricarlo.",
+      "facts": []
+    },
+    "de": {
+      "name": "KBE (koloniebildende Einheiten)",
+      "aka": "CFU, Milliarden KBE",
+      "desc": "Die Zahl lebender Mikroorganismen in einem Probiotikum, meist in Milliarden pro Tagesdosis. Sie sagt nur etwas zusammen mit der Stammbezeichnung aus und nur, wenn die Menge bis zum Mindesthaltbarkeitsdatum garantiert ist statt nur bei der Herstellung.",
+      "facts": []
+    }
+  },
+  {
+    "id": "bioavailability",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [
+      ["NIH ODS — Vitamin B12 (absorption by dose)", "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/"],
+      ["NIH ODS — Iron (absorption)", "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/"]
+    ],
+    "en": {
+      "name": "Bioavailability",
+      "aka": "absorption",
+      "desc": "The share of a nutrient that is absorbed and available to the body. It depends on the form, the dose (the share absorbed falls as doses rise, as with vitamin B12) and what you take it with (vitamin C increases iron absorption).",
+      "facts": []
+    },
+    "es": {
+      "name": "Biodisponibilidad",
+      "aka": "absorción",
+      "desc": "La parte de un nutriente que se absorbe y queda disponible para el cuerpo. Depende de la forma, de la dosis (la parte absorbida baja cuando la dosis sube, como con la vitamina B12) y de con qué se tome (la vitamina C aumenta la absorción del hierro).",
+      "facts": []
+    },
+    "de": {
+      "name": "Bioverfügbarkeit",
+      "aka": "Aufnahme, Resorption",
+      "desc": "Der Anteil eines Nährstoffs, der aufgenommen wird und dem Körper zur Verfügung steht. Er hängt von der Form ab, von der Dosis (bei höheren Dosen sinkt der aufgenommene Anteil, etwa bei Vitamin B12) und davon, womit man ihn einnimmt (Vitamin C verbessert die Eisenaufnahme).",
+      "facts": []
+    }
+  },
+  {
+    "id": "rct",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [],
+    "en": {
+      "name": "Randomised controlled trial (RCT)",
+      "aka": "placebo-controlled, double-blind",
+      "desc": "A study in which participants are assigned by chance to the supplement or a placebo, ideally without anyone knowing who gets what (double-blind). The most reliable single study design for showing that a supplement causes an effect.",
+      "facts": []
+    },
+    "es": {
+      "name": "Ensayo controlado aleatorizado (ECA)",
+      "aka": "controlado con placebo, doble ciego",
+      "desc": "Estudio en el que los participantes reciben al azar el suplemento o un placebo, a ser posible sin que nadie sepa quién toma qué (doble ciego). Es el diseño de estudio individual más fiable para demostrar que un suplemento causa un efecto.",
+      "facts": []
+    },
+    "de": {
+      "name": "Randomisierte kontrollierte Studie (RCT)",
+      "aka": "placebokontrolliert, doppelblind",
+      "desc": "Eine Studie, in der die Teilnehmenden per Zufall das Präparat oder ein Placebo erhalten, idealerweise ohne dass jemand weiß, wer was bekommt (doppelblind). Das verlässlichste Einzelstudiendesign, um zu zeigen, dass ein Präparat eine Wirkung verursacht.",
+      "facts": []
+    }
+  },
+  {
+    "id": "meta-analysis",
+    "claim": null,
+    "hub": null,
+    "guide": null,
+    "src": [],
+    "en": {
+      "name": "Systematic review and meta-analysis",
+      "aka": "Cochrane review",
+      "desc": "A systematic review collects all studies on a question using a fixed, published method; a meta-analysis then combines their results statistically. Cochrane reviews are a well-known example. NutriMetrics prefers this level of evidence over single studies.",
+      "facts": []
+    },
+    "es": {
+      "name": "Revisión sistemática y metaanálisis",
+      "aka": "revisión Cochrane",
+      "desc": "Una revisión sistemática reúne todos los estudios sobre una pregunta con un método fijo y publicado; un metaanálisis combina después sus resultados de forma estadística. Las revisiones Cochrane son un ejemplo conocido. NutriMetrics prefiere este nivel de evidencia a los estudios aislados.",
+      "facts": []
+    },
+    "de": {
+      "name": "Systematische Übersichtsarbeit und Metaanalyse",
+      "aka": "Cochrane-Review",
+      "desc": "Eine systematische Übersichtsarbeit sammelt alle Studien zu einer Frage nach einer festen, veröffentlichten Methode; eine Metaanalyse fasst ihre Ergebnisse dann statistisch zusammen. Cochrane-Reviews sind ein bekanntes Beispiel. NutriMetrics zieht diese Evidenzstufe Einzelstudien vor.",
+      "facts": []
+    }
+  }
+]

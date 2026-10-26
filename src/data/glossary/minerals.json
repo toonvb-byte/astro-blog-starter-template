@@ -1,0 +1,114 @@
+[
+  {
+    "id": "magnesium",
+    "claim": "authorised",
+    "hub": "magnesium",
+    "guide": "magnesium-forms",
+    "src": [
+      ["NIH ODS — Magnesium", "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Magnesium",
+      "aka": "magnesium citrate, bisglycinate, oxide, malate, chloride",
+      "desc": "Mineral involved in muscle and nerve function and in energy metabolism. On labels, compare the elemental magnesium per daily dose, not the weight of the compound.",
+      "facts": ["NRV: 375 mg a day", "EFSA upper level from supplements: 250 mg a day (magnesium from food not counted)", "Germany (BfR guidance): 250 mg a day, split into at least two doses", "EU claims: reduction of tiredness and fatigue, muscle function, nervous system, psychological function, electrolyte balance, bones and teeth. No authorised sleep claim."]
+    },
+    "es": {
+      "name": "Magnesio",
+      "aka": "citrato, bisglicinato, óxido, malato y cloruro de magnesio",
+      "desc": "Mineral que interviene en la función muscular y nerviosa y en el metabolismo energético. En la etiqueta, compara el magnesio elemental por dosis diaria, no el peso del compuesto.",
+      "facts": ["VRN: 375 mg al día", "Nivel máximo de la EFSA en suplementos: 250 mg al día (no cuenta el magnesio de los alimentos)", "Alemania (recomendación BfR): 250 mg al día, en al menos dos tomas", "Declaraciones UE: disminución del cansancio y la fatiga, función muscular, sistema nervioso, función psicológica, equilibrio electrolítico, huesos y dientes. No hay ninguna declaración autorizada sobre el sueño."]
+    },
+    "de": {
+      "name": "Magnesium",
+      "aka": "Magnesiumcitrat, -bisglycinat, -oxid, -malat, -chlorid",
+      "desc": "Mineralstoff für Muskel- und Nervenfunktion und den Energiestoffwechsel. Vergleiche auf dem Etikett das elementare Magnesium pro Tagesdosis, nicht das Gewicht der Verbindung.",
+      "facts": ["NRV: 375 mg pro Tag", "EFSA-Höchstmenge aus Präparaten: 250 mg pro Tag (Magnesium aus Lebensmitteln zählt nicht)", "Deutschland (BfR-Empfehlung): 250 mg pro Tag, auf mindestens zwei Einnahmen verteilt", "EU-Angaben: Verringerung von Müdigkeit und Ermüdung, Muskelfunktion, Nervensystem, psychische Funktion, Elektrolytgleichgewicht, Knochen und Zähne. Keine zugelassene Angabe zum Schlaf."]
+    }
+  },
+  {
+    "id": "iron",
+    "claim": "authorised",
+    "hub": "iron",
+    "guide": "iron-tiredness",
+    "src": [
+      ["NIH ODS — Iron", "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Iron",
+      "aka": "ferrous bisglycinate, ferrous sulphate, ferrous fumarate, ferrous gluconate",
+      "desc": "Mineral needed to make haemoglobin and carry oxygen in the blood. A supplement only helps if your iron stores are low, so have your ferritin checked first; too much iron is harmful and often causes constipation or nausea.",
+      "facts": ["NRV: 14 mg a day", "EFSA safe level of total intake: 40 mg a day", "Germany (BfR guidance): 6 mg per daily dose", "EU claims: reduction of tiredness and fatigue, red blood cells and haemoglobin, oxygen transport, cognitive function, immune system"]
+    },
+    "es": {
+      "name": "Hierro",
+      "aka": "bisglicinato ferroso, sulfato ferroso, fumarato ferroso, gluconato ferroso",
+      "desc": "Mineral necesario para fabricar hemoglobina y transportar el oxígeno en la sangre. Un suplemento solo ayuda si tus reservas de hierro están bajas, así que mide antes tu ferritina; el exceso de hierro es perjudicial y a menudo causa estreñimiento o náuseas.",
+      "facts": ["VRN: 14 mg al día", "Nivel de ingesta segura de la EFSA (total): 40 mg al día", "Alemania (recomendación BfR): 6 mg por dosis diaria", "Declaraciones UE: disminución del cansancio y la fatiga, glóbulos rojos y hemoglobina, transporte de oxígeno, función cognitiva, sistema inmunitario"]
+    },
+    "de": {
+      "name": "Eisen",
+      "aka": "Eisenbisglycinat, Eisen(II)-sulfat, Eisen(II)-fumarat, Eisen(II)-gluconat",
+      "desc": "Mineralstoff für die Bildung von Hämoglobin und den Sauerstofftransport im Blut. Ein Präparat hilft nur, wenn die Eisenspeicher niedrig sind; lass deshalb zuerst das Ferritin bestimmen. Zu viel Eisen schadet und verursacht oft Verstopfung oder Übelkeit.",
+      "facts": ["NRV: 14 mg pro Tag", "EFSA-Wert für eine sichere Gesamtzufuhr: 40 mg pro Tag", "Deutschland (BfR-Empfehlung): 6 mg pro Tagesdosis", "EU-Angaben: Verringerung von Müdigkeit und Ermüdung, rote Blutkörperchen und Hämoglobin, Sauerstofftransport, kognitive Funktion, Immunsystem"]
+    }
+  },
+  {
+    "id": "zinc",
+    "claim": "authorised",
+    "hub": "zinc",
+    "guide": "colds-zinc-vitamin-c",
+    "src": [
+      ["NIH ODS — Zinc", "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Zinc",
+      "aka": "zinc gluconate, citrate, bisglycinate, picolinate, oxide",
+      "desc": "Trace mineral needed for the immune system, skin, hair, nails and fertility. Taking more than the upper level for a long time can cause copper deficiency.",
+      "facts": ["NRV: 10 mg a day", "EFSA upper level: 25 mg a day from food and supplements together", "Germany (BfR guidance): 6.5 mg per daily dose", "EU claims: immune system, skin, hair, nails, bones, fertility and reproduction, normal testosterone levels, cognitive function, vision"]
+    },
+    "es": {
+      "name": "Zinc",
+      "aka": "gluconato, citrato, bisglicinato, picolinato y óxido de zinc",
+      "desc": "Oligoelemento necesario para el sistema inmunitario, la piel, el pelo, las uñas y la fertilidad. Tomar más del nivel máximo durante mucho tiempo puede provocar déficit de cobre.",
+      "facts": ["VRN: 10 mg al día", "Nivel máximo de la EFSA: 25 mg al día entre alimentos y suplementos", "Alemania (recomendación BfR): 6,5 mg por dosis diaria", "Declaraciones UE: sistema inmunitario, piel, cabello, uñas, huesos, fertilidad y reproducción, niveles normales de testosterona, función cognitiva, visión"]
+    },
+    "de": {
+      "name": "Zink",
+      "aka": "Zinkgluconat, -citrat, -bisglycinat, -picolinat, -oxid",
+      "desc": "Spurenelement für Immunsystem, Haut, Haare, Nägel und Fruchtbarkeit. Wer lange mehr als die Höchstmenge nimmt, riskiert einen Kupfermangel.",
+      "facts": ["NRV: 10 mg pro Tag", "EFSA-Höchstmenge: 25 mg pro Tag aus Lebensmitteln und Präparaten zusammen", "Deutschland (BfR-Empfehlung): 6,5 mg pro Tagesdosis", "EU-Angaben: Immunsystem, Haut, Haare, Nägel, Knochen, Fruchtbarkeit und Fortpflanzung, normaler Testosteronspiegel, kognitive Funktion, Sehkraft"]
+    }
+  },
+  {
+    "id": "selenium",
+    "claim": "authorised",
+    "hub": null,
+    "guide": null,
+    "src": [
+      ["NIH ODS — Selenium", "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
+    "en": {
+      "name": "Selenium",
+      "aka": "L-selenomethionine, sodium selenite, selenium yeast",
+      "desc": "Trace mineral needed for the thyroid, the immune system and antioxidant enzymes. The gap between enough and too much is small, so add up the selenium from multivitamins, hair products and Brazil nuts.",
+      "facts": ["NRV: 55 µg a day", "EFSA upper level: 255 µg a day", "EU claims: thyroid function, immune system, hair and nails, protection of cells from oxidative stress, spermatogenesis"]
+    },
+    "es": {
+      "name": "Selenio",
+      "aka": "L-selenometionina, selenito sódico, levadura de selenio",
+      "desc": "Oligoelemento necesario para el tiroides, el sistema inmunitario y las enzimas antioxidantes. El margen entre suficiente y demasiado es pequeño, así que suma el selenio de multivitamínicos, productos para el pelo y nueces de Brasil.",
+      "facts": ["VRN: 55 µg al día", "Nivel máximo de la EFSA: 255 µg al día", "Declaraciones UE: función tiroidea, sistema inmunitario, cabello y uñas, protección de las células frente al daño oxidativo, espermatogénesis"]
+    },
+    "de": {
+      "name": "Selen",
+      "aka": "L-Selenomethionin, Natriumselenit, Selenhefe",
+      "desc": "Spurenelement für Schilddrüse, Immunsystem und antioxidative Enzyme. Zwischen genug und zu viel liegt wenig Spielraum; rechne deshalb das Selen aus Multivitaminen, Haarpräparaten und Paranüssen zusammen.",
+      "facts": ["NRV: 55 µg pro Tag", "EFSA-Höchstmenge: 255 µg pro Tag", "EU-Angaben: Schilddrüsenfunktion, Immunsystem, Haare und Nägel, Schutz der Zellen vor oxidativem Stress, Spermienbildung"]
+    }
+  }
+]

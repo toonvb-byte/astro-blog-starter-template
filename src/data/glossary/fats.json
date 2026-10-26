@@ -1,0 +1,111 @@
+[
+  {
+    "id": "omega-3",
+    "claim": "authorised",
+    "hub": "omega-3",
+    "guide": "omega3-sources",
+    "src": [
+      ["NIH ODS — Omega-3 fatty acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"],
+      ["EFSA (2012) — Safety of long-chain omega-3 fatty acids", "https://www.efsa.europa.eu/en/press/news/120727"]
+    ],
+    "en": {
+      "name": "Omega-3 fatty acids",
+      "aka": "EPA, DHA, ALA; fish oil, algae oil, krill oil",
+      "desc": "Family of polyunsaturated fats. The authorised claims are for EPA and DHA, the long-chain forms in fish, krill and algae oil; the body converts only a small part of ALA from flax or walnuts into them. Compare EPA + DHA per daily dose, not the amount of fish oil per capsule.",
+      "facts": ["EFSA: up to 5 g EPA + DHA a day from supplements raises no safety concern", "A typical 1,000 mg fish-oil capsule contains about 300 mg EPA + DHA", "EU claims: heart function (250 mg EPA + DHA a day), brain function and vision (250 mg DHA a day)"]
+    },
+    "es": {
+      "name": "Ácidos grasos omega-3",
+      "aka": "EPA, DHA, ALA; aceite de pescado, aceite de algas, aceite de krill",
+      "desc": "Familia de grasas poliinsaturadas. Las declaraciones autorizadas son para el EPA y el DHA, las formas de cadena larga del aceite de pescado, krill y algas; el cuerpo convierte en ellas solo una pequeña parte del ALA de la linaza o las nueces. Compara el EPA + DHA por dosis diaria, no la cantidad de aceite de pescado por cápsula.",
+      "facts": ["EFSA: hasta 5 g de EPA + DHA al día de suplementos no plantean problemas de seguridad", "Una cápsula típica de 1.000 mg de aceite de pescado lleva unos 300 mg de EPA + DHA", "Declaraciones UE: función cardiaca (250 mg de EPA + DHA al día), función cerebral y visión (250 mg de DHA al día)"]
+    },
+    "de": {
+      "name": "Omega-3-Fettsäuren",
+      "aka": "EPA, DHA, ALA; Fischöl, Algenöl, Krillöl",
+      "desc": "Familie mehrfach ungesättigter Fette. Zugelassene Angaben gibt es für EPA und DHA, die langkettigen Formen aus Fisch-, Krill- und Algenöl; ALA aus Leinsamen oder Walnüssen wandelt der Körper nur zu einem kleinen Teil um. Vergleiche EPA + DHA pro Tagesdosis, nicht die Menge Fischöl pro Kapsel.",
+      "facts": ["EFSA: bis zu 5 g EPA + DHA pro Tag aus Präparaten sind unbedenklich", "Eine typische 1.000-mg-Fischölkapsel enthält etwa 300 mg EPA + DHA", "EU-Angaben: Herzfunktion (250 mg EPA + DHA pro Tag), Gehirnfunktion und Sehkraft (250 mg DHA pro Tag)"]
+    }
+  },
+  {
+    "id": "epa",
+    "claim": "authorised",
+    "hub": "omega-3",
+    "guide": "omega3-sources",
+    "src": [
+      ["NIH ODS — Omega-3 fatty acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"],
+      ["BfR — Omega-3 preparations can increase the risk of atrial fibrillation in heart patients", "https://www.bfr.bund.de/cm/343/praeparate-mit-omega-3-fettsaeuren-koennen-bei-herzpatienten-das-risiko-fuer-vorhofflimmern-erhoehen.pdf"]
+    ],
+    "en": {
+      "name": "EPA (eicosapentaenoic acid)",
+      "aka": "omega-3 EPA",
+      "desc": "Long-chain omega-3 fatty acid from fish, krill and some algae oils. Its EU claims only apply together with DHA.",
+      "facts": ["EU claims with DHA: normal heart function from 250 mg EPA + DHA a day; normal blood triglycerides from 2 g and normal blood pressure from 3 g a day", "BfR: high doses can raise the risk of atrial fibrillation in people with heart disease"]
+    },
+    "es": {
+      "name": "EPA (ácido eicosapentaenoico)",
+      "aka": "omega-3 EPA",
+      "desc": "Ácido graso omega-3 de cadena larga del aceite de pescado, el krill y algunos aceites de algas. Sus declaraciones UE solo valen junto con el DHA.",
+      "facts": ["Declaraciones UE con DHA: función cardiaca normal desde 250 mg de EPA + DHA al día; triglicéridos normales desde 2 g y tensión arterial normal desde 3 g al día", "BfR: las dosis altas pueden aumentar el riesgo de fibrilación auricular en personas con enfermedad cardiaca"]
+    },
+    "de": {
+      "name": "EPA (Eicosapentaensäure)",
+      "aka": "Omega-3 EPA",
+      "desc": "Langkettige Omega-3-Fettsäure aus Fisch-, Krill- und manchen Algenölen. Ihre EU-Angaben gelten nur zusammen mit DHA.",
+      "facts": ["EU-Angaben mit DHA: normale Herzfunktion ab 250 mg EPA + DHA pro Tag; normale Blutfettwerte (Triglyceride) ab 2 g und normaler Blutdruck ab 3 g pro Tag", "BfR: Hohe Dosen können bei Herzpatienten das Risiko für Vorhofflimmern erhöhen"]
+    }
+  },
+  {
+    "id": "dha",
+    "claim": "authorised",
+    "hub": "omega-3",
+    "guide": "omega3-sources",
+    "src": [["NIH ODS — Omega-3 fatty acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"]],
+    "en": {
+      "name": "DHA (docosahexaenoic acid)",
+      "aka": "omega-3 DHA",
+      "desc": "Long-chain omega-3 fatty acid and a building block of the brain and the retina. Algae oil is the vegan source.",
+      "facts": ["EU claims: maintenance of normal brain function and normal vision from 250 mg DHA a day; heart function together with EPA"]
+    },
+    "es": {
+      "name": "DHA (ácido docosahexaenoico)",
+      "aka": "omega-3 DHA",
+      "desc": "Ácido graso omega-3 de cadena larga y componente del cerebro y la retina. El aceite de algas es la fuente vegana.",
+      "facts": ["Declaraciones UE: mantenimiento de la función cerebral y la visión normales desde 250 mg de DHA al día; función cardiaca junto con el EPA"]
+    },
+    "de": {
+      "name": "DHA (Docosahexaensäure)",
+      "aka": "Omega-3 DHA",
+      "desc": "Langkettige Omega-3-Fettsäure und Baustein von Gehirn und Netzhaut. Algenöl ist die vegane Quelle.",
+      "facts": ["EU-Angaben: Erhaltung einer normalen Gehirnfunktion und Sehkraft ab 250 mg DHA pro Tag; Herzfunktion zusammen mit EPA"]
+    }
+  },
+  {
+    "id": "coq10",
+    "claim": "none",
+    "hub": "coq10",
+    "guide": "coq10-statins",
+    "src": [
+      ["NIH NCCIH — Coenzyme Q10", "https://www.nccih.nih.gov/health/coenzyme-q10"],
+      ["EFSA (2010) — Health claims related to coenzyme Q10", "https://www.efsa.europa.eu/en/efsajournal/pub/1793"]
+    ],
+    "en": {
+      "name": "Coenzyme Q10",
+      "aka": "CoQ10, ubiquinone, ubiquinol",
+      "desc": "Substance the body makes itself and uses for energy production in cells. Statins lower its level in the blood, but the evidence does not show that supplements prevent statin-related muscle pain.",
+      "facts": ["No authorised EU claim: EFSA assessed claims for energy, heart and blood pressure", "Typical supplement dose: 100–200 mg a day", "May interact with warfarin"]
+    },
+    "es": {
+      "name": "Coenzima Q10",
+      "aka": "CoQ10, ubiquinona, ubiquinol",
+      "desc": "Sustancia que el cuerpo fabrica y usa para producir energía en las células. Las estatinas reducen su nivel en sangre, pero la evidencia no demuestra que los suplementos eviten el dolor muscular asociado a las estatinas.",
+      "facts": ["Sin declaración UE autorizada: la EFSA evaluó declaraciones sobre energía, corazón y tensión arterial", "Dosis habitual en suplementos: 100–200 mg al día", "Puede interactuar con la warfarina"]
+    },
+    "de": {
+      "name": "Coenzym Q10",
+      "aka": "CoQ10, Ubichinon, Ubichinol",
+      "desc": "Stoff, den der Körper selbst bildet und für die Energiegewinnung in den Zellen nutzt. Statine senken seinen Blutspiegel, aber die Studienlage zeigt nicht, dass Präparate statinbedingte Muskelschmerzen verhindern.",
+      "facts": ["Keine zugelassene EU-Angabe: Die EFSA hat Angaben zu Energie, Herz und Blutdruck geprüft", "Übliche Dosis in Präparaten: 100–200 mg pro Tag", "Kann mit Warfarin wechselwirken"]
+    }
+  }
+]
