@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import keystatic from "@keystatic/astro";
+import rehypeGlossaryLinks from "./src/lib/rehype-glossary-links.mjs";
 
 // Build-time switch: pages are static, so the noindex flag is baked in at build.
 // Flip SITE_LIVE in src/lib/site.ts at launch (and in wrangler.json vars for /robots.txt).
@@ -14,7 +15,8 @@ export default defineConfig({
 	integrations: [
 		react(),
 		keystatic(),
-		mdx(),
+		// Links the first mention of glossary terms in guides and supplement pages (see src/data/glossary/link-terms.mjs).
+		mdx({ rehypePlugins: [rehypeGlossaryLinks] }),
 		sitemap({
 			filter: (page) => !page.includes("/go/") && !page.includes("/keystatic") && !/\/(price-tracker|comparador-precios|preisvergleich|compare|comparar|vergleichen)\/$/.test(page),
 			i18n: { defaultLocale: "en", locales: { en: "en", es: "es", de: "de" } },

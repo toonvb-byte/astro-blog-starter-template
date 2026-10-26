@@ -13,6 +13,7 @@ import {
 	getHubs, hubAlternates, hubUrl, productsFor, goalRows, ingredient, amount, evidenceLabel, checkedDate, type Hub,
 } from "../lib/hubs";
 import { SITE_URL } from "../lib/site";
+import { FINDER_TO_GLOSSARY, glossaryUrl } from "../lib/glossary";
 
 interface Props { locale: Locale; hub: Hub }
 const { locale, hub } = Astro.props;
@@ -153,6 +154,13 @@ const jsonLd: object[] = [
 								</div>
 							))}
 						</dl>
+						<p class="gl-terms">
+							<span class="muted">{t("gl.termsLabel")}</span>
+							<a href={glossaryUrl(locale, "nrv")}>{t("gl.nrv")}</a>
+							<a href={glossaryUrl(locale, "upper-level")}>{t("gl.upper")}</a>
+							<a href={glossaryUrl(locale, "maximum-levels")}>{t("gl.max")}</a>
+							<a href={glossaryUrl(locale, "daily-dose")}>{t("gl.dose")}</a>
+						</p>
 					</section>
 				)}
 
@@ -177,7 +185,7 @@ const jsonLd: object[] = [
 										const h = hubForIngredient(r.i);
 										return (
 											<tr>
-												<th scope="row">{h ? <a href={hubUrl(h)}>{ing?.[locale] ?? r.i}</a> : (ing?.[locale] ?? r.i)}</th>
+												<th scope="row">{h ? <a href={hubUrl(h)}>{ing?.[locale] ?? r.i}</a> : FINDER_TO_GLOSSARY[r.i] ? <a href={glossaryUrl(locale, FINDER_TO_GLOSSARY[r.i])} class="gl-term" title={t("gl.ingTitle")}>{ing?.[locale] ?? r.i}</a> : (ing?.[locale] ?? r.i)}</th>
 												<td data-label={t("hub.thEvidence")}><span class={`ev ev-${r.ev}`}>{evidenceLabel(r.ev, locale)}</span></td>
 												<td data-label={t("hub.thClaim")}>{r.claim ? t("hub.yes") : t("hub.no")}{r.cond ? ` (${t("hub.onlyDeficient")})` : ""}</td>
 												<td data-label={t("hub.thWhat")}>{r[locale]}</td>
@@ -207,6 +215,11 @@ const jsonLd: object[] = [
 								</div>
 							)}
 						</div>
+						<p class="gl-terms">
+							<span class="muted">{t("gl.claimsLabel")}</span>
+							<a href={glossaryUrl(locale, "health-claim")}>{t("gl.claim")}</a>
+							{(d.kind === "goal" || d.group === "botanicals") && <a href={glossaryUrl(locale, "on-hold-claims")}>{t("gl.onhold")}</a>}
+						</p>
 					</section>
 				)}
 
@@ -350,6 +363,7 @@ const jsonLd: object[] = [
 	.quick { background: var(--nm-accent-soft); border-radius: var(--nm-radius-lg); padding: 24px 28px; }
 	.quick h2 { margin-top: 0; font-size: 22px; }
 	.quick ul { margin-top: 12px; }
+	.gl-terms { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 14px; margin: 14px 0 0; }
 	.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: 12px; margin: 16px 0 0; }
 	.fact { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
 	.fact dt { font-size: 14px; line-height: 1.4; color: var(--nm-muted); font-weight: 500; }

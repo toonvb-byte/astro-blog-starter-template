@@ -4,7 +4,7 @@
  * Every entry with a health statement carries at least one official source in `src`.
  * Entry ids are stable anchors (/{locale}/{glossary}/#{id}) — link to them from guides and hubs.
  */
-import type { Locale } from "../i18n/config";
+import { path, type Locale } from "../i18n/config";
 import vitamins from "../data/glossary/vitamins.json";
 import minerals from "../data/glossary/minerals.json";
 import fats from "../data/glossary/fats.json";
@@ -59,5 +59,29 @@ export function sortedEntries(entries: GlossaryEntry[], locale: Locale): Glossar
 		for (const l of ["en", "es", "de"] as const) {
 			if (!e[l]?.name || !e[l]?.desc) throw new Error(`Glossary: "${e.id}" is missing ${l} name or description`);
 		}
+	}
+}
+
+/** Finder ingredient id (scripts/seed/finder-data.json) → glossary id. */
+export const FINDER_TO_GLOSSARY: Record<string, string> = {
+	melatonin: "melatonin", magnesium: "magnesium", valerian: "valerian", passionflower: "passionflower",
+	california_poppy: "california-poppy", lemon_balm: "lemon-balm", chamomile: "chamomile", lavender: "lavender",
+	htp5: "5-htp", ashwagandha: "ashwagandha", l_theanine: "l-theanine", rhodiola: "rhodiola", iron: "iron",
+	b12: "vitamin-b12", b6: "vitamin-b6", folate: "folate", b1: "vitamin-b1", b2: "vitamin-b2", b3: "vitamin-b3",
+	b5: "vitamin-b5", vitamin_c: "vitamin-c", zinc: "zinc", vitamin_d: "vitamin-d", vitamin_k2: "vitamin-k2",
+	dha: "dha", epa: "epa", creatine: "creatine", collagen: "collagen", curcuminoids: "turmeric",
+	silymarin: "milk-thistle", artichoke: "artichoke", dandelion: "dandelion", psyllium: "psyllium",
+	probiotics: "probiotics", biotin: "biotin", selenium: "selenium", vitamin_a: "vitamin-a",
+	hyaluronic_acid: "hyaluronic-acid", glucosamine: "glucosamine", chondroitin: "chondroitin", msm: "msm", coq10: "coq10",
+};
+
+/** URL of a glossary term in a given language, e.g. /es/glosario/#nrv */
+export const glossaryUrl = (locale: Locale, id: string) => `${path(locale, "glossary")}#${id}`;
+
+// Every finder ingredient must have a glossary entry.
+{
+	const ids = new Set(allGlossaryEntries().map((e) => e.id));
+	for (const [k, v] of Object.entries(FINDER_TO_GLOSSARY)) {
+		if (!ids.has(v)) throw new Error(`Glossary: finder ingredient "${k}" maps to missing id "${v}"`);
 	}
 }

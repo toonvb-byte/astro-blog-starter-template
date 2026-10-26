@@ -207,3 +207,7 @@ p { margin: 0; }
 .prose table tbody tr:last-child > * { border-bottom: 0; }
 .prose table td:first-child { background: var(--nm-surface-alt); }
 @media (max-width: 600px) { .prose table { display: block; overflow-x: auto; } }
+
+/* Automatic links to the glossary (rehype-glossary-links): quieter than normal links. */
+a.gl-term { color: inherit; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-color: var(--nm-accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a.gl-term:hover { color: var(--nm-accent); text-decoration-style: solid; }

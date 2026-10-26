@@ -43,6 +43,7 @@ const jsonLd = [
 	<header class="container idx-head">
 		<h1 class="h1">{t("hubs.h1")}</h1>
 		<p class="lead">{t("hubs.lead")}</p>
+		<p class="gl-line">{t("gl.indexLine")} <a href={path(locale, "glossary")}>{t("gl.indexLink")} →</a></p>
 		<nav aria-label={t("hubs.h1")} class="jump">
 			{goals.length > 0 && <a href="#goals" class="chip">{t("group.goals")}</a>}
 			{groups.map((x) => <a href={`#${x.g}`} class="chip">{label(x.g)}</a>)}
@@ -86,6 +87,7 @@ const jsonLd = [
 <style>
 	.idx-head { padding-top: 56px; padding-bottom: 32px; display: flex; flex-direction: column; gap: 16px; }
 	.idx-head .lead { max-width: 760px; }
+	.gl-line { margin: 0; font-size: 15px; color: var(--nm-ink-2); }
 	.jump { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px; }
 	.grp { display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 16px; }
 	.hub-card { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; text-decoration: none; color: var(--nm-ink); }
