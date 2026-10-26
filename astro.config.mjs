@@ -6,6 +6,8 @@ import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import keystatic from "@keystatic/astro";
 import rehypeGlossaryLinks from "./src/lib/rehype-glossary-links.mjs";
+import rehypeFigureCaptions from "./src/lib/rehype-figure-captions.mjs";
+import stripImageMetadata from "./src/lib/strip-image-metadata.mjs";
 
 // Build-time switch: pages are static, so the noindex flag is baked in at build.
 // Flip SITE_LIVE in src/lib/site.ts at launch (and in wrangler.json vars for /robots.txt).
@@ -15,8 +17,10 @@ export default defineConfig({
 	integrations: [
 		react(),
 		keystatic(),
-		// Links the first mention of glossary terms in guides and supplement pages (see src/data/glossary/link-terms.mjs).
-		mdx({ rehypePlugins: [rehypeGlossaryLinks] }),
+		// Image captions from ![alt](src "caption"), then links to the glossary (see src/data/glossary/link-terms.mjs).
+		mdx({ rehypePlugins: [rehypeFigureCaptions, rehypeGlossaryLinks] }),
+		// Removes EXIF/GPS from every published image (originals of uploaded photos included).
+		stripImageMetadata(),
 		sitemap({
 			filter: (page) => !page.includes("/go/") && !page.includes("/keystatic") && !/\/(price-tracker|comparador-precios|preisvergleich|compare|comparar|vergleichen)\/$/.test(page),
 			i18n: { defaultLocale: "en", locales: { en: "en", es: "es", de: "de" } },

@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import CardArt from "./CardArt.astro";
 interface Props {
 	href: string;
@@ -8,13 +10,23 @@ interface Props {
 	meta: string;
 	imageLabel: string;
 	tint?: string;
+	/** Hero image of the guide; the decorative card art is shown when there is none. */
+	image?: ImageMetadata | null;
 }
-const { href, category, title, dek, meta, tint = "var(--nm-accent-soft)" } = Astro.props;
+const { href, category, title, dek, meta, tint = "var(--nm-accent-soft)", image } = Astro.props;
 ---
 <article class="article-card" data-search={`${title} ${dek ?? ""} ${category}`.toLowerCase()}>
-	<CardArt tint={tint} />
+	{image ? (
+		<Image src={image} alt="" widths={[400, 800].filter((w) => w <= image.width).concat(image.width < 400 ? [image.width] : [])} sizes="(max-width: 600px) calc(100vw - 32px), 400px" class="card-img" loading="lazy" decoding="async" />
+	) : (
+		<CardArt tint={tint} />
+	)}
 	<span class="cat">{category}</span>
 	<h3><a href={href}>{title}</a></h3>
 	{dek && <p class="dek">{dek}</p>}
 	<span class="meta">{meta}</span>
 </article>
+
+<style>
+	.card-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: var(--nm-accent-soft); }
+</style>

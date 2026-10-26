@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import CardArt from "../components/CardArt.astro";
+import { Image } from "astro:assets";
 import { path, routeAlternates, type Locale } from "../i18n/config";
 import { useT, formatDate } from "../i18n/ui";
 import { getGuides, guideUrl } from "../lib/guides";
@@ -39,7 +40,11 @@ const meta = (g: (typeof all)[number]) =>
 
 		{featured && (
 			<article class="card featured" data-search={`${featured.data.title} ${featured.data.dek} ${featured.data.category}`.toLowerCase()}>
-				<CardArt tint={featured.data.tint} style="aspect-ratio:auto;min-height:260px" />
+				{featured.data.heroImage ? (
+					<Image src={featured.data.heroImage} alt="" widths={[600, 1000].filter((w) => w <= featured.data.heroImage!.width).concat(featured.data.heroImage!.width < 600 ? [featured.data.heroImage!.width] : [])} sizes="(max-width: 900px) calc(100vw - 32px), 560px" class="featured-img" loading="eager" decoding="async" />
+				) : (
+					<CardArt tint={featured.data.tint} style="aspect-ratio:auto;min-height:260px" />
+				)}
 				<div style="display:flex;flex-direction:column;gap:14px;justify-content:center">
 					<span style="font-size:13px;font-weight:600;color:var(--nm-accent)">{t("guides.featured")} · {featured.data.category}</span>
 					<h2 class="h2"><a href={guideUrl(featured)} style="color:var(--nm-ink);text-decoration:none">{featured.data.title}</a></h2>
@@ -56,7 +61,7 @@ const meta = (g: (typeof all)[number]) =>
 				<h2 id="latest-h" class="h2">{t("guides.latest")}</h2>
 				<div class="grid-auto" style="--min:300px;gap:32px 24px">
 					{rest.map((g) => (
-						<ArticleCard href={guideUrl(g)} category={g.data.category} title={g.data.title} dek={g.data.dek} meta={meta(g)} imageLabel={g.data.imageLabel} tint={g.data.tint} />
+						<ArticleCard href={guideUrl(g)} category={g.data.category} title={g.data.title} dek={g.data.dek} meta={meta(g)} imageLabel={g.data.imageLabel} tint={g.data.tint} image={g.data.heroImage} />
 					))}
 				</div>
 			</section>
@@ -89,6 +94,7 @@ const meta = (g: (typeof all)[number]) =>
 </script>
 
 <style>
+	.featured-img { display: block; width: 100%; height: 100%; min-height: 260px; object-fit: cover; border-radius: 14px; }
 	.guides-head { padding-top: 56px; padding-bottom: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
 	.guides-search { display: flex; flex: 0 1 360px; min-width: 240px; }
 	.featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: 24px; }

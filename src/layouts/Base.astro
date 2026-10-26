@@ -14,6 +14,7 @@ import CookieConsent from "../components/CookieConsent.astro";
 import { DEFAULT_LOCALE, LOCALES, OG_LOCALE, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
 import { GA_ENABLED, SITE_LIVE, SITE_NAME, SITE_URL } from "../lib/site";
+import { DEFAULT_SOCIAL_IMAGE, type SocialImage } from "../lib/images";
 
 export type NavKey = "home" | "finder" | "supplements" | "prices" | "compare" | "guides" | "about" | "";
 export interface Crumb { name: string; href: string }
@@ -31,9 +32,11 @@ interface Props {
 	ogType?: "website" | "article";
 	/** Keep this page out of search results (e.g. placeholder pages). */
 	noindex?: boolean;
+	/** Social card (og:image). Pages without a hero image get the default card. */
+	image?: SocialImage;
 }
 
-const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website", noindex = false } = Astro.props;
+const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website", noindex = false, image = DEFAULT_SOCIAL_IMAGE } = Astro.props;
 const t = useT(locale);
 const canonical = new URL(alternates[locale] ?? Astro.url.pathname, SITE_URL).href;
 
@@ -79,6 +82,7 @@ const schema: object[] = [
 		{alternates[DEFAULT_LOCALE] && <link rel="alternate" hreflang="x-default" href={new URL(alternates[DEFAULT_LOCALE]!, SITE_URL).href} />}
 		{!SITE_LIVE && <meta name="robots" content="noindex, nofollow" />}
 		{SITE_LIVE && noindex && <meta name="robots" content="noindex, follow" />}
+		{SITE_LIVE && !noindex && <meta name="robots" content="max-image-preview:large" />}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="theme-color" content="#0B6B4F" />
 		<meta property="og:type" content={ogType} />
@@ -87,7 +91,12 @@ const schema: object[] = [
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:locale" content={OG_LOCALE[locale]} />
+		<meta property="og:image" content={image.url} />
+		<meta property="og:image:width" content={String(image.width)} />
+		<meta property="og:image:height" content={String(image.height)} />
+		<meta property="og:image:alt" content={image.alt} />
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content={image.url} />
 		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 		<!-- Cloudflare Web Analytics (cookie-free): enable in dashboard → Web Analytics, it injects automatically on custom domains. -->
 	</head>

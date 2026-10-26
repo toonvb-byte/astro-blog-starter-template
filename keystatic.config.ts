@@ -13,6 +13,38 @@ const CATEGORIES = {
 };
 const GUIDES_SEGMENT = { en: "guides", es: "guias", de: "ratgeber" };
 
+/**
+ * Images. Uploads are saved in src/assets/{guides|hubs}/{lang}/{slug}/ and referenced with a path relative
+ * to the .mdx file (../../../assets/…), so Astro optimises them (AVIF/WebP, several sizes) at build time.
+ * The hero file is always named heroImage.{ext} (Keystatic names it after the field); images placed in the
+ * body keep the file name you upload, so name those descriptively in the page's language.
+ */
+const heroImageFields = (kind: "guides" | "hubs", lang: "en" | "es" | "de") => ({
+	heroImage: fields.image({
+		label: "Hero image",
+		description: "16:9 landscape photo, at least 1600 px wide (2400 × 1350 is ideal). No text in the picture. Remove location data from phone photos before uploading.",
+		directory: `src/assets/${kind}/${lang}`,
+		publicPath: `../../../assets/${kind}/${lang}/`,
+	}),
+	heroAlt: fields.text({
+		label: "Hero image: alt text",
+		description: "What the picture shows, in this page’s language, under 125 characters. Needed whenever there is a hero image.",
+		validation: { length: { max: 160 } },
+	}),
+	heroCaption: fields.text({ label: "Hero image: caption (optional)", description: "Shown under the image, e.g. where and when a label was photographed." }),
+	heroCredit: fields.text({ label: "Hero image: credit (optional)", description: "Only for photos you didn’t take, e.g. “Photo: Unsplash / Name”." }),
+});
+const bodyImages = (kind: "guides" | "hubs", lang: "en" | "es" | "de") => ({
+	image: {
+		directory: `src/assets/${kind}/${lang}`,
+		publicPath: `../../../assets/${kind}/${lang}/`,
+		schema: {
+			alt: fields.text({ label: "Alt text", description: "What the image shows, in this page’s language. For a chart, state its main number." }),
+			title: fields.text({ label: "Caption (optional)", description: "Shown under the image, e.g. “Label photographed on 3 Nov 2026 · bought at Mercadona”." }),
+		},
+	},
+});
+
 const guideCollection = (lang: "en" | "es" | "de", label: string) =>
 	collection({
 		label,
@@ -51,7 +83,8 @@ const guideCollection = (lang: "en" | "es" | "de", label: string) =>
 			readingMinutes: fields.integer({ label: "Reading time (minutes)", defaultValue: 5, validation: { isRequired: true, min: 1 } }),
 			featured: fields.checkbox({ label: "Featured on the guides page", defaultValue: false }),
 			draft: fields.checkbox({ label: "Draft (hidden on the live site)", defaultValue: true }),
-			imageLabel: fields.text({ label: "Image description (placeholder until images are added)", defaultValue: "hero image" }),
+			...heroImageFields("guides", lang),
+			imageLabel: fields.text({ label: "Card image description (old placeholder field, not shown)", defaultValue: "hero image" }),
 			tint: fields.select({
 				label: "Card colour",
 				options: [
@@ -82,7 +115,7 @@ const guideCollection = (lang: "en" | "es" | "de", label: string) =>
 			content: fields.mdx({
 				label: "Article body",
 				extension: "mdx",
-				options: { image: false },
+				options: bodyImages("guides", lang),
 			}),
 		},
 	});
@@ -133,6 +166,7 @@ const hubCollection = (lang: "en" | "es" | "de", label: string) =>
 			publishDate: fields.date({ label: "Published", defaultValue: { kind: "today" }, validation: { isRequired: true } }),
 			updatedDate: fields.date({ label: "Last checked", description: "Set this when you re-check the numbers." }),
 			draft: fields.checkbox({ label: "Draft (hidden on the live site)", defaultValue: true }),
+			...heroImageFields("hubs", lang),
 			takeaways: textList("Quick answer (3–4 bullets)"),
 			facts: fields.array(
 				fields.object({
@@ -166,7 +200,7 @@ const hubCollection = (lang: "en" | "es" | "de", label: string) =>
 				fields.object({ title: fields.text({ label: "Source title" }), url: fields.url({ label: "Link (optional)" }) }),
 				{ label: "Sources", itemLabel: (p) => p.fields.title.value || "Source" },
 			),
-			content: fields.mdx({ label: "Body (forms table + evidence)", extension: "mdx", options: { image: false } }),
+			content: fields.mdx({ label: "Body (forms table + evidence)", extension: "mdx", options: bodyImages("hubs", lang) }),
 		},
 	});
 

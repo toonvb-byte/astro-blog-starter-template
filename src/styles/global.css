@@ -211,3 +211,8 @@ p { margin: 0; }
 /* Automatic links to the glossary (rehype-glossary-links): quieter than normal links. */
 a.gl-term { color: inherit; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-color: var(--nm-accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 a.gl-term:hover { color: var(--nm-accent); text-decoration-style: solid; }
+
+/* Images inside guide and supplement-page text (uploaded in Keystatic). A caption comes from the image's title. */
+.prose img { display: block; max-width: 100%; height: auto; border-radius: var(--nm-radius-md); }
+.prose figure.body-figure { margin: 1.6em 0; }
+.prose figure.body-figure figcaption { margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--nm-muted); }

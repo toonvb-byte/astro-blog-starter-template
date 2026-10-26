@@ -119,6 +119,7 @@ const hubs = await getHubs(locale);
 						title={p.data.title}
 						meta={`${p.data.readingMinutes} ${t("guides.read")}${p.data.reviewer ? ` · ${t("guides.reviewedBy")} ${p.data.reviewer}` : ""}`}
 						tint={p.data.tint}
+						image={p.data.heroImage}
 					/>
 				))}
 			</div>

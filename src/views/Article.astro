@@ -6,6 +6,8 @@ import { useT, formatDate } from "../i18n/ui";
 import { getGuides, guideAlternates, guideUrl, inlineMd, type Guide } from "../lib/guides";
 import { SITE_NAME, SITE_URL } from "../lib/site";
 import { hubsForGuide, hubUrl } from "../lib/hubs";
+import { schemaImages, socialImage } from "../lib/images";
+import HeroImage from "../components/HeroImage.astro";
 
 interface Props { locale: Locale; guide: Guide }
 const { locale, guide } = Astro.props;
@@ -29,6 +31,10 @@ const others = (await getGuides(locale)).filter((g) => g.id !== guide.id);
 const score = (g: Guide) => (g.data.category === d.category ? 0 : 2) - (body.includes(guideUrl(g)) ? 1 : 0);
 const related = others.map((g, i) => ({ g, s: score(g), i })).sort((a, b) => a.s - b.s || a.i - b.i).slice(0, 3).map((x) => x.g);
 
+const heroAlt = d.heroAlt?.trim() || d.title;
+const ogImage = d.heroImage ? await socialImage(d.heroImage, heroAlt) : undefined;
+const articleImages = d.heroImage ? await schemaImages(d.heroImage) : [];
+
 const jsonLd: object[] = [
 	{
 		"@context": "https://schema.org",
@@ -44,6 +50,7 @@ const jsonLd: object[] = [
 		mainEntityOfPage: new URL(url, SITE_URL).href,
 		isAccessibleForFree: true,
 		articleSection: d.category,
+		...(articleImages.length ? { image: articleImages } : {}),
 		...(d.sources.some((s) => s.url)
 			? { citation: d.sources.filter((s) => s.url).map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })) }
 			: {}),
@@ -65,6 +72,7 @@ const jsonLd: object[] = [
 	active="guides"
 	disclosure
 	ogType="article"
+	image={ogImage}
 	breadcrumbs={[
 		{ name: t("article.home"), href: path(locale) },
 		{ name: t("nav.guides"), href: path(locale, "guides") },
@@ -115,6 +123,7 @@ const jsonLd: object[] = [
 			</aside>
 
 			<article class="prose">
+				{d.heroImage && <HeroImage src={d.heroImage} alt={heroAlt} caption={d.heroCaption} credit={d.heroCredit} />}
 				{d.takeaways.length > 0 && (
 					<section id="takeaways" aria-labelledby="kt-h" class="takeaways">
 						<h2 id="kt-h">{t("article.takeaways")}</h2>

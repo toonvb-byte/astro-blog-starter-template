@@ -1,5 +1,5 @@
 import { glob } from "astro/loaders";
-import { defineCollection } from "astro:content";
+import { defineCollection, type SchemaContext } from "astro:content";
 import { z } from "astro/zod";
 import { HUB_GROUPS } from "./lib/hub-groups";
 
@@ -12,9 +12,22 @@ import { HUB_GROUPS } from "./lib/hub-groups";
 const optionalDate = z.union([z.null(), z.coerce.date()]).optional();
 const optionalString = z.string().nullish();
 
+/**
+ * Hero image fields, shared by guides and hubs. Keystatic saves the upload as
+ * src/assets/{guides|hubs}/{locale}/{slug}/heroImage.{ext} and writes the relative path here.
+ * Alt text falls back to the page title in the templates, so a missing alt never breaks the build.
+ */
+const heroFields = (image: SchemaContext["image"]) => ({
+	heroImage: image().nullish(),
+	heroAlt: optionalString,
+	heroCaption: optionalString,
+	heroCredit: optionalString,
+});
+
 const guides = defineCollection({
 	loader: glob({ base: "./src/content/guides", pattern: "**/*.{md,mdx}" }),
-	schema: z.object({
+	schema: ({ image }) => z.object({
+		...heroFields(image),
 		title: z.string().max(70),
 		description: z.string().max(155),
 		dek: z.string(),
@@ -45,7 +58,8 @@ const guides = defineCollection({
  */
 const hubs = defineCollection({
 	loader: glob({ base: "./src/content/hubs", pattern: "**/*.{md,mdx}" }),
-	schema: z.object({
+	schema: ({ image }) => z.object({
+		...heroFields(image),
 		title: z.string().max(70),
 		description: z.string().max(155),
 		dek: z.string(),
