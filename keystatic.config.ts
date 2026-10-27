@@ -7,9 +7,9 @@ import { collection, config, fields } from "@keystatic/core";
  */
 
 const CATEGORIES = {
-	en: ["Buying guide", "Explainer", "Deals", "Sports nutrition", "Sleep & stress", "Health devices"],
-	es: ["Guía de compra", "Explicación", "Ofertas", "Nutrición deportiva", "Sueño y estrés", "Dispositivos de salud"],
-	de: ["Kaufberatung", "Erklärung", "Angebote", "Sporternährung", "Schlaf & Stress", "Gesundheitsgeräte"],
+	en: ["Buying guide", "Explainer", "Deals", "Sports nutrition", "Sleep & stress", "Health devices", "Food first"],
+	es: ["Guía de compra", "Explicación", "Ofertas", "Nutrición deportiva", "Sueño y estrés", "Dispositivos de salud", "Comer bien"],
+	de: ["Kaufberatung", "Erklärung", "Angebote", "Sporternährung", "Schlaf & Stress", "Gesundheitsgeräte", "Gut essen"],
 };
 const GUIDES_SEGMENT = { en: "guides", es: "guias", de: "ratgeber" };
 
