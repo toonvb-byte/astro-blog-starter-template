@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 362" width="520" height="362" role="img" aria-labelledby="t s" lang="de">
+<title id="t">3 g Monohydrat sind nicht 3 g Kreatin</title>
+<desc id="s">Kreatin je Dosis Monohydrat (ca. 88 % Kreatin): 3 g Monohydrat: 2,6 g Kreatin; 3,4 g Monohydrat: 3,0 g Kreatin; 5 g Monohydrat: 4,4 g Kreatin. EU-Angabe: 3 g Kreatin pro Tag.</desc>
+<rect width="520" height="362" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">3 g Monohydrat sind nicht 3 g Kreatin</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Kreatin je Dosis Monohydrat (ca. 88 % Kreatin)</text>
+<rect x="24" y="80" width="14" height="14" rx="3" fill="#0B6B4F"/>
+<text x="44" y="92" font-size="14" fill="#3E4C46">Kreatin</text>
+<rect x="123" y="80" width="14" height="14" rx="3" fill="#9AA6A0"/>
+<text x="143" y="92" font-size="14" fill="#3E4C46">Gebundenes Wasser</text>
+<text x="204.0" y="126" font-size="13" font-weight="600" fill="#3E4C46" text-anchor="middle">EU-Angabe: 3 g Kreatin pro Tag</text>
+<line x1="204.0" y1="132" x2="204.0" y2="320" stroke="#B4470E" stroke-width="2"/>
+<line x1="24" y1="136" x2="24" y2="320" stroke="#DCE1DD" stroke-width="1"/>
+<text x="32" y="150" font-size="17" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">3 g Monohydrat</text>
+<rect x="24" y="158" width="158.2" height="22" fill="#0B6B4F"/>
+<path d="M184.2,158 H200.0 Q204.0,158 204.0,162 V176 Q204.0,180 200.0,180 H184.2 Z" fill="#9AA6A0"/>
+<text x="214.0" y="175.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">2,6 g Kreatin</text>
+<text x="32" y="216" font-size="17" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">3,4 g Monohydrat</text>
+<rect x="24" y="224" width="179.3" height="22" fill="#0B6B4F"/>
+<path d="M205.3,224 H224.0 Q228.0,224 228.0,228 V242 Q228.0,246 224.0,246 H205.3 Z" fill="#9AA6A0"/>
+<text x="238.0" y="241.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">3,0 g Kreatin</text>
+<text x="32" y="282" font-size="17" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">5 g Monohydrat</text>
+<rect x="24" y="290" width="263.7" height="22" fill="#0B6B4F"/>
+<path d="M289.7,290 H320.0 Q324.0,290 324.0,294 V308 Q324.0,312 320.0,312 H289.7 Z" fill="#9AA6A0"/>
+<text x="334.0" y="307.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">4,4 g Kreatin</text>
+<text x="496" y="344" font-size="13" fill="#5A6863" text-anchor="end">nutrimetrics.eu</text>
+</g></svg>
