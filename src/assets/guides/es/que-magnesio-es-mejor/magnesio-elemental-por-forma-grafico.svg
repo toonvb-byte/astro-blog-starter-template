@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 514" width="520" height="514" role="img" aria-labelledby="t s" lang="es">
+<title id="t">Magnesio en 1.000 mg de cada forma</title>
+<desc id="s">Magnesio elemental por 1.000 mg de compuesto, aproximado: Óxido ~600 mg; Carbonato ~280 mg; Citrato ~160 mg; Malato ~150 mg; Bisglicinato ~140 mg; Cloruro (hexahidrato) ~120 mg; L-treonato ~70 mg</desc>
+<rect width="520" height="514" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="22" font-weight="600" fill="#10201A">Magnesio en 1.000 mg de cada forma</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Magnesio elemental por 1.000 mg de compuesto, aproximado</text>
+<line x1="24" y1="76" x2="24" y2="474" stroke="#DCE1DD" stroke-width="1"/>
+<text x="32" y="92" font-size="17" fill="#10201A">Óxido</text>
+<path d="M24,100 H388.0 Q392.0,100 392.0,104 V116 Q392.0,120 388.0,120 H24 Z" fill="#0B6B4F"/>
+<text x="400.0" y="116.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">~600 mg</text>
+<text x="32" y="150" font-size="17" fill="#10201A">Carbonato</text>
+<path d="M24,158 H191.73333333333332 Q195.73333333333332,158 195.73333333333332,162 V174 Q195.73333333333332,178 191.73333333333332,178 H24 Z" fill="#0B6B4F"/>
+<text x="203.7" y="174.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">~280 mg</text>
+<text x="32" y="208" font-size="17" fill="#10201A">Citrato</text>
+<path d="M24,216 H118.13333333333333 Q122.13333333333333,216 122.13333333333333,220 V232 Q122.13333333333333,236 118.13333333333333,236 H24 Z" fill="#0B6B4F"/>
+<text x="130.1" y="232.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">~160 mg</text>
+<text x="32" y="266" font-size="17" fill="#10201A">Malato</text>
+<path d="M24,274 H112.0 Q116.0,274 116.0,278 V290 Q116.0,294 112.0,294 H24 Z" fill="#0B6B4F"/>
+<text x="124.0" y="290.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">~150 mg</text>
+<text x="32" y="324" font-size="17" fill="#10201A">Bisglicinato</text>
+<path d="M24,332 H105.86666666666666 Q109.86666666666666,332 109.86666666666666,336 V348 Q109.86666666666666,352 105.86666666666666,352 H24 Z" fill="#0B6B4F"/>
+<text x="117.9" y="348.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">~140 mg</text>
+<text x="32" y="382" font-size="17" fill="#10201A">Cloruro (hexahidrato)</text>
+<path d="M24,390 H93.6 Q97.6,390 97.6,394 V406 Q97.6,410 93.6,410 H24 Z" fill="#0B6B4F"/>
+<text x="105.6" y="406.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">~120 mg</text>
+<text x="32" y="440" font-size="17" fill="#10201A">L-treonato</text>
+<path d="M24,448 H62.93333333333334 Q66.93333333333334,448 66.93333333333334,452 V464 Q66.93333333333334,468 62.93333333333334,468 H24 Z" fill="#0B6B4F"/>
+<text x="74.9" y="464.0" font-size="17" font-weight="600" fill="#3E4C46" style="font-variant-numeric:tabular-nums">~70 mg</text>
+<text x="496" y="496" font-size="13" fill="#5A6863" text-anchor="end">nutrimetrics.eu</text>
+</g></svg>
