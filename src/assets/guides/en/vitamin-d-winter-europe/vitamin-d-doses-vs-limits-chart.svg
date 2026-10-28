@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 442" width="520" height="442" role="img" aria-labelledby="t d" lang="en">
+<title id="t">Vitamin D per day: products and limits</title>
+<desc id="d">µg per day; both products are above the BfR's 20 µg. EFSA adequate intake: 15 µg (600 IU); BfR maximum per supplement (Germany): 20 µg (800 IU); Vita Natura D3+K2 drops: 25 µg (1,000 IU); Solgar Vitamin D3 2200 IU capsules: 55 µg (2,200 IU); EFSA upper level, all sources: 100 µg (4,000 IU)</desc>
+<rect width="520" height="442" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Vitamin D per day: products and limits</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">µg per day; both products are above the BfR's 20 µg</text>
+<rect x="24" y="80" width="14" height="14" rx="3" fill="#0B6B4F"/>
+<text x="44" y="92" font-size="14" fill="#3E4C46">Product, daily dose</text>
+<rect x="216" y="80" width="14" height="14" rx="3" fill="#9AA6A0"/>
+<text x="236" y="92" font-size="14" fill="#3E4C46">Reference value</text>
+<line x1="24" y1="116" x2="24" y2="398" stroke="#DCE1DD"/>
+<text x="32" y="132" font-size="16" fill="#10201A">EFSA adequate intake</text>
+<path d="M24.0,140 H68.3 Q72.3,140 72.3,144 V156 Q72.3,160 68.3,160 H24.0 Z" fill="#9AA6A0"/>
+<text x="80.3" y="156.0" font-size="16" font-weight="600" fill="#3E4C46">15 µg (600 IU)</text>
+<text x="32" y="190" font-size="16" fill="#10201A">BfR maximum per supplement (Germany)</text>
+<path d="M24.0,198 H84.4 Q88.4,198 88.4,202 V214 Q88.4,218 84.4,218 H24.0 Z" fill="#9AA6A0"/>
+<text x="96.4" y="214.0" font-size="16" font-weight="600" fill="#3E4C46">20 µg (800 IU)</text>
+<text x="32" y="248" font-size="16" fill="#10201A">Vita Natura D3+K2 drops</text>
+<path d="M24.0,256 H100.5 Q104.5,256 104.5,260 V272 Q104.5,276 100.5,276 H24.0 Z" fill="#0B6B4F"/>
+<text x="112.5" y="272.0" font-size="16" font-weight="600" fill="#3E4C46">25 µg (1,000 IU)</text>
+<text x="32" y="306" font-size="16" fill="#10201A">Solgar Vitamin D3 2200 IU capsules</text>
+<path d="M24.0,314 H197.1 Q201.1,314 201.1,318 V330 Q201.1,334 197.1,334 H24.0 Z" fill="#0B6B4F"/>
+<text x="209.1" y="330.0" font-size="16" font-weight="600" fill="#3E4C46">55 µg (2,200 IU)</text>
+<text x="32" y="364" font-size="16" fill="#10201A">EFSA upper level, all sources</text>
+<path d="M24.0,372 H342.0 Q346.0,372 346.0,376 V388 Q346.0,392 342.0,392 H24.0 Z" fill="#9AA6A0"/>
+<text x="354.0" y="388.0" font-size="16" font-weight="600" fill="#3E4C46">100 µg (4,000 IU)</text>
+<text x="496" y="424" font-size="13" fill="#5A6863" text-anchor="end">nutrimetrics.eu</text>
+</g></svg>
