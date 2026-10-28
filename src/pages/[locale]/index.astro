@@ -1,6 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { Image } from "astro:assets";
 import ArticleCard from "../../components/ArticleCard.astro";
+import CardArt from "../../components/CardArt.astro";
 import { LOCALES, path, routeAlternates, type Locale } from "../../i18n/config";
 import { useT } from "../../i18n/ui";
 import { getGuides, guideUrl } from "../../lib/guides";
@@ -95,6 +97,11 @@ const hubs = await getHubs(locale);
 			<div class="grid-auto">
 				{picks.map((g) => (
 					<a href={guideUrl(g)} class="card cmp-card">
+						{g.data.heroImage ? (
+							<Image src={g.data.heroImage} alt="" widths={[400, 800].filter((w) => w <= g.data.heroImage!.width).concat(g.data.heroImage.width < 400 ? [g.data.heroImage.width] : [])} sizes="(max-width: 600px) calc(100vw - 32px), 320px" class="cmp-img" loading="lazy" decoding="async" />
+						) : (
+							<CardArt tint={g.data.tint} style="aspect-ratio:16/9" />
+						)}
 						<span style="font-size:13px;font-weight:600;color:var(--nm-accent)">{g.data.category}</span>
 						<span style="font-family:var(--nm-font-display);font-weight:600;font-size:21px;line-height:1.2">{g.data.title}</span>
 						<span class="muted" style="font-size:14px">{g.data.description}</span>
@@ -160,6 +167,7 @@ const hubs = await getHubs(locale);
 	.how li { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
 	.cmp-card { display: flex; flex-direction: column; gap: 14px; padding: 22px; text-decoration: none; color: var(--nm-ink); }
 	.cmp-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.cmp-card :global(.cmp-img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; background: var(--nm-accent-soft); }
 	.cmp-foot { margin-top: auto; font-size: 13px; border-top: 1px solid var(--nm-line-soft); padding-top: 12px; }
 	@media (max-width: 600px) { .hero { padding-top: 40px; padding-bottom: 40px; } }
 </style>
