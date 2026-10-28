@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 670" width="520" height="670" role="img" aria-labelledby="t d" lang="en">
+<title id="t">Vitamin C per serving: the top 10</title>
+<desc id="d">% of the 80 mg NRV, serving sizes as in the table. Orange juice, freshly squeezed, 1 glass (200 ml): 125% (100 mg); Broccoli, cooked, 150 g: 122% (97 mg); Red pepper, raw, half (75 g): 120% (96 mg); Brussels sprouts, cooked, 150 g: 116% (93 mg); Strawberries, 150 g: 110% (88 mg); Orange, 1 medium (150 g): 100% (80 mg); Kiwi, 1 (75 g): 87% (70 mg); Cauliflower, cooked, 150 g: 83% (66 mg); Green pepper, raw, half (75 g): 75% (60 mg); Red cabbage, raw, 75 g: 53% (43 mg)</desc>
+<rect width="520" height="670" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Vitamin C per serving: the top 10</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">% of the 80 mg NRV, serving sizes as in the table</text>
+<line x1="267.9" y1="122" x2="267.9" y2="626" stroke="#B4470E" stroke-width="2"/>
+<text x="263.9" y="112" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100% NRV</text>
+<line x1="24" y1="122" x2="24" y2="626" stroke="#DCE1DD"/>
+<text x="32" y="144" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Orange juice, freshly squeezed, 1 glass (200 ml)</text>
+<path d="M24.0,152.0 H324.9 Q328.9,152.0 328.9,156.0 V164.0 Q328.9,168.0 324.9,168.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="336.9" y="166.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">125% (100 mg)</text>
+<text x="32" y="194" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Broccoli, cooked, 150 g</text>
+<path d="M24.0,202.0 H317.6 Q321.6,202.0 321.6,206.0 V214.0 Q321.6,218.0 317.6,218.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="329.6" y="216.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">122% (97 mg)</text>
+<text x="32" y="244" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Red pepper, raw, half (75 g)</text>
+<path d="M24.0,252.0 H312.7 Q316.7,252.0 316.7,256.0 V264.0 Q316.7,268.0 312.7,268.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="324.7" y="266.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">120% (96 mg)</text>
+<text x="32" y="294" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Brussels sprouts, cooked, 150 g</text>
+<path d="M24.0,302.0 H303.0 Q307.0,302.0 307.0,306.0 V314.0 Q307.0,318.0 303.0,318.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="315.0" y="316.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">116% (93 mg)</text>
+<text x="32" y="344" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Strawberries, 150 g</text>
+<path d="M24.0,352.0 H288.3 Q292.3,352.0 292.3,356.0 V364.0 Q292.3,368.0 288.3,368.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="300.3" y="366.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">110% (88 mg)</text>
+<text x="32" y="394" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Orange, 1 medium (150 g)</text>
+<path d="M24.0,402.0 H263.9 Q267.9,402.0 267.9,406.0 V414.0 Q267.9,418.0 263.9,418.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="275.9" y="416.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100% (80 mg)</text>
+<text x="32" y="444" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Kiwi, 1 (75 g)</text>
+<path d="M24.0,452.0 H232.2 Q236.2,452.0 236.2,456.0 V464.0 Q236.2,468.0 232.2,468.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="244.2" y="466.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">87% (70 mg)</text>
+<text x="32" y="494" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Cauliflower, cooked, 150 g</text>
+<path d="M24.0,502.0 H222.5 Q226.5,502.0 226.5,506.0 V514.0 Q226.5,518.0 222.5,518.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="234.5" y="516.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">83% (66 mg)</text>
+<text x="32" y="544" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Green pepper, raw, half (75 g)</text>
+<path d="M24.0,552.0 H203.0 Q207.0,552.0 207.0,556.0 V564.0 Q207.0,568.0 203.0,568.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="215.0" y="566.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">75% (60 mg)</text>
+<text x="32" y="594" font-size="15" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Red cabbage, raw, 75 g</text>
+<path d="M24.0,602.0 H149.3 Q153.3,602.0 153.3,606.0 V614.0 Q153.3,618.0 149.3,618.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="161.3" y="616.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">53% (43 mg)</text>
+<text x="496" y="652" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 548" width="520" height="548" role="img" aria-labelledby="t d" lang="de">
+<title id="t">Warum Statine CoQ10 senken</title>
+<desc id="d">Eine Produktionskette in der Leber stellt Cholesterin und Coenzym Q10 her. Ausgangsstoffe in der Leber → Enzym HMG-CoA-Reduktase (Das Statin blockiert diesen Schritt) → Gemeinsame Produktionskette → Cholesterin: Sinkt: das Ziel des Statins; Coenzym Q10: Blutspiegel sinkt ebenfalls (NIH). Niedrigere Blutwerte beweisen nicht, dass die Werte im Muskel so stark sinken, dass er schmerzt.</desc>
+<rect width="520" height="548" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Warum Statine CoQ10 senken</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Eine Produktionskette in der Leber stellt Cholesterin und</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">Coenzym Q10 her</text>
+<rect x="24" y="124" width="300" height="44" rx="10" fill="#FFFFFF" stroke="#DCE1DD" stroke-width="1.5"/>
+<text x="38" y="152" font-size="15" font-weight="600" fill="#10201A">Ausgangsstoffe in der Leber</text>
+<line x1="174.0" y1="168.0" x2="174.0" y2="191.0" stroke="#5A6863" stroke-width="2"/>
+<path d="M180.0,188.0 L174.0,198.0 L168.0,188.0 Z" fill="#5A6863"/>
+<rect x="24" y="200" width="300" height="44" rx="10" fill="#FFFFFF" stroke="#DCE1DD" stroke-width="1.5"/>
+<text x="38" y="228" font-size="15" font-weight="600" fill="#10201A">Enzym HMG-CoA-Reduktase</text>
+<rect x="346" y="186" width="150" height="72" rx="10" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<text x="358" y="208.0" font-size="14" font-weight="600" fill="#10201A">Das Statin</text>
+<text x="358" y="226.0" font-size="14" font-weight="600" fill="#10201A">blockiert diesen</text>
+<text x="358" y="244.0" font-size="14" font-weight="600" fill="#10201A">Schritt</text>
+<path d="M326,222 L344,222" stroke="#B4470E" stroke-width="3"/>
+<path d="M158.0,258 L190.0,258" stroke="#B4470E" stroke-width="4" stroke-linecap="round"/>
+<line x1="174.0" y1="244.0" x2="174.0" y2="279.0" stroke="#9AA6A0" stroke-width="2" stroke-dasharray="4 4"/>
+<path d="M180.0,276.0 L174.0,286.0 L168.0,276.0 Z" fill="#9AA6A0"/>
+<rect x="24" y="288" width="300" height="44" rx="10" fill="#FFFFFF" stroke="#DCE1DD" stroke-width="1.5"/>
+<text x="38" y="316" font-size="15" font-weight="600" fill="#10201A">Gemeinsame Produktionskette</text>
+<path d="M174.0,332 V350 H138.0 V364" fill="none" stroke="#9AA6A0" stroke-width="2" stroke-dasharray="4 4"/>
+<path d="M132.0,362 L138.0,372 L144.0,362 Z" fill="#9AA6A0"/>
+<rect x="24" y="372" width="228" height="90" rx="10" fill="#F2F4F2"/>
+<text x="36.0" y="399" font-size="15" font-weight="600" fill="#10201A">Cholesterin ↓</text>
+<circle cx="39" cy="420" r="2.5" fill="#3E4C46"/>
+<text x="48.0" y="425" font-size="14" fill="#3E4C46">Sinkt: das Ziel des</text>
+<text x="48.0" y="444" font-size="14" fill="#3E4C46">Statins</text>
+<path d="M174.0,332 V350 H382.0 V364" fill="none" stroke="#9AA6A0" stroke-width="2" stroke-dasharray="4 4"/>
+<path d="M376.0,362 L382.0,372 L388.0,362 Z" fill="#9AA6A0"/>
+<rect x="268" y="372" width="228" height="90" rx="10" fill="#F2F4F2"/>
+<text x="280.0" y="399" font-size="15" font-weight="600" fill="#10201A">Coenzym Q10 ↓</text>
+<circle cx="283" cy="420" r="2.5" fill="#3E4C46"/>
+<text x="292.0" y="425" font-size="14" fill="#3E4C46">Blutspiegel sinkt</text>
+<text x="292.0" y="444" font-size="14" fill="#3E4C46">ebenfalls (NIH)</text>
+<text x="24" y="480" font-size="14" fill="#5A6863">Niedrigere Blutwerte beweisen nicht, dass die Werte im Muskel so</text>
+<text x="24" y="499" font-size="14" fill="#5A6863">stark sinken, dass er schmerzt.</text>
+<text x="496" y="530" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

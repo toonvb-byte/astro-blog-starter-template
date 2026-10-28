@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 550" width="520" height="550" role="img" aria-labelledby="t d" lang="en">
+<title id="t">What vitamin D and K may claim in the EU</title>
+<desc id="d">Authorised health claims. None exist for the combination. Normal immune function: D; Normal bones: D + K; Normal muscle function: D; Absorption of calcium: D; Normal blood clotting: K. Not authorised: Artery health, “Directs calcium to the bones”, Any claim for D + K2 together</desc>
+<rect width="520" height="550" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">What vitamin D and K may claim in the EU</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Authorised health claims. None exist for the combination.</text>
+<text x="352" y="106" font-size="14" font-weight="600" text-anchor="middle" fill="#3E4C46">Vitamin D</text>
+<text x="446" y="106" font-size="14" font-weight="600" text-anchor="middle" fill="#3E4C46">Vitamin K</text>
+<rect x="24" y="114" width="472" height="40" rx="8" fill="#F6F8F6"/>
+<text x="36" y="139.0" font-size="15" fill="#10201A">Normal immune function</text>
+<circle cx="352" cy="134" r="12" fill="#0B6B4F"/>
+<path d="M346.5,134.5 L350.5,138.5 L358,130" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="134" r="4" fill="#DCE1DD"/>
+<text x="36" y="183.0" font-size="15" fill="#10201A">Normal bones</text>
+<circle cx="352" cy="178" r="12" fill="#0B6B4F"/>
+<path d="M346.5,178.5 L350.5,182.5 L358,174" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="178" r="12" fill="#0B6B4F"/>
+<path d="M440.5,178.5 L444.5,182.5 L452,174" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="202" width="472" height="40" rx="8" fill="#F6F8F6"/>
+<text x="36" y="227.0" font-size="15" fill="#10201A">Normal muscle function</text>
+<circle cx="352" cy="222" r="12" fill="#0B6B4F"/>
+<path d="M346.5,222.5 L350.5,226.5 L358,218" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="222" r="4" fill="#DCE1DD"/>
+<text x="36" y="271.0" font-size="15" fill="#10201A">Absorption of calcium</text>
+<circle cx="352" cy="266" r="12" fill="#0B6B4F"/>
+<path d="M346.5,266.5 L350.5,270.5 L358,262" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="266" r="4" fill="#DCE1DD"/>
+<rect x="24" y="290" width="472" height="40" rx="8" fill="#F6F8F6"/>
+<text x="36" y="315.0" font-size="15" fill="#10201A">Normal blood clotting</text>
+<circle cx="352" cy="310" r="4" fill="#DCE1DD"/>
+<circle cx="446" cy="310" r="12" fill="#0B6B4F"/>
+<path d="M440.5,310.5 L444.5,314.5 L452,306" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="24" y="370" font-size="15" font-weight="600" fill="#10201A">Not authorised</text>
+<text x="36" y="403" font-size="15" fill="#10201A">Artery health</text>
+<circle cx="352" cy="398" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M347.5,393.5 L356.5,402.5 M356.5,393.5 L347.5,402.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="446" cy="398" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M441.5,393.5 L450.5,402.5 M450.5,393.5 L441.5,402.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<text x="36" y="443" font-size="15" fill="#10201A">“Directs calcium to the bones”</text>
+<circle cx="352" cy="438" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M347.5,433.5 L356.5,442.5 M356.5,433.5 L347.5,442.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="446" cy="438" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M441.5,433.5 L450.5,442.5 M450.5,433.5 L441.5,442.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<text x="36" y="483" font-size="15" fill="#10201A">Any claim for D + K2 together</text>
+<circle cx="352" cy="478" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M347.5,473.5 L356.5,482.5 M356.5,473.5 L347.5,482.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="446" cy="478" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M441.5,473.5 L450.5,482.5 M450.5,473.5 L441.5,482.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<text x="496" y="532" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

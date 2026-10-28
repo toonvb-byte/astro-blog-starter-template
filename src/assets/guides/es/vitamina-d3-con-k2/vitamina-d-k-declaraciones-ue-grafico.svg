@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 570" width="520" height="570" role="img" aria-labelledby="t d" lang="es">
+<title id="t">Qué pueden declarar la vitamina D y la K</title>
+<desc id="d">Declaraciones de salud autorizadas en la UE. No hay ninguna para la combinación. Función normal del sistema inmunitario: D; Huesos normales: D + K; Función muscular normal: D; Absorción del calcio: D; Coagulación sanguínea normal: K. No autorizado: Salud de las arterias, «Lleva el calcio a los huesos», Cualquier declaración para D + K2 juntas</desc>
+<rect width="520" height="570" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Qué pueden declarar la vitamina D y la K</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Declaraciones de salud autorizadas en la UE. No hay ninguna</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">para la combinación.</text>
+<text x="352" y="126" font-size="14" font-weight="600" text-anchor="middle" fill="#3E4C46">Vitamina D</text>
+<text x="446" y="126" font-size="14" font-weight="600" text-anchor="middle" fill="#3E4C46">Vitamina K</text>
+<rect x="24" y="134" width="472" height="40" rx="8" fill="#F6F8F6"/>
+<text x="36" y="159.0" font-size="15" fill="#10201A">Función normal del sistema inmunitario</text>
+<circle cx="352" cy="154" r="12" fill="#0B6B4F"/>
+<path d="M346.5,154.5 L350.5,158.5 L358,150" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="154" r="4" fill="#DCE1DD"/>
+<text x="36" y="203.0" font-size="15" fill="#10201A">Huesos normales</text>
+<circle cx="352" cy="198" r="12" fill="#0B6B4F"/>
+<path d="M346.5,198.5 L350.5,202.5 L358,194" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="198" r="12" fill="#0B6B4F"/>
+<path d="M440.5,198.5 L444.5,202.5 L452,194" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="222" width="472" height="40" rx="8" fill="#F6F8F6"/>
+<text x="36" y="247.0" font-size="15" fill="#10201A">Función muscular normal</text>
+<circle cx="352" cy="242" r="12" fill="#0B6B4F"/>
+<path d="M346.5,242.5 L350.5,246.5 L358,238" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="242" r="4" fill="#DCE1DD"/>
+<text x="36" y="291.0" font-size="15" fill="#10201A">Absorción del calcio</text>
+<circle cx="352" cy="286" r="12" fill="#0B6B4F"/>
+<path d="M346.5,286.5 L350.5,290.5 L358,282" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="446" cy="286" r="4" fill="#DCE1DD"/>
+<rect x="24" y="310" width="472" height="40" rx="8" fill="#F6F8F6"/>
+<text x="36" y="335.0" font-size="15" fill="#10201A">Coagulación sanguínea normal</text>
+<circle cx="352" cy="330" r="4" fill="#DCE1DD"/>
+<circle cx="446" cy="330" r="12" fill="#0B6B4F"/>
+<path d="M440.5,330.5 L444.5,334.5 L452,326" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="24" y="390" font-size="15" font-weight="600" fill="#10201A">No autorizado</text>
+<text x="36" y="423" font-size="15" fill="#10201A">Salud de las arterias</text>
+<circle cx="352" cy="418" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M347.5,413.5 L356.5,422.5 M356.5,413.5 L347.5,422.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="446" cy="418" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M441.5,413.5 L450.5,422.5 M450.5,413.5 L441.5,422.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<text x="36" y="463" font-size="15" fill="#10201A">«Lleva el calcio a los huesos»</text>
+<circle cx="352" cy="458" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M347.5,453.5 L356.5,462.5 M356.5,453.5 L347.5,462.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="446" cy="458" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M441.5,453.5 L450.5,462.5 M450.5,453.5 L441.5,462.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<text x="36" y="503" font-size="15" fill="#10201A">Cualquier declaración para D + K2 juntas</text>
+<circle cx="352" cy="498" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M347.5,493.5 L356.5,502.5 M356.5,493.5 L347.5,502.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="446" cy="498" r="12" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<path d="M441.5,493.5 L450.5,502.5 M450.5,493.5 L441.5,502.5" stroke="#B4470E" stroke-width="2.2" stroke-linecap="round"/>
+<text x="496" y="552" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

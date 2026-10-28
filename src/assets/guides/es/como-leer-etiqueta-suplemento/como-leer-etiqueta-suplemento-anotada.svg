@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 765" width="520" height="765" role="img" aria-labelledby="t d" lang="es">
+<title id="t">Cómo leer la etiqueta de un suplemento</title>
+<desc id="d">Etiqueta de ejemplo de un producto ficticio, con las cinco cosas que mirar. 1. Dosis diaria: aquí 2 cápsulas, así que el bote dura 30 días, no 60. 2. Cantidad por dosis diaria: lo que comparas entre productos. 3. %VRN: la cantidad frente al valor de referencia de la UE, no un máximo. 4. Forma: la cantidad es el magnesio en sí, no el peso del citrato. 5. Avisos obligatorios: no superar la dosis, dieta variada, niños.</desc>
+<rect width="520" height="765" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Cómo leer la etiqueta de un suplemento</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Etiqueta de ejemplo de un producto ficticio, con las cinco</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">cosas que mirar</text>
+<rect x="38" y="120" width="444" height="366" rx="12" fill="#FBFCFA" stroke="#3E4C46" stroke-width="1.5"/>
+<rect x="386" y="132" width="80" height="22" rx="11" fill="#FCEBDD"/>
+<text x="426" y="147" font-size="11" font-weight="700" text-anchor="middle" fill="#B4470E">EJEMPLO</text>
+<text x="54" y="150" font-size="12" font-weight="600" fill="#5A6863">COMPLEMENTO ALIMENTICIO</text>
+<text x="54" y="174" font-size="19" font-weight="700" fill="#10201A">Magnesio + Vitamina B6</text>
+<text x="54" y="200" font-size="13" fill="#5A6863">60 cápsulas</text>
+<rect x="54" y="220" width="412" height="34" fill="#10201A"/>
+<text x="64" y="242" font-size="13" font-weight="600" fill="#FFFFFF">Por dosis diaria (2 cápsulas)</text>
+<text x="456" y="242" font-size="13" font-weight="600" text-anchor="end" fill="#FFFFFF">%VRN*</text>
+<rect x="54" y="254" width="412" height="46" fill="#F4F6F4" stroke="#DCE1DD"/>
+<text x="64" y="274" font-size="14" font-weight="600" fill="#10201A">Magnesio</text>
+<text x="64" y="291" font-size="12" fill="#3E4C46">(como citrato de magnesio)</text>
+<text x="372" y="281" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">150 mg</text>
+<text x="456" y="281" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">40 %</text>
+<rect x="54" y="300" width="412" height="46" fill="#FFFFFF" stroke="#DCE1DD"/>
+<text x="64" y="320" font-size="14" font-weight="600" fill="#10201A">Vitamina B6</text>
+<text x="372" y="327" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">1,4 mg</text>
+<text x="456" y="327" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">100 %</text>
+<text x="54" y="364" font-size="11" fill="#5A6863">*VRN = valor de referencia de nutrientes</text>
+<text x="54" y="386" font-size="12" fill="#10201A">Dosis diaria recomendada: 2 cápsulas. No superar la dosis</text>
+<text x="54" y="402" font-size="12" fill="#10201A">diaria expresamente recomendada.</text>
+<text x="54" y="424" font-size="12" fill="#3E4C46">Los complementos alimenticios no deben utilizarse como</text>
+<text x="54" y="440" font-size="12" fill="#3E4C46">sustituto de una dieta variada. Mantener fuera del alcance de</text>
+<text x="54" y="456" font-size="12" fill="#3E4C46">los niños más pequeños.</text>
+<circle cx="279" cy="237" r="11" fill="#B4470E"/>
+<text x="279.1" y="242" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
+<circle cx="307" cy="277" r="11" fill="#B4470E"/>
+<text x="307.0" y="282" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
+<circle cx="402" cy="218" r="11" fill="#B4470E"/>
+<text x="402" y="223" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
+<circle cx="242" cy="287" r="11" fill="#B4470E"/>
+<text x="242.2" y="292" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
+<circle cx="468" cy="420" r="11" fill="#B4470E"/>
+<text x="468" y="425" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
+<circle cx="35" cy="509" r="11" fill="#B4470E"/>
+<text x="35" y="514" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
+<text x="56" y="514" font-size="14" fill="#3E4C46">Dosis diaria: aquí 2 cápsulas, así que el bote dura 30</text>
+<text x="56" y="533" font-size="14" fill="#3E4C46">días, no 60</text>
+<circle cx="35" cy="557" r="11" fill="#B4470E"/>
+<text x="35" y="562" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
+<text x="56" y="562" font-size="14" fill="#3E4C46">Cantidad por dosis diaria: lo que comparas entre productos</text>
+<circle cx="35" cy="586" r="11" fill="#B4470E"/>
+<text x="35" y="591" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
+<text x="56" y="591" font-size="14" fill="#3E4C46">%VRN: la cantidad frente al valor de referencia de la UE,</text>
+<text x="56" y="610" font-size="14" fill="#3E4C46">no un máximo</text>
+<circle cx="35" cy="634" r="11" fill="#B4470E"/>
+<text x="35" y="639" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
+<text x="56" y="639" font-size="14" fill="#3E4C46">Forma: la cantidad es el magnesio en sí, no el peso del</text>
+<text x="56" y="658" font-size="14" fill="#3E4C46">citrato</text>
+<circle cx="35" cy="682" r="11" fill="#B4470E"/>
+<text x="35" y="687" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
+<text x="56" y="687" font-size="14" fill="#3E4C46">Avisos obligatorios: no superar la dosis, dieta variada,</text>
+<text x="56" y="706" font-size="14" fill="#3E4C46">niños</text>
+<text x="496" y="747" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

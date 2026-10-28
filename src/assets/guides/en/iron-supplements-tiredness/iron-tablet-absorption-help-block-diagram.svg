@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 475" width="520" height="475" role="img" aria-labelledby="t d" lang="en">
+<title id="t">Taking iron: what helps, what hinders</title>
+<desc id="d">Take it with: Vitamin C, for example a glass of orange juice. Keep a couple of hours apart: Calcium, Coffee, Tea. On alternate days, if your doctor agrees: About a third more iron absorbed than with daily dosing, in women with low stores.</desc>
+<rect width="520" height="475" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Taking iron: what helps, what hinders</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">If your doctor advises a supplement</text>
+<rect x="165" y="104" width="190" height="46" rx="23" fill="#10201A"/>
+<text x="260.0" y="133" font-size="16" font-weight="600" text-anchor="middle" fill="#FFFFFF">Iron tablet</text>
+<line x1="220.0" y1="150.0" x2="144.4" y2="185.1" stroke="#0B6B4F" stroke-width="2"/>
+<path d="M149.6,189.2 L138.0,188.0 L144.6,178.4 Z" fill="#0B6B4F"/>
+<line x1="300.0" y1="150.0" x2="375.6" y2="185.1" stroke="#B4470E" stroke-width="2"/>
+<path d="M375.4,178.4 L382.0,188.0 L370.4,189.2 Z" fill="#B4470E"/>
+<rect x="24" y="190" width="228" height="90" rx="10" fill="#E3F1EA" stroke="#0B6B4F" stroke-width="1.5"/>
+<text x="36" y="217" font-size="15" font-weight="600" fill="#10201A">Take it with</text>
+<circle cx="39" cy="238" r="2.5" fill="#3E4C46"/>
+<text x="48" y="243" font-size="14" fill="#3E4C46">Vitamin C, for example a</text>
+<text x="48" y="262" font-size="14" fill="#3E4C46">glass of orange juice</text>
+<rect x="268" y="190" width="228" height="129" rx="10" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<text x="280.0" y="217" font-size="15" font-weight="600" fill="#10201A">Keep a couple of hours</text>
+<text x="280.0" y="237" font-size="15" font-weight="600" fill="#10201A">apart</text>
+<circle cx="283" cy="258" r="2.5" fill="#3E4C46"/>
+<text x="292.0" y="263" font-size="14" fill="#3E4C46">Calcium</text>
+<circle cx="283" cy="277" r="2.5" fill="#3E4C46"/>
+<text x="292.0" y="282" font-size="14" fill="#3E4C46">Coffee</text>
+<circle cx="283" cy="296" r="2.5" fill="#3E4C46"/>
+<text x="292.0" y="301" font-size="14" fill="#3E4C46">Tea</text>
+<rect x="24" y="341" width="472" height="90" rx="10" fill="#F2F4F2"/>
+<text x="36" y="368" font-size="15" font-weight="600" fill="#10201A">On alternate days, if your doctor agrees</text>
+<circle cx="39" cy="389" r="2.5" fill="#3E4C46"/>
+<text x="48" y="394" font-size="14" fill="#3E4C46">About a third more iron absorbed than with daily dosing, in</text>
+<text x="48" y="413" font-size="14" fill="#3E4C46">women with low stores</text>
+<text x="496" y="457" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

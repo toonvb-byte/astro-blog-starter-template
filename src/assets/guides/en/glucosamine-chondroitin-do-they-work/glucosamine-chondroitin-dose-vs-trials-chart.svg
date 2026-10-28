@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 586" width="520" height="586" role="img" aria-labelledby="t d" lang="en">
+<title id="t">Glucosamine and chondroitin per day</title>
+<desc id="d">mg per day at the label dose, against the doses in the GAIT and MOVES trials. * Listing unclear: per tablet or per day. Glucosamine: GAIT and MOVES trials 1,500 mg; Nutralie Glucosamina Complex* 1,000 mg; Vitamaze Glucosamin + Chondroitin + MSM 625 mg. Chondroitin: GAIT and MOVES trials 1,200 mg; Vitamaze Glucosamin + Chondroitin + MSM 625 mg; Nutralie Glucosamina Complex* 500 mg</desc>
+<rect width="520" height="586" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Glucosamine and chondroitin per day</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">mg per day at the label dose, against the doses in the GAIT</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">and MOVES trials. * Listing unclear: per tablet or per day.</text>
+<rect x="24" y="114" width="14" height="14" rx="3" fill="#0B6B4F"/>
+<text x="44" y="126" font-size="14" fill="#3E4C46">Product</text>
+<rect x="118.96000000000001" y="114" width="14" height="14" rx="3" fill="#9AA6A0"/>
+<text x="139.0" y="126" font-size="14" fill="#3E4C46">Dose used in the trials</text>
+<text x="24" y="166" font-size="16" font-weight="700" fill="#10201A">Glucosamine</text>
+<text x="32" y="196" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">GAIT and MOVES trials</text>
+<path d="M24.0,203.0 H392.0 Q396.0,203.0 396.0,207.0 V217.0 Q396.0,221.0 392.0,221.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="404.0" y="217" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">1,500 mg</text>
+<text x="32" y="251" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Nutralie Glucosamina Complex*</text>
+<path d="M24.0,258.0 H268.0 Q272.0,258.0 272.0,262.0 V272.0 Q272.0,276.0 268.0,276.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="280.0" y="272" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">1,000 mg</text>
+<text x="32" y="306" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamaze Glucosamin + Chondroitin + MSM</text>
+<path d="M24.0,313.0 H175.0 Q179.0,313.0 179.0,317.0 V327.0 Q179.0,331.0 175.0,331.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="187.0" y="327" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">625 mg</text>
+<line x1="24" y1="182" x2="24" y2="337" stroke="#DCE1DD"/>
+<text x="24" y="363" font-size="16" font-weight="700" fill="#10201A">Chondroitin</text>
+<text x="32" y="393" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">GAIT and MOVES trials</text>
+<path d="M24.0,400.0 H317.6 Q321.6,400.0 321.6,404.0 V414.0 Q321.6,418.0 317.6,418.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="329.6" y="414" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">1,200 mg</text>
+<text x="32" y="448" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamaze Glucosamin + Chondroitin + MSM</text>
+<path d="M24.0,455.0 H175.0 Q179.0,455.0 179.0,459.0 V469.0 Q179.0,473.0 175.0,473.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="187.0" y="469" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">625 mg</text>
+<text x="32" y="503" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Nutralie Glucosamina Complex*</text>
+<path d="M24.0,510.0 H144.0 Q148.0,510.0 148.0,514.0 V524.0 Q148.0,528.0 144.0,528.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="156.0" y="524" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">500 mg</text>
+<line x1="24" y1="379" x2="24" y2="534" stroke="#DCE1DD"/>
+<text x="496" y="568" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

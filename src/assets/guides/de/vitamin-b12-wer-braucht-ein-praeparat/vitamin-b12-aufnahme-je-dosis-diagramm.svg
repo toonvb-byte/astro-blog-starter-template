@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 378" width="520" height="378" role="img" aria-labelledby="t d" lang="de">
+<title id="t">Wie viel B12 du aus einer Dosis aufnimmst</title>
+<desc id="d">Aufgenommene µg, wenn die Dosis auf einmal genommen wird (NIH). Eine Dosis von 1 µg: ~0,5 µg (etwa 50 %); Eine 500-µg-Tablette: ~10 µg (etwa 2 %); Eine 1.000-µg-Tablette: ~13 µg (etwa 1,3 %)</desc>
+<rect width="520" height="378" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="20" font-weight="600" fill="#10201A">Wie viel B12 du aus einer Dosis aufnimmst</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Aufgenommene µg, wenn die Dosis auf einmal genommen wird</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">(NIH)</text>
+<g transform="translate(0,18)">
+<line x1="72.6" y1="142" x2="72.6" y2="316" stroke="#9AA6A0" stroke-width="2"/>
+<text x="68.6" y="132" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">NRV 2,5 µg</text>
+<line x1="101.7" y1="142" x2="101.7" y2="316" stroke="#B4470E" stroke-width="2"/>
+<text x="97.7" y="114" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">EFSA 4 µg</text>
+<line x1="24" y1="142" x2="24" y2="316" stroke="#DCE1DD"/>
+<text x="32" y="164" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Eine Dosis von 1 µg</text>
+<path d="M24.0,172.0 H29.7 Q33.7,172.0 33.7,176.0 V188.0 Q33.7,192.0 29.7,192.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="41.7" y="188.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~0,5 µg (etwa 50 %)</text>
+<text x="32" y="222" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Eine 500-µg-Tablette</text>
+<path d="M24.0,230.0 H214.3 Q218.3,230.0 218.3,234.0 V246.0 Q218.3,250.0 214.3,250.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="226.3" y="246.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~10 µg (etwa 2 %)</text>
+<text x="32" y="280" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Eine 1.000-µg-Tablette</text>
+<path d="M24.0,288.0 H272.6 Q276.6,288.0 276.6,292.0 V304.0 Q276.6,308.0 272.6,308.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="284.6" y="304.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~13 µg (etwa 1,3 %)</text>
+</g>
+<text x="496" y="360" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

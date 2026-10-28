@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 506" width="520" height="506" role="img" aria-labelledby="t d" lang="en">
+<title id="t">Curcumin per day: one capsule vs the limits</title>
+<desc id="d">mg of curcumin. The ANSES limit applies only to standard formulas.. Food, high consumers (France): ~27 mg; Sunday Natural Kurkuma-Extrakt + Piperin: 150 mg; ANSES maximum from supplements, 60 kg: 153 mg; EFSA acceptable daily intake, 60 kg: 180 mg; EFSA acceptable daily intake, 70 kg: 210 mg</desc>
+<rect width="520" height="506" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="19" font-weight="600" fill="#10201A">Curcumin per day: one capsule vs the limits</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">mg of curcumin. The ANSES limit applies only to standard</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">formulas.</text>
+<rect x="24" y="114" width="14" height="14" rx="3" fill="#0B6B4F"/>
+<text x="44" y="126" font-size="14" fill="#3E4C46">Product</text>
+<rect x="118.96000000000001" y="114" width="14" height="14" rx="3" fill="#9AA6A0"/>
+<text x="139.0" y="126" font-size="14" fill="#3E4C46">Reference value</text>
+<line x1="24" y1="154" x2="24" y2="462" stroke="#DCE1DD"/>
+<text x="32" y="176" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Food, high consumers (France)</text>
+<path d="M24.0,184.0 H69.1 Q73.1,184.0 73.1,188.0 V200.0 Q73.1,204.0 69.1,204.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="81.1" y="200.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~27 mg</text>
+<text x="32" y="234" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Sunday Natural Kurkuma-Extrakt + Piperin</text>
+<text x="32" y="252" font-size="13" fill="#5A6863" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">1 capsule, with piperine</text>
+<path d="M24.0,260.0 H292.9 Q296.9,260.0 296.9,264.0 V276.0 Q296.9,280.0 292.9,280.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="304.9" y="276.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">150 mg</text>
+<text x="32" y="310" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">ANSES maximum from supplements, 60 kg</text>
+<path d="M24.0,318.0 H298.3 Q302.3,318.0 302.3,322.0 V334.0 Q302.3,338.0 298.3,338.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="310.3" y="334.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">153 mg</text>
+<text x="32" y="368" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">EFSA acceptable daily intake, 60 kg</text>
+<path d="M24.0,376.0 H347.4 Q351.4,376.0 351.4,380.0 V392.0 Q351.4,396.0 347.4,396.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="359.4" y="392.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">180 mg</text>
+<text x="32" y="426" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">EFSA acceptable daily intake, 70 kg</text>
+<path d="M24.0,434.0 H402.0 Q406.0,434.0 406.0,438.0 V450.0 Q406.0,454.0 402.0,454.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="414.0" y="450.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">210 mg</text>
+<text x="496" y="488" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

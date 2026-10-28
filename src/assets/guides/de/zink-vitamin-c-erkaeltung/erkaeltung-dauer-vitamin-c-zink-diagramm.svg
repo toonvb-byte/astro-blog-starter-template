@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 362" width="520" height="362" role="img" aria-labelledby="t d" lang="de">
+<title id="t">Wie viel kürzer eine Erkältung dauert</title>
+<desc id="d">Cochrane-Übersichten. Vitamin C: 7-tägige Erkältung bei Erwachsenen.. Vitamin C täglich, das ganze Jahr: ~13 Stunden; Vitamin C erst bei Krankheit: Kein beständiger Effekt; Zink ab den ersten Symptomen: ~2 Tage, geringe Sicherheit</desc>
+<rect width="520" height="362" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Wie viel kürzer eine Erkältung dauert</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Cochrane-Übersichten. Vitamin C: 7-tägige Erkältung bei</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">Erwachsenen.</text>
+<line x1="24" y1="122" x2="24" y2="296" stroke="#DCE1DD"/>
+<text x="32" y="144" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamin C täglich, das ganze Jahr</text>
+<path d="M24.0,152.0 H74.0 Q78.0,152.0 78.0,156.0 V168.0 Q78.0,172.0 74.0,172.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="86.0" y="168.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~13 Stunden</text>
+<text x="32" y="202" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamin C erst bei Krankheit</text>
+<text x="32" y="226.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Kein beständiger Effekt</text>
+<text x="32" y="260" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Zink ab den ersten Symptomen</text>
+<path d="M24.0,268.0 H219.5 Q223.5,268.0 223.5,272.0 V284.0 Q223.5,288.0 219.5,288.0 H24.0 Z" fill="#4A9C7B"/>
+<text x="231.5" y="284.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~2 Tage, geringe Sicherheit</text>
+<text x="24.0" y="316" font-size="12" text-anchor="middle" fill="#5A6863">0 h</text>
+<text x="123.7" y="316" font-size="12" text-anchor="middle" fill="#5A6863">1 Tag</text>
+<text x="223.5" y="316" font-size="12" text-anchor="middle" fill="#5A6863">2 Tage</text>
+<text x="496" y="344" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 334" width="520" height="334" role="img" aria-labelledby="t d" lang="en">
+<title id="t">A day of food with 461 mg of magnesium</title>
+<desc id="d">Three meals from this guide, against EFSA's adequate intake. Breakfast: Porridge with banana and pumpkin seeds (recipe below) 210 mg; Lunch: Spanish spinach with chickpeas (recipe below) 170 mg; Snack: A handful of almonds (30 g) 81 mg. Total 461 mg.</desc>
+<rect width="520" height="334" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">A day of food with 461 mg of magnesium</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Three meals from this guide, against EFSA's adequate intake</text>
+<line x1="287.9" y1="110" x2="287.9" y2="190" stroke="#B4470E" stroke-width="2"/>
+<line x1="331.9" y1="128" x2="331.9" y2="190" stroke="#B4470E" stroke-width="2"/>
+<text x="281.9" y="118" font-size="13" font-weight="600" text-anchor="end" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Women 300 mg</text>
+<text x="337.9" y="136" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Men 350 mg</text>
+<path d="M24.0,146.0 H208.8 Q208.8,146.0 208.8,146.0 V176.0 Q208.8,176.0 208.8,176.0 H24.0 Z" fill="#0B4F3B"/>
+<text x="116.4" y="166" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">210</text>
+<path d="M210.8,146.0 H358.3 Q358.3,146.0 358.3,146.0 V176.0 Q358.3,176.0 358.3,176.0 H210.8 Z" fill="#4A9C7B"/>
+<text x="283.5" y="166" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">170</text>
+<path d="M360.3,146.0 H425.6 Q429.6,146.0 429.6,150.0 V172.0 Q429.6,176.0 425.6,176.0 H360.3 Z" fill="#9CCDB6"/>
+<text x="394.0" y="166" font-size="13" font-weight="700" text-anchor="middle" fill="#10201A">81</text>
+<text x="435.6" y="166" font-size="15" font-weight="700" fill="#10201A">461 mg</text>
+<rect x="24" y="204" width="14" height="14" rx="3" fill="#0B4F3B"/>
+<text x="46" y="216" font-size="14" fill="#3E4C46">Breakfast: Porridge with banana and pumpkin seeds</text>
+<text x="496" y="216" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">210 mg</text>
+<rect x="24" y="232" width="14" height="14" rx="3" fill="#4A9C7B"/>
+<text x="46" y="244" font-size="14" fill="#3E4C46">Lunch: Spanish spinach with chickpeas</text>
+<text x="496" y="244" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">170 mg</text>
+<rect x="24" y="260" width="14" height="14" rx="3" fill="#9CCDB6"/>
+<text x="46" y="272" font-size="14" fill="#3E4C46">Snack: A handful of almonds</text>
+<text x="496" y="272" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">81 mg</text>
+<text x="496" y="316" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

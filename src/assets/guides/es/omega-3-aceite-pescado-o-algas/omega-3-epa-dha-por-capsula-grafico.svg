@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 318" width="520" height="318" role="img" aria-labelledby="t d" lang="es">
+<title id="t">Qué lleva de verdad una cápsula de 1.000 mg</title>
+<desc id="d">EPA + DHA en una cápsula de 1.000 mg de aceite de pescado. Cápsula estándar: ~300 mg EPA + DHA; Concentrado: 600+ mg EPA + DHA</desc>
+<rect width="520" height="318" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="19" font-weight="600" fill="#10201A">Qué lleva de verdad una cápsula de 1.000 mg</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">EPA + DHA en una cápsula de 1.000 mg de aceite de pescado</text>
+<rect x="24" y="94" width="14" height="14" rx="3" fill="#0B6B4F"/>
+<text x="44" y="106" font-size="14" fill="#3E4C46">EPA + DHA</text>
+<rect x="133.51999999999998" y="94" width="14" height="14" rx="3" fill="#9AA6A0"/>
+<text x="153.5" y="106" font-size="14" fill="#3E4C46">Resto de grasas del aceite</text>
+<line x1="99.5" y1="154" x2="99.5" y2="274" stroke="#B4470E" stroke-width="2"/>
+<text x="95.5" y="144" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Declaración UE: 250 mg de EPA + DHA al día</text>
+<line x1="24" y1="154" x2="24" y2="274" stroke="#DCE1DD"/>
+<text x="32" y="176" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Cápsula estándar</text>
+<path d="M24.0,184.0 H114.6 Q114.6,184.0 114.6,184.0 V204.0 Q114.6,204.0 114.6,204.0 H24.0 Z" fill="#0B6B4F"/>
+<path d="M116.6,184.0 H322.0 Q326.0,184.0 326.0,188.0 V200.0 Q326.0,204.0 322.0,204.0 H116.6 Z" fill="#9AA6A0"/>
+<text x="334.0" y="200.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~300 mg EPA + DHA</text>
+<text x="32" y="238" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Concentrado</text>
+<path d="M24.0,246.0 H205.2 Q205.2,246.0 205.2,246.0 V266.0 Q205.2,266.0 205.2,266.0 H24.0 Z" fill="#0B6B4F"/>
+<path d="M207.2,246.0 H322.0 Q326.0,246.0 326.0,250.0 V262.0 Q326.0,266.0 322.0,266.0 H207.2 Z" fill="#9AA6A0"/>
+<text x="334.0" y="262.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">600+ mg EPA + DHA</text>
+<text x="496" y="300" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

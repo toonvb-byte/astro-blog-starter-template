@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 442" width="520" height="442" role="img" aria-labelledby="t d" lang="es">
+<title id="t">Cómo absorber más hierro del mismo plato</title>
+<desc id="d">Ayuda a absorberlo: Vitamina C: pimiento rojo crudo, perejil, brócoli, una naranja; Carne, pollo, pescado o marisco en la misma comida. Reduce la absorción: Fitatos de cereales y legumbres; Polifenoles del té y el café; Quizá el calcio, por ejemplo un suplemento.</desc>
+<rect width="520" height="442" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Cómo absorber más hierro del mismo plato</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">El hierro de origen vegetal es el que más depende de ello</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">(NIH)</text>
+<rect x="165" y="124" width="190" height="46" rx="23" fill="#10201A"/>
+<text x="260.0" y="153" font-size="16" font-weight="600" text-anchor="middle" fill="#FFFFFF">Hierro vegetal</text>
+<line x1="220.0" y1="170.0" x2="144.4" y2="205.1" stroke="#0B6B4F" stroke-width="2"/>
+<path d="M149.6,209.2 L138.0,208.0 L144.6,198.4 Z" fill="#0B6B4F"/>
+<line x1="300.0" y1="170.0" x2="375.6" y2="205.1" stroke="#B4470E" stroke-width="2"/>
+<path d="M375.4,198.4 L382.0,208.0 L370.4,209.2 Z" fill="#B4470E"/>
+<rect x="24" y="210" width="228" height="147" rx="10" fill="#E3F1EA" stroke="#0B6B4F" stroke-width="1.5"/>
+<text x="36" y="237" font-size="15" font-weight="600" fill="#10201A">Ayuda a absorberlo</text>
+<circle cx="39" cy="258" r="2.5" fill="#3E4C46"/>
+<text x="48" y="263" font-size="14" fill="#3E4C46">Vitamina C: pimiento rojo</text>
+<text x="48" y="282" font-size="14" fill="#3E4C46">crudo, perejil, brócoli,</text>
+<text x="48" y="301" font-size="14" fill="#3E4C46">una naranja</text>
+<circle cx="39" cy="315" r="2.5" fill="#3E4C46"/>
+<text x="48" y="320" font-size="14" fill="#3E4C46">Carne, pollo, pescado o</text>
+<text x="48" y="339" font-size="14" fill="#3E4C46">marisco en la misma comida</text>
+<rect x="268" y="210" width="228" height="166" rx="10" fill="#FCEBDD" stroke="#B4470E" stroke-width="1.5"/>
+<text x="280.0" y="237" font-size="15" font-weight="600" fill="#10201A">Reduce la absorción</text>
+<circle cx="283" cy="258" r="2.5" fill="#3E4C46"/>
+<text x="292.0" y="263" font-size="14" fill="#3E4C46">Fitatos de cereales y</text>
+<text x="292.0" y="282" font-size="14" fill="#3E4C46">legumbres</text>
+<circle cx="283" cy="296" r="2.5" fill="#3E4C46"/>
+<text x="292.0" y="301" font-size="14" fill="#3E4C46">Polifenoles del té y el</text>
+<text x="292.0" y="320" font-size="14" fill="#3E4C46">café</text>
+<circle cx="283" cy="334" r="2.5" fill="#3E4C46"/>
+<text x="292.0" y="339" font-size="14" fill="#3E4C46">Quizá el calcio, por</text>
+<text x="292.0" y="358" font-size="14" fill="#3E4C46">ejemplo un suplemento</text>
+<text x="496" y="424" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

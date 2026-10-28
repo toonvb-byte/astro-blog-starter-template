@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 588" width="520" height="588" role="img" aria-labelledby="t d" lang="de">
+<title id="t">Drei Multivitamine in % des NRV</title>
+<desc id="d">Pro Tagesdosis. 100 % = EU-Nährstoffbezugswert. Vitamin D: Centrum A–Zink 100%, Centrum Generation 50+ 100%, Multicentrum Mujer 50+ 300%; Eisen: Centrum A–Zink 36%, Centrum Generation 50+ 15%, Multicentrum Mujer 50+ 30%; Vitamin A: Centrum A–Zink 100%, Centrum Generation 50+ 100%, Multicentrum Mujer 50+ 100%; Vitamin B12: Centrum A–Zink 100%, Centrum Generation 50+ 120%, Multicentrum Mujer 50+ 300%</desc>
+<rect width="520" height="588" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Drei Multivitamine in % des NRV</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Pro Tagesdosis. 100 % = EU-Nährstoffbezugswert.</text>
+<rect x="24" y="94" width="14" height="14" rx="3" fill="#0B6B4F"/>
+<text x="44" y="106" font-size="14" fill="#3E4C46">Centrum A–Zink</text>
+<rect x="169.92000000000002" y="94" width="14" height="14" rx="3" fill="#C8642A"/>
+<text x="189.9" y="106" font-size="14" fill="#3E4C46">Centrum Generation 50+</text>
+<rect x="24" y="116" width="14" height="14" rx="3" fill="#5577B0"/>
+<text x="44" y="128" font-size="14" fill="#3E4C46">Multicentrum Mujer 50+</text>
+<line x1="124.6" y1="150" x2="124.6" y2="544" stroke="#B4470E" stroke-width="2"/>
+<text x="130.6" y="162" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100 % NRV</text>
+<line x1="24" y1="156" x2="24" y2="544" stroke="#DCE1DD"/>
+<text x="32" y="180" font-size="16" font-weight="600" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamin D</text>
+<path d="M24.0,190.0 H120.6 Q124.6,190.0 124.6,194.0 V202.0 Q124.6,206.0 120.6,206.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="132.6" y="203" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100 % (5 µg)</text>
+<path d="M24.0,210.0 H120.6 Q124.6,210.0 124.6,214.0 V222.0 Q124.6,226.0 120.6,226.0 H24.0 Z" fill="#C8642A"/>
+<text x="132.6" y="223" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100 % (5 µg)</text>
+<path d="M24.0,230.0 H321.9 Q325.9,230.0 325.9,234.0 V242.0 Q325.9,246.0 321.9,246.0 H24.0 Z" fill="#5577B0"/>
+<text x="333.9" y="243" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">300 % (15 µg)</text>
+<text x="32" y="276" font-size="16" font-weight="600" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Eisen</text>
+<path d="M24.0,286.0 H56.2 Q60.2,286.0 60.2,290.0 V298.0 Q60.2,302.0 56.2,302.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="68.2" y="299" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">36 % (5 mg)</text>
+<path d="M24.0,306.0 H35.1 Q39.1,306.0 39.1,310.0 V318.0 Q39.1,322.0 35.1,322.0 H24.0 Z" fill="#C8642A"/>
+<text x="47.1" y="319" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">15 % (2,1 mg)</text>
+<path d="M24.0,326.0 H50.2 Q54.2,326.0 54.2,330.0 V338.0 Q54.2,342.0 50.2,342.0 H24.0 Z" fill="#5577B0"/>
+<text x="62.2" y="339" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">30 % (4,2 mg)</text>
+<text x="32" y="372" font-size="16" font-weight="600" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamin A</text>
+<path d="M24.0,382.0 H120.6 Q124.6,382.0 124.6,386.0 V394.0 Q124.6,398.0 120.6,398.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="132.6" y="395" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100 % (800 µg)</text>
+<path d="M24.0,402.0 H120.6 Q124.6,402.0 124.6,406.0 V414.0 Q124.6,418.0 120.6,418.0 H24.0 Z" fill="#C8642A"/>
+<text x="132.6" y="415" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100 % (800 µg)</text>
+<path d="M24.0,422.0 H120.6 Q124.6,422.0 124.6,426.0 V434.0 Q124.6,438.0 120.6,438.0 H24.0 Z" fill="#5577B0"/>
+<text x="132.6" y="435" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100 % (800 µg)</text>
+<text x="32" y="468" font-size="16" font-weight="600" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamin B12</text>
+<path d="M24.0,478.0 H120.6 Q124.6,478.0 124.6,482.0 V490.0 Q124.6,494.0 120.6,494.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="132.6" y="491" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">100 % (2,5 µg)</text>
+<path d="M24.0,498.0 H140.8 Q144.8,498.0 144.8,502.0 V510.0 Q144.8,514.0 140.8,514.0 H24.0 Z" fill="#C8642A"/>
+<text x="152.8" y="511" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">120 % (3 µg)</text>
+<path d="M24.0,518.0 H321.9 Q325.9,518.0 325.9,522.0 V530.0 Q325.9,534.0 321.9,534.0 H24.0 Z" fill="#5577B0"/>
+<text x="333.9" y="531" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">300 % (7,5 µg)</text>
+<text x="496" y="570" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

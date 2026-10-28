@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 362" width="520" height="362" role="img" aria-labelledby="t d" lang="en">
+<title id="t">How much shorter a cold gets</title>
+<desc id="d">Cochrane reviews. Vitamin C figure for a 7-day cold in adults.. Vitamin C every day, all year: ~13 hours; Vitamin C started once ill: No consistent effect; Zinc started at the first symptoms: ~2 days, low certainty</desc>
+<rect width="520" height="362" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">How much shorter a cold gets</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Cochrane reviews. Vitamin C figure for a 7-day cold in</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">adults.</text>
+<line x1="24" y1="122" x2="24" y2="296" stroke="#DCE1DD"/>
+<text x="32" y="144" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamin C every day, all year</text>
+<path d="M24.0,152.0 H85.2 Q89.2,152.0 89.2,156.0 V168.0 Q89.2,172.0 85.2,172.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="97.2" y="168.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~13 hours</text>
+<text x="32" y="202" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamin C started once ill</text>
+<text x="32" y="226.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">No consistent effect</text>
+<text x="32" y="260" font-size="16" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Zinc started at the first symptoms</text>
+<path d="M24.0,268.0 H260.8 Q264.8,268.0 264.8,272.0 V284.0 Q264.8,288.0 260.8,288.0 H24.0 Z" fill="#4A9C7B"/>
+<text x="272.8" y="284.0" font-size="16" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">~2 days, low certainty</text>
+<text x="24.0" y="316" font-size="12" text-anchor="middle" fill="#5A6863">0 h</text>
+<text x="144.4" y="316" font-size="12" text-anchor="middle" fill="#5A6863">1 day</text>
+<text x="264.8" y="316" font-size="12" text-anchor="middle" fill="#5A6863">2 days</text>
+<text x="496" y="344" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 372" width="520" height="372" role="img" aria-labelledby="t d" lang="es">
+<title id="t">Un día de comida con 455 mg de magnesio</title>
+<desc id="d">Tres platos de esta guía frente a la ingesta adecuada de la EFSA. Desayuno: Gachas de avena con plátano y pipas de calabaza (receta abajo) 204 mg; Comida: Espinacas con garbanzos (receta abajo) 170 mg; Merienda: Un puñado de almendras (30 g) 81 mg. Total 455 mg.</desc>
+<rect width="520" height="372" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Un día de comida con 455 mg de magnesio</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">Tres platos de esta guía frente a la ingesta adecuada de la</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">EFSA</text>
+<line x1="291.4" y1="130" x2="291.4" y2="210" stroke="#B4470E" stroke-width="2"/>
+<line x1="336.0" y1="148" x2="336.0" y2="210" stroke="#B4470E" stroke-width="2"/>
+<text x="285.4" y="138" font-size="13" font-weight="600" text-anchor="end" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Mujeres 300 mg</text>
+<text x="342.0" y="156" font-size="13" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Hombres 350 mg</text>
+<path d="M24.0,166.0 H205.9 Q205.9,166.0 205.9,166.0 V196.0 Q205.9,196.0 205.9,196.0 H24.0 Z" fill="#0B4F3B"/>
+<text x="114.9" y="186" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">204</text>
+<path d="M207.9,166.0 H357.4 Q357.4,166.0 357.4,166.0 V196.0 Q357.4,196.0 357.4,196.0 H207.9 Z" fill="#4A9C7B"/>
+<text x="281.6" y="186" font-size="13" font-weight="700" text-anchor="middle" fill="#FFFFFF">170</text>
+<path d="M359.4,166.0 H425.6 Q429.6,166.0 429.6,170.0 V192.0 Q429.6,196.0 425.6,196.0 H359.4 Z" fill="#9CCDB6"/>
+<text x="393.5" y="186" font-size="13" font-weight="700" text-anchor="middle" fill="#10201A">81</text>
+<text x="435.6" y="186" font-size="15" font-weight="700" fill="#10201A">455 mg</text>
+<rect x="24" y="224" width="14" height="14" rx="3" fill="#0B4F3B"/>
+<text x="46" y="236" font-size="14" fill="#3E4C46">Desayuno: Gachas de avena con plátano y pipas de</text>
+<text x="46" y="254" font-size="14" fill="#3E4C46">calabaza</text>
+<text x="496" y="236" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">204 mg</text>
+<rect x="24" y="270" width="14" height="14" rx="3" fill="#4A9C7B"/>
+<text x="46" y="282" font-size="14" fill="#3E4C46">Comida: Espinacas con garbanzos</text>
+<text x="496" y="282" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">170 mg</text>
+<rect x="24" y="298" width="14" height="14" rx="3" fill="#9CCDB6"/>
+<text x="46" y="310" font-size="14" fill="#3E4C46">Merienda: Un puñado de almendras</text>
+<text x="496" y="310" font-size="14" font-weight="600" text-anchor="end" fill="#10201A">81 mg</text>
+<text x="496" y="354" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>

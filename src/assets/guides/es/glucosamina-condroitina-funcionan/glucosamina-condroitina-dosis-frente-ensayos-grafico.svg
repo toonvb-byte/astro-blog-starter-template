@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 606" width="520" height="606" role="img" aria-labelledby="t d" lang="es">
+<title id="t">Glucosamina y condroitina al día</title>
+<desc id="d">mg al día a la dosis de la etiqueta, frente a las dosis de los ensayos GAIT y MOVES. * La ficha no aclara si es por comprimido o por día. Glucosamina: Ensayos GAIT y MOVES 1.500 mg; Nutralie Glucosamina Complex* 1.000 mg; Vitamaze Glucosamin + Chondroitin + MSM 625 mg. Condroitina: Ensayos GAIT y MOVES 1.200 mg; Vitamaze Glucosamin + Chondroitin + MSM 625 mg; Nutralie Glucosamina Complex* 500 mg</desc>
+<rect width="520" height="606" rx="14" fill="#FFFFFF"/>
+<g font-family="'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<text x="24" y="38" font-size="21" font-weight="600" fill="#10201A">Glucosamina y condroitina al día</text>
+<text x="24" y="62" font-size="15" fill="#5A6863">mg al día a la dosis de la etiqueta, frente a las dosis de</text>
+<text x="24" y="82" font-size="15" fill="#5A6863">los ensayos GAIT y MOVES. * La ficha no aclara si es por</text>
+<text x="24" y="102" font-size="15" fill="#5A6863">comprimido o por día.</text>
+<rect x="24" y="134" width="14" height="14" rx="3" fill="#0B6B4F"/>
+<text x="44" y="146" font-size="14" fill="#3E4C46">Producto</text>
+<rect x="126.24000000000001" y="134" width="14" height="14" rx="3" fill="#9AA6A0"/>
+<text x="146.2" y="146" font-size="14" fill="#3E4C46">Dosis de los ensayos</text>
+<text x="24" y="186" font-size="16" font-weight="700" fill="#10201A">Glucosamina</text>
+<text x="32" y="216" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Ensayos GAIT y MOVES</text>
+<path d="M24.0,223.0 H392.0 Q396.0,223.0 396.0,227.0 V237.0 Q396.0,241.0 392.0,241.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="404.0" y="237" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">1.500 mg</text>
+<text x="32" y="271" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Nutralie Glucosamina Complex*</text>
+<path d="M24.0,278.0 H268.0 Q272.0,278.0 272.0,282.0 V292.0 Q272.0,296.0 268.0,296.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="280.0" y="292" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">1.000 mg</text>
+<text x="32" y="326" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamaze Glucosamin + Chondroitin + MSM</text>
+<path d="M24.0,333.0 H175.0 Q179.0,333.0 179.0,337.0 V347.0 Q179.0,351.0 175.0,351.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="187.0" y="347" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">625 mg</text>
+<line x1="24" y1="202" x2="24" y2="357" stroke="#DCE1DD"/>
+<text x="24" y="383" font-size="16" font-weight="700" fill="#10201A">Condroitina</text>
+<text x="32" y="413" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Ensayos GAIT y MOVES</text>
+<path d="M24.0,420.0 H317.6 Q321.6,420.0 321.6,424.0 V434.0 Q321.6,438.0 317.6,438.0 H24.0 Z" fill="#9AA6A0"/>
+<text x="329.6" y="434" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">1.200 mg</text>
+<text x="32" y="468" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Vitamaze Glucosamin + Chondroitin + MSM</text>
+<path d="M24.0,475.0 H175.0 Q179.0,475.0 179.0,479.0 V489.0 Q179.0,493.0 175.0,493.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="187.0" y="489" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">625 mg</text>
+<text x="32" y="523" font-size="14" fill="#10201A" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">Nutralie Glucosamina Complex*</text>
+<path d="M24.0,530.0 H144.0 Q148.0,530.0 148.0,534.0 V544.0 Q148.0,548.0 144.0,548.0 H24.0 Z" fill="#0B6B4F"/>
+<text x="156.0" y="544" font-size="15" font-weight="600" fill="#3E4C46" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" paint-order="stroke">500 mg</text>
+<line x1="24" y1="399" x2="24" y2="554" stroke="#DCE1DD"/>
+<text x="496" y="588" font-size="13" text-anchor="end" fill="#5A6863">nutrimetrics.eu</text>
+</g></svg>
