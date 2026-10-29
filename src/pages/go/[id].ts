@@ -6,6 +6,7 @@ export const prerender = false;
 interface OfferRow {
 	id: number;
 	merchant_url: string;
+	country: string;
 	network: string | null;
 	awin_mid: string | null;
 }
@@ -22,7 +23,7 @@ export const GET: APIRoute = async ({ params, url, request, locals }) => {
 	if (!Number.isInteger(id) || id <= 0) return new Response("Not found", { status: 404, headers });
 
 	const offer = await env.DB.prepare(
-		`SELECT o.id, o.merchant_url, r.network, r.awin_mid
+		`SELECT o.id, o.merchant_url, o.country, r.network, r.awin_mid
 		 FROM offers o JOIN retailers r ON r.id = o.retailer_id
 		 WHERE o.id = ?1 AND r.active = 1`,
 	)
@@ -48,6 +49,15 @@ export const GET: APIRoute = async ({ params, url, request, locals }) => {
 		if (placement) u.searchParams.set("clickref", placement);
 		u.searchParams.set("ued", offer.merchant_url);
 		target = u.toString();
+	} else if (offer.network === "amazon") {
+		// Amazon Associates: the store tag per marketplace is a Worker secret (AMAZON_TAG_ES / AMAZON_TAG_DE).
+		// Without it the visitor gets the plain product link. Also flip AFFILIATE.amazon in src/lib/site.ts.
+		const tag = offer.country === "ES" ? env.AMAZON_TAG_ES : offer.country === "DE" ? env.AMAZON_TAG_DE : undefined;
+		if (tag) {
+			const u = new URL(offer.merchant_url);
+			u.searchParams.set("tag", tag);
+			target = u.toString();
+		}
 	}
 
 	ctx.waitUntil(

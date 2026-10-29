@@ -36,6 +36,12 @@ export const ROUTES = {
 } as const satisfies Record<string, Record<Locale, string>>;
 export type RouteKey = keyof typeof ROUTES;
 
+/**
+ * Rankings exist per market, not in every language: Spanish rankings for Amazon.es, German for Amazon.de, none in English.
+ * URL: /{locale}/{RANKING_BASE}/{slug}/. Kept out of ROUTES so no empty index page is generated.
+ */
+export const RANKING_BASE: Partial<Record<Locale, string>> = { es: "mejores", de: "vergleich" };
+
 export const isLocale = (v: unknown): v is Locale => LOCALES.includes(v as Locale);
 
 /** Absolute path to a page in a given locale, always with trailing slash. */

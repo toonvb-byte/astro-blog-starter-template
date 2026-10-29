@@ -1,0 +1,498 @@
+---
+/**
+ * Ranking ("best of" list) for one product form in one market: /es/mejores/{slug}/ · /de/vergleich/{slug}/.
+ * Content: src/content/rankings/{locale}/{slug}.md. Order = weighted NutriMetrics score (lib/rankings.ts).
+ * Rules (claude/page-plan.md, claude/page-architecture.md):
+ *  - only label-verified products; no Amazon prices, ratings, review counts or images
+ *  - criteria and weights are disclosed on the page; commission never changes the order
+ *  - shop buttons only through AffiliateLink (/go/{offerId}); DE uses "Vergleich", never "Test/Testsieger"
+ *  - schema: Article + ItemList (own data only, no Product ratings) + FAQPage + BreadcrumbList
+ */
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import AffiliateLink from "../components/AffiliateLink.astro";
+import { LOCALES, path, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { getGuides, guideUrl, inlineMd } from "../lib/guides";
+import { getHubs, hubUrl } from "../lib/hubs";
+import { AFFILIATE, SITE_URL } from "../lib/site";
+import { CRITERIA, WEIGHTS, fmtScore, rankingAlternates, rankingUrl, ranked, total, type Criterion, type Ranking } from "../lib/rankings";
+
+interface Props { locale: Locale; ranking: Ranking }
+const { locale, ranking } = Astro.props;
+const d = ranking.data;
+const t = useT(locale);
+const { Content, headings } = await render(ranking);
+const alternates = await rankingAlternates(ranking);
+const url = rankingUrl(ranking);
+const updated = d.updatedDate ?? d.publishDate;
+const hub = (await getHubs(locale)).find((h) => h.data.kind === "ingredient" && h.data.hubKey === d.hubKey);
+const guidesHere = await getGuides(locale);
+const related = d.guides.map((k) => guidesHere.find((g) => g.data.translationKey === k)).filter((g) => g !== undefined);
+const list = ranked(ranking);
+const byId = new Map(list.map((p, i) => [p.id, { p, pos: i + 1 }]));
+for (const pick of d.picks) if (!byId.has(pick.product)) throw new Error(`Ranking ${ranking.id}: pick "${pick.product}" is not a product id`);
+const affiliateLive = AFFILIATE.amazon || AFFILIATE.awin;
+const showNrv = list.some((p) => p.nrv);
+const store = d.market === "ES" ? "Amazon.es" : "Amazon.de";
+
+const S = {
+	es: {
+		eyebrow: "Ranking", analysed: "productos analizados", checked: "Etiquetas revisadas", picks: "Nuestras elecciones",
+		table: "Comparativa", th: ["#", "Producto", "Por dosis diaria", "% VRN", "Frente a los límites", "Envase", "Puntuación"],
+		method: "Cómo puntuamos", weight: "peso", products: "Análisis producto a producto", score: "Puntuación NutriMetrics", of10: "de 10",
+		goodFor: "Para quién", skipIf: "Mejor otro si", catch: "Ojo con la etiqueta", buy: `Ver en ${store}`, labelSrc: "Fuente de la etiqueta",
+		excluded: "Por qué estos productos no están en la lista", numbers: "Cifras clave", careful: "Quién debe tener cuidado",
+		faq: "Preguntas frecuentes", sources: "Fuentes", form: "Forma", daily: "Dosis diaria", nrv: "% VRN", limit: "Límites", pack: "Envase",
+		additives: "Otros ingredientes", extras: "Además", hubCta: "Formas, dosis y declaraciones autorizadas", guides: "Para saber más",
+		criteria: { dose: "Dosis", form: "Forma y calidad", label: "Etiqueta honesta", additives: "Aditivos", practical: "Uso práctico" },
+		priceNote: "El precio aún no cuenta en la puntuación: solo publicaremos precios de fuentes que lo permitan (feeds de las tiendas o la API de Amazon) y entonces añadiremos el coste por dosis diaria.",
+		moneyNote: affiliateLive
+			? "Algunos enlaces son de afiliado: si compras a través de ellos podemos recibir una comisión, sin coste para ti. La comisión nunca cambia el orden ni la puntuación."
+			: "Ningún fabricante ha pagado por aparecer. Si en el futuro los enlaces a tiendas pasan a ser de afiliado, lo indicaremos aquí; la comisión nunca cambiará el orden ni la puntuación.",
+		moneyMore: "Cómo ganamos dinero", methodMore: "Metodología completa", rankShort: "Puesto",
+	},
+	de: {
+		eyebrow: "Vergleich", analysed: "Produkte analysiert", checked: "Etiketten geprüft", picks: "Unsere Auswahl",
+		table: "Vergleichstabelle", th: ["#", "Produkt", "Pro Tagesdosis", "% NRV", "Grenzwerte", "Packung", "Score"],
+		method: "So bewerten wir", weight: "Gewicht", products: "Alle Produkte im Detail", score: "NutriMetrics-Score", of10: "von 10",
+		goodFor: "Passt zu", skipIf: "Eher nicht, wenn", catch: "Der Haken", buy: `Bei ${store} ansehen`, labelSrc: "Etikett-Quelle",
+		excluded: "Warum diese Bestseller fehlen", numbers: "Die wichtigsten Zahlen", careful: "Wer aufpassen sollte",
+		faq: "Häufige Fragen", sources: "Quellen", form: "Form", daily: "Tagesdosis", nrv: "% NRV", limit: "Grenzwerte", pack: "Packung",
+		additives: "Weitere Zutaten", extras: "Außerdem", hubCta: "Formen, Dosis und zugelassene Angaben", guides: "Mehr dazu",
+		criteria: { dose: "Dosis", form: "Form und Qualität", label: "Ehrliches Etikett", additives: "Zusatzstoffe", practical: "Alltag" },
+		priceNote: "Der Preis fließt noch nicht in den Score ein: Wir veröffentlichen Preise nur aus Quellen, die das erlauben (Shop-Feeds oder die Amazon-API), und ergänzen dann die Kosten pro Tagesdosis.",
+		moneyNote: affiliateLive
+			? "Einige Links sind Affiliate-Links: Kaufst du darüber, erhalten wir eventuell eine Provision, ohne Mehrkosten für dich. Die Provision ändert nie Reihenfolge oder Score."
+			: "Kein Hersteller hat für seinen Platz bezahlt. Werden Shop-Links später zu Affiliate-Links, steht das hier; die Provision ändert nie Reihenfolge oder Score.",
+		moneyMore: "Wie wir Geld verdienen", methodMore: "Unsere Methodik", rankShort: "Platz",
+	},
+	en: {
+		eyebrow: "Ranking", analysed: "products analysed", checked: "Labels checked", picks: "Our picks",
+		table: "Comparison", th: ["#", "Product", "Per daily dose", "% NRV", "Against the limits", "Pack", "Score"],
+		method: "How we score", weight: "weight", products: "Product by product", score: "NutriMetrics score", of10: "out of 10",
+		goodFor: "Good for", skipIf: "Pick another if", catch: "Label catch", buy: `View on ${store}`, labelSrc: "Label source",
+		excluded: "Why these best-sellers are not on the list", numbers: "Key numbers", careful: "Who should be careful",
+		faq: "FAQ", sources: "Sources", form: "Form", daily: "Daily dose", nrv: "% NRV", limit: "Limits", pack: "Pack",
+		additives: "Other ingredients", extras: "Also", hubCta: "Forms, doses and authorised claims", guides: "Go deeper",
+		criteria: { dose: "Dose", form: "Form and quality", label: "Honest label", additives: "Additives", practical: "Everyday use" },
+		priceNote: "Price is not part of the score yet: we only publish prices from sources that allow it, and will then add cost per daily dose.",
+		moneyNote: "No manufacturer paid to be listed. Commission never changes the order or the score.",
+		moneyMore: "How we make money", methodMore: "Methodology", rankShort: "Rank",
+	},
+}[locale];
+
+const limitClass = { ok: "lv-ok", low: "lv-low", at: "lv-at", above: "lv-above" } as const;
+const pct = (c: Criterion) => `${WEIGHTS[c]} %`;
+const anchor = (id: string) => `p-${id}`;
+const placement = (id: string, where: string) => `rk:${d.rankingKey}-${d.market.toLowerCase()}:${id}:${where}`;
+
+const toc = [
+	...(d.takeaways.length ? [{ slug: "quick", text: t("hub.quick") }] : []),
+	...(d.picks.length ? [{ slug: "picks", text: S.picks }] : []),
+	{ slug: "table", text: S.table },
+	{ slug: "method", text: S.method },
+	...headings.filter((h) => h.depth === 2).map((h) => ({ slug: h.slug, text: h.text })),
+	{ slug: "products", text: S.products },
+	...(d.excluded.length ? [{ slug: "excluded", text: S.excluded }] : []),
+	...(d.facts.length ? [{ slug: "numbers", text: S.numbers }] : []),
+	...(d.cautions.length ? [{ slug: "careful", text: S.careful }] : []),
+	...(d.faq.length ? [{ slug: "faq", text: S.faq }] : []),
+	...(d.sources.length ? [{ slug: "sources", text: S.sources }] : []),
+];
+
+const abs = (p: string) => new URL(p, SITE_URL).href;
+const jsonLd: object[] = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: d.h1,
+		name: d.title,
+		description: d.description,
+		inLanguage: locale,
+		url: abs(url),
+		datePublished: d.publishDate.toISOString(),
+		dateModified: updated.toISOString(),
+		author: { "@type": "Person", name: d.author, url: abs(`${path(locale, "about")}#team`) },
+		publisher: { "@id": `${SITE_URL}/#org` },
+		isPartOf: { "@id": `${SITE_URL}/#website` },
+		...(hub ? { about: { "@type": "Thing", name: hub.data.name, url: abs(hubUrl(hub)) } } : {}),
+		...(d.sources.some((s) => s.url)
+			? { citation: d.sources.filter((s) => s.url).map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })) }
+			: {}),
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: d.h1,
+		itemListOrder: "https://schema.org/ItemListOrderAscending",
+		numberOfItems: list.length,
+		itemListElement: list.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: `${p.brand} ${p.name}`, url: `${abs(url)}#${anchor(p.id)}` })),
+	},
+	...(d.faq.length
+		? [{
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				mainEntity: d.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+			}]
+		: []),
+];
+
+const crumbs = [
+	{ name: t("article.home"), href: path(locale) },
+	{ name: t("nav.supplements"), href: path(locale, "supplements") },
+	...(hub ? [{ name: hub.data.name, href: hubUrl(hub) }] : []),
+	{ name: d.name, href: url },
+];
+---
+<Base
+	locale={locale}
+	title={`${d.title} | NutriMetrics`.length <= 62 ? `${d.title} | NutriMetrics` : d.title}
+	description={d.description}
+	alternates={alternates}
+	active="supplements"
+	ogType="article"
+	disclosure={affiliateLive}
+	breadcrumbs={crumbs}
+	jsonLd={jsonLd}
+>
+	<div class="container">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				{crumbs.map((c, i) => (i < crumbs.length - 1 ? <li><a href={c.href}>{c.name}</a></li> : <li aria-current="page">{c.name}</li>))}
+			</ol>
+		</nav>
+
+		<header class="hub-head">
+			<span class="eyebrow">{S.eyebrow} · {list.length} {S.analysed}</span>
+			<h1 class="h1" style="font-size:clamp(2rem,3.6vw,3rem)">{d.h1}</h1>
+			<p class="lead">{d.dek}</p>
+			<div class="byline">
+				<span><span class="muted">{t("article.writtenBy")}</span> <a href={`${path(locale, "about")}#team`}>{d.author}</a></span>
+				<span><span class="muted">{S.checked}</span> <time datetime={d.checked.toISOString().slice(0, 10)}>{formatDate(d.checked, locale)}</time></span>
+				{Object.keys(alternates).length > 1 && (
+					<span>
+						<span class="muted">{t("article.alsoIn")}</span>
+						{LOCALES.filter((l) => l !== locale && alternates[l]).map((l) => (
+							<a href={alternates[l]} hreflang={l} lang={l} class="lang-pill">{l.toUpperCase()}</a>
+						))}
+					</span>
+				)}
+			</div>
+		</header>
+
+		<div class="hub-layout">
+			<aside aria-labelledby="toc-h" class="toc">
+				<h2 id="toc-h">{t("article.toc")}</h2>
+				<ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+			</aside>
+
+			<article class="prose">
+				{d.takeaways.length > 0 && (
+					<section id="quick" aria-labelledby="quick-h" class="quick">
+						<h2 id="quick-h">{t("hub.quick")}</h2>
+						<ul>{d.takeaways.map((k) => <li set:html={inlineMd(k)} />)}</ul>
+					</section>
+				)}
+
+				{d.picks.length > 0 && (
+					<section id="picks" aria-labelledby="picks-h">
+						<h2 id="picks-h">{S.picks}</h2>
+						<div class="picks">
+							{d.picks.map((pick) => {
+								const { p, pos } = byId.get(pick.product)!;
+								return (
+									<div class="pick">
+										<span class="pick-label">{pick.label}</span>
+										<a class="pick-name" href={`#${anchor(p.id)}`}><span class="brand">{p.brand}</span> {p.name}</a>
+										<span class="pick-meta"><span class="score-pill">{fmtScore(total(p), locale)}</span> {S.rankShort} {pos} · {p.daily}</span>
+										<p set:html={inlineMd(pick.why)} />
+										<AffiliateLink offerId={p.offerId} placement={placement(p.id, "pick")} variant="outline" class="btn-sm">{S.buy}</AffiliateLink>
+									</div>
+								);
+							})}
+						</div>
+					</section>
+				)}
+
+				<section id="table" aria-labelledby="table-h">
+					<h2 id="table-h">{S.table}</h2>
+					<div class="table-wrap">
+						<table class="table rk-table stack">
+							<thead><tr>{S.th.map((h, i) => (i === 3 && !showNrv ? null : <th scope="col">{h}</th>))}</tr></thead>
+							<tbody>
+								{list.map((p, i) => (
+									<tr>
+										<td data-label={S.th[0]} class="pos">{i + 1}</td>
+										<th scope="row">
+											<a href={`#${anchor(p.id)}`}><span class="brand">{p.brand}</span> {p.name}</a><span class="dose">{p.form}</span>
+											<AffiliateLink offerId={p.offerId} placement={placement(p.id, "table")} variant="outline" class="btn-sm row-shop">{store}</AffiliateLink>
+										</th>
+										<td data-label={S.th[2]} class="c-daily">{p.daily}<span class="dose">{p.dailyNote}</span></td>
+										{showNrv && <td data-label={S.th[3]} class="c-nrv">{p.nrv ?? "—"}</td>}
+										<td data-label={S.th[4]} class="c-limit"><span class={`lv ${limitClass[p.limitLevel]}`}>{p.limit}</span></td>
+										<td data-label={S.th[5]}>{p.pack}</td>
+										<td data-label={S.th[6]}><span class="score-pill">{fmtScore(total(p), locale)}</span></td>
+									</tr>
+								))}
+							</tbody>
+							<caption>{S.checked}: {formatDate(d.checked, locale)}</caption>
+						</table>
+					</div>
+				</section>
+
+				<section id="method" aria-labelledby="method-h" class="method">
+					<h2 id="method-h">{S.method}</h2>
+					<ul class="method-list">
+						{CRITERIA.map((c) => {
+							const how = d.method.find((m) => m.criterion === c)?.how;
+							return (
+								<li>
+									<span class="m-head"><strong>{S.criteria[c]}</strong> <span class="m-w">{pct(c)} {S.weight}</span></span>
+									{how && <span class="m-how" set:html={inlineMd(how)} />}
+								</li>
+							);
+						})}
+					</ul>
+					<p>{S.priceNote}</p>
+					<p>{S.moneyNote} <a href={path(locale, "disclosure")}>{S.moneyMore}</a> · <a href={path(locale, "about")}>{S.methodMore}</a></p>
+				</section>
+
+				<Content />
+
+				<section id="products" aria-labelledby="products-h">
+					<h2 id="products-h">{S.products}</h2>
+					<ol class="rk-list">
+						{list.map((p, i) => (
+							<li id={anchor(p.id)} class="rk-item">
+								<div class="rk-top">
+									<span class="rk-pos" aria-label={`${S.rankShort} ${i + 1}`}>{i + 1}</span>
+									<h3><span class="brand">{p.brand}</span> {p.name}</h3>
+									<span class="rk-score"><span class="score-big">{fmtScore(total(p), locale)}</span><span class="muted"> {S.of10}</span></span>
+								</div>
+								<p class="rk-summary">{p.summary}</p>
+								<ul class="bars" aria-label={S.score}>
+									{CRITERIA.map((c) => (
+										<li><span class="bar-name">{S.criteria[c]}</span><span class="bar"><span style={`width:${p.scores[c] * 10}%`} /></span><span class="bar-val mono">{p.scores[c]}</span></li>
+									))}
+								</ul>
+								<dl class="rk-facts">
+									<div><dt>{S.form}</dt><dd>{p.form}</dd></div>
+									<div><dt>{S.daily}</dt><dd>{p.daily} <span class="muted">({p.dailyNote})</span></dd></div>
+									{p.nrv && <div><dt>{S.nrv}</dt><dd>{p.nrv}</dd></div>}
+									<div><dt>{S.limit}</dt><dd><span class={`lv ${limitClass[p.limitLevel]}`}>{p.limit}</span></dd></div>
+									<div><dt>{S.pack}</dt><dd>{p.pack}</dd></div>
+									<div><dt>{S.additives}</dt><dd>{p.additives}</dd></div>
+									{p.extras && <div><dt>{S.extras}</dt><dd>{p.extras}</dd></div>}
+								</dl>
+								<p set:html={inlineMd(p.verdict)} />
+								<div class="fit">
+									<div class="fit-box yes"><strong>{S.goodFor}:</strong> <span set:html={inlineMd(p.goodFor)} /></div>
+									<div class="fit-box no"><strong>{S.skipIf}:</strong> <span set:html={inlineMd(p.skipIf)} /></div>
+								</div>
+								{p.catch && <p class="catch"><strong>{S.catch}:</strong> <span set:html={inlineMd(p.catch)} /></p>}
+								<div class="rk-actions">
+									<AffiliateLink offerId={p.offerId} placement={placement(p.id, "card")}>{S.buy}</AffiliateLink>
+									<a href={p.source} rel="noopener nofollow" target="_blank" class="src-link">{S.labelSrc}: {p.sourceLabel}</a>
+								</div>
+							</li>
+						))}
+					</ol>
+				</section>
+
+				{d.excluded.length > 0 && (
+					<section id="excluded" aria-labelledby="excluded-h">
+						<h2 id="excluded-h">{S.excluded}</h2>
+						<ul class="excluded">{d.excluded.map((x) => <li><strong>{x.name}:</strong> <span set:html={inlineMd(x.reason)} /></li>)}</ul>
+					</section>
+				)}
+
+				{d.facts.length > 0 && (
+					<section id="numbers" aria-labelledby="numbers-h">
+						<h2 id="numbers-h">{S.numbers}</h2>
+						<dl class="facts">
+							{d.facts.map((f) => (
+								<div class="fact">
+									<dt>{f.label}</dt>
+									<dd class="fact-val">{f.value}</dd>
+									{f.note && <dd class="fact-note">{f.note}</dd>}
+								</div>
+							))}
+						</dl>
+					</section>
+				)}
+
+				{d.cautions.length > 0 && (
+					<section id="careful" aria-labelledby="careful-h" class="careful">
+						<h2 id="careful-h">{S.careful}</h2>
+						<ul>{d.cautions.map((c) => <li set:html={inlineMd(c)} />)}</ul>
+					</section>
+				)}
+
+				{hub && (
+					<aside class="finder-cta" aria-labelledby="hcta-h">
+						<div>
+							<h2 id="hcta-h">{hub.data.name}: {S.hubCta}</h2>
+							<p>{hub.data.description}</p>
+						</div>
+						<a class="btn btn-primary" href={hubUrl(hub)}>{hub.data.name} →</a>
+					</aside>
+				)}
+
+				{d.faq.length > 0 && (
+					<section id="faq" aria-labelledby="faq-h">
+						<h2 id="faq-h">{S.faq}</h2>
+						{d.faq.map((f, i) => (
+							<details class="faq" open={i === 0}>
+								<summary>{f.q}</summary>
+								<p>{f.a}</p>
+							</details>
+						))}
+					</section>
+				)}
+
+				{d.sources.length > 0 && (
+					<section id="sources" aria-labelledby="src-h">
+						<h2 id="src-h">{S.sources}</h2>
+						<ol class="sources">
+							{d.sources.map((s) => <li>{s.url ? <a href={s.url} rel="noopener" target="_blank">{s.title}</a> : s.title}</li>)}
+						</ol>
+					</section>
+				)}
+
+				<p role="note" class="hub-note">{t("hub.note")}</p>
+			</article>
+		</div>
+
+		{related.length > 0 && (
+			<section aria-labelledby="rel-h" class="section" style="padding-bottom:var(--nm-section-gap)">
+				<h2 id="rel-h" class="h2">{S.guides}</h2>
+				<div class="grid-auto">
+					{related.map((r) => (
+						<a href={guideUrl(r)} class="card rel-card">
+							<span class="rel-cat">{r.data.category}</span>
+							<span class="rel-title">{r.data.title}</span>
+							<span class="muted" style="font-size:14px">{r.data.readingMinutes} {t("guides.read")}</span>
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+	</div>
+</Base>
+
+<style>
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 0 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	.hub-head { max-width: 820px; padding: 28px 0 32px; display: flex; flex-direction: column; gap: 18px; }
+	.byline { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; align-items: center; padding-top: 16px; border-top: 1px solid var(--nm-line); }
+	.byline a { font-weight: 600; }
+	.lang-pill { margin-left: 6px; padding: 4px 8px; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-sm); text-decoration: none; font-size: 13px; }
+	.hub-layout { display: grid; grid-template-columns: 240px minmax(0, 860px); gap: 56px; padding-bottom: 32px; }
+	.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }
+	.toc h2 { font-family: var(--nm-font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nm-muted); margin-bottom: 10px; }
+	.toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--nm-line); }
+	.toc a { display: block; padding: 7px 14px; color: var(--nm-ink-2); text-decoration: none; }
+	.toc a:hover { color: var(--nm-accent); }
+	@media (max-width: 900px) {
+		.hub-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+		.toc { position: static; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px; }
+	}
+	.quick { background: var(--nm-accent-soft); border-radius: var(--nm-radius-lg); padding: 24px 28px; }
+	.quick h2 { margin-top: 0; font-size: 22px; }
+	.quick ul { margin-top: 12px; }
+	.brand { font-weight: 600; }
+	.mono { font-variant-numeric: tabular-nums; }
+	.picks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 14px; margin-top: 16px; }
+	.pick { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+	.pick-label { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--nm-accent); }
+	.pick-name { font-family: var(--nm-font-display); font-size: 19px; line-height: 1.25; text-decoration: none; color: var(--nm-ink); }
+	.pick-name:hover { color: var(--nm-accent); }
+	.pick-meta { font-size: 14px; color: var(--nm-muted); }
+	.pick p { font-size: 15px; line-height: 1.5; color: var(--nm-ink-2); margin: 0; flex: 1; }
+	.pick :global(.btn-sm) { min-height: 38px; padding: 0 14px; font-size: 14px; align-self: flex-start; white-space: nowrap; }
+	.score-pill { display: inline-block; min-width: 2.6em; text-align: center; font-weight: 700; font-size: 14px; padding: 2px 8px; border-radius: var(--nm-radius-sm); background: var(--nm-accent-soft); color: var(--nm-accent-ink); font-variant-numeric: tabular-nums; }
+	.rk-table th[scope="row"] { font-weight: 500; min-width: 190px; }
+	.rk-table :global(.row-shop) { margin-top: 8px; min-height: 34px; padding: 0 12px; font-size: 13px; }
+	.rk-table .c-daily { min-width: 140px; }
+	.rk-table .c-nrv { min-width: 70px; font-variant-numeric: tabular-nums; }
+	.rk-table .c-limit { min-width: 140px; }
+	.rk-table th[scope="row"] a { text-decoration: none; color: var(--nm-ink); }
+	.rk-table .pos { font-weight: 700; color: var(--nm-accent); }
+	.dose { display: block; font-size: 13px; color: var(--nm-muted); font-weight: 400; margin-top: 2px; }
+	.table td, .table th { vertical-align: top; }
+	.prose .table-wrap .table { font-size: 14.5px; }
+	.lv { display: inline-block; font-size: 13px; line-height: 1.4; padding: 3px 8px; border-radius: var(--nm-radius-sm); }
+	.lv-ok { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.lv-low { background: var(--nm-line-soft); color: var(--nm-ink-2); }
+	.lv-at, .lv-above { background: var(--nm-deal-soft); color: var(--nm-deal-ink); }
+	.method { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 20px 26px; }
+	.method h2 { margin-top: 0; font-size: 22px; }
+	.method-list { list-style: none; padding: 0; margin: 12px 0 16px; display: flex; flex-direction: column; gap: 12px; }
+	.method-list li { display: flex; flex-direction: column; gap: 2px; }
+	.m-w { font-size: 13px; color: var(--nm-muted); font-weight: 500; margin-left: 6px; }
+	.m-how { font-size: 15px; color: var(--nm-ink-2); line-height: 1.5; }
+	.method p { font-size: 15px; color: var(--nm-ink-2); line-height: 1.55; }
+	.method p + p { margin-top: 10px; }
+	.rk-list { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 22px; }
+	.rk-item { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 22px 24px; scroll-margin-top: 20px; }
+	.rk-item:target { border-color: var(--nm-accent); box-shadow: 0 0 0 2px var(--nm-accent-soft); }
+	.rk-top { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; }
+	.rk-pos { width: 40px; height: 40px; border-radius: 50%; background: var(--nm-accent); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 18px; }
+	.rk-top h3 { margin: 0; font-size: 21px; line-height: 1.25; }
+	.rk-score { white-space: nowrap; font-size: 14px; }
+	.score-big { font-family: var(--nm-font-display); font-size: 28px; font-weight: 700; color: var(--nm-accent-ink); font-variant-numeric: tabular-nums; }
+	.rk-summary { font-weight: 500; margin: 12px 0 6px; }
+	.bars { list-style: none; padding: 0; margin: 10px 0 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 6px 18px; }
+	.bars li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: center; font-size: 13px; }
+	.bar-name { color: var(--nm-ink-2); }
+	.bar { grid-column: 1 / -1; grid-row: 2; height: 6px; background: var(--nm-line-soft); border-radius: 3px; overflow: hidden; }
+	.bar span { display: block; height: 100%; background: var(--nm-accent); }
+	.bar-val { font-weight: 600; }
+	.rk-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 10px 18px; margin: 0 0 14px; padding: 14px 0; border-top: 1px solid var(--nm-line-soft); border-bottom: 1px solid var(--nm-line-soft); font-size: 15px; }
+	.rk-facts dt { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--nm-muted); }
+	.rk-facts dd { margin: 2px 0 0; line-height: 1.45; }
+	.fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 10px; margin: 14px 0; }
+	.fit-box { border-radius: var(--nm-radius-md); padding: 12px 16px; font-size: 15px; line-height: 1.5; }
+	.fit-box.yes { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.fit-box.no { background: var(--nm-line-soft); color: var(--nm-ink-2); }
+	.catch { background: var(--nm-deal-soft); color: var(--nm-deal-ink); border-radius: var(--nm-radius-md); padding: 12px 16px; font-size: 15px; line-height: 1.5; }
+	.rk-actions { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: 14px; }
+	.src-link { font-size: 14px; }
+	.excluded li + li { margin-top: 10px; }
+	.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: 12px; margin: 16px 0 0; }
+	.fact { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
+	.fact dt { font-size: 14px; line-height: 1.4; color: var(--nm-muted); font-weight: 500; }
+	.fact dd { margin: 0; }
+	.fact dd.fact-val { font-size: 19px; font-weight: 600; color: var(--nm-ink); line-height: 1.3; font-variant-numeric: tabular-nums; }
+	.fact-note { font-size: 13px; line-height: 1.45; color: var(--nm-ink-2); }
+	.careful { background: var(--nm-deal-soft); color: var(--nm-deal-ink); border-radius: var(--nm-radius-lg); padding: 20px 26px; }
+	.careful h2 { margin-top: 0; font-size: 22px; color: var(--nm-deal-ink); }
+	.careful ul { margin-top: 10px; font-size: 16px; }
+	.finder-cta { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 20px 24px; margin-top: 2em; }
+	.finder-cta > div { flex: 1 1 320px; min-width: 0; }
+	.finder-cta h2 { margin: 0 0 4px; font-size: 20px; }
+	.finder-cta p { font-size: 15px; color: var(--nm-ink-2); line-height: 1.5; }
+	.faq { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 0 20px; font-size: 16px; }
+	.faq + .faq { margin-top: 10px; }
+	.faq summary { cursor: pointer; font-weight: 600; min-height: 52px; display: flex; align-items: center; }
+	.faq p { padding-bottom: 16px; color: var(--nm-ink-2); }
+	.sources { font-size: 15px; word-break: break-word; }
+	.hub-note { font-size: 13px; color: var(--nm-muted); border-top: 1px solid var(--nm-line); padding-top: 14px; margin-top: 2em; }
+	.rel-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; text-decoration: none; color: var(--nm-ink); }
+	.rel-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.rel-cat { font-size: 13px; font-weight: 600; color: var(--nm-accent); }
+	.rel-title { font-family: var(--nm-font-display); font-weight: 600; font-size: 20px; line-height: 1.25; }
+	@media (max-width: 640px) {
+		.stack thead { display: none; }
+		.stack, .stack tbody, .stack tr, .stack th, .stack td { display: block; width: 100%; }
+		.stack tr { padding: 14px 0; border-bottom: 1px solid var(--nm-line-soft); }
+		.stack tbody tr:last-child { border-bottom: 0; }
+		.stack th[scope="row"], .stack td { border: 0; padding: 4px 16px; background: none; }
+		.stack td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--nm-muted); }
+		.rk-item { padding: 18px; }
+		.rk-top { grid-template-columns: auto 1fr; }
+		.rk-score { grid-column: 1 / -1; }
+		.quick, .careful, .method { padding: 18px; }
+	}
+</style>

@@ -16,6 +16,7 @@ import { SITE_URL } from "../lib/site";
 import { FINDER_TO_GLOSSARY, glossaryUrl } from "../lib/glossary";
 import { schemaImages, socialImage } from "../lib/images";
 import HeroImage from "../components/HeroImage.astro";
+import { rankingsForHub, rankingUrl } from "../lib/rankings";
 
 interface Props { locale: Locale; hub: Hub }
 const { locale, hub } = Astro.props;
@@ -35,6 +36,8 @@ const products = productsFor(ingIds, d.finderGoal ? undefined : d.hubKey);
 const showIds = [...ingIds, ...d.finderShow.filter((i) => !ingIds.includes(i))];
 const hubForIngredient = (id: string) => hubsHere.find((h) => h.data.kind === "ingredient" && h.data.finderIngredients.includes(id));
 
+const rankingsHere = d.kind === "ingredient" ? await rankingsForHub(d.hubKey, locale) : [];
+const rankingCta = { en: "Ranked by label analysis", es: "Ranking por análisis de etiqueta", de: "Vergleich nach Etikett-Analyse" }[locale];
 const guidesHere = await getGuides(locale);
 const related = d.guides.map((k) => guidesHere.find((g) => g.data.translationKey === k)).filter((g) => g !== undefined);
 const siblings = hubsHere.filter((h) => h.id !== hub.id && (d.kind === "goal" ? h.data.kind === "goal" : h.data.group === d.group)).slice(0, 4);
@@ -233,6 +236,12 @@ const jsonLd: object[] = [
 
 				<section id="products" aria-labelledby="products-h">
 					<h2 id="products-h">{t("hub.products")}</h2>
+					{rankingsHere.map((r) => (
+						<a class="rank-link" href={rankingUrl(r)}>
+							<span class="rank-link-k">{rankingCta}</span>
+							<span class="rank-link-t">{r.data.h1} →</span>
+						</a>
+					))}
 					{products.length > 0 ? (
 						<>
 							<p class="small-lead">{t("hub.productsLead")}</p>
@@ -387,6 +396,10 @@ const jsonLd: object[] = [
 	.claim-box.yes { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
 	.claim-box.no { background: #fff; border: 1px solid var(--nm-line); color: var(--nm-ink-2); }
 	.small-lead { font-size: 15px; color: var(--nm-muted); line-height: 1.5; }
+	.rank-link { display: flex; flex-direction: column; gap: 4px; margin: 14px 0 18px; padding: 16px 20px; background: var(--nm-accent-soft); border-radius: var(--nm-radius-md); text-decoration: none; color: var(--nm-accent-ink); }
+	.rank-link:hover { box-shadow: 0 0 0 2px var(--nm-accent); color: var(--nm-accent-ink); }
+	.rank-link-k { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+	.rank-link-t { font-family: var(--nm-font-display); font-size: 19px; font-weight: 600; line-height: 1.3; }
 	.products th[scope="row"] { font-weight: 500; min-width: 180px; }
 	.products .brand { font-weight: 600; }
 	.products .dose { display: block; font-size: 13px; color: var(--nm-muted); font-weight: 400; margin-top: 2px; }

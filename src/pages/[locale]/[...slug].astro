@@ -24,11 +24,15 @@ import Finder from "../../views/Finder.astro";
 import HubsIndex from "../../views/HubsIndex.astro";
 import HubView from "../../views/Hub.astro";
 import Glossary from "../../views/Glossary.astro";
+import RankingView from "../../views/Ranking.astro";
+import { getRankings, rankingLocale, rankingSlug, type Ranking } from "../../lib/rankings";
+import { RANKING_BASE } from "../../i18n/config";
 
 type Props =
-	| { kind: RouteKey; guide?: undefined; hub?: undefined }
-	| { kind: "article"; guide: Guide; hub?: undefined }
-	| { kind: "hub"; hub: Hub; guide?: undefined };
+	| { kind: RouteKey; guide?: undefined; hub?: undefined; ranking?: undefined }
+	| { kind: "article"; guide: Guide; hub?: undefined; ranking?: undefined }
+	| { kind: "hub"; hub: Hub; guide?: undefined; ranking?: undefined }
+	| { kind: "ranking"; ranking: Ranking; guide?: undefined; hub?: undefined };
 
 export const getStaticPaths = (async () => {
 	const pages = LOCALES.flatMap((locale) =>
@@ -46,11 +50,16 @@ export const getStaticPaths = (async () => {
 		params: { locale: hubLocale(hub), slug: `${ROUTES.supplements[hubLocale(hub)]}/${hubSlug(hub)}` },
 		props: { kind: "hub" as const, hub },
 	}));
-	return [...pages, ...articles, ...hubs];
+	// /es/mejores/{slug}/ · /de/vergleich/{slug}/ — rankings exist only in their market's language.
+	const rankings = (await getRankings()).map((ranking) => ({
+		params: { locale: rankingLocale(ranking), slug: `${RANKING_BASE[rankingLocale(ranking)]}/${rankingSlug(ranking)}` },
+		props: { kind: "ranking" as const, ranking },
+	}));
+	return [...pages, ...articles, ...hubs, ...rankings];
 }) satisfies GetStaticPaths;
 
 const locale = Astro.params.locale as Locale;
-const { kind, guide, hub } = Astro.props as Props;
+const { kind, guide, hub, ranking } = Astro.props as Props;
 ---
 {kind === "guides" && <GuidesIndex locale={locale} />}
 {kind === "article" && guide && <Article locale={locale} guide={guide} />}
@@ -58,6 +67,7 @@ const { kind, guide, hub } = Astro.props as Props;
 {kind === "finder" && <Finder locale={locale} />}
 {kind === "supplements" && <HubsIndex locale={locale} />}
 {kind === "hub" && hub && <HubView locale={locale} hub={hub} />}
+{kind === "ranking" && ranking && <RankingView locale={locale} ranking={ranking} />}
 {kind === "glossary" && <Glossary locale={locale} />}
 {(kind === "prices" || kind === "compare") && <ComingSoon locale={locale} which={kind} />}
 {(kind === "privacy" || kind === "cookies" || kind === "imprint" || kind === "disclosure") && <Legal locale={locale} which={kind} />}

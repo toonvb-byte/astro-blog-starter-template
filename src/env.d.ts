@@ -8,4 +8,7 @@ declare namespace App {
 // Worker secrets (not in wrangler.json, so `wrangler types` doesn't see them).
 interface Env {
 	AWIN_PUBLISHER_ID?: string;
+	/** Amazon Associates store tags, e.g. "nutrimetrics-21". Used by /go/ for offers of retailers with network 'amazon'. */
+	AMAZON_TAG_ES?: string;
+	AMAZON_TAG_DE?: string;
 }

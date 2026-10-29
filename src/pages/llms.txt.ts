@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { LOCALES, path } from "../i18n/config";
 import { getGuides, guideUrl, guideLocale } from "../lib/guides";
 import { getHubs, hubUrl, hubLocale } from "../lib/hubs";
+import { getRankings, rankingUrl, rankingLocale } from "../lib/rankings";
 import { SITE_NAME, SITE_URL } from "../lib/site";
 
 /**
@@ -32,6 +33,17 @@ export const GET: APIRoute = async () => {
 		if (!list.length) continue;
 		lines.push("", `## Supplement pages — ${LANG[l] ?? l}`, "");
 		for (const h of list) lines.push(`- [${h.data.title}](${abs(hubUrl(h))}): ${h.data.description.replace(/\s+/g, " ").trim()}`);
+	}
+	const rankings = await getRankings();
+	for (const l of LOCALES) {
+		const list = rankings.filter((r) => rankingLocale(r) === l);
+		if (!list.length) continue;
+		lines.push(
+			"",
+			`## Rankings — ${LANG[l] ?? l} (${l === "es" ? "Amazon.es" : "Amazon.de"} market; label-verified products only, scored on dose, form, label honesty, additives and practicality; weights shown on each page; price not scored)`,
+			"",
+		);
+		for (const r of list) lines.push(`- [${r.data.title}](${abs(rankingUrl(r))}): ${r.data.description.replace(/\s+/g, " ").trim()}`);
 	}
 	for (const l of LOCALES) {
 		const list = guides.filter((g) => guideLocale(g) === l);
