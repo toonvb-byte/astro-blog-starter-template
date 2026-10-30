@@ -142,7 +142,8 @@ const crumbs = [
 	{ name: t("article.home"), href: path(locale) },
 	{ name: t("nav.supplements"), href: path(locale, "supplements") },
 	...(hub ? [{ name: hub.data.name, href: hubUrl(hub) }] : []),
-	{ name: d.name, href: url },
+	// last crumb names the page type, so it doesn't repeat the hub crumb ("Kreatin / Kreatin")
+	{ name: locale === "de" ? `${d.name} Vergleich` : `Mejor ${d.name.charAt(0).toLowerCase()}${d.name.slice(1)}`, href: url },
 ];
 ---
 <Base
