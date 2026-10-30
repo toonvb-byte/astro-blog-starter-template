@@ -5,13 +5,14 @@
     "hub": null,
     "guide": "read-supplement-label",
     "src": [
+      ["The Food Supplements (England) Regulations 2003", "https://www.legislation.gov.uk/uksi/2003/1387/contents"],
       ["Directive 2002/46/EC on food supplements", "https://eur-lex.europa.eu/eli/dir/2002/46/oj"],
       ["AESAN — Food supplements", "https://www.aesan.gob.es/en/seguridad-alimentaria/alimentos-especificos/complementos-alimenticios"]
     ],
     "en": {
       "name": "Food supplement",
       "aka": "dietary supplement",
-      "desc": "Legally a food in concentrated form (capsules, tablets, powders, drops) that supplements the normal diet, governed by Directive 2002/46/EC. It needs no approval before sale: the company notifies the authorities (in Spain via AESAN, in Germany the BVL). It may not claim to prevent, treat or cure a disease.",
+      "desc": "Legally a food in concentrated form (capsules, tablets, powders, drops) that supplements the normal diet. In England the rules are in the Food Supplements (England) Regulations 2003, with equivalents in Scotland, Wales and Northern Ireland; in the EU, Directive 2002/46/EC. It needs no approval before sale: in the UK there is no product notification at all, while Spain (AESAN) and Germany (BVL) require one. It may not claim to prevent, treat or cure a disease.",
       "facts": []
     },
     "es": {
@@ -36,8 +37,8 @@
     "en": {
       "name": "NRV (nutrient reference value)",
       "aka": "% NRV, formerly RDA",
-      "desc": "The EU reference amount of a vitamin or mineral per day used on labels, set in Regulation (EU) 1169/2011. \"% NRV\" shows how much of that amount one daily dose gives. It is a labelling benchmark, not a personal requirement and not a safety limit.",
-      "facts": ["A nutrient may use its authorised EU claims from 15 % of the NRV per daily dose"]
+      "desc": "The reference amount of a vitamin or mineral per day used on UK and EU labels, set in Regulation 1169/2011 (kept in UK law after Brexit). \"% NRV\" shows how much of that amount one daily dose gives. It is a labelling benchmark, not a personal requirement and not a safety limit.",
+      "facts": ["A nutrient may use its authorised claims from 15 % of the NRV per daily dose"]
     },
     "es": {
       "name": "VRN (valor de referencia de nutrientes)",
@@ -107,11 +108,14 @@
     "claim": null,
     "hub": null,
     "guide": "supplement-limits-europe",
-    "src": [["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]],
+    "src": [
+      ["NHS — Vitamins and minerals", "https://www.nhs.uk/conditions/vitamins-and-minerals/"],
+      ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
+    ],
     "en": {
       "name": "Tolerable upper intake level (UL)",
       "aka": "upper level, safe upper level, safe level of intake",
-      "desc": "The highest daily intake from all sources that EFSA considers unlikely to harm healthy people over the long term. It is a ceiling, not a target. Where the data are too limited for a UL, EFSA sometimes sets a \"safe level of intake\" instead (for example 40 mg a day for iron).",
+      "desc": "The highest daily intake from all sources that EFSA considers unlikely to harm healthy people over the long term. It is a ceiling, not a target. Where the data are too limited for a UL, EFSA sometimes sets a \"safe level of intake\" instead (for example 40 mg a day for iron). In the UK, the NHS gives its own figures for supplements, based on the 2003 Expert Group on Vitamins and Minerals (for example 25 mg of zinc, 400 mg of magnesium).",
       "facts": []
     },
     "es": {
@@ -132,11 +136,14 @@
     "claim": null,
     "hub": null,
     "guide": null,
-    "src": [["EFSA — Dietary reference values", "https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values"]],
+    "src": [
+      ["NHS — Vitamins and minerals", "https://www.nhs.uk/conditions/vitamins-and-minerals/"],
+      ["EFSA — Dietary reference values", "https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values"]
+    ],
     "en": {
       "name": "Adequate intake (AI) and population reference intake (PRI)",
       "aka": "dietary reference values (DRVs)",
-      "desc": "EFSA's daily intake references for healthy people. A PRI covers the needs of almost everyone in a group; an adequate intake is used where the data are too limited for a PRI. They differ from the NRV on labels: for vitamin D the adequate intake is 15 µg, the NRV 5 µg.",
+      "desc": "Daily intake references for healthy people. In the UK the NHS uses UK reference values (for example 10 µg of vitamin D, 40 mg of vitamin C); EFSA sets its own for the EU (15 µg and 95–110 mg). Both differ from the NRV on labels: for vitamin D the NRV is 5 µg.",
       "facts": []
     },
     "es": {
@@ -158,13 +165,14 @@
     "hub": null,
     "guide": "supplement-limits-europe",
     "src": [
+      ["NHS — Vitamins and minerals", "https://www.nhs.uk/conditions/vitamins-and-minerals/"],
       ["Directive 2002/46/EC on food supplements (Article 5)", "https://eur-lex.europa.eu/eli/dir/2002/46/oj"],
       ["BfR — Recommended maximum levels for vitamins and minerals in food supplements", "https://www.bfr.bund.de/cm/343/hoechstmengenempfehlungen-des-bfr.pdf"]
     ],
     "en": {
       "name": "Maximum levels in supplements",
       "aka": "national maximum levels, BfR maximum level recommendations (Höchstmengenempfehlungen)",
-      "desc": "The EU has never set common maximum amounts of vitamins and minerals per daily dose in supplements, so each country decides. Some have binding limits; Germany's BfR publishes recommended maximums (for example 20 µg vitamin D and 250 mg magnesium); Spain has no national maximum for most vitamins and minerals.",
+      "desc": "Neither the UK nor the EU has set binding maximum amounts of vitamins and minerals per daily dose in supplements. In the UK, the NHS publishes amounts from supplements that are unlikely to cause harm (for example 100 µg vitamin D, 25 mg zinc). In the EU each country decides: some have binding limits; Germany's BfR publishes recommended maximums (for example 20 µg vitamin D and 250 mg magnesium); Spain has no national maximum for most vitamins and minerals.",
       "facts": []
     },
     "es": {
@@ -186,13 +194,14 @@
     "hub": null,
     "guide": "eu-health-claims",
     "src": [
+      ["DHSC — Great Britain nutrition and health claims (NHC) register", "https://www.gov.uk/government/publications/great-britain-nutrition-and-health-claims-nhc-register"],
       ["Regulation (EC) No 1924/2006 on nutrition and health claims", "https://eur-lex.europa.eu/eli/reg/2006/1924/oj"],
       ["European Commission — EU Register of nutrition and health claims", "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/nutrition-and-health-claims/eu-register-health-claims_en"]
     ],
     "en": {
       "name": "Health claim",
       "aka": "authorised health claim, EU claim",
-      "desc": "Any statement that a food or ingredient benefits health, such as \"contributes to the normal function of the immune system\". In the EU only claims listed as authorised in the EU Register may be used, in wording close to the approved text and only when the product contains enough of the nutrient.",
+      "desc": "Any statement that a food or ingredient benefits health, such as \"contributes to the normal function of the immune system\". In Great Britain only claims on the GB nutrition and health claims register may be used; in Northern Ireland and the EU, only those on the EU Register. The two lists started out identical in 2021 and still match for vitamins and minerals. Claims must use wording close to the approved text, and the product must contain enough of the nutrient.",
       "facts": []
     },
     "es": {
@@ -217,7 +226,7 @@
     "en": {
       "name": "Claims on hold (botanicals)",
       "aka": "on-hold claims, botanical claims",
-      "desc": "Health claims for plant ingredients, such as ashwagandha, turmeric or valerian, have been \"on hold\" at EU level since 2010: neither authorised nor rejected. Some countries tolerate them on labels under transitional rules. NutriMetrics treats them as not authorised.",
+      "desc": "Health claims for plant ingredients, such as ashwagandha, turmeric or valerian, have been \"on hold\" at EU level since 2010, neither authorised nor rejected, and Great Britain kept the same on-hold list after Brexit. Some countries tolerate them on labels under transitional rules. NutriMetrics treats them as not authorised.",
       "facts": []
     },
     "es": {
@@ -238,11 +247,14 @@
     "claim": null,
     "hub": null,
     "guide": null,
-    "src": [["Regulation (EU) 2015/2283 on novel foods", "https://eur-lex.europa.eu/eli/reg/2015/2283/oj"]],
+    "src": [
+      ["FSA — Novel foods authorisation guidance", "https://www.food.gov.uk/business-guidance/regulated-products/novel-foods-guidance"],
+      ["Regulation (EU) 2015/2283 on novel foods", "https://eur-lex.europa.eu/eli/reg/2015/2283/oj"]
+    ],
     "en": {
       "name": "Novel food",
       "aka": "novel food authorisation",
-      "desc": "A food or ingredient that was not consumed to a significant degree in the EU before 15 May 1997. It needs EU authorisation before it can be sold, often with conditions such as a maximum daily amount or a label warning.",
+      "desc": "A food or ingredient that was not consumed to a significant degree before 15 May 1997. It needs authorisation before it can be sold: from the Food Standards Agency (and Food Standards Scotland) for Great Britain, from the EU for Northern Ireland and the EU. Authorisations often come with conditions such as a maximum daily amount or a label warning.",
       "facts": []
     },
     "es": {
@@ -267,7 +279,7 @@
     "en": {
       "name": "Mutual recognition",
       "aka": "mutual recognition principle",
-      "desc": "EU principle that a product lawfully sold in one member state can in principle also be sold in another, even if it does not meet that country's own rules, unless the authorities justify a restriction (for example on health grounds). It explains why some supplements on Spanish or German shelves exceed national guidance.",
+      "desc": "EU principle that a product lawfully sold in one member state can in principle also be sold in another, even if it does not meet that country's own rules, unless the authorities justify a restriction (for example on health grounds). It explains why some supplements on Spanish or German shelves exceed national guidance. It does not apply between the EU and Great Britain.",
       "facts": []
     },
     "es": {
@@ -292,7 +304,7 @@
     "en": {
       "name": "Traditional herbal medicine",
       "aka": "traditional herbal medicinal product, THMP",
-      "desc": "A registered medicine whose approval rests on long-standing use rather than clinical trials, under Directive 2004/24/EC. The same plant can be sold as a supplement or as a medicine; only the medicine may state what it is used for, such as \"to aid sleep\".",
+      "desc": "A registered medicine whose approval rests on long-standing use rather than clinical trials, under Directive 2004/24/EC; in the UK, the MHRA's Traditional Herbal Registration (THR) scheme, shown by a THR mark on the pack. The same plant can be sold as a supplement or as a medicine; only the medicine may state what it is used for, such as \"to aid sleep\".",
       "facts": []
     },
     "es": {

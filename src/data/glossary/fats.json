@@ -5,6 +5,7 @@
     "hub": "omega-3",
     "guide": "omega3-sources",
     "src": [
+      ["NHS — Fish and shellfish", "https://www.nhs.uk/live-well/eat-well/food-types/fish-and-shellfish-nutrition/"],
       ["NIH ODS — Omega-3 fatty acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"],
       ["EFSA (2012) — Safety of long-chain omega-3 fatty acids", "https://www.efsa.europa.eu/en/press/news/120727"]
     ],
@@ -12,7 +13,7 @@
       "name": "Omega-3 fatty acids",
       "aka": "EPA, DHA, ALA; fish oil, algae oil, krill oil",
       "desc": "Family of polyunsaturated fats. The authorised claims are for EPA and DHA, the long-chain forms in fish, krill and algae oil; the body converts only a small part of ALA from flax or walnuts into them. Compare EPA + DHA per daily dose, not the amount of fish oil per capsule.",
-      "facts": ["EFSA: up to 5 g EPA + DHA a day from supplements raises no safety concern", "A typical 1,000 mg fish-oil capsule contains about 300 mg EPA + DHA", "EU claims: heart function (250 mg EPA + DHA a day), brain function and vision (250 mg DHA a day)"]
+      "facts": ["NHS (UK): at least 2 portions of fish a week, 1 of them oily", "EFSA: up to 5 g EPA + DHA a day from supplements raises no safety concern", "A typical 1,000 mg fish-oil capsule contains about 300 mg EPA + DHA", "Claims (UK and EU): heart function (250 mg EPA + DHA a day), brain function and vision (250 mg DHA a day)"]
     },
     "es": {
       "name": "Ácidos grasos omega-3",
@@ -40,7 +41,7 @@
       "name": "EPA (eicosapentaenoic acid)",
       "aka": "omega-3 EPA",
       "desc": "Long-chain omega-3 fatty acid from fish, krill and some algae oils. Its EU claims only apply together with DHA.",
-      "facts": ["EU claims with DHA: normal heart function from 250 mg EPA + DHA a day; normal blood triglycerides from 2 g and normal blood pressure from 3 g a day", "BfR: high doses can raise the risk of atrial fibrillation in people with heart disease"]
+      "facts": ["Claims (UK and EU) with DHA: normal heart function from 250 mg EPA + DHA a day; normal blood triglycerides from 2 g and normal blood pressure from 3 g a day", "BfR: high doses can raise the risk of atrial fibrillation in people with heart disease"]
     },
     "es": {
       "name": "EPA (ácido eicosapentaenoico)",
@@ -65,7 +66,7 @@
       "name": "DHA (docosahexaenoic acid)",
       "aka": "omega-3 DHA",
       "desc": "Long-chain omega-3 fatty acid and a building block of the brain and the retina. Algae oil is the vegan source.",
-      "facts": ["EU claims: maintenance of normal brain function and normal vision from 250 mg DHA a day; heart function together with EPA"]
+      "facts": ["Claims (UK and EU): maintenance of normal brain function and normal vision from 250 mg DHA a day; heart function together with EPA"]
     },
     "es": {
       "name": "DHA (ácido docosahexaenoico)",
@@ -93,7 +94,7 @@
       "name": "Coenzyme Q10",
       "aka": "CoQ10, ubiquinone, ubiquinol",
       "desc": "Substance the body makes itself and uses for energy production in cells. Statins lower its level in the blood, but the evidence does not show that supplements prevent statin-related muscle pain.",
-      "facts": ["No authorised EU claim: EFSA assessed claims for energy, heart and blood pressure", "Typical supplement dose: 100–200 mg a day", "May interact with warfarin"]
+      "facts": ["No authorised claim (UK or EU): EFSA assessed claims for energy, heart and blood pressure", "Typical supplement dose: 100–200 mg a day", "May interact with warfarin"]
     },
     "es": {
       "name": "Coenzima Q10",

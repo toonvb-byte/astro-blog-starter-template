@@ -5,6 +5,7 @@
     "hub": "ashwagandha",
     "guide": "ashwagandha",
     "src": [
+      ["Which? — Ashwagandha: stress buster or health risk? (FSA advice)", "https://www.which.co.uk/news/article/ashwagandha-stress-buster-or-health-risk-aw2Ik4l90Kpv"],
       ["NIH ODS — Ashwagandha", "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/"],
       ["BfR — Ashwagandha preparations with possible health risks (2024)", "https://www.bfr.bund.de/cm/343/ashwagandha-schlafbeeren-praeparate-mit-moeglichen-gesundheitsrisiken.pdf"]
     ],
@@ -12,7 +13,7 @@
       "name": "Ashwagandha",
       "aka": "Withania somnifera, winter cherry, KSM-66, Sensoril",
       "desc": "Root (sometimes leaf) extract of an Ayurvedic plant, sold for stress and sleep. Trials use 300–600 mg of extract a day for 8–12 weeks. Rare cases of liver injury have been reported; Denmark banned it in supplements and the Netherlands has proposed banning the leaf.",
-      "facts": ["Germany (BfR, 2024): no safe daily amount could be derived", "Not in pregnancy or with thyroid conditions"]
+      "facts": ["UK (FSA): under safety review; pregnant women and people with liver conditions are advised to avoid it", "Germany (BfR, 2024): no safe daily amount could be derived", "Not in pregnancy or with thyroid conditions"]
     },
     "es": {
       "name": "Ashwagandha",
@@ -208,6 +209,7 @@
     "hub": "turmeric",
     "guide": "turmeric-safety",
     "src": [
+      ["COT (2024) — Turmeric and curcumin supplements", "https://cot.food.gov.uk/Statement%20on%20the%20potential%20risk%20to%20human%20health%20of%20turmeric%20and%20curcumin%20supplements"],
       ["NIH NCCIH — Turmeric", "https://www.nccih.nih.gov/health/turmeric"],
       ["EFSA (2010) — Re-evaluation of curcumin (E 100) as a food additive", "https://www.efsa.europa.eu/en/efsajournal/pub/1679"]
     ],
@@ -215,7 +217,7 @@
       "name": "Turmeric and curcumin",
       "aka": "Curcuma longa, curcuminoids, piperine",
       "desc": "Curcumin is the yellow compound in turmeric root. It is poorly absorbed, so many products add piperine or use special formulations, which also raise exposure. Rare cases of liver injury have been reported; Italy now requires a warning on the label.",
-      "facts": ["EFSA acceptable daily intake for curcumin (as food colour E 100): 3 mg per kg body weight, about 210 mg a day at 70 kg", "Avoid with gallstones or blood thinners"]
+      "facts": ["UK (Committee on Toxicity, 2024): reasonable evidence of a link between turmeric supplements and rare liver injury", "EFSA acceptable daily intake for curcumin (as food colour E 100): 3 mg per kg body weight, about 210 mg a day at 70 kg", "Avoid with gallstones or blood thinners"]
     },
     "es": {
       "name": "Cúrcuma y curcumina",

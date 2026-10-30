@@ -5,6 +5,7 @@
     "hub": "magnesium",
     "guide": "magnesium-forms",
     "src": [
+      ["NHS — Others (magnesium, selenium, zinc)", "https://www.nhs.uk/conditions/vitamins-and-minerals/others/"],
       ["NIH ODS — Magnesium", "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"],
       ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
     ],
@@ -12,7 +13,7 @@
       "name": "Magnesium",
       "aka": "magnesium citrate, bisglycinate, oxide, malate, chloride",
       "desc": "Mineral involved in muscle and nerve function and in energy metabolism. On labels, compare the elemental magnesium per daily dose, not the weight of the compound.",
-      "facts": ["NRV: 375 mg a day", "EFSA upper level from supplements: 250 mg a day (magnesium from food not counted)", "Germany (BfR guidance): 250 mg a day, split into at least two doses", "EU claims: reduction of tiredness and fatigue, muscle function, nervous system, psychological function, electrolyte balance, bones and teeth. No authorised sleep claim."]
+      "facts": ["NHS (UK): adults need 300 mg (men) or 270 mg (women) a day; 400 mg or less a day from supplements is unlikely to cause harm", "NRV: 375 mg a day", "EFSA upper level from supplements: 250 mg a day (magnesium from food not counted)", "Germany (BfR guidance): 250 mg a day, split into at least two doses", "Claims (UK and EU): reduction of tiredness and fatigue, muscle function, nervous system, psychological function, electrolyte balance, bones and teeth. No authorised sleep claim."]
     },
     "es": {
       "name": "Magnesio",
@@ -33,6 +34,7 @@
     "hub": "iron",
     "guide": "iron-tiredness",
     "src": [
+      ["NHS — Iron", "https://www.nhs.uk/conditions/vitamins-and-minerals/iron/"],
       ["NIH ODS — Iron", "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/"],
       ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
     ],
@@ -40,7 +42,7 @@
       "name": "Iron",
       "aka": "ferrous bisglycinate, ferrous sulphate, ferrous fumarate, ferrous gluconate",
       "desc": "Mineral needed to make haemoglobin and carry oxygen in the blood. A supplement only helps if your iron stores are low, so have your ferritin checked first; too much iron is harmful and often causes constipation or nausea.",
-      "facts": ["NRV: 14 mg a day", "EFSA safe level of total intake: 40 mg a day", "Germany (BfR guidance): 6 mg per daily dose", "EU claims: reduction of tiredness and fatigue, red blood cells and haemoglobin, oxygen transport, cognitive function, immune system"]
+      "facts": ["NHS (UK): adults need 8.7 mg a day (14.8 mg for women aged 19–49); 17 mg or less a day from supplements is unlikely to cause harm", "NRV: 14 mg a day", "EFSA safe level of total intake: 40 mg a day", "Germany (BfR guidance): 6 mg per daily dose", "Claims (UK and EU): reduction of tiredness and fatigue, red blood cells and haemoglobin, oxygen transport, cognitive function, immune system"]
     },
     "es": {
       "name": "Hierro",
@@ -61,6 +63,7 @@
     "hub": "zinc",
     "guide": "colds-zinc-vitamin-c",
     "src": [
+      ["NHS — Others (magnesium, selenium, zinc)", "https://www.nhs.uk/conditions/vitamins-and-minerals/others/"],
       ["NIH ODS — Zinc", "https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/"],
       ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
     ],
@@ -68,7 +71,7 @@
       "name": "Zinc",
       "aka": "zinc gluconate, citrate, bisglycinate, picolinate, oxide",
       "desc": "Trace mineral needed for the immune system, skin, hair, nails and fertility. Taking more than the upper level for a long time can cause copper deficiency.",
-      "facts": ["NRV: 10 mg a day", "EFSA upper level: 25 mg a day from food and supplements together", "Germany (BfR guidance): 6.5 mg per daily dose", "EU claims: immune system, skin, hair, nails, bones, fertility and reproduction, normal testosterone levels, cognitive function, vision"]
+      "facts": ["NHS (UK): adults need 9.5 mg (men) or 7 mg (women) a day; no more than 25 mg a day from supplements unless a doctor advises it", "NRV: 10 mg a day", "EFSA upper level: 25 mg a day from food and supplements together", "Germany (BfR guidance): 6.5 mg per daily dose", "Claims (UK and EU): immune system, skin, hair, nails, bones, fertility and reproduction, normal testosterone levels, cognitive function, vision"]
     },
     "es": {
       "name": "Zinc",
@@ -89,6 +92,7 @@
     "hub": null,
     "guide": null,
     "src": [
+      ["NHS — Others (magnesium, selenium, zinc)", "https://www.nhs.uk/conditions/vitamins-and-minerals/others/"],
       ["NIH ODS — Selenium", "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/"],
       ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
     ],
@@ -96,7 +100,7 @@
       "name": "Selenium",
       "aka": "L-selenomethionine, sodium selenite, selenium yeast",
       "desc": "Trace mineral needed for the thyroid, the immune system and antioxidant enzymes. The gap between enough and too much is small, so add up the selenium from multivitamins, hair products and Brazil nuts.",
-      "facts": ["NRV: 55 µg a day", "EFSA upper level: 255 µg a day", "EU claims: thyroid function, immune system, hair and nails, protection of cells from oxidative stress, spermatogenesis"]
+      "facts": ["NHS (UK): adults need 75 µg (men) or 60 µg (women) a day; 350 µg or less a day from supplements is unlikely to cause harm", "NRV: 55 µg a day", "EFSA upper level: 255 µg a day", "Claims (UK and EU): thyroid function, immune system, hair and nails, protection of cells from oxidative stress, spermatogenesis"]
     },
     "es": {
       "name": "Selenio",

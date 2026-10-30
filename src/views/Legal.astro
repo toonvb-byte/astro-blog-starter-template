@@ -2,7 +2,8 @@
 /**
  * Legal pages: Aviso legal / Impressum / Imprint, privacy, cookies, affiliate disclosure.
  * Operator details, GA and affiliate switches live in src/lib/site.ts — the texts adapt to them.
- * Written to the usual Spanish (LSSI, RGPD/LOPDGDD) and German (DDG, MStV, DSGVO, TDDDG) requirements.
+ * Written to the usual Spanish (LSSI, RGPD/LOPDGDD) and German (DDG, MStV, DSGVO, TDDDG) requirements;
+ * the English texts also cover UK GDPR, PECR and the ASA/CAP rules for UK readers.
  * Not legal advice: have them checked once by a gestor or lawyer.
  */
 import Base from "../layouts/Base.astro";
@@ -15,7 +16,7 @@ interface Props { locale: Locale; which: Which }
 const { locale, which } = Astro.props;
 const t = useT(locale);
 
-const UPDATED = "2026-10-19";
+const UPDATED = locale === "en" ? "2026-10-30" : "2026-10-19";
 const mail = (e: string) => `<a href="mailto:${e}">${e}</a>`;
 const addr = `${O.street}, ${O.postcode} ${O.city}, ${O.country[locale]}`;
 const networks = [AFFILIATE.awin && "AWIN", AFFILIATE.amazon && "Amazon"].filter(Boolean) as string[];
@@ -91,7 +92,7 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 		updated: "Last updated",
 		imprint: {
 			h1: "Imprint",
-			intro: "Legal notice under Article 10 of the Spanish Law 34/2002 on information society services (LSSI) and § 5 of the German Digital Services Act (DDG).",
+			intro: "Legal notice under Article 10 of the Spanish Law 34/2002 on information society services (LSSI) and § 5 of the German Digital Services Act (DDG). The English edition is written for readers in the UK and the rest of Europe.",
 			body: [
 				["Website operator", `${O.name}<br />Tax ID (NIE): ${O.taxId}<br />Address: ${addr}<br />Email: ${mail(O.email)}`],
 				["Responsible for content", `${O.name}, ${addr}`],
@@ -100,7 +101,8 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 				["Prices and availability", "Prices and availability shown are indicative and may change. The price and terms that apply are always those of the shop at the time of purchase."],
 				["External links", "This site links to third-party websites, including shops. The operator has no control over them and is not responsible for their content, but will remove any link as soon as it becomes aware that it is unlawful."],
 				["Copyright", "Texts, tables and design on this site belong to the operator unless stated otherwise. Short quotations with a link to the source are welcome; other uses require permission."],
-				["Applicable law", "This site is governed by Spanish law."],
+				["Readers in the UK", "NutriMetrics is run from Spain by a private individual and is not a UK business. The English guides describe the rules in Great Britain first (England, Scotland and Wales) and say where Northern Ireland or the EU differ."],
+				["Applicable law", "This site is governed by Spanish law. This does not limit any rights you have under the law of the country where you live."],
 			],
 		},
 		privacy: {
@@ -108,10 +110,10 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 			body: [
 				["Controller", `${O.name}, Tax ID (NIE) ${O.taxId}, ${addr}. Privacy contact: ${mail(O.privacyEmail)}.`],
 				["What we process and why", [
-					"<strong>Site visits.</strong> Our host, Cloudflare, technically processes your IP address and browser data to deliver pages and protect the site from abuse. Legal basis: legitimate interest in a secure, working site (Art. 6(1)(f) GDPR).",
+					"<strong>Site visits.</strong> Our host, Cloudflare, technically processes your IP address and browser data to deliver pages and protect the site from abuse. Legal basis: legitimate interest in a secure, working site (Art. 6(1)(f) GDPR and UK GDPR).",
 					"<strong>Cookie-free statistics.</strong> We use Cloudflare Web Analytics, which counts visits in aggregate, without cookies and without identifying anyone.",
-					GA_ENABLED ? `<strong>Google Analytics (only with your consent).</strong> If you accept in the cookie banner, we use Google Analytics 4 to see which pages are read and improve the content. Google processes usage data and a browser identifier. Legal basis: your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.${settingsBtn("Change cookie settings")}` : "",
-					"<strong>Contact form and email.</strong> If you contact us, we process your name, email address and message to reply. Legal basis: legitimate interest in answering your enquiry (Art. 6(1)(f) GDPR). We keep messages for up to 12 months after the conversation ends, unless the law requires longer.",
+					GA_ENABLED ? `<strong>Google Analytics (only with your consent).</strong> If you accept in the cookie banner, we use Google Analytics 4 to see which pages are read and improve the content. Google processes usage data and a browser identifier. Legal basis: your consent (Art. 6(1)(a) GDPR and UK GDPR; for UK visitors also regulation 6 of the Privacy and Electronic Communications Regulations), which you can withdraw at any time.${settingsBtn("Change cookie settings")}` : "",
+					"<strong>Contact form and email.</strong> If you contact us, we process your name, email address and message to reply. Legal basis: legitimate interest in answering your enquiry (Art. 6(1)(f) GDPR and UK GDPR). We keep messages for up to 12 months after the conversation ends, unless the law requires longer.",
 					"<strong>Clicks to shops.</strong> When you click a shop link we only record which offer and which page, without your IP address or any personal data.",
 					"<strong>Goal finder preferences.</strong> The goal finder stores your selection in your browser's local storage. That data is not sent to our servers.",
 				].filter(Boolean).join("<br /><br />")],
@@ -121,8 +123,8 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 					anyNetwork ? `When you click an affiliate link, the shop and the affiliate network (${list(networks, "and")}) process data under their own privacy policies, as independent controllers.` : "",
 					"We do not sell personal data or share it with third parties for advertising.",
 				].filter(Boolean).join("<br />")],
-				["International transfers", `Cloudflare${GA_ENABLED ? " and Google" : ""} may process data in the United States. ${GA_ENABLED ? "Both companies participate" : "Cloudflare participates"} in the EU-US Data Privacy Framework, which the European Commission recognises as providing adequate protection.`],
-				["Your rights", `You can request access, rectification, erasure, restriction, portability or object to processing, and withdraw consent at any time, by writing to ${mail(O.privacyEmail)}. You can also complain to the Spanish Data Protection Agency (<a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>) or the supervisory authority where you live.`],
+				["International transfers", `We are based in Spain; the UK recognises the EU as providing adequate protection for personal data. Cloudflare${GA_ENABLED ? " and Google" : ""} may process data in the United States. ${GA_ENABLED ? "Both companies participate" : "Cloudflare participates"} in the EU-US Data Privacy Framework and its UK Extension, which the European Commission and the UK government recognise as providing adequate protection.`],
+				["Your rights", `You can request access, rectification, erasure, restriction, portability or object to processing, and withdraw consent at any time, by writing to ${mail(O.privacyEmail)}. In the UK you can complain to the Information Commissioner's Office (<a href="https://ico.org.uk/make-a-complaint/" rel="noopener" target="_blank">ico.org.uk</a>); in the EU to the Spanish Data Protection Agency (<a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>) or the supervisory authority where you live.`],
 				["Automated decisions", "We do not make automated decisions or create profiles that have legal effects on you."],
 			],
 		},
@@ -130,7 +132,7 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 			h1: "Cookie policy",
 			body: [
 				["Our approach", GA_ENABLED ? "We only set analytics cookies if you accept them. Without your consent the site works the same and Google Analytics is not loaded." : "This site sets no advertising or analytics cookies. Statistics are collected without cookies (Cloudflare Web Analytics)."],
-				["Technical cookies and storage", "Cloudflare may set technical security cookies (for example __cf_bm) to protect the site from bots. The goal finder stores your selection in your browser's local storage (nm-finder)." + (GA_ENABLED ? " Your cookie choice is stored in local storage (nm-consent)." : "") + " These are needed for the functions you use and do not require consent."],
+				["Technical cookies and storage", "Cloudflare may set technical security cookies (for example __cf_bm) to protect the site from bots. The goal finder stores your selection in your browser's local storage (nm-finder)." + (GA_ENABLED ? " Your cookie choice is stored in local storage (nm-consent)." : "") + " These are needed for the functions you use and do not require consent under EU rules or the UK Privacy and Electronic Communications Regulations."],
 				...(GA_ENABLED ? [["Analytics cookies (with consent)", `Google Analytics 4 sets the cookies <code>_ga</code> and <code>_ga_*</code>, which last up to 2 years, to distinguish visits. They are only set if you click "Accept".${settingsBtn("Change cookie settings")}`] as Section] : []),
 				["Shops and affiliate networks", `When you click through to a shop${anyNetwork ? ` or an affiliate network (${list(networks, "and")})` : ""}, that website may set its own cookies on its own domain. Their policies apply there, not this one.`],
 				["How to delete or block cookies", "You can delete or block cookies in your browser settings. See the help pages of Chrome, Firefox, Safari or Edge."],
@@ -142,7 +144,7 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 				["How we make money", `NutriMetrics is free to use. Some shop links are affiliate links${anyNetwork ? `, through ${list(networks, "and")}` : ""}: if you buy after clicking one, the shop may pay us a commission. You pay the same price.`],
 				...(AFFILIATE.amazon ? [["Amazon", "As an Amazon Associate I earn from qualifying purchases."] as Section] : []),
 				["What never changes", "Comparisons are ordered by total price (including shipping to your country) or by our published methodology — never by commission. Shops that pay us nothing are still listed when they have the product."],
-				["How links are marked", "Pages with shop links show a notice at the top, and affiliate links carry an \"Affiliate link\" label. All of them use rel=\"sponsored\"."],
+				["How links are marked", "Pages with shop links show a notice at the top, and affiliate links carry an \"Ad · affiliate link\" label, so they are obviously identifiable as advertising, as the UK Advertising Standards Authority (CAP Code rule 2.1) and EU consumer law expect. All of them use rel=\"sponsored\"."],
 			],
 		},
 	},

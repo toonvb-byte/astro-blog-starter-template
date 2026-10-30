@@ -5,6 +5,7 @@
     "hub": null,
     "guide": "multivitamin-worth-it",
     "src": [
+      ["NHS — Vitamin A", "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-a/"],
       ["NIH ODS — Vitamin A and carotenoids", "https://ods.od.nih.gov/factsheets/Vitamina-HealthProfessional/"],
       ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
     ],
@@ -12,7 +13,7 @@
       "name": "Vitamin A",
       "aka": "retinol, retinyl acetate, retinyl palmitate, beta-carotene",
       "desc": "Fat-soluble vitamin needed for vision, skin and the immune system. Supplements contain preformed vitamin A (retinol) or beta-carotene, which the body converts into vitamin A as needed.",
-      "facts": ["NRV: 800 µg a day", "EFSA upper level: 3,000 µg a day of preformed vitamin A (not beta-carotene)", "EU claims: normal vision, skin, mucous membranes, immune system and iron metabolism", "Avoid high-dose vitamin A in pregnancy; smokers should avoid beta-carotene supplements"]
+      "facts": ["NHS (UK): no more than 1.5 mg (1,500 µg) a day from food and supplements combined; avoid vitamin A supplements, including fish liver oil, in pregnancy", "NRV: 800 µg a day", "EFSA upper level: 3,000 µg a day of preformed vitamin A (not beta-carotene)", "Claims (UK and EU): normal vision, skin, mucous membranes, immune system and iron metabolism", "Avoid high-dose vitamin A in pregnancy; smokers should avoid beta-carotene supplements"]
     },
     "es": {
       "name": "Vitamina A",
@@ -37,7 +38,7 @@
       "name": "Vitamin B1 (thiamin)",
       "aka": "thiamine, thiamine hydrochloride, thiamine mononitrate",
       "desc": "B vitamin the body needs to turn carbohydrates into energy and for nerve function. A varied diet usually covers it; heavy alcohol use is the main cause of deficiency.",
-      "facts": ["NRV: 1.1 mg a day", "EFSA upper level: not set", "EU claims: energy-yielding metabolism, nervous system, psychological function, heart function"]
+      "facts": ["NRV: 1.1 mg a day", "EFSA upper level: not set", "Claims (UK and EU): energy-yielding metabolism, nervous system, psychological function, heart function"]
     },
     "es": {
       "name": "Vitamina B1 (tiamina)",
@@ -62,7 +63,7 @@
       "name": "Vitamin B2 (riboflavin)",
       "aka": "riboflavin, riboflavin-5'-phosphate",
       "desc": "B vitamin involved in energy metabolism and in activating other B vitamins. Higher doses turn urine bright yellow, which is harmless.",
-      "facts": ["NRV: 1.4 mg a day", "EFSA upper level: not set", "EU claims: energy-yielding metabolism, reduction of tiredness and fatigue, normal vision, skin and red blood cells, protection of cells from oxidative stress"]
+      "facts": ["NRV: 1.4 mg a day", "EFSA upper level: not set", "Claims (UK and EU): energy-yielding metabolism, reduction of tiredness and fatigue, normal vision, skin and red blood cells, protection of cells from oxidative stress"]
     },
     "es": {
       "name": "Vitamina B2 (riboflavina)",
@@ -90,7 +91,7 @@
       "name": "Vitamin B3 (niacin)",
       "aka": "nicotinamide, niacinamide, nicotinic acid",
       "desc": "B vitamin used in energy metabolism. Labels list it as nicotinamide (niacinamide) or nicotinic acid; nicotinic acid causes skin flushing at much lower doses and has a far lower upper level.",
-      "facts": ["NRV: 16 mg a day", "EFSA upper levels: 10 mg a day as nicotinic acid, 900 mg a day as nicotinamide", "EU claims: energy-yielding metabolism, nervous system, psychological function, skin, reduction of tiredness and fatigue"]
+      "facts": ["NRV: 16 mg a day", "EFSA upper levels: 10 mg a day as nicotinic acid, 900 mg a day as nicotinamide", "Claims (UK and EU): energy-yielding metabolism, nervous system, psychological function, skin, reduction of tiredness and fatigue"]
     },
     "es": {
       "name": "Vitamina B3 (niacina)",
@@ -115,7 +116,7 @@
       "name": "Vitamin B5 (pantothenic acid)",
       "aka": "calcium D-pantothenate, pantethine",
       "desc": "B vitamin present in almost all foods and needed to make coenzyme A, a key molecule in energy metabolism. Deficiency is very rare.",
-      "facts": ["NRV: 6 mg a day", "EFSA upper level: not set", "EU claims: energy-yielding metabolism, normal mental performance, synthesis of steroid hormones, vitamin D and some neurotransmitters, reduction of tiredness and fatigue"]
+      "facts": ["NRV: 6 mg a day", "EFSA upper level: not set", "Claims (UK and EU): energy-yielding metabolism, normal mental performance, synthesis of steroid hormones, vitamin D and some neurotransmitters, reduction of tiredness and fatigue"]
     },
     "es": {
       "name": "Vitamina B5 (ácido pantoténico)",
@@ -136,6 +137,7 @@
     "hub": "multivitamins",
     "guide": null,
     "src": [
+      ["NHS — B vitamins and folic acid", "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-b/"],
       ["NIH ODS — Vitamin B6", "https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/"],
       ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
     ],
@@ -143,7 +145,7 @@
       "name": "Vitamin B6",
       "aka": "pyridoxine hydrochloride, pyridoxal-5'-phosphate (P-5-P)",
       "desc": "B vitamin involved in protein metabolism, red blood cell formation and the nervous system. It is often added to magnesium products. Taking too much for a long time can damage nerves, so add up the B6 from all your supplements.",
-      "facts": ["NRV: 1.4 mg a day", "EFSA upper level: 12 mg a day from all sources", "EU claims: energy-yielding metabolism, nervous system, psychological function, immune system, red blood cell formation, reduction of tiredness and fatigue, regulation of hormonal activity"]
+      "facts": ["NHS (UK): no more than 10 mg a day from supplements unless a doctor advises it", "NRV: 1.4 mg a day", "EFSA upper level: 12 mg a day from all sources", "Claims (UK and EU): energy-yielding metabolism, nervous system, psychological function, immune system, red blood cell formation, reduction of tiredness and fatigue, regulation of hormonal activity"]
     },
     "es": {
       "name": "Vitamina B6",
@@ -164,6 +166,7 @@
     "hub": "multivitamins",
     "guide": "multivitamin-worth-it",
     "src": [
+      ["NHS — B vitamins and folic acid", "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-b/"],
       ["NIH ODS — Folate", "https://ods.od.nih.gov/factsheets/Folate-HealthProfessional/"],
       ["EFSA — Summary of tolerable upper intake levels (2024)", "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"]
     ],
@@ -171,7 +174,7 @@
       "name": "Folate (folic acid)",
       "aka": "folic acid, vitamin B9, 5-MTHF, L-methylfolate",
       "desc": "B vitamin needed for cell division and blood formation. Folic acid is the synthetic form used in most supplements. Taking it before and in early pregnancy lowers the risk of neural tube defects in the baby.",
-      "facts": ["NRV: 200 µg a day", "EFSA upper level: 1,000 µg a day of folic acid from supplements and fortified foods (folate from food not counted)", "Before and in early pregnancy: 400 µg folic acid a day is the usual recommendation", "EU claims: blood formation, cell division, maternal tissue growth in pregnancy, immune system, psychological function, reduction of tiredness and fatigue"]
+      "facts": ["NHS (UK): 400 µg folic acid a day before pregnancy and until week 12; 1 mg or less a day from supplements is unlikely to cause harm", "NRV: 200 µg a day", "EFSA upper level: 1,000 µg a day of folic acid from supplements and fortified foods (folate from food not counted)", "Before and in early pregnancy: 400 µg folic acid a day is the usual recommendation", "Claims (UK and EU): blood formation, cell division, maternal tissue growth in pregnancy, immune system, psychological function, reduction of tiredness and fatigue"]
     },
     "es": {
       "name": "Folato (ácido fólico)",
@@ -191,12 +194,15 @@
     "claim": "authorised",
     "hub": "vitamin-b12",
     "guide": "b12-guide",
-    "src": [["NIH ODS — Vitamin B12", "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/"]],
+    "src": [
+      ["NHS — B vitamins and folic acid", "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-b/"],
+      ["NIH ODS — Vitamin B12", "https://ods.od.nih.gov/factsheets/VitaminB12-HealthProfessional/"]
+    ],
     "en": {
       "name": "Vitamin B12",
       "aka": "cobalamin, cyanocobalamin, methylcobalamin, hydroxocobalamin",
       "desc": "Needed for red blood cells and the nervous system. It occurs almost only in animal foods, so vegans need a supplement or fortified foods. The body absorbs only a small share of large doses: about 1.3 % of 1,000 µg.",
-      "facts": ["NRV: 2.5 µg a day", "EFSA adequate intake: 4 µg a day", "EFSA upper level: not set", "EU claims: reduction of tiredness and fatigue, energy-yielding metabolism, red blood cell formation, nervous system, psychological function, immune system"]
+      "facts": ["NHS (UK): adults need about 1.5 µg a day; 2 mg or less a day from supplements is unlikely to cause harm", "NRV: 2.5 µg a day", "EFSA adequate intake: 4 µg a day", "EFSA upper level: not set", "Claims (UK and EU): reduction of tiredness and fatigue, energy-yielding metabolism, red blood cell formation, nervous system, psychological function, immune system"]
     },
     "es": {
       "name": "Vitamina B12",
@@ -216,12 +222,15 @@
     "claim": "authorised",
     "hub": "biotin",
     "guide": "biotin-hair",
-    "src": [["NIH ODS — Biotin", "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/"]],
+    "src": [
+      ["NHS — B vitamins and folic acid", "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-b/"],
+      ["NIH ODS — Biotin", "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/"]
+    ],
     "en": {
       "name": "Biotin",
       "aka": "vitamin B7, vitamin H, D-biotin",
       "desc": "B vitamin involved in the metabolism of fats, carbohydrates and protein. It is sold for hair and nails, but deficiency is rare. Doses of several thousand µg can distort some blood tests, including thyroid and heart tests.",
-      "facts": ["NRV: 50 µg a day", "EFSA upper level: not set", "EU claims: maintenance of normal hair, skin and mucous membranes, energy-yielding metabolism, nervous system, psychological function", "Tell your doctor or lab you take biotin before a blood test"]
+      "facts": ["NHS (UK): 0.9 mg (900 µg) or less a day from supplements is unlikely to cause harm", "NRV: 50 µg a day", "EFSA upper level: not set", "Claims (UK and EU): maintenance of normal hair, skin and mucous membranes, energy-yielding metabolism, nervous system, psychological function", "Tell your doctor or lab you take biotin before a blood test"]
     },
     "es": {
       "name": "Biotina",
@@ -241,12 +250,15 @@
     "claim": "authorised",
     "hub": "vitamin-c",
     "guide": "colds-zinc-vitamin-c",
-    "src": [["NIH ODS — Vitamin C", "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/"]],
+    "src": [
+      ["NHS — Vitamin C", "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-c/"],
+      ["NIH ODS — Vitamin C", "https://ods.od.nih.gov/factsheets/VitaminC-HealthProfessional/"]
+    ],
     "en": {
       "name": "Vitamin C",
       "aka": "ascorbic acid, sodium ascorbate, calcium ascorbate",
       "desc": "Water-soluble vitamin needed to form collagen and for the immune system; it also increases iron absorption from food. Doses of a gram or more can upset the stomach.",
-      "facts": ["NRV: 80 mg a day", "EFSA upper level: not set", "Germany (BfR guidance): 250 mg per daily dose", "EU claims: immune system, collagen formation for blood vessels, bones, cartilage, gums, skin and teeth, reduction of tiredness and fatigue, iron absorption, protection of cells from oxidative stress"]
+      "facts": ["NHS (UK): adults need 40 mg a day; less than 1,000 mg a day from supplements is unlikely to cause harm", "NRV: 80 mg a day", "EFSA upper level: not set", "Germany (BfR guidance): 250 mg per daily dose", "Claims (UK and EU): immune system, collagen formation for blood vessels, bones, cartilage, gums, skin and teeth, reduction of tiredness and fatigue, iron absorption, protection of cells from oxidative stress"]
     },
     "es": {
       "name": "Vitamina C",
@@ -267,6 +279,7 @@
     "hub": "vitamin-d",
     "guide": "vitamin-d-winter",
     "src": [
+      ["NHS — Vitamin D", "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/"],
       ["NIH ODS — Vitamin D", "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"],
       ["EFSA (2023) — Tolerable upper intake level for vitamin D", "https://efsa.europa.eu/en/efsajournal/pub/8145"],
       ["BfR — Recommended maximum levels for vitamins and minerals in food supplements", "https://www.bfr.bund.de/cm/343/hoechstmengenempfehlungen-des-bfr.pdf"]
@@ -275,7 +288,7 @@
       "name": "Vitamin D",
       "aka": "cholecalciferol (vitamin D3), ergocalciferol (vitamin D2)",
       "desc": "Fat-soluble vitamin that the skin makes in sunlight; in winter, much of Europe gets too little UVB for that. Needed for calcium absorption, bones, muscles and the immune system. Most supplements contain vitamin D3.",
-      "facts": ["NRV on labels: 5 µg (200 IU) a day", "EFSA adequate intake: 15 µg (600 IU) a day", "EFSA upper level: 100 µg (4,000 IU) a day from all sources", "Germany (BfR guidance): 20 µg (800 IU) per daily dose", "EU claims: immune system, bones, teeth, muscle function, calcium absorption"]
+      "facts": ["NHS (UK): 10 µg (400 IU) a day, as a supplement in autumn and winter for everyone; no more than 100 µg a day for adults", "NRV on labels: 5 µg (200 IU) a day", "EFSA adequate intake: 15 µg (600 IU) a day", "EFSA upper level: 100 µg (4,000 IU) a day from all sources", "Germany (BfR guidance): 20 µg (800 IU) per daily dose", "Claims (UK and EU): immune system, bones, teeth, muscle function, calcium absorption"]
     },
     "es": {
       "name": "Vitamina D",
@@ -300,7 +313,7 @@
       "name": "Vitamin K2",
       "aka": "menaquinone, MK-7, MK-4; vitamin K1 = phylloquinone",
       "desc": "Form of vitamin K, which is needed for blood clotting and bone metabolism. It is often combined with vitamin D3. If you take vitamin K antagonist blood thinners (warfarin, acenocoumarol/Sintrom, phenprocoumon/Marcumar), talk to your doctor first.",
-      "facts": ["NRV (vitamin K): 75 µg a day", "EFSA upper level: not set", "EU claims (vitamin K): normal blood clotting, maintenance of normal bones"]
+      "facts": ["NRV (vitamin K): 75 µg a day", "EFSA upper level: not set", "Claims (UK and EU, vitamin K): normal blood clotting, maintenance of normal bones"]
     },
     "es": {
       "name": "Vitamina K2",

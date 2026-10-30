@@ -10,9 +10,9 @@ import { DEFAULT_COUNTRY, routeAlternates, type Locale } from "../i18n/config";
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const copy = {
-	en: { title: "Supplement goal finder: what actually works | NutriMetrics", description: "Choose your goals (sleep, energy, stress, immunity…) and see which ingredients have real evidence and which products in your country contain them at a useful dose.",
+	en: { title: "Supplement goal finder: what actually works | NutriMetrics", description: "Choose your goals (sleep, energy, stress, immunity…) and see which ingredients have real evidence and an authorised claim in the UK and EU, and at what dose.",
 		eyebrow: "Supplement goal finder", h1: "Tell us what you want to improve. We'll show what actually has evidence.",
-		lead: "Move the sliders. We rank ingredients by evidence and products by whether they contain those ingredients at a dose that matters.", market: "Shop in" },
+		lead: "Move the sliders. We rank ingredients by evidence and products by whether they contain those ingredients at a dose that matters. Product checks cover Spain and Germany so far; UK products are next.", market: "Shop in" },
 	es: { title: "Buscador de suplementos por objetivo: lo que funciona | NutriMetrics", description: "Elige tus objetivos (sueño, energía, estrés, defensas…) y descubre qué ingredientes tienen evidencia real y qué productos de tu país los contienen en una dosis útil.",
 		eyebrow: "Buscador por objetivo", h1: "Dinos qué quieres mejorar. Te mostramos lo que tiene evidencia.",
 		lead: "Mueve los controles. Ordenamos los ingredientes por evidencia y los productos según si los contienen en una dosis que importa.", market: "Comprar en" },
@@ -149,11 +149,11 @@ const copy = {
 		en: { panel: "What matters to you?", reset: "Reset all", ing: "What to look for", ingSub: "Ranked for your selection",
 			prod: "Products", prodSub: (m: string, n: number) => `${n} available in ${m === "ES" ? "Spain" : "Germany"}`,
 			lv: ["Off", "Some", "Important", "Top"], from: "effective from", inMarket: (n: number) => (n ? `${n} product${n > 1 ? "s" : ""} here` : "No product in our database yet"),
-			claim: "EU-authorised claim", cond: "Only if deficient", match: "match", dose: "Dose", pack: "Pack",
+			claim: "Authorised claim (UK & EU)", cond: "Only if deficient", match: "match", dose: "Dose", pack: "Pack",
 			undisclosed: "Dose not disclosed", likely: "Availability not yet confirmed", partial: "Label partly captured",
 			notDisclosed: "amount not on label", priceNote: (w: string) => `indicative · ${w}`, noPrice: "Price check coming soon",
 			src: "Label source", emptyGoals: "Move at least one slider to see recommendations.", emptyProd: "No product in this market matches your selection yet.",
-			disc: "Information only, not medical advice. Supplements don't replace a varied diet. Talk to a doctor or pharmacist if you are pregnant, take medication or have a health condition. Evidence ratings are NutriMetrics editorial ratings based on official sources (EU register, EFSA, national authorities) and systematic reviews.",
+			disc: "Information only, not medical advice. Supplements don't replace a varied diet. Talk to a doctor or pharmacist if you are pregnant, take medication or have a health condition. Evidence ratings are NutriMetrics editorial ratings based on official sources (GB and EU claims registers, NHS, EFSA, national authorities) and systematic reviews. Products are checked for Spain and Germany; UK products are next.",
 			data: (n: number, d: string) => `Database: ${n} products, label data checked ${d}. Prices are indicative.`,
 			presets: [["Sleep better", { sleep: 3, stress: 1 }], ["Always tired", { energy: 3, stress: 1 }], ["Training", { muscle: 3, joints: 1 }], ["Winter defences", { immunity: 3, energy: 1 }], ["Stressed & foggy", { stress: 3, focus: 2 }]] as [string, W][] },
 		es: { panel: "¿Qué te importa?", reset: "Reiniciar", ing: "Qué buscar", ingSub: "Ordenado según tu selección",

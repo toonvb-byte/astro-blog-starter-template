@@ -20,13 +20,13 @@ export const GET: APIRoute = async () => {
 	const lines: string[] = [
 		`# ${SITE_NAME}`,
 		"",
-		"> Independent, multilingual guides and price comparisons for food supplements in Europe (Spain and Germany first). Products are compared by cost per effective dose. Every health statement links to an official source: the EU Register of nutrition and health claims, EFSA, national authorities (AESAN, BfR) or systematic reviews. Health claims are only described in their EU-authorised wording. Not medical advice.",
+		"> Independent, multilingual guides and price comparisons for food supplements in the UK and Europe. The English edition follows the rules in Great Britain first (GB nutrition and health claims register, NHS advice, FSA/COT and MHRA positions) and notes where the EU and Northern Ireland differ; the Spanish and German editions follow EU, Spanish and German rules. Products are compared by cost per effective dose; product checks cover Spain and Germany so far. Every health statement links to an official source: the GB or EU claims register, the NHS, EFSA, national authorities (FSA, AESAN, BfR) or systematic reviews. Health claims are only described in their authorised wording. Not medical advice.",
 		"",
 		`- Methodology and editorial policy: ${abs(path("en", "about"))}`,
 		`- Affiliate disclosure: ${abs(path("en", "disclosure"))}`,
 		`- Supplement goal finder (evidence by goal): ${abs(path("en", "finder"))}`,
-		`- Supplements A–Z (one page per ingredient: forms, doses, EU claims, limits, label-checked products): ${abs(path("en", "supplements"))}`,
-		`- Glossary of ingredients, label forms and EU legal terms, with NRVs, EFSA upper levels and EU claim status: ${abs(path("en", "glossary"))} (Español: ${abs(path("es", "glossary"))}, Deutsch: ${abs(path("de", "glossary"))})`,
+		`- Supplements A–Z (one page per ingredient: forms, doses, UK/EU claims, NHS and EFSA limits, label-checked products): ${abs(path("en", "supplements"))}`,
+		`- Glossary of ingredients, label forms and UK/EU legal terms, with NRVs, NHS and EFSA upper levels and UK/EU claim status: ${abs(path("en", "glossary"))} (Español: ${abs(path("es", "glossary"))}, Deutsch: ${abs(path("de", "glossary"))})`,
 	];
 	for (const l of LOCALES) {
 		const list = hubs.filter((h) => hubLocale(h) === l);

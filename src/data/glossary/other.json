@@ -5,6 +5,7 @@
     "hub": "creatine",
     "guide": "creatine-guide",
     "src": [
+      ["UKNHCC (2024) — creatine and cognitive function", "https://www.gov.uk/government/publications/uknhcc-scientific-opinion-creatine-supplementation-and-improved-cognitive-function"],
       ["NIH ODS — Dietary supplements for exercise and athletic performance", "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/"],
       ["Commission Implementing Regulation (EU) 2017/672 — creatine and resistance training in adults over 55", "https://eur-lex.europa.eu/eli/reg_impl/2017/672/oj"]
     ],
@@ -12,7 +13,7 @@
       "name": "Creatine",
       "aka": "creatine monohydrate, Creapure",
       "desc": "Compound made from amino acids and stored in muscle, where it supplies quick energy for short, intense efforts. Monohydrate is the form used in almost all studies; it is about 88 % creatine.",
-      "facts": ["EU claim: increases performance in repeated short bursts of high-intensity exercise (3 g creatine a day)", "EU claim, adults over 55: enhances the effect of resistance training on muscle strength (3 g a day)", "Usual dose: 3–5 g a day"]
+      "facts": ["Great Britain rejected a claim that creatine improves cognitive function (2024)", "Claim (UK and EU): increases performance in repeated short bursts of high-intensity exercise (3 g creatine a day)", "Claim (UK and EU), adults over 55: enhances the effect of resistance training on muscle strength (3 g a day)", "Usual dose: 3–5 g a day"]
     },
     "es": {
       "name": "Creatina",
@@ -37,7 +38,7 @@
       "name": "Collagen",
       "aka": "hydrolysed collagen, collagen peptides, collagen hydrolysate; types I, II, III",
       "desc": "Main structural protein of skin, tendons, cartilage and bone. Supplements contain collagen broken down into small peptides (hydrolysed), from cattle, pigs, fish or chicken.",
-      "facts": ["No authorised EU claim; a joint claim for collagen hydrolysate was refused in 2012", "Dose used in studies: 2.5–10 g a day", "Products often add vitamin C, which carries the authorised collagen-formation claim"]
+      "facts": ["No authorised claim (UK or EU); a joint claim for collagen hydrolysate was refused in 2012", "Dose used in studies: 2.5–10 g a day", "Products often add vitamin C, which carries the authorised collagen-formation claim"]
     },
     "es": {
       "name": "Colágeno",
@@ -65,7 +66,7 @@
       "name": "Hyaluronic acid",
       "aka": "sodium hyaluronate",
       "desc": "Water-binding substance found in skin and joint fluid. Most supplement hyaluronic acid is made by bacterial fermentation; some comes from rooster combs. A 2025 meta-analysis of 7 small trials found better skin hydration, elasticity and wrinkle depth.",
-      "facts": ["No authorised EU claim"]
+      "facts": ["No authorised claim (UK or EU)"]
     },
     "es": {
       "name": "Ácido hialurónico",
@@ -86,6 +87,7 @@
     "hub": "joints",
     "guide": "glucosamine-chondroitin",
     "src": [
+      ["NICE NG226 — Osteoarthritis (1.4.6)", "https://www.nice.org.uk/guidance/ng226/chapter/Recommendations"],
       ["NIH NCCIH — Glucosamine and chondroitin for osteoarthritis", "https://www.nccih.nih.gov/health/glucosamine-and-chondroitin-for-osteoarthritis-what-you-need-to-know"],
       ["EFSA (2009) — Glucosamine and maintenance of joints", "https://efsa.europa.eu/en/efsajournal/pub/1264"]
     ],
@@ -93,7 +95,7 @@
       "name": "Glucosamine",
       "aka": "glucosamine sulphate, glucosamine hydrochloride",
       "desc": "Building block of cartilage, usually made from shellfish shells. It is sold for joints, but trial results for knee pain are mixed.",
-      "facts": ["No authorised EU claim: EFSA found no cause-and-effect relationship for joint claims", "Dose used in trials: 1,500 mg a day", "Often made from shellfish (allergy); high doses may interact with warfarin"]
+      "facts": ["UK (NICE): doctors should not offer glucosamine for osteoarthritis; no strong evidence of benefit", "No authorised claim (UK or EU): EFSA found no cause-and-effect relationship for joint claims", "Dose used in trials: 1,500 mg a day", "Often made from shellfish (allergy); high doses may interact with warfarin"]
     },
     "es": {
       "name": "Glucosamina",
@@ -118,7 +120,7 @@
       "name": "Chondroitin",
       "aka": "chondroitin sulphate",
       "desc": "Component of cartilage, extracted from cattle, pig, chicken or fish cartilage. Usually combined with glucosamine.",
-      "facts": ["No authorised EU claim", "Dose used in trials: 800–1,200 mg a day"]
+      "facts": ["No authorised claim (UK or EU)", "Dose used in trials: 800–1,200 mg a day"]
     },
     "es": {
       "name": "Condroitina",
@@ -146,7 +148,7 @@
       "name": "MSM (methylsulfonylmethane)",
       "aka": "methylsulphonylmethane, organic sulphur",
       "desc": "Sulphur compound sold for joints, often together with glucosamine. The evidence comes from a few small trials.",
-      "facts": ["No authorised EU claim: EFSA assessed claims on collagen formation, hair, nails and joints"]
+      "facts": ["No authorised claim (UK or EU): EFSA assessed claims on collagen formation, hair, nails and joints"]
     },
     "es": {
       "name": "MSM (metilsulfonilmetano)",
@@ -167,6 +169,7 @@
     "hub": "melatonin",
     "guide": "melatonin",
     "src": [
+      ["MHRA (2025) — melatonin is a prescription-only medicine", "https://www.gov.uk/government/news/parents-and-caregivers-advised-to-stop-all-use-of-specific-brand-of-kids-magnesium-gummies-due-to-the-presence-of-an-undeclared-prescription-only-med"],
       ["NIH NCCIH — Melatonin: what you need to know", "https://www.nccih.nih.gov/health/melatonin-what-you-need-to-know"],
       ["AEMPS — Withdrawal of a 3 mg melatonin supplement (medicine from 2 mg)", "https://www.aemps.gob.es/informa/retirada-del-complemento-alimenticio-miracle-sleep-pildoras/"]
     ],
@@ -174,7 +177,7 @@
       "name": "Melatonin",
       "aka": "N-acetyl-5-methoxytryptamine",
       "desc": "Hormone the body releases in the evening to signal night-time. Supplements can shorten the time to fall asleep a little and ease jet lag. In several countries higher doses are legally a medicine.",
-      "facts": ["EU claims: reduces the time taken to fall asleep (1 mg close to bedtime); eases jet lag (0.5 mg on travel days)", "Spain: below 2 mg a day as a supplement; 2 mg or more is a medicine", "Not for pregnancy, breastfeeding or children"]
+      "facts": ["UK: prescription-only medicine; it cannot legally be sold as a food supplement", "EU claims (not usable in the UK): reduces the time taken to fall asleep (1 mg close to bedtime); eases jet lag (0.5 mg on travel days)", "Spain: below 2 mg a day as a supplement; 2 mg or more is a medicine", "Not for pregnancy, breastfeeding or children"]
     },
     "es": {
       "name": "Melatonina",
@@ -199,7 +202,7 @@
       "name": "L-theanine",
       "aka": "theanine, Suntheanine",
       "desc": "Amino acid found in tea leaves. Small trials at about 200 mg suggest a calming effect without drowsiness, often combined with caffeine.",
-      "facts": ["No authorised EU claim: EFSA (2011) found claims on cognition, stress and sleep not substantiated"]
+      "facts": ["No authorised claim (UK or EU): EFSA (2011) found claims on cognition, stress and sleep not substantiated"]
     },
     "es": {
       "name": "L-teanina",
@@ -224,7 +227,7 @@
       "name": "5-HTP (griffonia)",
       "aka": "5-hydroxytryptophan, Griffonia simplicifolia seed extract",
       "desc": "Precursor the body uses to make serotonin, extracted from the seeds of the African Griffonia plant. Good-quality evidence for sleep or mood is limited.",
-      "facts": ["No authorised EU claim", "Do not combine with antidepressants or other drugs that raise serotonin (risk of serotonin syndrome)"]
+      "facts": ["No authorised claim (UK or EU)", "Do not combine with antidepressants or other drugs that raise serotonin (risk of serotonin syndrome)"]
     },
     "es": {
       "name": "5-HTP (griffonia)",
@@ -245,6 +248,7 @@
     "hub": "gut",
     "guide": null,
     "src": [
+      ["NHS — How to get more fibre into your diet", "https://www.nhs.uk/live-well/eat-well/digestive-health/how-to-get-more-fibre-into-your-diet/"],
       ["MedlinePlus — Psyllium", "https://medlineplus.gov/druginfo/meds/a601104.html"],
       ["EFSA — Dietary reference values (fibre)", "https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values"]
     ],
@@ -252,7 +256,7 @@
       "name": "Psyllium husk",
       "aka": "ispaghula, Plantago ovata",
       "desc": "Husk of Plantago ovata seeds: a soluble fibre that absorbs water and forms a gel, adding bulk to stools. It is used for both constipation and loose stools; always take it with plenty of water.",
-      "facts": ["EFSA adequate fibre intake for adults: 25 g a day", "Also sold as a medicine for constipation"]
+      "facts": ["NHS (UK): adults should aim for 30 g of fibre a day", "EFSA adequate fibre intake for adults: 25 g a day", "Also sold as a medicine for constipation"]
     },
     "es": {
       "name": "Psyllium (cáscara de plantago)",
@@ -273,6 +277,7 @@
     "hub": "gut",
     "guide": null,
     "src": [
+      ["ASA — Food: probiotic claims", "https://www.asa.org.uk/advice-online/food-probiotic-claims.html"],
       ["NIH NCCIH — Probiotics: what you need to know", "https://www.nccih.nih.gov/health/probiotics-what-you-need-to-know"],
       ["Hempel S et al. Probiotics for antibiotic-associated diarrhea. JAMA, 2012", "https://pubmed.ncbi.nlm.nih.gov/22570464/"]
     ],
@@ -280,7 +285,7 @@
       "name": "Probiotics",
       "aka": "live cultures, Lactobacillus, Bifidobacterium, Saccharomyces boulardii",
       "desc": "Live microorganisms, mostly bacteria and some yeasts. Effects depend on the strain: some strains help with antibiotic-related diarrhoea, many have no proven effect. Compare products by strain name and CFU per daily dose.",
-      "facts": ["No authorised EU claim for any strain"]
+      "facts": ["UK: the Department of Health treats the word \"probiotic\" itself as a health claim, so it should not appear on labels", "No authorised claim (UK or EU) for any strain"]
     },
     "es": {
       "name": "Probióticos",

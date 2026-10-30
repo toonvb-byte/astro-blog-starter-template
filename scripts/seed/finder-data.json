@@ -147,7 +147,7 @@
    "unit": "mg",
    "effective": 1,
    "caution": {
-    "en": "Not for pregnancy, breastfeeding or children. Can interact with sedatives and blood thinners. In Germany it is legally grey as a supplement.",
+    "en": "Not for pregnancy, breastfeeding or children. Can interact with sedatives and blood thinners. In the UK melatonin is a prescription-only medicine, not a supplement; in Germany it is legally grey as a supplement.",
     "es": "No apta para embarazo, lactancia ni niños. Puede interactuar con sedantes y anticoagulantes.",
     "de": "Nicht in Schwangerschaft, Stillzeit oder für Kinder. Kann mit Beruhigungsmitteln und Blutverdünnern wechselwirken. In Deutschland ist Melatonin als Nahrungsergänzungsmittel rechtlich umstritten."
    },
@@ -234,7 +234,7 @@
    "unit": "mg",
    "effective": 300,
    "caution": {
-    "en": "Not in pregnancy or with thyroid conditions; rare liver-injury reports; restricted or under review in some EU countries.",
+    "en": "Not in pregnancy or with thyroid conditions; rare liver-injury reports. The UK Food Standards Agency advises pregnant women and people with liver conditions to avoid it while its safety review runs; restricted in some EU countries.",
     "es": "No en embarazo ni con problemas de tiroides; casos raros de daño hepático; restringida o en revisión en algunos países de la UE.",
     "de": "Nicht in der Schwangerschaft oder bei Schilddrüsenerkrankungen; seltene Berichte über Leberschäden; in einigen EU-Ländern eingeschränkt oder in Prüfung."
    },
@@ -268,7 +268,7 @@
    "unit": "mg",
    "effective": 14,
    "caution": {
-    "en": "Only useful if you are low in iron. Get a blood test first; excess iron is harmful.",
+    "en": "Only useful if you are low in iron. Get a blood test first; excess iron is harmful. The NHS says up to 17 mg a day from supplements is unlikely to cause harm unless your GP advises more.",
     "es": "Solo útil si tienes el hierro bajo. Haz una analítica antes; el exceso es perjudicial.",
     "de": "Nur sinnvoll bei Eisenmangel. Vorher Blutwerte bestimmen lassen; zu viel Eisen schadet."
    },
@@ -419,7 +419,7 @@
    "unit": "mg",
    "effective": 500,
    "caution": {
-    "en": "With piperine, absorption rises a lot; rare liver-injury reports. Avoid with gallstones or blood thinners.",
+    "en": "With piperine, absorption rises a lot. The UK Committee on Toxicity found reasonable evidence of a link with rare liver injury (2024). Avoid with gallstones, liver conditions or blood thinners.",
     "es": "Con piperina se absorbe mucho más; casos raros de daño hepático. Evitar con cálculos biliares o anticoagulantes.",
     "de": "Mit Piperin steigt die Aufnahme stark; seltene Berichte über Leberschäden. Nicht bei Gallensteinen oder mit Blutverdünnern."
    },
@@ -583,7 +583,7 @@
    "i": "b12",
    "ev": 3,
    "claim": true,
-   "en": "EU-authorised claim for tiredness and fatigue; strong effect when levels are low.",
+   "en": "Authorised claim (UK & EU) for tiredness and fatigue; strong effect when levels are low.",
    "es": "Declaración autorizada en la UE sobre el cansancio; efecto claro si hay déficit.",
    "de": "EU-zugelassene Angabe zu Müdigkeit und Ermüdung; deutliche Wirkung bei niedrigen Werten."
   },
@@ -592,7 +592,7 @@
    "i": "folate",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised fatigue claim; relevant if your diet is low in greens.",
+   "en": "Authorised fatigue claim (UK & EU); relevant if your diet is low in greens.",
    "es": "Declaración autorizada sobre el cansancio; relevante si comes pocas verduras.",
    "de": "EU-zugelassene Angabe zu Müdigkeit; relevant, wenn du wenig grünes Gemüse isst."
   },
@@ -601,7 +601,7 @@
    "i": "b6",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised fatigue claim.",
+   "en": "Authorised fatigue claim (UK & EU).",
    "es": "Declaración autorizada sobre el cansancio.",
    "de": "EU-zugelassene Angabe zu Müdigkeit."
   },
@@ -646,7 +646,7 @@
    "i": "magnesium",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised claim for tiredness and fatigue.",
+   "en": "Authorised claim (UK & EU) for tiredness and fatigue.",
    "es": "Declaración autorizada en la UE sobre el cansancio.",
    "de": "EU-zugelassene Angabe zu Müdigkeit und Ermüdung."
   },
@@ -655,7 +655,7 @@
    "i": "vitamin_c",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised fatigue claim; most people already get enough.",
+   "en": "Authorised fatigue claim (UK & EU); most people already get enough.",
    "es": "Declaración autorizada sobre el cansancio; la mayoría ya toma suficiente.",
    "de": "EU-zugelassene Angabe zu Müdigkeit; die meisten nehmen schon genug auf."
   },
@@ -691,7 +691,7 @@
    "i": "melatonin",
    "ev": 3,
    "claim": true,
-   "en": "EU-authorised: 1 mg before bed shortens time to fall asleep. Helps falling asleep more than deep sleep.",
+   "en": "Authorised in the EU: 1 mg before bed shortens time to fall asleep. In the UK melatonin is prescription-only, not a supplement.",
    "es": "Autorizado en la UE: 1 mg antes de dormir acorta el tiempo para conciliar el sueño. Ayuda más a dormirse que al sueño profundo.",
    "de": "EU-zugelassen: 1 mg vor dem Schlafengehen verkürzt die Einschlafzeit. Hilft eher beim Einschlafen als beim Tiefschlaf."
   },
@@ -799,7 +799,7 @@
    "i": "magnesium",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised claim for normal psychological function.",
+   "en": "Authorised claim (UK & EU) for normal psychological function.",
    "es": "Declaración autorizada sobre la función psicológica normal.",
    "de": "EU-zugelassene Angabe zur normalen psychischen Funktion."
   },
@@ -826,7 +826,7 @@
    "i": "b6",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised claim for psychological function; helps only if low.",
+   "en": "Authorised claim (UK & EU) for psychological function; helps only if low.",
    "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta.",
    "de": "EU-zugelassene Angabe zur psychischen Funktion; hilft nur bei niedrigen Werten."
   },
@@ -835,7 +835,7 @@
    "i": "b12",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised claim for psychological function; helps only if low.",
+   "en": "Authorised claim (UK & EU) for psychological function; helps only if low.",
    "es": "Declaración autorizada sobre la función psicológica; ayuda solo si falta.",
    "de": "EU-zugelassene Angabe zur psychischen Funktion; hilft nur bei niedrigen Werten."
   },
@@ -871,7 +871,7 @@
    "i": "dha",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised: 250 mg DHA a day maintains normal brain function.",
+   "en": "Authorised claim (UK & EU): 250 mg DHA a day maintains normal brain function.",
    "es": "Autorizado en la UE: 250 mg de DHA al día mantienen la función cerebral normal.",
    "de": "EU-zugelassen: 250 mg DHA täglich tragen zur Erhaltung einer normalen Gehirnfunktion bei."
   },
@@ -880,7 +880,7 @@
    "i": "iron",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised claim for cognitive function; only if deficient.",
+   "en": "Authorised claim (UK & EU) for cognitive function; only if deficient.",
    "es": "Declaración autorizada sobre la función cognitiva; solo si hay déficit.",
    "cond": true,
    "de": "EU-zugelassene Angabe zur kognitiven Funktion; nur bei Mangel."
@@ -890,7 +890,7 @@
    "i": "zinc",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised claim for cognitive function; only if low.",
+   "en": "Authorised claim (UK & EU) for cognitive function; only if low.",
    "es": "Declaración autorizada sobre la función cognitiva; solo si falta.",
    "de": "EU-zugelassene Angabe zur kognitiven Funktion; nur bei niedrigen Werten."
   },
@@ -899,7 +899,7 @@
    "i": "b5",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised claim for mental performance; only if low.",
+   "en": "Authorised claim (UK & EU) for mental performance; only if low.",
    "es": "Declaración autorizada sobre el rendimiento intelectual; solo si falta.",
    "de": "EU-zugelassene Angabe zur geistigen Leistung; nur bei niedrigen Werten."
   },
@@ -935,7 +935,7 @@
    "i": "vitamin_d",
    "ev": 3,
    "claim": true,
-   "en": "EU-authorised claim; deficiency is common in winter.",
+   "en": "Authorised claim (UK & EU); deficiency is common in winter.",
    "es": "Declaración autorizada; el déficit es frecuente en invierno.",
    "de": "EU-zugelassene Angabe; Mangel ist im Winter häufig."
   },
@@ -944,7 +944,7 @@
    "i": "zinc",
    "ev": 3,
    "claim": true,
-   "en": "EU-authorised claim; lozenges may shorten colds.",
+   "en": "Authorised claim (UK & EU); lozenges may shorten colds.",
    "es": "Declaración autorizada; las pastillas para chupar pueden acortar resfriados.",
    "de": "EU-zugelassene Angabe; Lutschtabletten können Erkältungen verkürzen."
   },
@@ -953,7 +953,7 @@
    "i": "vitamin_c",
    "ev": 3,
    "claim": true,
-   "en": "EU-authorised claim; may slightly shorten colds.",
+   "en": "Authorised claim (UK & EU); may slightly shorten colds.",
    "es": "Declaración autorizada; puede acortar ligeramente los resfriados.",
    "de": "EU-zugelassene Angabe; kann Erkältungen leicht verkürzen."
   },
@@ -962,7 +962,7 @@
    "i": "b6",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised immune claim; only if low.",
+   "en": "Authorised immune claim (UK & EU); only if low.",
    "es": "Declaración autorizada sobre defensas; solo si falta.",
    "de": "EU-zugelassene Angabe zum Immunsystem; nur bei niedrigen Werten."
   },
@@ -971,7 +971,7 @@
    "i": "b12",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised immune claim; only if low.",
+   "en": "Authorised immune claim (UK & EU); only if low.",
    "es": "Declaración autorizada sobre defensas; solo si falta.",
    "de": "EU-zugelassene Angabe zum Immunsystem; nur bei niedrigen Werten."
   },
@@ -980,7 +980,7 @@
    "i": "folate",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised immune claim; only if low.",
+   "en": "Authorised immune claim (UK & EU); only if low.",
    "es": "Declaración autorizada sobre defensas; solo si falta.",
    "de": "EU-zugelassene Angabe zum Immunsystem; nur bei niedrigen Werten."
   },
@@ -989,7 +989,7 @@
    "i": "iron",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised immune claim; only if deficient.",
+   "en": "Authorised immune claim (UK & EU); only if deficient.",
    "es": "Declaración autorizada sobre defensas; solo si hay déficit.",
    "cond": true,
    "de": "EU-zugelassene Angabe zum Immunsystem; nur bei Mangel."
@@ -1071,7 +1071,7 @@
    "i": "creatine",
    "ev": 3,
    "claim": true,
-   "en": "EU-authorised: 3 g a day improves performance in short, high-intensity efforts. The best-studied sports supplement.",
+   "en": "Authorised claim (UK & EU): 3 g a day improves performance in short, high-intensity efforts. The best-studied sports supplement.",
    "es": "Autorizado en la UE: 3 g al día mejoran el rendimiento en esfuerzos cortos e intensos. El suplemento deportivo más estudiado.",
    "de": "EU-zugelassen: 3 g täglich steigern die Leistung bei kurzen, hochintensiven Belastungen. Das am besten untersuchte Sport-Supplement."
   },
@@ -1080,7 +1080,7 @@
    "i": "vitamin_d",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised claim for normal muscle function; matters if low.",
+   "en": "Authorised claim (UK & EU) for normal muscle function; matters if low.",
    "es": "Declaración autorizada sobre la función muscular; importa si falta.",
    "de": "EU-zugelassene Angabe zur normalen Muskelfunktion; wichtig bei niedrigen Werten."
   },
@@ -1089,7 +1089,7 @@
    "i": "magnesium",
    "ev": 2,
    "claim": true,
-   "en": "EU-authorised claim for normal muscle function.",
+   "en": "Authorised claim (UK & EU) for normal muscle function.",
    "es": "Declaración autorizada sobre la función muscular normal.",
    "de": "EU-zugelassene Angabe zur normalen Muskelfunktion."
   },
@@ -1125,7 +1125,7 @@
    "i": "vitamin_c",
    "ev": 1,
    "claim": true,
-   "en": "EU-authorised claim: normal collagen formation for cartilage.",
+   "en": "Authorised claim (UK & EU): normal collagen formation for cartilage.",
    "es": "Declaración autorizada: formación normal de colágeno para el cartílago.",
    "de": "EU-zugelassene Angabe: normale Kollagenbildung für die Knorpelfunktion."
   },
