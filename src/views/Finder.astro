@@ -2,24 +2,65 @@
 /**
  * Supplement goal finder. Sliders per goal → evidence-ranked ingredients + products in the chosen market.
  * Data: scripts/seed/finder-data.json (same source as the D1 seed). Scoring: src/lib/finder/engine.js.
- * Runs client-side; the page itself is static.
+ * The tool runs client-side. Headings, goals, disclaimer and the full evidence map (goal × ingredient, evidence
+ * level, authorised claim) are rendered on the server, so crawlers and readers without JavaScript see the data.
  */
 import Base from "../layouts/Base.astro";
-import { DEFAULT_COUNTRY, routeAlternates, type Locale } from "../i18n/config";
+import { DEFAULT_COUNTRY, path, routeAlternates, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { getHubs, hubUrl, goalRows, ingredient, amount, evidenceLabel } from "../lib/hubs";
+import { FINDER_TO_GLOSSARY, glossaryUrl } from "../lib/glossary";
+import DATA from "../../scripts/seed/finder-data.json";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const copy = {
 	en: { title: "Supplement goal finder: what actually works | NutriMetrics", description: "Choose your goals (sleep, energy, stress, immunity…) and see which ingredients have real evidence and an authorised claim in the UK and EU, and at what dose.",
 		eyebrow: "Supplement goal finder", h1: "Tell us what you want to improve. We'll show what actually has evidence.",
-		lead: "Move the sliders. We rank ingredients by evidence and products by whether they contain those ingredients at a dose that matters. Product checks cover Spain and Germany so far; UK products are next.", market: "Shop in" },
+		lead: "Move the sliders. We rank ingredients by evidence and products by whether they contain those ingredients at a dose that matters. Product checks cover Spain and Germany so far; UK products are next.", market: "Shop in",
+		panel: "What matters to you?", reset: "Reset all", ing: "What to look for", ingSub: "Ranked for your selection", prod: "Products",
+		disc: "Information only, not medical advice. Supplements don't replace a varied diet. Talk to a doctor or pharmacist if you are pregnant, take medication or have a health condition. Evidence ratings are NutriMetrics editorial ratings based on official sources (GB and EU claims registers, NHS, EFSA, national authorities) and systematic reviews. Products are checked for Spain and Germany; UK products are next.",
+		data: (n: number, d: string) => `Database: ${n} products, label data checked ${d}. Prices are indicative.`,
+		mapH: "Evidence map: which ingredients have evidence for which goal",
+		mapLead: (n: number, g: number, d: string) => `All ${n} goal–ingredient pairs the finder uses, across ${g} goals, strongest evidence first. "Authorised claim" means the claim is in the GB and EU registers, so a label may legally make it; it says nothing about the dose in a given product. Ratings checked ${d}.`,
+		jump: "Jump to a goal", eff: "Effective from (per day)", tryGoal: "Try this goal in the finder", goalPage: "Supplement page" },
 	es: { title: "Buscador de suplementos por objetivo: lo que funciona | NutriMetrics", description: "Elige tus objetivos (sueño, energía, estrés, defensas…) y descubre qué ingredientes tienen evidencia real y qué productos de tu país los contienen en una dosis útil.",
 		eyebrow: "Buscador por objetivo", h1: "Dinos qué quieres mejorar. Te mostramos lo que tiene evidencia.",
-		lead: "Mueve los controles. Ordenamos los ingredientes por evidencia y los productos según si los contienen en una dosis que importa.", market: "Comprar en" },
+		lead: "Mueve los controles. Ordenamos los ingredientes por evidencia y los productos según si los contienen en una dosis que importa.", market: "Comprar en",
+		panel: "¿Qué te importa?", reset: "Reiniciar", ing: "Qué buscar", ingSub: "Ordenado según tu selección", prod: "Productos",
+		disc: "Solo información, no consejo médico. Los suplementos no sustituyen una dieta variada. Consulta a tu médico o farmacéutico si estás embarazada, tomas medicación o tienes una enfermedad. Las valoraciones de evidencia son editoriales de NutriMetrics, basadas en fuentes oficiales (registro de la UE, EFSA, autoridades nacionales) y revisiones sistemáticas.",
+		data: (n: number, d: string) => `Base de datos: ${n} productos, etiquetas revisadas el ${d}. Precios orientativos.`,
+		mapH: "Mapa de evidencia: qué ingredientes funcionan para cada objetivo",
+		mapLead: (n: number, g: number, d: string) => `Las ${n} combinaciones de objetivo e ingrediente que usa el buscador, en ${g} objetivos, de más a menos evidencia. «Declaración UE» significa que la declaración está autorizada en el registro de la UE, así que la etiqueta puede usarla; no dice nada de la dosis de un producto concreto. Valoraciones revisadas el ${d}.`,
+		jump: "Ir a un objetivo", eff: "Eficaz desde (al día)", tryGoal: "Probar este objetivo en el buscador", goalPage: "Página del suplemento" },
 	de: { title: "Zielfinder für Nahrungsergänzungsmittel: was wirklich wirkt", description: "Wähle deine Ziele (Schlaf, Energie, Stress, Abwehr…) und sieh, welche Wirkstoffe echte Belege haben und welche Produkte in deinem Land sie in sinnvoller Dosis enthalten.",
 		eyebrow: "Zielfinder", h1: "Sag uns, was du verbessern willst. Wir zeigen, was nachweislich hilft.",
-		lead: "Bewege die Regler. Wir ordnen Wirkstoffe nach Beleglage und Produkte danach, ob sie diese Wirkstoffe in einer relevanten Dosis enthalten.", market: "Einkaufen in" },
+		lead: "Bewege die Regler. Wir ordnen Wirkstoffe nach Beleglage und Produkte danach, ob sie diese Wirkstoffe in einer relevanten Dosis enthalten.", market: "Einkaufen in",
+		panel: "Was ist dir wichtig?", reset: "Zurücksetzen", ing: "Worauf achten", ingSub: "Sortiert nach deiner Auswahl", prod: "Produkte",
+		disc: "Nur zur Information, keine medizinische Beratung. Nahrungsergänzungsmittel ersetzen keine abwechslungsreiche Ernährung. Sprich mit deiner Ärztin, deinem Arzt oder in der Apotheke, wenn du schwanger bist, Medikamente nimmst oder eine Erkrankung hast. Die Bewertung der Beleglage ist eine redaktionelle Einordnung von NutriMetrics auf Basis amtlicher Quellen (EU-Register, EFSA, BfR) und systematischer Übersichtsarbeiten.",
+		data: (n: number, d: string) => `Datenbank: ${n} Produkte, Etiketten geprüft am ${d}. Preise sind Richtwerte.`,
+		mapH: "Evidenzkarte: welche Wirkstoffe bei welchem Ziel belegt sind",
+		mapLead: (n: number, g: number, d: string) => `Alle ${n} Kombinationen aus Ziel und Wirkstoff, mit denen der Zielfinder rechnet, für ${g} Ziele, stärkste Belege zuerst. „EU-Angabe“ heißt, dass die Aussage im EU-Register zugelassen ist und auf dem Etikett stehen darf; über die Dosis eines bestimmten Produkts sagt das nichts. Bewertungen geprüft am ${d}.`,
+		jump: "Zu einem Ziel springen", eff: "Wirksam ab (pro Tag)", tryGoal: "Dieses Ziel im Zielfinder ausprobieren", goalPage: "Seite zum Wirkstoff" },
 }[locale];
+
+const t = useT(locale);
+type L = { en: string; es: string; de: string };
+const D = DATA as unknown as {
+	meta: { checked: string };
+	goals: (L & { id: string; icon: string; desc: L; warn?: L })[];
+	ingredients: (L & { id: string; caution?: L })[];
+	products: { excluded?: string }[];
+};
+const checked = formatDate(new Date(D.meta.checked), locale);
+const productCount = D.products.filter((p) => !p.excluded).length;
+const hubsHere = await getHubs(locale);
+const hubForIngredient = (id: string) => hubsHere.find((h) => h.data.kind === "ingredient" && h.data.finderIngredients.includes(id));
+const hubForGoal = (id: string) => hubsHere.find((h) => h.data.kind === "goal" && h.data.finderGoal === id);
+const map = D.goals.map((g) => ({ g, rows: goalRows(g.id), hub: hubForGoal(g.id) })).filter((x) => x.rows.length);
+const pairs = map.reduce((n, x) => n + x.rows.length, 0);
+const finderUrl = path(locale, "finder");
+const caution = (id: string) => D.ingredients.find((i) => i.id === id)?.caution?.[locale];
 ---
 <Base locale={locale} title={copy.title} description={copy.description} alternates={routeAlternates("finder")} active="finder" disclosure={true}>
 	<div class="container nmf" data-locale={locale} data-market={DEFAULT_COUNTRY[locale]}>
@@ -40,27 +81,78 @@ const copy = {
 
 		<div class="nmf-grid">
 			<aside class="nmf-panel" aria-labelledby="nmf-t-panel">
-				<h2 class="h3" id="nmf-t-panel"></h2>
+				<h2 class="h3" id="nmf-t-panel">{copy.panel}</h2>
 				<div class="nmf-presets" id="nmf-presets"></div>
-				<div id="nmf-goals"></div>
-				<button class="nmf-reset" id="nmf-reset" type="button"></button>
+				<div id="nmf-goals">
+					{D.goals.map((g) => (
+						<div class="nmf-goal">
+							<label for={`nmf-g-${g.id}`}><span class="nmf-ico" aria-hidden="true">{g.icon}</span>{g[locale]}</label>
+							<span class="nmf-lvl" id={`nmf-lv-${g.id}`}></span>
+							<p class="nmf-gdesc" id={`nmf-gd-${g.id}`}>{g.desc[locale]}</p>
+							<input type="range" id={`nmf-g-${g.id}`} min="0" max="3" step="1" value="0" aria-describedby={`nmf-gd-${g.id}`} />
+							<div class="nmf-ticks" aria-hidden="true" id={`nmf-tk-${g.id}`}></div>
+						</div>
+					))}
+				</div>
+				<button class="nmf-reset" id="nmf-reset" type="button">{copy.reset}</button>
 			</aside>
 			<div class="nmf-results">
 				<div id="nmf-warns"></div>
 				<section>
-					<div class="nmf-sech"><h2 id="nmf-t-ing"></h2><span id="nmf-t-ingsub"></span></div>
+					<div class="nmf-sech"><h2 id="nmf-t-ing">{copy.ing}</h2><span id="nmf-t-ingsub">{copy.ingSub}</span></div>
 					<div id="nmf-ings"></div>
 				</section>
 				<section>
-					<div class="nmf-sech"><h2 id="nmf-t-prod"></h2><span id="nmf-t-prodsub"></span></div>
+					<div class="nmf-sech"><h2 id="nmf-t-prod">{copy.prod}</h2><span id="nmf-t-prodsub"></span></div>
 					<div class="nmf-cards" id="nmf-cards"></div>
 				</section>
 			</div>
 		</div>
 
+		<section class="nmf-map" id="evidence" aria-labelledby="nmf-map-h">
+			<h2 id="nmf-map-h" class="h2">{copy.mapH}</h2>
+			<p class="nmf-maplead">{copy.mapLead(pairs, map.length, checked)}</p>
+			<nav class="nmf-jump" aria-label={copy.jump}>
+				{map.map(({ g }) => <a href={`#ev-${g.id}`}><span aria-hidden="true">{g.icon}</span> {g[locale]}</a>)}
+			</nav>
+			{map.map(({ g, rows, hub }) => (
+				<section class="nmf-mapgoal" id={`ev-${g.id}`} aria-labelledby={`ev-${g.id}-h`}>
+					<h3 id={`ev-${g.id}-h`}><span class="nmf-ico" aria-hidden="true">{g.icon}</span>{g[locale]}</h3>
+					<p class="nmf-mapdesc">{g.desc[locale]}</p>
+					{g.warn && <p class="nmf-warn">{g.warn[locale]}</p>}
+					<div class="table-wrap">
+						<table class="table nmf-stack">
+							<thead><tr><th scope="col">{t("hub.thIngredient")}</th><th scope="col">{t("hub.thEvidence")}</th><th scope="col">{t("hub.thClaim")}</th><th scope="col">{t("hub.thWhat")}</th><th scope="col">{copy.eff}</th></tr></thead>
+							<tbody>
+								{rows.map((r) => {
+									const ing = ingredient(r.i);
+									const name = ing?.[locale] ?? r.i;
+									const h = hubForIngredient(r.i);
+									const c = caution(r.i);
+									return (
+										<tr>
+											<th scope="row">{h ? <a href={hubUrl(h)}>{name}</a> : FINDER_TO_GLOSSARY[r.i] ? <a href={glossaryUrl(locale, FINDER_TO_GLOSSARY[r.i])} class="gl-term" title={t("gl.ingTitle")}>{name}</a> : name}</th>
+											<td data-label={t("hub.thEvidence")}><span class={`nmf-pill ev${r.ev}`}>{evidenceLabel(r.ev, locale)}</span></td>
+											<td data-label={t("hub.thClaim")}>{r.claim ? t("hub.yes") : t("hub.no")}{r.cond ? ` (${t("hub.onlyDeficient")})` : ""}</td>
+											<td data-label={t("hub.thWhat")}>{r[locale]}{c && <span class="nmf-mapcaution">⚠ {c}</span>}</td>
+											<td data-label={copy.eff} class="nmf-mapdose">{ing ? amount(ing.effective, ing.unit, locale) : "—"}</td>
+										</tr>
+									);
+								})}
+							</tbody>
+						</table>
+					</div>
+					<p class="nmf-maplinks">
+						<a href={`${finderUrl}?goal=${g.id}`}>{copy.tryGoal} →</a>
+						{hub && <a href={hubUrl(hub)}>{copy.goalPage}: {hub.data.name}</a>}
+					</p>
+				</section>
+			))}
+		</section>
+
 		<footer class="nmf-foot">
-			<p id="nmf-t-disc"></p>
-			<p id="nmf-t-data"></p>
+			<p id="nmf-t-disc">{copy.disc}</p>
+			<p id="nmf-t-data">{copy.data(productCount, checked)}</p>
 		</footer>
 	</div>
 </Base>
@@ -133,6 +225,31 @@ const copy = {
 .nmf-badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .nmf-cfoot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; border-top: 1px solid var(--nm-line-soft); padding-top: 12px; font-size: 13px; color: var(--nm-muted); }
 .nmf-cfoot a { color: var(--nm-accent); }
+.nmf-map { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--nm-line); display: grid; gap: 16px; }
+.nmf-map .h2 { margin: 0; }
+.nmf-maplead { max-width: 820px; color: var(--nm-ink-2); margin: 0; }
+.nmf-jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.nmf-jump a { border: 1px solid var(--nm-line); background: var(--nm-surface); border-radius: var(--nm-pill); padding: 6px 12px; font-size: 14px; text-decoration: none; color: var(--nm-ink); }
+.nmf-jump a:hover { border-color: var(--nm-accent); }
+.nmf-mapgoal { display: grid; gap: 10px; margin-top: 20px; scroll-margin-top: 16px; min-width: 0; }
+.nmf-mapgoal h3 { font-family: var(--nm-font-display); font-size: 22px; letter-spacing: -0.02em; margin: 0; display: flex; gap: 8px; align-items: center; }
+.nmf-mapdesc { margin: 0; color: var(--nm-muted); font-size: 15px; }
+.nmf-mapgoal .table { font-size: 15px; }
+.nmf-mapgoal .table td, .nmf-mapgoal .table th { vertical-align: top; }
+.nmf-mapgoal th[scope="row"] { font-weight: 600; min-width: 140px; }
+.nmf-mapdose { font-family: var(--nm-font-data); font-size: 13px; white-space: nowrap; color: var(--nm-ink-2); }
+.nmf-mapcaution { display: block; margin-top: 6px; font-size: 13px; color: var(--nm-deal-ink); }
+.nmf-maplinks { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0; font-size: 14px; }
+.nmf-maplinks a { color: var(--nm-accent); font-weight: 500; }
+.nmf-pill.ev1 { background: var(--nm-line-soft); color: var(--nm-ink-2); }
+@media (max-width: 640px) {
+	.nmf-stack thead { display: none; }
+	.nmf-stack, .nmf-stack tbody, .nmf-stack tr, .nmf-stack th, .nmf-stack td { display: block; width: 100%; }
+	.nmf-stack tr { padding: 12px 0; border-bottom: 1px solid var(--nm-line-soft); }
+	.nmf-stack tbody tr:last-child { border-bottom: 0; }
+	.nmf-stack th[scope="row"], .nmf-stack td { border: 0; padding: 4px 16px; background: none; white-space: normal; }
+	.nmf-stack td::before { content: attr(data-label); display: block; font-family: var(--nm-font-body); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--nm-muted); }
+}
 .nmf-foot { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--nm-line); color: var(--nm-muted); font-size: 13px; display: grid; gap: 10px; max-width: 820px; }
 @media (max-width: 520px) { .nmf-card { grid-template-columns: 1fr; } .nmf-score { grid-auto-flow: column; justify-content: start; align-items: center; } .nmf-hit { grid-template-columns: 1fr; } }
 </style>
@@ -146,35 +263,26 @@ const copy = {
 	const lang = (["es", "de"].includes(root.dataset.locale!) ? root.dataset.locale : "en") as "en" | "es" | "de";
 	const NM = (window as any).NMFinder;
 	const T = {
-		en: { panel: "What matters to you?", reset: "Reset all", ing: "What to look for", ingSub: "Ranked for your selection",
-			prod: "Products", prodSub: (m: string, n: number) => `${n} available in ${m === "ES" ? "Spain" : "Germany"}`,
+		en: { prodSub: (m: string, n: number) => `${n} available in ${m === "ES" ? "Spain" : "Germany"}`,
 			lv: ["Off", "Some", "Important", "Top"], from: "effective from", inMarket: (n: number) => (n ? `${n} product${n > 1 ? "s" : ""} here` : "No product in our database yet"),
 			claim: "Authorised claim (UK & EU)", cond: "Only if deficient", match: "match", dose: "Dose", pack: "Pack",
 			undisclosed: "Dose not disclosed", likely: "Availability not yet confirmed", partial: "Label partly captured",
 			notDisclosed: "amount not on label", priceNote: (w: string) => `indicative · ${w}`, noPrice: "Price check coming soon",
 			src: "Label source", emptyGoals: "Move at least one slider to see recommendations.", emptyProd: "No product in this market matches your selection yet.",
-			disc: "Information only, not medical advice. Supplements don't replace a varied diet. Talk to a doctor or pharmacist if you are pregnant, take medication or have a health condition. Evidence ratings are NutriMetrics editorial ratings based on official sources (GB and EU claims registers, NHS, EFSA, national authorities) and systematic reviews. Products are checked for Spain and Germany; UK products are next.",
-			data: (n: number, d: string) => `Database: ${n} products, label data checked ${d}. Prices are indicative.`,
 			presets: [["Sleep better", { sleep: 3, stress: 1 }], ["Always tired", { energy: 3, stress: 1 }], ["Training", { muscle: 3, joints: 1 }], ["Winter defences", { immunity: 3, energy: 1 }], ["Stressed & foggy", { stress: 3, focus: 2 }]] as [string, W][] },
-		es: { panel: "¿Qué te importa?", reset: "Reiniciar", ing: "Qué buscar", ingSub: "Ordenado según tu selección",
-			prod: "Productos", prodSub: (m: string, n: number) => `${n} disponibles en ${m === "ES" ? "España" : "Alemania"}`,
+		es: { prodSub: (m: string, n: number) => `${n} disponibles en ${m === "ES" ? "España" : "Alemania"}`,
 			lv: ["No", "Algo", "Importante", "Máximo"], from: "eficaz desde", inMarket: (n: number) => (n ? `${n} producto${n > 1 ? "s" : ""} aquí` : "Aún sin producto en nuestra base"),
 			claim: "Declaración autorizada UE", cond: "Solo si hay déficit", match: "encaje", dose: "Dosis", pack: "Envase",
 			undisclosed: "Dosis no declarada", likely: "Disponibilidad sin confirmar", partial: "Etiqueta recogida en parte",
 			notDisclosed: "cantidad no indicada", priceNote: (w: string) => `orientativo · ${w}`, noPrice: "Precio próximamente",
 			src: "Fuente de la etiqueta", emptyGoals: "Mueve al menos un control para ver recomendaciones.", emptyProd: "Todavía no hay productos en este mercado para tu selección.",
-			disc: "Solo información, no consejo médico. Los suplementos no sustituyen una dieta variada. Consulta a tu médico o farmacéutico si estás embarazada, tomas medicación o tienes una enfermedad. Las valoraciones de evidencia son editoriales de NutriMetrics, basadas en fuentes oficiales (registro de la UE, EFSA, autoridades nacionales) y revisiones sistemáticas.",
-			data: (n: number, d: string) => `Base de datos: ${n} productos, etiquetas revisadas el ${d}. Precios orientativos.`,
 			presets: [["Dormir mejor", { sleep: 3, stress: 1 }], ["Siempre cansado", { energy: 3, stress: 1 }], ["Entreno", { muscle: 3, joints: 1 }], ["Defensas invierno", { immunity: 3, energy: 1 }], ["Estrés y niebla mental", { stress: 3, focus: 2 }]] as [string, W][] },
-		de: { panel: "Was ist dir wichtig?", reset: "Zurücksetzen", ing: "Worauf achten", ingSub: "Sortiert nach deiner Auswahl",
-			prod: "Produkte", prodSub: (m: string, n: number) => `${n} erhältlich in ${m === "ES" ? "Spanien" : "Deutschland"}`,
+		de: { prodSub: (m: string, n: number) => `${n} erhältlich in ${m === "ES" ? "Spanien" : "Deutschland"}`,
 			lv: ["Aus", "Etwas", "Wichtig", "Top"], from: "wirksam ab", inMarket: (n: number) => (n ? `${n} Produkt${n > 1 ? "e" : ""} hier` : "Noch kein Produkt in unserer Datenbank"),
 			claim: "EU-zugelassene Angabe", cond: "Nur bei Mangel", match: "Treffer", dose: "Dosis", pack: "Packung",
 			undisclosed: "Dosis nicht angegeben", likely: "Verfügbarkeit noch nicht bestätigt", partial: "Etikett teilweise erfasst",
 			notDisclosed: "Menge nicht auf dem Etikett", priceNote: (w: string) => `Richtwert · ${w}`, noPrice: "Preisvergleich folgt",
 			src: "Etikett-Quelle", emptyGoals: "Bewege mindestens einen Regler, um Empfehlungen zu sehen.", emptyProd: "In diesem Markt passt noch kein Produkt zu deiner Auswahl.",
-			disc: "Nur zur Information, keine medizinische Beratung. Nahrungsergänzungsmittel ersetzen keine abwechslungsreiche Ernährung. Sprich mit deiner Ärztin, deinem Arzt oder in der Apotheke, wenn du schwanger bist, Medikamente nimmst oder eine Erkrankung hast. Die Bewertung der Beleglage ist eine redaktionelle Einordnung von NutriMetrics auf Basis amtlicher Quellen (EU-Register, EFSA, BfR) und systematischer Übersichtsarbeiten.",
-			data: (n: number, d: string) => `Datenbank: ${n} Produkte, Etiketten geprüft am ${d}. Preise sind Richtwerte.`,
 			presets: [["Besser schlafen", { sleep: 3, stress: 1 }], ["Immer müde", { energy: 3, stress: 1 }], ["Training", { muscle: 3, joints: 1 }], ["Abwehr im Winter", { immunity: 3, energy: 1 }], ["Gestresst & unkonzentriert", { stress: 3, focus: 2 }]] as [string, W][] },
 	}[lang];
 
@@ -190,19 +298,7 @@ const copy = {
 	// ?goal=sleep (linked from the goal hubs) starts with that one goal at "Top".
 	try { const qg = new URLSearchParams(location.search).get("goal"); if (qg && GOAL[qg]) S.w = { [qg]: 3 }; } catch {}
 
-	$("nmf-goals").innerHTML = D.goals.map((g: any) => `
-		<div class="nmf-goal">
-			<label for="nmf-g-${g.id}"><span class="nmf-ico" aria-hidden="true">${g.icon}</span>${esc(g[lang])}</label>
-			<span class="nmf-lvl" id="nmf-lv-${g.id}"></span>
-			<p class="nmf-gdesc" id="nmf-gd-${g.id}">${esc(g.desc[lang])}</p>
-			<input type="range" id="nmf-g-${g.id}" min="0" max="3" step="1" value="0" aria-describedby="nmf-gd-${g.id}">
-			<div class="nmf-ticks" aria-hidden="true" id="nmf-tk-${g.id}"></div>
-		</div>`).join("");
 	$("nmf-presets").innerHTML = T.presets.map(([n], i) => `<button type="button" data-p="${i}">${esc(n)}</button>`).join("");
-	$("nmf-t-panel").textContent = T.panel; $("nmf-reset").textContent = T.reset;
-	$("nmf-t-ing").textContent = T.ing; $("nmf-t-ingsub").textContent = T.ingSub; $("nmf-t-prod").textContent = T.prod;
-	$("nmf-t-disc").textContent = T.disc;
-	$("nmf-t-data").textContent = T.data(D.products.filter((p: any) => !p.excluded).length, D.meta.checked);
 
 	function render() {
 		(document.getElementById("nmf-market") as HTMLSelectElement).value = S.market;
