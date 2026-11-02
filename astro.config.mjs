@@ -8,6 +8,7 @@ import keystatic from "@keystatic/astro";
 import rehypeGlossaryLinks from "./src/lib/rehype-glossary-links.mjs";
 import rehypeFigureCaptions from "./src/lib/rehype-figure-captions.mjs";
 import stripImageMetadata from "./src/lib/strip-image-metadata.mjs";
+import { lastmodFor } from "./src/lib/sitemap-lastmod.mjs";
 
 // Build-time switch: pages are static, so the noindex flag is baked in at build.
 // Flip SITE_LIVE in src/lib/site.ts at launch (and in wrangler.json vars for /robots.txt).
@@ -24,6 +25,12 @@ export default defineConfig({
 		sitemap({
 			filter: (page) => !page.includes("/go/") && !page.includes("/keystatic") && !/\/(price-tracker|comparador-precios|preisvergleich|compare|comparar|vergleichen)\/$/.test(page),
 			i18n: { defaultLocale: "en", locales: { en: "en", es: "es", de: "de" } },
+			// <lastmod> only where the content has a real date (updatedDate / publishDate / check dates).
+			serialize(item) {
+				const d = lastmodFor(item.url);
+				if (d) item.lastmod = d;
+				return item;
+			},
 		}),
 	],
 	// React 19 on Workers needs the edge build of react-dom/server (used by the Keystatic admin page).

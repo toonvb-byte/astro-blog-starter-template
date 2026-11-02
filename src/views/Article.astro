@@ -18,6 +18,8 @@ const { Content, headings } = await render(guide);
 const alternates = await guideAlternates(guide);
 const url = guideUrl(guide);
 const updated = d.updatedDate ?? d.publishDate;
+// Show "Updated" only for a real update (updatedDate after publishDate); otherwise "Published".
+const isUpdated = Boolean(d.updatedDate && +d.updatedDate > +d.publishDate);
 const partOf = await hubsForGuide(d.translationKey, locale);
 
 const toc = [
@@ -94,7 +96,7 @@ const jsonLd: object[] = [
 			<div class="byline">
 				<span><span class="muted">{t("article.writtenBy")}</span> <a href={`${path(locale, "about")}#team`}>{d.author}</a></span>
 				{d.reviewer && <span><span class="muted">{t("article.reviewedBy")}</span> <a href={`${path(locale, "about")}#team`}>{d.reviewer}</a></span>}
-				<span><span class="muted">{t("article.updated")}</span> <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated, locale)}</time></span>
+				<span><span class="muted">{t(isUpdated ? "article.updated" : "article.published")}</span> <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated, locale)}</time></span>
 				<span><span class="muted">{t("article.reading")}</span> {d.readingMinutes} min</span>
 				{Object.keys(alternates).length > 1 && (
 					<span>

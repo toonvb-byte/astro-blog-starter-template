@@ -10,6 +10,13 @@ import { HUB_GROUPS } from "./lib/hub-groups";
  * Field definitions must stay in sync with keystatic.config.ts.
  */
 const optionalDate = z.union([z.null(), z.coerce.date()]).optional();
+
+/** Fails the build on impossible dates: an update before publication, or an update in the future. */
+const checkDates = (d: { publishDate: Date; updatedDate?: Date | null }, ctx: z.RefinementCtx) => {
+	if (!d.updatedDate) return;
+	if (+d.updatedDate < +d.publishDate) ctx.addIssue({ code: "custom", path: ["updatedDate"], message: "updatedDate is before publishDate" });
+	if (+d.updatedDate > Date.now() + 2 * 864e5) ctx.addIssue({ code: "custom", path: ["updatedDate"], message: "updatedDate is in the future" });
+};
 const optionalString = z.string().nullish();
 
 /**
@@ -46,7 +53,7 @@ const guides = defineCollection({
 		takeaways: z.array(z.string()).default([]),
 		faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
 		sources: z.array(z.object({ title: z.string(), url: optionalString })).default([]),
-	}),
+	}).superRefine(checkDates),
 });
 
 /**
@@ -84,7 +91,7 @@ const hubs = defineCollection({
 		guides: z.array(z.string()).default([]),
 		faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
 		sources: z.array(z.object({ title: z.string(), url: optionalString })).default([]),
-	}),
+	}).superRefine(checkDates),
 });
 
 /**
@@ -153,7 +160,7 @@ const rankings = defineCollection({
 		guides: z.array(z.string()).default([]),
 		faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
 		sources: z.array(z.object({ title: z.string(), url: optionalString })).default([]),
-	}),
+	}).superRefine(checkDates),
 });
 
 export const collections = { guides, hubs, rankings };

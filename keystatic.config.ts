@@ -93,7 +93,7 @@ const guideCollection = (lang: "en" | "es" | "de", label: string) =>
 			authorBio: fields.text({ label: "Author bio", multiline: true }),
 			reviewer: fields.text({ label: "Medical reviewer (name, credential)", description: "Only fill in if a named professional has actually reviewed this guide. Leave empty otherwise — never use a placeholder." }),
 			publishDate: fields.date({ label: "Published", defaultValue: { kind: "today" }, validation: { isRequired: true } }),
-			updatedDate: fields.date({ label: "Last updated", description: "Set this when you make a meaningful update." }),
+			updatedDate: fields.date({ label: "Last updated", description: "Set to today only when the content really changes: new facts, numbers, sources or advice. Not for typos, images or links. It shows as \"Updated\" on the page and goes to Google (dateModified and the sitemap)." }),
 			readingMinutes: fields.integer({ label: "Reading time (minutes)", defaultValue: 5, validation: { isRequired: true, min: 1 } }),
 			featured: fields.checkbox({ label: "Featured on the guides page", defaultValue: false }),
 			// Old card placeholder text: kept in the files, hidden in the editor.
@@ -180,7 +180,7 @@ const hubCollection = (lang: "en" | "es" | "de", label: string) =>
 			order: fields.integer({ label: "Order within the group", defaultValue: 100 }),
 			author: fields.text({ label: "Author", validation: { length: { min: 1 } } }),
 			publishDate: fields.date({ label: "Published", defaultValue: { kind: "today" }, validation: { isRequired: true } }),
-			updatedDate: fields.date({ label: "Last checked", description: "Set this when you re-check the numbers." }),
+			updatedDate: fields.date({ label: "Last checked", description: "Set to today when you re-check the numbers, limits or claims (even if nothing changed). Not for typos or images. Shows as \"Checked\" on the page and goes to Google (dateModified and the sitemap)." }),
 			draft: fields.checkbox({ label: "Draft (hidden on the live site)", defaultValue: true }),
 			takeaways: textList("Quick answer (3–4 bullets)"),
 			facts: fields.array(
