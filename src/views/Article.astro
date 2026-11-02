@@ -3,7 +3,8 @@ import { render } from "astro:content";
 import Base from "../layouts/Base.astro";
 import { LOCALES, path, type Locale } from "../i18n/config";
 import { useT, formatDate } from "../i18n/ui";
-import { getGuides, guideAlternates, guideUrl, inlineMd, type Guide } from "../lib/guides";
+import { guideAlternates, guideUrl, inlineMd, type Guide } from "../lib/guides";
+import { relatedGuides } from "../lib/related";
 import { SITE_NAME, SITE_URL } from "../lib/site";
 import { hubsForGuide, hubUrl } from "../lib/hubs";
 import { schemaImages, socialImage } from "../lib/images";
@@ -25,11 +26,8 @@ const toc = [
 	...(d.faq.length ? [{ slug: "faq", text: t("article.faq") }] : []),
 	...(d.sources.length ? [{ slug: "sources", text: t("article.sources") }] : []),
 ];
-// Related: same category first, then guides this article links to, then the newest (all in this language).
-const body = guide.body ?? "";
-const others = (await getGuides(locale)).filter((g) => g.id !== guide.id);
-const score = (g: Guide) => (g.data.category === d.category ? 0 : 2) - (body.includes(guideUrl(g)) ? 1 : 0);
-const related = others.map((g, i) => ({ g, s: score(g), i })).sort((a, b) => a.s - b.s || a.i - b.i).slice(0, 3).map((x) => x.g);
+// Related: by shared ingredient and supplement page, then links, newest last (src/lib/related.ts).
+const related = await relatedGuides(guide, 3);
 
 const heroAlt = d.heroAlt?.trim() || d.title;
 const ogImage = d.heroImage ? await socialImage(d.heroImage, heroAlt) : undefined;
