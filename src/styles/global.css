@@ -216,3 +216,8 @@ a.gl-term:hover { color: var(--nm-accent); text-decoration-style: solid; }
 .prose img { display: block; max-width: 100%; height: auto; border-radius: var(--nm-radius-md); }
 .prose figure.body-figure { margin: 1.6em 0; }
 .prose figure.body-figure figcaption { margin-top: 8px; font-size: 13px; line-height: 1.45; color: var(--nm-muted); }
+
+/* Long compound words (German "Nahrungsergänzungsmittel") must not push headings past the screen on phones. */
+@media (max-width: 600px) {
+	h1, h2, h3, .h1, .h2, .h3 { hyphens: auto; overflow-wrap: break-word; }
+}
