@@ -43,7 +43,7 @@ const en = {
 	"legal.imprint": "Imprint",
 	"legal.cookieSettings": "Cookie settings",
 
-	"home.title": "Supplement guides for the UK & Europe, checked against the rules | NutriMetrics",
+	"home.title": "NutriMetrics: supplement guides checked against UK/EU rules",
 	"home.description": "Independent supplement guides for the UK and Europe: every health claim checked against GB and EU rules, NHS advice and official sources.",
 	"home.eyebrow": "Independent · UK & EU rules · English, Spanish, German",
 	"home.h1": "Supplement guides for the UK and Europe — checked against the rules, compared by the dose.",
@@ -255,7 +255,7 @@ const es: Dict = {
 	"legal.imprint": "Aviso legal",
 	"legal.cookieSettings": "Configurar cookies",
 
-	"home.title": "Guías de suplementos en Europa, según la normativa UE | NutriMetrics",
+	"home.title": "Guías de suplementos según la normativa UE | NutriMetrics",
 	"home.description": "Guías independientes de suplementos en Europa: cada declaración de salud contrastada con la normativa UE y fuentes oficiales, y coste por dosis.",
 	"home.eyebrow": "Independiente · español, inglés, alemán · normativa UE",
 	"home.h1": "Guías de suplementos en Europa: contrastadas con la normativa UE y comparadas por dosis.",
@@ -465,7 +465,7 @@ const de: Dict = {
 	"legal.imprint": "Impressum",
 	"legal.cookieSettings": "Cookie-Einstellungen",
 
-	"home.title": "Ratgeber zu Nahrungsergänzungsmitteln nach EU-Recht | NutriMetrics",
+	"home.title": "Nahrungsergänzung nach EU-Recht geprüft | NutriMetrics",
 	"home.description": "Unabhängige Ratgeber zu Nahrungsergänzungsmitteln: jede Gesundheitsaussage mit EU-Recht und amtlichen Quellen geprüft, Produkte nach Kosten pro Dosis.",
 	"home.eyebrow": "Unabhängig · Deutsch, Englisch, Spanisch · EU-Recht",
 	"home.h1": "Nahrungsergänzungsmittel verstehen – geprüft nach EU-Recht, verglichen pro Dosis.",

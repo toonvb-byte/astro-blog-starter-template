@@ -1,5 +1,5 @@
 ---
-title: 'Mejor vitamina D3 (con y sin K2) 2026: 8 productos analizados'
+title: 'Mejor vitamina D3 2026, con y sin K2: 8 productos analizados'
 description: >-
   Ranking de vitamina D3 y D3 + K2 en España: dosis diaria frente al máximo de
   la EFSA, tipo de K2, excipientes y cuánto dura cada envase.

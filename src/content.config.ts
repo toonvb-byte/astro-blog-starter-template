@@ -35,7 +35,7 @@ const guides = defineCollection({
 	loader: glob({ base: "./src/content/guides", pattern: "**/*.{md,mdx}" }),
 	schema: ({ image }) => z.object({
 		...heroFields(image),
-		title: z.string().max(70),
+		title: z.string().max(60),
 		description: z.string().max(155),
 		dek: z.string(),
 		category: z.string(),
@@ -67,7 +67,7 @@ const hubs = defineCollection({
 	loader: glob({ base: "./src/content/hubs", pattern: "**/*.{md,mdx}" }),
 	schema: ({ image }) => z.object({
 		...heroFields(image),
-		title: z.string().max(70),
+		title: z.string().max(60),
 		description: z.string().max(155),
 		dek: z.string(),
 		hubKey: z.string(),
@@ -104,7 +104,7 @@ const score = z.number().min(0).max(10);
 const rankings = defineCollection({
 	loader: glob({ base: "./src/content/rankings", pattern: "**/*.md" }),
 	schema: z.object({
-		title: z.string().max(70),
+		title: z.string().max(60),
 		description: z.string().max(155),
 		h1: z.string(),
 		dek: z.string(),

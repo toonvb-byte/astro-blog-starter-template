@@ -37,6 +37,12 @@ interface Props {
 }
 
 const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website", noindex = false, image = DEFAULT_SOCIAL_IMAGE } = Astro.props;
+// <title>: add " | NutriMetrics" only when the whole title stays within TITLE_MAX characters (Google cuts longer ones).
+// Pages may pass the title with or without the suffix; og:title never carries it (og:site_name does).
+const BRAND = " | NutriMetrics";
+const TITLE_MAX = 60;
+const coreTitle = title.replace(/ \| NutriMetrics(\.eu)?$/, "");
+const fullTitle = !coreTitle.includes("NutriMetrics") && (coreTitle + BRAND).length <= TITLE_MAX ? coreTitle + BRAND : coreTitle;
 const t = useT(locale);
 const canonical = new URL(alternates[locale] ?? Astro.url.pathname, SITE_URL).href;
 
@@ -73,7 +79,7 @@ const schema: object[] = [
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>{title}</title>
+		<title>{fullTitle}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonical} />
 		{LOCALES.filter((l) => alternates[l]).map((l) => (
@@ -87,7 +93,7 @@ const schema: object[] = [
 		<meta name="theme-color" content="#0B6B4F" />
 		<meta property="og:type" content={ogType} />
 		<meta property="og:site_name" content={SITE_NAME} />
-		<meta property="og:title" content={title} />
+		<meta property="og:title" content={coreTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:locale" content={OG_LOCALE[locale]} />

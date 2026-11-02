@@ -69,7 +69,7 @@ const guideCollection = (lang: "en" | "es" | "de", label: string) =>
 		previewUrl: `/${lang}/${GUIDES_SEGMENT[lang]}/{slug}/`,
 		schema: {
 			title: fields.slug({
-				name: { label: "Title (H1)", description: "Max 70 characters.", validation: { length: { min: 1, max: 70 } } },
+				name: { label: "Title (H1)", description: "Max 60 characters: Google cuts longer titles. \" | NutriMetrics\" is added automatically when it fits.", validation: { length: { min: 1, max: 60 } } },
 				slug: { label: "URL slug", description: "The last part of the page address. Don’t change it after publishing." },
 			}),
 			...heroImageFields("guides", lang),
@@ -155,7 +155,7 @@ const hubCollection = (lang: "en" | "es" | "de", label: string) =>
 		previewUrl: `/${lang}/${HUBS_SEGMENT[lang]}/{slug}/`,
 		schema: {
 			title: fields.slug({
-				name: { label: "Title (H1)", description: "Max 70 characters.", validation: { length: { min: 1, max: 70 } } },
+				name: { label: "Title (H1)", description: "Max 60 characters: Google cuts longer titles. \" | NutriMetrics\" is added automatically when it fits.", validation: { length: { min: 1, max: 60 } } },
 				slug: { label: "URL slug", description: "The last part of the page address. Don’t change it after publishing." },
 			}),
 			...heroImageFields("hubs", lang),
