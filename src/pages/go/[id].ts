@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { LOCALES } from "../../i18n/config";
+import { AMAZON_TAGS, amazonLive, type AmazonMarket } from "../../lib/site";
 
 export const prerender = false;
 
@@ -50,9 +51,9 @@ export const GET: APIRoute = async ({ params, url, request, locals }) => {
 		u.searchParams.set("ued", offer.merchant_url);
 		target = u.toString();
 	} else if (offer.network === "amazon") {
-		// Amazon Associates: the store tag per marketplace is a Worker secret (AMAZON_TAG_ES / AMAZON_TAG_DE).
-		// Without it the visitor gets the plain product link. Also flip AFFILIATE.amazon in src/lib/site.ts.
-		const tag = offer.country === "ES" ? env.AMAZON_TAG_ES : offer.country === "DE" ? env.AMAZON_TAG_DE : undefined;
+		// Amazon Associates: store tag per marketplace from AMAZON_TAGS in src/lib/site.ts.
+		// Without a tag the visitor gets the plain product link.
+		const tag = amazonLive(offer.country) ? AMAZON_TAGS[offer.country as AmazonMarket] : "";
 		if (tag) {
 			const u = new URL(offer.merchant_url);
 			u.searchParams.set("tag", tag);

@@ -15,7 +15,7 @@ import { LOCALES, path, type Locale } from "../i18n/config";
 import { useT, formatDate } from "../i18n/ui";
 import { getGuides, guideUrl, inlineMd } from "../lib/guides";
 import { getHubs, hubUrl } from "../lib/hubs";
-import { AFFILIATE, SITE_URL } from "../lib/site";
+import { AFFILIATE, AMAZON_STATEMENT, SITE_URL, amazonLive } from "../lib/site";
 import { CRITERIA, WEIGHTS, fmtScore, rankingAlternates, rankingUrl, ranked, total, type Criterion, type Ranking } from "../lib/rankings";
 
 interface Props { locale: Locale; ranking: Ranking }
@@ -32,7 +32,9 @@ const related = d.guides.map((k) => guidesHere.find((g) => g.data.translationKey
 const list = ranked(ranking);
 const byId = new Map(list.map((p, i) => [p.id, { p, pos: i + 1 }]));
 for (const pick of d.picks) if (!byId.has(pick.product)) throw new Error(`Ranking ${ranking.id}: pick "${pick.product}" is not a product id`);
-const affiliateLive = AFFILIATE.amazon || AFFILIATE.awin;
+// per market: an ES ranking is "live" once Amazon.es links carry our tag, independent of Amazon.de
+const amazonHere = amazonLive(d.market);
+const affiliateLive = amazonHere || AFFILIATE.awin;
 const showNrv = list.some((p) => p.nrv);
 const store = d.market === "ES" ? "Amazon.es" : "Amazon.de";
 
@@ -48,7 +50,7 @@ const S = {
 		criteria: { dose: "Dosis", form: "Forma y calidad", label: "Etiqueta honesta", additives: "Aditivos", practical: "Uso práctico" },
 		priceNote: "El precio aún no cuenta en la puntuación: solo publicaremos precios de fuentes que lo permitan (feeds de las tiendas o la API de Amazon) y entonces añadiremos el coste por dosis diaria.",
 		moneyNote: affiliateLive
-			? "Algunos enlaces son de afiliado: si compras a través de ellos podemos recibir una comisión, sin coste para ti. La comisión nunca cambia el orden ni la puntuación."
+			? `Algunos enlaces son de afiliado: si compras a través de ellos podemos recibir una comisión, sin coste para ti. La comisión nunca cambia el orden ni la puntuación.${amazonHere ? ` ${AMAZON_STATEMENT.es}` : ""}`
 			: "Ningún fabricante ha pagado por aparecer. Si en el futuro los enlaces a tiendas pasan a ser de afiliado, lo indicaremos aquí; la comisión nunca cambiará el orden ni la puntuación.",
 		moneyMore: "Cómo ganamos dinero", methodMore: "Metodología completa", rankShort: "Puesto",
 	},
@@ -63,7 +65,7 @@ const S = {
 		criteria: { dose: "Dosis", form: "Form und Qualität", label: "Ehrliches Etikett", additives: "Zusatzstoffe", practical: "Alltag" },
 		priceNote: "Der Preis fließt noch nicht in den Score ein: Wir veröffentlichen Preise nur aus Quellen, die das erlauben (Shop-Feeds oder die Amazon-API), und ergänzen dann die Kosten pro Tagesdosis.",
 		moneyNote: affiliateLive
-			? "Einige Links sind Affiliate-Links: Kaufst du darüber, erhalten wir eventuell eine Provision, ohne Mehrkosten für dich. Die Provision ändert nie Reihenfolge oder Score."
+			? `Einige Links sind Affiliate-Links: Kaufst du darüber, erhalten wir eventuell eine Provision, ohne Mehrkosten für dich. Die Provision ändert nie Reihenfolge oder Score.${amazonHere ? ` ${AMAZON_STATEMENT.de}` : ""}`
 			: "Kein Hersteller hat für seinen Platz bezahlt. Werden Shop-Links später zu Affiliate-Links, steht das hier; die Provision ändert nie Reihenfolge oder Score.",
 		moneyMore: "Wie wir Geld verdienen", methodMore: "Unsere Methodik", rankShort: "Platz",
 	},

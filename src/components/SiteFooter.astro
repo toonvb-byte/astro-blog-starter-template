@@ -1,7 +1,7 @@
 ---
 import { ALL_LANGUAGES, LOCALES, path, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
-import { GA_ENABLED } from "../lib/site";
+import { AMAZON_MARKET_BY_LOCALE, AMAZON_STATEMENT, GA_ENABLED, amazonLive } from "../lib/site";
 
 interface Props { locale: Locale; alternates: Partial<Record<Locale, string>> }
 const { locale, alternates } = Astro.props;
@@ -9,6 +9,8 @@ const t = useT(locale);
 const about = path(locale, "about");
 const guides = path(locale, "guides");
 const year = new Date().getFullYear();
+// Amazon's required sentence on every page of a language whose shop links go to a tagged Amazon store
+const amazonLine = amazonLive(AMAZON_MARKET_BY_LOCALE[locale]) ? AMAZON_STATEMENT[locale] : "";
 ---
 <footer class="site-footer">
 	<div class="container">
@@ -16,6 +18,7 @@ const year = new Date().getFullYear();
 			<div class="footer-brand">
 				<span class="logo-word">NutriMetrics<span>.eu</span></span>
 				<p>{t("footer.about")}</p>
+				{amazonLine && <p style="font-size:13px">{amazonLine}</p>}
 				<p style="font-size:13px">{t("footer.medical")}</p>
 			</div>
 			<nav aria-label={t("footer.tools")} class="footer-col">

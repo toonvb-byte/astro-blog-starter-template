@@ -28,7 +28,31 @@ export const GA_MEASUREMENT_ID = "G-BV4NJDJT5M";
 export const GA_ENABLED = GA_MEASUREMENT_ID !== "";
 
 /**
+ * Amazon Associates store tag per marketplace. Not secret: it is visible in every Amazon link.
+ * /go/ adds it as `tag=` to offers of retailers with network 'amazon' in that country.
+ * Empty = no account for that store yet → visitors get the plain product link and that market's
+ * pages don't show the Amazon disclosure. ES live since 3 Nov 2026.
+ */
+export const AMAZON_TAGS = { ES: "nutrimetric0e-21", DE: "" } as const;
+export type AmazonMarket = keyof typeof AMAZON_TAGS;
+
+/** Amazon market whose links appear on a locale's pages (Spanish → Amazon.es, German → Amazon.de, English → none). */
+export const AMAZON_MARKET_BY_LOCALE: Partial<Record<string, AmazonMarket>> = { es: "ES", de: "DE" };
+
+/** True when Amazon links in this market carry our tag. */
+export const amazonLive = (market: string | null | undefined): boolean =>
+	!!market && market in AMAZON_TAGS && AMAZON_TAGS[market as AmazonMarket] !== "";
+
+/** Amazon's required sentence, per page language (Amazon Associates Operating Agreement). */
+export const AMAZON_STATEMENT = {
+	es: "En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.",
+	de: "Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.",
+	en: "As an Amazon Associate I earn from qualifying purchases.",
+} as const;
+
+/**
  * Affiliate networks that are live. Switch on only once the account is approved and links use it —
  * the disclosure, privacy and cookie pages adapt automatically (Amazon also adds its required sentence).
+ * Amazon is on as soon as any marketplace in AMAZON_TAGS has a tag.
  */
-export const AFFILIATE = { awin: false, amazon: false } as const;
+export const AFFILIATE = { awin: false, amazon: Object.values(AMAZON_TAGS).some((t) => t !== "") } as const;

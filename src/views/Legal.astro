@@ -9,14 +9,14 @@
 import Base from "../layouts/Base.astro";
 import { path, routeAlternates, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
-import { AFFILIATE, GA_ENABLED, OPERATOR as O, SITE_URL } from "../lib/site";
+import { AFFILIATE, AMAZON_STATEMENT, GA_ENABLED, OPERATOR as O, SITE_URL } from "../lib/site";
 
 type Which = "privacy" | "cookies" | "imprint" | "disclosure";
 interface Props { locale: Locale; which: Which }
 const { locale, which } = Astro.props;
 const t = useT(locale);
 
-const UPDATED = locale === "en" ? "2026-10-30" : "2026-10-19";
+const UPDATED = "2026-11-03"; // Amazon.es Associates live (affiliate networks named on all legal pages)
 const mail = (e: string) => `<a href="mailto:${e}">${e}</a>`;
 const addr = `${O.street}, ${O.postcode} ${O.city}, ${O.country[locale]}`;
 const networks = [AFFILIATE.awin && "AWIN", AFFILIATE.amazon && "Amazon"].filter(Boolean) as string[];
@@ -82,7 +82,7 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 			h1: "Aviso de afiliación",
 			body: [
 				["Cómo ganamos dinero", `NutriMetrics es gratis. Algunos enlaces a tiendas son enlaces de afiliado${anyNetwork ? `, a través de ${list(networks, "y")}` : ""}: si compras después de hacer clic, la tienda puede pagarnos una comisión. Tú pagas lo mismo.`],
-				...(AFFILIATE.amazon ? [["Amazon", "Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables."] as Section] : []),
+				...(AFFILIATE.amazon ? [["Amazon", AMAZON_STATEMENT.es] as Section] : []),
 				["Lo que nunca cambia", "Las comparativas se ordenan por precio total (con el envío a tu país) o por nuestra metodología publicada, nunca por comisión. Las tiendas que no nos pagan nada también aparecen si tienen el producto."],
 				["Cómo se marcan los enlaces", "Las páginas con enlaces a tiendas muestran un aviso arriba y los enlaces de afiliado llevan la etiqueta «Enlace de afiliado». Todos usan rel=\"sponsored\"."],
 			],
@@ -142,7 +142,7 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 			h1: "Affiliate disclosure",
 			body: [
 				["How we make money", `NutriMetrics is free to use. Some shop links are affiliate links${anyNetwork ? `, through ${list(networks, "and")}` : ""}: if you buy after clicking one, the shop may pay us a commission. You pay the same price.`],
-				...(AFFILIATE.amazon ? [["Amazon", "As an Amazon Associate I earn from qualifying purchases."] as Section] : []),
+				...(AFFILIATE.amazon ? [["Amazon", AMAZON_STATEMENT.en] as Section] : []),
 				["What never changes", "Comparisons are ordered by total price (including shipping to your country) or by our published methodology — never by commission. Shops that pay us nothing are still listed when they have the product."],
 				["How links are marked", "Pages with shop links show a notice at the top, and affiliate links carry an \"Ad · affiliate link\" label, so they are obviously identifiable as advertising, as the UK Advertising Standards Authority (CAP Code rule 2.1) and EU consumer law expect. All of them use rel=\"sponsored\"."],
 			],
@@ -202,7 +202,7 @@ const L: Record<Locale, { updated: string } & Record<Which, Page>> = {
 			h1: "Affiliate-Hinweis",
 			body: [
 				["Wie wir Geld verdienen", `NutriMetrics ist kostenlos. Einige Shop-Links sind Affiliate-Links (Werbelinks)${anyNetwork ? `, über ${list(networks, "und")}` : ""}: Wenn du nach einem Klick kaufst, zahlt uns der Shop eventuell eine Provision. Dein Preis bleibt gleich.`],
-				...(AFFILIATE.amazon ? [["Amazon", "Als Amazon-Partner verdiene ich an qualifizierten Verkäufen."] as Section] : []),
+				...(AFFILIATE.amazon ? [["Amazon", AMAZON_STATEMENT.de] as Section] : []),
 				["Was sich nie ändert", "Vergleiche werden nach Gesamtpreis (inklusive Versand in dein Land) oder nach unserer veröffentlichten Methodik sortiert – nie nach Provision. Shops, die uns nichts zahlen, werden trotzdem gelistet, wenn sie das Produkt führen."],
 				["Wie Links gekennzeichnet sind", "Seiten mit Shop-Links zeigen oben einen Hinweis, und Affiliate-Links tragen die Kennzeichnung „Werbelink“. Alle verwenden rel=\"sponsored\"."],
 			],
