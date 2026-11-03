@@ -9,6 +9,8 @@ import { SITE_NAME, SITE_URL } from "../lib/site";
 import { hubsForGuide, hubUrl } from "../lib/hubs";
 import { schemaImages, socialImage } from "../lib/images";
 import HeroImage from "../components/HeroImage.astro";
+import NewsMentions from "../components/NewsMentions.astro";
+import { newsFor } from "../lib/news";
 
 interface Props { locale: Locale; guide: Guide }
 const { locale, guide } = Astro.props;
@@ -30,6 +32,7 @@ const toc = [
 ];
 // Related: by shared ingredient and supplement page, then links, newest last (src/lib/related.ts).
 const related = await relatedGuides(guide, 3);
+const inNews = await newsFor(locale, { guide: d.translationKey });
 
 const heroAlt = d.heroAlt?.trim() || d.title;
 const ogImage = d.heroImage ? await socialImage(d.heroImage, heroAlt) : undefined;
@@ -163,6 +166,8 @@ const jsonLd: object[] = [
 				</section>
 			</article>
 		</div>
+
+		<NewsMentions locale={locale} items={inNews} />
 
 		{related.length > 0 && (
 			<section aria-labelledby="rel-h" class="section" style="padding-bottom:var(--nm-section-gap)">

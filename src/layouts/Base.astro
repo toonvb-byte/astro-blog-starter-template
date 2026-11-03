@@ -16,7 +16,7 @@ import { useT } from "../i18n/ui";
 import { GA_ENABLED, SITE_LIVE, SITE_NAME, SITE_URL } from "../lib/site";
 import { DEFAULT_SOCIAL_IMAGE, type SocialImage } from "../lib/images";
 
-export type NavKey = "home" | "finder" | "supplements" | "prices" | "compare" | "guides" | "about" | "";
+export type NavKey = "home" | "finder" | "supplements" | "prices" | "compare" | "guides" | "news" | "about" | "";
 export interface Crumb { name: string; href: string }
 
 interface Props {
@@ -34,9 +34,11 @@ interface Props {
 	noindex?: boolean;
 	/** Social card (og:image). Pages without a hero image get the default card. */
 	image?: SocialImage;
+	/** RSS feed to advertise in <head> (news pages). */
+	feed?: { url: string; title: string };
 }
 
-const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website", noindex = false, image = DEFAULT_SOCIAL_IMAGE } = Astro.props;
+const { locale, title, description, alternates, active = "", disclosure = false, breadcrumbs, jsonLd = [], ogType = "website", noindex = false, image = DEFAULT_SOCIAL_IMAGE, feed } = Astro.props;
 // <title>: add " | NutriMetrics" only when the whole title stays within TITLE_MAX characters (Google cuts longer ones).
 // Pages may pass the title with or without the suffix; og:title never carries it (og:site_name does).
 const BRAND = " | NutriMetrics";
@@ -90,6 +92,7 @@ const schema: object[] = [
 		{SITE_LIVE && noindex && <meta name="robots" content="noindex, follow" />}
 		{SITE_LIVE && !noindex && <meta name="robots" content="max-image-preview:large" />}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		{feed && <link rel="alternate" type="application/rss+xml" title={feed.title} href={new URL(feed.url, SITE_URL).href} />}
 		<meta name="theme-color" content="#0B6B4F" />
 		<meta property="og:type" content={ogType} />
 		<meta property="og:site_name" content={SITE_NAME} />

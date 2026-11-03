@@ -2,6 +2,7 @@ import { glob } from "astro/loaders";
 import { defineCollection, type SchemaContext } from "astro:content";
 import { z } from "astro/zod";
 import { HUB_GROUPS } from "./lib/hub-groups";
+import { NEWS_KINDS, NEWS_REGIONS } from "./lib/news-meta";
 
 /**
  * Guides live in src/content/guides/{locale}/{url-slug}.mdx — edited via Keystatic (/keystatic).
@@ -163,4 +164,38 @@ const rankings = defineCollection({
 	}).superRefine(checkDates),
 });
 
-export const collections = { guides, hubs, rankings };
+/**
+ * News items live in src/content/news/{locale}/{url-slug}.mdx — edited via Keystatic ("News").
+ * URL: /{locale}/{news route}/{url-slug}/ (/en/news/, /es/noticias/, /de/aktuelles/). `newsKey` ties language versions together.
+ * `region` drives the country filter on the index; `place` overrides the badge text (e.g. "Netherlands").
+ * `eventDate` = when the news happened (report, decision, publication); `publishDate` = when we published it.
+ * Every item needs at least one source. Field definitions must stay in sync with keystatic.config.ts.
+ */
+const news = defineCollection({
+	loader: glob({ base: "./src/content/news", pattern: "**/*.{md,mdx}" }),
+	schema: ({ image }) => z.object({
+		...heroFields(image),
+		title: z.string().max(70),
+		description: z.string().max(155),
+		dek: z.string(),
+		newsKey: z.string(),
+		region: z.enum(NEWS_REGIONS),
+		place: optionalString,
+		kind: z.enum(NEWS_KINDS),
+		eventDate: z.coerce.date(),
+		author: z.string(),
+		publishDate: z.coerce.date(),
+		updatedDate: optionalDate,
+		draft: z.boolean().default(false),
+		/** Related pages in the same language: guide translationKeys, hub hubKeys, ranking rankingKeys. */
+		guides: z.array(z.string()).default([]),
+		hubs: z.array(z.string()).default([]),
+		rankings: z.array(z.string()).default([]),
+		sources: z.array(z.object({ title: z.string(), url: optionalString })).min(1),
+	}).superRefine((d, ctx) => {
+		checkDates(d, ctx);
+		if (+d.eventDate > +d.publishDate + 864e5) ctx.addIssue({ code: "custom", path: ["eventDate"], message: "eventDate is after publishDate" });
+	}),
+});
+
+export const collections = { guides, hubs, rankings, news };

@@ -1,0 +1,191 @@
+---
+/**
+ * One news item: dateline (event date, region, kind), headline, standfirst, body (what happened / what it means),
+ * sources, related pages in the same language, more news. Schema: NewsArticle with citations.
+ */
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import HeroImage from "../components/HeroImage.astro";
+import { LOCALES, path, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { getNews, newsAlternates, newsModified, newsUrl, type NewsItem } from "../lib/news";
+import { KIND_LABEL, REGION_LABEL } from "../lib/news-meta";
+import { getGuides, guideUrl } from "../lib/guides";
+import { getHubs, hubUrl } from "../lib/hubs";
+import { getRankings, rankingUrl } from "../lib/rankings";
+import { SITE_URL } from "../lib/site";
+import { schemaImages, socialImage } from "../lib/images";
+
+interface Props { locale: Locale; item: NewsItem }
+const { locale, item } = Astro.props;
+const d = item.data;
+const t = useT(locale);
+const { Content } = await render(item);
+const alternates = await newsAlternates(item);
+const url = newsUrl(item);
+const modified = newsModified(item);
+const isUpdated = Boolean(d.updatedDate && +d.updatedDate > +d.publishDate);
+const place = d.place?.trim() || REGION_LABEL[locale][d.region];
+
+// Related pages in this language, in the order the item lists them. Unknown keys fail the build.
+const [guides, hubs, rankings] = await Promise.all([getGuides(locale), getHubs(locale), getRankings(locale)]);
+const pick = <T,>(keys: string[], list: T[], key: (x: T) => string, what: string) =>
+	keys.map((k) => {
+		const hit = list.find((x) => key(x) === k);
+		if (!hit) throw new Error(`News "${item.id}": ${what} "${k}" not found in ${locale}`);
+		return hit;
+	});
+const related = [
+	...pick(d.hubs, hubs, (h) => h.data.hubKey, "hub").map((h) => ({ href: hubUrl(h), label: h.data.name, title: h.data.title })),
+	...pick(d.rankings, rankings, (r) => r.data.rankingKey, "ranking").map((r) => ({ href: rankingUrl(r), label: r.data.name, title: r.data.title })),
+	...pick(d.guides, guides, (g) => g.data.translationKey, "guide").map((g) => ({ href: guideUrl(g), label: g.data.category, title: g.data.title })),
+];
+const more = (await getNews(locale)).filter((n) => n.id !== item.id).slice(0, 4);
+
+const heroAlt = d.heroAlt?.trim() || d.title;
+const ogImage = d.heroImage ? await socialImage(d.heroImage, heroAlt) : undefined;
+const images = d.heroImage ? await schemaImages(d.heroImage) : [];
+const abs = new URL(url, SITE_URL).href;
+
+const jsonLd: object[] = [
+	{
+		"@context": "https://schema.org",
+		"@type": "NewsArticle",
+		headline: d.title,
+		description: d.description,
+		inLanguage: locale,
+		datePublished: d.publishDate.toISOString(),
+		dateModified: modified.toISOString(),
+		author: { "@type": "Person", name: d.author, url: new URL(`${path(locale, "about")}#team`, SITE_URL).href },
+		publisher: { "@id": `${SITE_URL}/#org` },
+		mainEntityOfPage: abs,
+		isAccessibleForFree: true,
+		articleSection: KIND_LABEL[locale][d.kind],
+		contentLocation: { "@type": "Place", name: place },
+		...(images.length ? { image: images } : {}),
+		...(d.sources.some((s) => s.url)
+			? { citation: d.sources.filter((s) => s.url).map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })) }
+			: {}),
+	},
+];
+---
+<Base
+	locale={locale}
+	title={d.title}
+	description={d.description}
+	alternates={alternates}
+	active="news"
+	ogType="article"
+	image={ogImage}
+	breadcrumbs={[
+		{ name: t("article.home"), href: path(locale) },
+		{ name: t("news.crumb"), href: path(locale, "news") },
+		{ name: d.title, href: url },
+	]}
+	jsonLd={jsonLd}
+	feed={{ url: `${path(locale, "news")}rss.xml`, title: `NutriMetrics · ${t("news.h1")}` }}
+>
+	<div class="container">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				<li><a href={path(locale)}>{t("article.home")}</a></li>
+				<li><a href={path(locale, "news")}>{t("news.crumb")}</a></li>
+				<li aria-current="page">{d.title}</li>
+			</ol>
+		</nav>
+
+		<div class="news-wrap">
+			<header class="news-head">
+				<p class="dateline">
+					<time datetime={d.eventDate.toISOString().slice(0, 10)}>{formatDate(d.eventDate, locale)}</time>
+					<a class="badge-region" href={`${path(locale, "news")}?region=${d.region}`}>{place}</a>
+					<span class="badge-kind">{KIND_LABEL[locale][d.kind]}</span>
+				</p>
+				<h1 class="h1" style="font-size:clamp(1.9rem,3.4vw,2.75rem)">{d.title}</h1>
+				<p class="lead">{d.dek}</p>
+				<div class="byline">
+					<span><span class="muted">{t("article.writtenBy")}</span> <a href={`${path(locale, "about")}#team`}>{d.author}</a></span>
+					<span><span class="muted">{t(isUpdated ? "news.updated" : "news.published")}</span> <time datetime={modified.toISOString().slice(0, 10)}>{formatDate(modified, locale)}</time></span>
+					{Object.keys(alternates).length > 1 && (
+						<span>
+							<span class="muted">{t("article.alsoIn")}</span>
+							{LOCALES.filter((l) => l !== locale && alternates[l]).map((l) => (
+								<a href={alternates[l]} hreflang={l} lang={l} class="lang-pill">{l.toUpperCase()}</a>
+							))}
+						</span>
+					)}
+				</div>
+			</header>
+
+			<article class="prose">
+				{d.heroImage && <HeroImage src={d.heroImage} alt={heroAlt} caption={d.heroCaption} credit={d.heroCredit} />}
+				<Content />
+
+				<section id="sources" aria-labelledby="src-h">
+					<h2 id="src-h">{t("news.sources")}</h2>
+					<ol class="sources">
+						{d.sources.map((s) => <li>{s.url ? <a href={s.url} rel="noopener" target="_blank">{s.title}</a> : s.title}</li>)}
+					</ol>
+				</section>
+				<p role="note" class="news-note">{t("news.note")}</p>
+			</article>
+
+			{related.length > 0 && (
+				<section aria-labelledby="rel-h" class="rel">
+					<h2 id="rel-h" class="h3">{t("news.related")}</h2>
+					<ul class="rel-list">
+						{related.map((r) => (
+							<li><a href={r.href} class="card rel-card"><span class="rel-label">{r.label}</span><span class="rel-title">{r.title}</span></a></li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			{more.length > 0 && (
+				<section aria-labelledby="more-h" class="more">
+					<div class="section-head">
+						<h2 id="more-h" class="h3">{t("news.more")}</h2>
+						<a href={path(locale, "news")} class="link-strong">{t("home.newsAll")}</a>
+					</div>
+					<ul class="more-list">
+						{more.map((n) => (
+							<li>
+								<span class="muted"><time datetime={n.data.eventDate.toISOString().slice(0, 10)}>{formatDate(n.data.eventDate, locale)}</time> · {n.data.place?.trim() || REGION_LABEL[locale][n.data.region]}</span>
+								<a href={newsUrl(n)}>{n.data.title}</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+		</div>
+	</div>
+</Base>
+
+<style>
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 0 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	.news-wrap { max-width: 760px; padding-bottom: var(--nm-section-gap); display: flex; flex-direction: column; gap: 40px; }
+	.news-head { padding-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+	.dateline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; color: var(--nm-muted); }
+	.badge-region, .badge-kind { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: var(--nm-radius-sm); text-decoration: none; }
+	.badge-region { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	a.badge-region:hover { background: var(--nm-accent); color: #fff; }
+	.badge-kind { background: var(--nm-surface-alt); color: var(--nm-ink-2); border: 1px solid var(--nm-line); }
+	.byline { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; align-items: center; padding-top: 16px; border-top: 1px solid var(--nm-line); }
+	.byline a { font-weight: 600; }
+	.lang-pill { margin-left: 6px; padding: 4px 8px; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-sm); text-decoration: none; font-size: 13px; }
+	.prose > :global(:first-child) { margin-top: 0; }
+	.sources { font-size: 15px; }
+	.news-note { font-size: 13px; color: var(--nm-muted); }
+	.rel-list, .more-list { list-style: none; margin: 0; padding: 0; }
+	.rel-list { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); margin-top: 14px; }
+	.rel-card { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; text-decoration: none; color: var(--nm-ink); height: 100%; }
+	.rel-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.rel-label { font-size: 13px; font-weight: 600; color: var(--nm-accent); }
+	.rel-title { font-weight: 600; line-height: 1.3; }
+	.more-list { margin-top: 10px; }
+	.more-list li { display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-bottom: 1px solid var(--nm-line-soft); font-size: 15px; }
+	.more-list a { font-weight: 600; text-decoration: none; }
+	.more-list a:hover { text-decoration: underline; }
+	.more-list .muted { font-size: 13px; }
+</style>

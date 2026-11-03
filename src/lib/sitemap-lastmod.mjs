@@ -6,6 +6,7 @@
  * - Hubs:        updatedDate, else publishDate (Keystatic: "Last checked").
  * - Rankings:    the latest of publishDate, updatedDate and checked (label/price check date).
  * - Index pages: the newest date among the pages they list (home = newest of everything in that language).
+ * - News:        updatedDate, else publishDate; the news index = newest of its items.
  * - Glossary:    GLOSSARY_CHECKED in src/lib/glossary.ts.
  * - Finder:      the later of the finder data check date and PAGE_UPDATED.finder below.
  * Pages without a meaningful date (legal, about, contact…) get no <lastmod>, which is better than a wrong one.
@@ -55,7 +56,7 @@ let cache;
 function build() {
 	const map = new Map();
 	const byLocale = () => Object.fromEntries(LOCALES.map((l) => [l, []]));
-	const guides = byLocale(), hubs = byLocale(), all = byLocale();
+	const guides = byLocale(), hubs = byLocale(), news = byLocale(), all = byLocale();
 	const set = (url, d, bucket, locale) => {
 		if (!d) return;
 		map.set(url, d);
@@ -67,6 +68,9 @@ function build() {
 	}
 	for (const { locale, slug, fm } of collection("hubs")) {
 		set(`/${locale}/${ROUTES.supplements[locale]}/${slug}/`, day(fm.updatedDate) ?? day(fm.publishDate), hubs, locale);
+	}
+	for (const { locale, slug, fm } of collection("news")) {
+		set(`/${locale}/${ROUTES.news[locale]}/${slug}/`, day(fm.updatedDate) ?? day(fm.publishDate), news, locale);
 	}
 	for (const { locale, slug, fm } of collection("rankings")) {
 		if (!RANKING_BASE[locale]) continue;
@@ -82,6 +86,8 @@ function build() {
 		const h = latest(...hubs[l]);
 		if (g) map.set(`/${l}/${ROUTES.guides[l]}/`, g);
 		if (h) map.set(`/${l}/${ROUTES.supplements[l]}/`, h);
+		const n = latest(...news[l]);
+		if (n) map.set(`/${l}/${ROUTES.news[l]}/`, n);
 		const home = latest(...all[l]);
 		if (home) map.set(`/${l}/`, home);
 	}

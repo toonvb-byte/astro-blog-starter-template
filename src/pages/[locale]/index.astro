@@ -7,6 +7,9 @@ import { LOCALES, path, routeAlternates, type Locale } from "../../i18n/config";
 import { useT } from "../../i18n/ui";
 import { getGuides, guideUrl } from "../../lib/guides";
 import { getHubs, hubUrl } from "../../lib/hubs";
+import { getNews, newsUrl } from "../../lib/news";
+import { REGION_LABEL } from "../../lib/news-meta";
+import { formatDate } from "../../i18n/ui";
 
 export function getStaticPaths() {
 	return LOCALES.map((locale) => ({ params: { locale } }));
@@ -25,6 +28,7 @@ const picks = PICKS.map((k) => all.find((g) => g.data.translationKey === k)).fil
 const posts = all.filter((g) => !picks.includes(g)).slice(0, 3);
 const chipLink = (c: string) => `${guides}?q=${encodeURIComponent(c)}`;
 const hubs = await getHubs(locale);
+const news = (await getNews(locale)).slice(0, 3);
 ---
 <Base locale={locale} title={t("home.title")} description={t("home.description")} alternates={routeAlternates()} active="home">
 	<section aria-labelledby="hero-h" style="background:var(--nm-surface);border-bottom:1px solid var(--nm-line)">
@@ -133,6 +137,26 @@ const hubs = await getHubs(locale);
 		</section>
 	)}
 
+	{news.length > 0 && (
+		<section aria-labelledby="news-h" class="container section">
+			<div class="section-head">
+				<h2 id="news-h" class="h2">{t("home.newsH")}</h2>
+				<a href={path(locale, "news")} class="link-strong">{t("home.newsAll")}</a>
+			</div>
+			<ul class="grid-auto home-news" style="--min:300px">
+				{news.map((n) => (
+					<li>
+						<a href={newsUrl(n)} class="card news-card">
+							<span class="news-meta"><time datetime={n.data.eventDate.toISOString().slice(0, 10)}>{formatDate(n.data.eventDate, locale)}</time> · <span class="news-place">{n.data.place?.trim() || REGION_LABEL[locale][n.data.region]}</span></span>
+							<span class="news-title">{n.data.title}</span>
+							<span class="muted" style="font-size:15px">{n.data.dek}</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	)}
+
 	<section aria-labelledby="trust-h" class="container" style="padding-top:72px;padding-bottom:24px">
 		<div class="dark-panel">
 			<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px">
@@ -169,5 +193,11 @@ const hubs = await getHubs(locale);
 	.cmp-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
 	.cmp-card :global(.cmp-img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; background: var(--nm-accent-soft); }
 	.cmp-foot { margin-top: auto; font-size: 13px; border-top: 1px solid var(--nm-line-soft); padding-top: 12px; }
+	.home-news { list-style: none; margin: 0; padding: 0; }
+	.news-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; text-decoration: none; color: var(--nm-ink); height: 100%; }
+	.news-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.news-meta { font-size: 13px; color: var(--nm-muted); }
+	.news-place { font-weight: 600; color: var(--nm-accent-ink); }
+	.news-title { font-family: var(--nm-font-display); font-weight: 600; font-size: 20px; line-height: 1.25; }
 	@media (max-width: 600px) { .hero { padding-top: 40px; padding-bottom: 40px; } }
 </style>

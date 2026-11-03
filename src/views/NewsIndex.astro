@@ -1,0 +1,170 @@
+---
+/**
+ * News index: every news item in the page's language, newest first, grouped by month.
+ * Country chips filter the list in the browser (without JS everything is shown). ?region=es preselects a chip.
+ */
+import Base from "../layouts/Base.astro";
+import { path, routeAlternates, type Locale } from "../i18n/config";
+import { useT, formatDate, formatMonth } from "../i18n/ui";
+import { getNews, newsUrl } from "../lib/news";
+import { KIND_LABEL, REGION_LABEL, REGION_ORDER } from "../lib/news-meta";
+import { SITE_URL } from "../lib/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+const items = await getNews(locale);
+const regions = REGION_ORDER[locale].filter((r) => items.some((n) => n.data.region === r));
+const count = (r: string) => items.filter((n) => n.data.region === r).length;
+
+// Group by month of the event date (items are already newest first).
+const months: { key: string; label: string; list: typeof items }[] = [];
+for (const n of items) {
+	const key = n.data.eventDate.toISOString().slice(0, 7);
+	let m = months.find((x) => x.key === key);
+	if (!m) months.push((m = { key, label: formatMonth(n.data.eventDate, locale), list: [] }));
+	m.list.push(n);
+}
+const latest = items[0]?.data.eventDate;
+const pageUrl = new URL(path(locale, "news"), SITE_URL).href;
+const feedUrl = `${path(locale, "news")}rss.xml`;
+const badge = (n: (typeof items)[number]) => n.data.place?.trim() || REGION_LABEL[locale][n.data.region];
+
+const jsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		"@id": `${pageUrl}#page`,
+		name: t("news.h1"),
+		description: t("news.description"),
+		url: pageUrl,
+		inLanguage: locale,
+		publisher: { "@id": `${SITE_URL}/#org` },
+		...(latest ? { dateModified: latest.toISOString().slice(0, 10) } : {}),
+		mainEntity: {
+			"@type": "ItemList",
+			itemListElement: items.map((n, i) => ({ "@type": "ListItem", position: i + 1, url: new URL(newsUrl(n), SITE_URL).href, name: n.data.title })),
+		},
+	},
+];
+---
+<Base
+	locale={locale}
+	title={t("news.title")}
+	description={t("news.description")}
+	alternates={routeAlternates("news")}
+	active="news"
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: t("news.crumb"), href: path(locale, "news") }]}
+	jsonLd={jsonLd}
+	feed={{ url: feedUrl, title: `NutriMetrics · ${t("news.h1")}` }}
+>
+	<header class="container idx-head">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				<li><a href={path(locale)}>{t("article.home")}</a></li>
+				<li aria-current="page">{t("news.crumb")}</li>
+			</ol>
+		</nav>
+		<h1 class="h1">{t("news.h1")}</h1>
+		<p class="lead">{t("news.lead")}</p>
+		<p class="muted meta">
+			{`${items.length} ${t("news.items")}`}
+			{latest && <>{` · ${t("news.lastItem")}: `}<time datetime={latest.toISOString().slice(0, 10)}>{formatDate(latest, locale)}</time></>}
+			{" · "}<a href={feedUrl}>{t("news.rss")}</a>
+		</p>
+		{regions.length > 1 && (
+			<div class="filters" role="group" aria-label={t("news.filter")}>
+				<span class="muted" style="font-size:14px">{t("news.filter")}:</span>
+				<button type="button" class="chip" data-region="" aria-pressed="true">{t("news.all")} <span class="count">{items.length}</span></button>
+				{regions.map((r) => (
+					<button type="button" class="chip" data-region={r} aria-pressed="false">{REGION_LABEL[locale][r]} <span class="count">{count(r)}</span></button>
+				))}
+			</div>
+		)}
+	</header>
+
+	<div class="container"><div class="news-body">
+		<p id="news-none" class="muted" hidden>{t("news.none")}</p>
+		{months.map((m) => (
+			<section class="month" aria-labelledby={`m-${m.key}`} data-month>
+				<h2 id={`m-${m.key}`} class="month-h">{m.label}</h2>
+				<ol class="news-list">
+					{m.list.map((n) => (
+						<li data-item data-region={n.data.region}>
+							<article class="news-row">
+								<p class="dateline">
+									<time datetime={n.data.eventDate.toISOString().slice(0, 10)}>{formatDate(n.data.eventDate, locale)}</time>
+									<span class="badge-region">{badge(n)}</span>
+									<span class="badge-kind">{KIND_LABEL[locale][n.data.kind]}</span>
+								</p>
+								<h3><a href={newsUrl(n)}>{n.data.title}</a></h3>
+								<p class="dek">{n.data.dek}</p>
+							</article>
+						</li>
+					))}
+				</ol>
+			</section>
+		))}
+
+		<aside class="policy" aria-labelledby="policy-h">
+			<h2 id="policy-h">{t("news.policyH")}</h2>
+			<p>{t("news.policy")}</p>
+			<a href={`${path(locale, "about")}#method`} class="link-strong">{t("news.methodology")} →</a>
+		</aside>
+	</div></div>
+</Base>
+
+<script>
+	// Country filter; keeps ?region= in the address so a filtered view can be shared.
+	const chips = Array.from(document.querySelectorAll<HTMLButtonElement>(".filters [data-region]"));
+	const rows = Array.from(document.querySelectorAll<HTMLElement>("[data-item]"));
+	const months = Array.from(document.querySelectorAll<HTMLElement>("[data-month]"));
+	const none = document.getElementById("news-none");
+	const apply = (region: string) => {
+		if (region && !chips.some((c) => c.dataset.region === region)) region = "";
+		for (const c of chips) c.setAttribute("aria-pressed", String(c.dataset.region === region));
+		let shown = 0;
+		for (const r of rows) {
+			const hit = !region || r.dataset.region === region;
+			r.hidden = !hit;
+			if (hit) shown++;
+		}
+		for (const m of months) m.hidden = !m.querySelector("[data-item]:not([hidden])");
+		if (none) none.hidden = shown > 0;
+		const url = new URL(location.href);
+		if (region) url.searchParams.set("region", region);
+		else url.searchParams.delete("region");
+		history.replaceState(null, "", url);
+	};
+	for (const c of chips) c.addEventListener("click", () => apply(c.dataset.region ?? ""));
+	const initial = new URLSearchParams(location.search).get("region");
+	if (initial) apply(initial);
+</script>
+
+<style>
+	.idx-head { padding-top: 40px; padding-bottom: 24px; display: flex; flex-direction: column; gap: 14px; }
+	.idx-head .lead { max-width: 780px; }
+	.meta { font-size: 14px; }
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 6px; }
+	.filters .chip { font: inherit; font-size: 14px; cursor: pointer; gap: 6px; }
+	.filters .chip[aria-pressed="true"] { background: var(--nm-accent); border-color: var(--nm-accent); color: #fff; }
+	.filters .count { font-size: 12px; opacity: 0.75; }
+	.news-body { padding-bottom: var(--nm-section-gap); display: flex; flex-direction: column; gap: 36px; max-width: 900px; }
+	.month[hidden], [data-item][hidden] { display: none; }
+	.month-h { font-size: 15px; font-family: var(--nm-font-body); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nm-muted); padding-bottom: 10px; border-bottom: 1px solid var(--nm-line); }
+	.news-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+	.news-row { padding: 20px 0; border-bottom: 1px solid var(--nm-line-soft); display: flex; flex-direction: column; gap: 8px; }
+	.dateline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--nm-muted); }
+	.badge-region, .badge-kind { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: var(--nm-radius-sm); }
+	.badge-region { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.badge-kind { background: var(--nm-surface-alt, #F1F3F2); color: var(--nm-ink-2); border: 1px solid var(--nm-line); }
+	.news-row h3 { font-family: var(--nm-font-display); font-weight: 600; font-size: 22px; line-height: 1.25; }
+	.news-row h3 a { color: var(--nm-ink); text-decoration: none; }
+	.news-row h3 a:hover { color: var(--nm-accent); text-decoration: underline; }
+	.news-row .dek { color: var(--nm-ink-2); font-size: 16px; max-width: 760px; }
+	.policy { background: var(--nm-surface); border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: var(--nm-ink-2); }
+	.policy h2 { font-size: 20px; color: var(--nm-ink); }
+	@media (max-width: 600px) { .idx-head { padding-top: 28px; } .news-row h3 { font-size: 19px; } }
+</style>

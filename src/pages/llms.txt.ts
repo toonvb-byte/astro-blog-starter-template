@@ -3,6 +3,7 @@ import { LOCALES, path } from "../i18n/config";
 import { getGuides, guideUrl, guideLocale } from "../lib/guides";
 import { getHubs, hubUrl, hubLocale } from "../lib/hubs";
 import { getRankings, rankingUrl, rankingLocale } from "../lib/rankings";
+import { getNews, newsUrl, newsLocale } from "../lib/news";
 import { SITE_NAME, SITE_URL } from "../lib/site";
 
 /**
@@ -27,6 +28,7 @@ export const GET: APIRoute = async () => {
 		`- Supplement goal finder (evidence by goal): ${abs(path("en", "finder"))}`,
 		`- Supplements A–Z (one page per ingredient: forms, doses, UK/EU claims, NHS and EFSA limits, label-checked products): ${abs(path("en", "supplements"))}`,
 		`- Glossary of ingredients, label forms and UK/EU legal terms, with NRVs, NHS and EFSA upper levels and UK/EU claim status: ${abs(path("en", "glossary"))} (Español: ${abs(path("es", "glossary"))}, Deutsch: ${abs(path("de", "glossary"))})`,
+		`- Supplement news (rule changes, safety alerts, product tests and studies for the UK, Spain, Germany and the EU, each with its official source and what it means for readers): ${abs(path("en", "news"))} (Español: ${abs(path("es", "news"))}, Deutsch: ${abs(path("de", "news"))}); RSS: ${abs(path("en", "news"))}rss.xml`,
 	];
 	for (const l of LOCALES) {
 		const list = hubs.filter((h) => hubLocale(h) === l);
@@ -44,6 +46,13 @@ export const GET: APIRoute = async () => {
 			"",
 		);
 		for (const r of list) lines.push(`- [${r.data.title}](${abs(rankingUrl(r))}): ${r.data.description.replace(/\s+/g, " ").trim()}`);
+	}
+	const news = await getNews();
+	for (const l of LOCALES) {
+		const list = news.filter((n) => newsLocale(n) === l);
+		if (!list.length) continue;
+		lines.push("", `## News — ${LANG[l] ?? l}`, "");
+		for (const n of list) lines.push(`- [${n.data.title}](${abs(newsUrl(n))}) (${n.data.eventDate.toISOString().slice(0, 10)}): ${n.data.description.replace(/\s+/g, " ").trim()}`);
 	}
 	for (const l of LOCALES) {
 		const list = guides.filter((g) => guideLocale(g) === l);

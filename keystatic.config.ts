@@ -1,4 +1,5 @@
 import { collection, config, fields } from "@keystatic/core";
+import { KIND_LABEL, NEWS_KINDS, NEWS_REGIONS, REGION_LABEL } from "./src/lib/news-meta";
 
 /**
  * Keystatic CMS — edit at /keystatic.
@@ -19,7 +20,7 @@ const GUIDES_SEGMENT = { en: "guides", es: "guias", de: "ratgeber" };
  * The hero file is always named heroImage.{ext} (Keystatic names it after the field). Images placed in the body keep
  * the name you upload, cleaned up by cleanFilename (lowercase, no accents or spaces), so name them after what they show.
  */
-const heroImageFields = (kind: "guides" | "hubs", lang: "en" | "es" | "de") => ({
+const heroImageFields = (kind: "guides" | "hubs" | "news", lang: "en" | "es" | "de") => ({
 	heroImage: fields.image({
 		label: "Hero image (top of the page)",
 		description: "Shown above the text and used when the page is shared or appears in Google Discover. 16:9 landscape, at least 1600 px wide (2400 × 1350 is ideal), no text in the picture. Turn off location data on phone photos before uploading. Fill in the alt text below.",
@@ -46,7 +47,7 @@ const cleanFilename = (name: string) => {
 		.slice(0, 60) || "image";
 	return `${slug}.${ext === "jpeg" ? "jpg" : ext}`;
 };
-const bodyImages = (kind: "guides" | "hubs", lang: "en" | "es" | "de") => ({
+const bodyImages = (kind: "guides" | "hubs" | "news", lang: "en" | "es" | "de") => ({
 	image: {
 		directory: `src/assets/${kind}/${lang}`,
 		publicPath: `../../../assets/${kind}/${lang}/`,
@@ -219,13 +220,66 @@ const hubCollection = (lang: "en" | "es" | "de", label: string) =>
 		},
 	});
 
+const NEWS_SEGMENT = { en: "news", es: "noticias", de: "aktuelles" };
+
+/** News items. Must stay in sync with the `news` schema in src/content.config.ts. */
+const newsCollection = (lang: "en" | "es" | "de", label: string) =>
+	collection({
+		label,
+		slugField: "title",
+		path: `src/content/news/${lang}/*`,
+		format: { contentField: "content" },
+		entryLayout: "content",
+		columns: ["title", "eventDate"],
+		previewUrl: `/${lang}/${NEWS_SEGMENT[lang]}/{slug}/`,
+		schema: {
+			title: fields.slug({
+				name: { label: "Headline (H1)", description: "Aim for 60 characters or less (max 70). Say what happened, not a teaser.", validation: { length: { min: 1, max: 70 } } },
+				slug: { label: "URL slug", description: "The last part of the page address. Don’t change it after publishing." },
+			}),
+			...heroImageFields("news", lang),
+			description: fields.text({ label: "Meta description (shown in Google)", multiline: true, validation: { length: { min: 1, max: 155 } } }),
+			dek: fields.text({ label: "Standfirst (one or two sentences: what happened and why it matters)", multiline: true, validation: { length: { min: 1 } } }),
+			newsKey: fields.text({ label: "News key", description: "Same value in every language version of this item (e.g. eu-max-levels-delay).", validation: { length: { min: 1 } } }),
+			region: fields.select({
+				label: "Region (country filter)",
+				options: NEWS_REGIONS.map((r) => ({ label: REGION_LABEL[lang][r], value: r })),
+				defaultValue: lang === "en" ? "uk" : lang,
+			}),
+			place: fields.text({ label: "Place shown on the badge (optional)", description: "Only if more precise than the region, e.g. “Netherlands” for a Dutch rule filed under EU." }),
+			kind: fields.select({
+				label: "Kind",
+				options: NEWS_KINDS.map((k) => ({ label: KIND_LABEL[lang][k], value: k })),
+				defaultValue: "rules",
+			}),
+			eventDate: fields.date({ label: "Date of the news", description: "When it happened: the decision, report, alert or publication date (shown as the dateline).", validation: { isRequired: true } }),
+			author: fields.text({ label: "Author", defaultValue: "Toon Van Buylaere", validation: { length: { min: 1 } } }),
+			publishDate: fields.date({ label: "Published on NutriMetrics", defaultValue: { kind: "today" }, validation: { isRequired: true } }),
+			updatedDate: fields.date({ label: "Last updated", description: "Only when the facts change (e.g. a draft law is adopted). Shows as \"Updated\"." }),
+			draft: fields.checkbox({ label: "Draft (hidden on the live site)", defaultValue: true }),
+			hubs: fields.array(fields.text({ label: "Hub key" }), { label: "Related supplement pages (hub keys, e.g. magnesium)", itemLabel: (p) => p.value || "key" }),
+			rankings: fields.array(fields.text({ label: "Ranking key" }), { label: "Related rankings (ranking keys, ES/DE only)", itemLabel: (p) => p.value || "key" }),
+			guides: fields.array(fields.text({ label: "Guide translation key" }), { label: "Related guides (translation keys)", itemLabel: (p) => p.value || "key" }),
+			sources: fields.array(
+				fields.object({ title: fields.text({ label: "Source title (publisher, title, date)" }), url: fields.url({ label: "Link" }) }),
+				{ label: "Sources (at least one; official source first)", itemLabel: (p) => p.fields.title.value || "Source", validation: { length: { min: 1 } } },
+			),
+			content: fields.mdx({
+				label: "Body",
+				description: "Two short sections: “What happened” and “What it means for you” (H2). Facts from the sources only, with numbers and dates.",
+				extension: "mdx",
+				options: bodyImages("news", lang),
+			}),
+		},
+	});
+
 export default config({
 	storage: import.meta.env.DEV
 		? { kind: "local" }
 		: { kind: "github", repo: "toonvb-byte/astro-blog-starter-template" },
 	ui: {
 		brand: { name: "NutriMetrics" },
-		navigation: { Guides: ["guidesEn", "guidesEs", "guidesDe"], "Supplement pages": ["hubsEn", "hubsEs", "hubsDe"] },
+		navigation: { Guides: ["guidesEn", "guidesEs", "guidesDe"], "Supplement pages": ["hubsEn", "hubsEs", "hubsDe"], News: ["newsEn", "newsEs", "newsDe"] },
 	},
 	collections: {
 		guidesEn: guideCollection("en", "Guides — English"),
@@ -234,5 +288,8 @@ export default config({
 		hubsEn: hubCollection("en", "Supplement pages — English"),
 		hubsEs: hubCollection("es", "Suplementos — Español"),
 		hubsDe: hubCollection("de", "Wirkstoffe — Deutsch"),
+		newsEn: newsCollection("en", "News — English"),
+		newsEs: newsCollection("es", "Noticias — Español"),
+		newsDe: newsCollection("de", "Aktuelles — Deutsch"),
 	},
 });

@@ -17,6 +17,8 @@ import { FINDER_TO_GLOSSARY, glossaryUrl } from "../lib/glossary";
 import { schemaImages, socialImage } from "../lib/images";
 import HeroImage from "../components/HeroImage.astro";
 import { rankingsForHub, rankingUrl } from "../lib/rankings";
+import { newsFor } from "../lib/news";
+import NewsMentions from "../components/NewsMentions.astro";
 
 interface Props { locale: Locale; hub: Hub }
 const { locale, hub } = Astro.props;
@@ -40,6 +42,7 @@ const rankingsHere = d.kind === "ingredient" ? await rankingsForHub(d.hubKey, lo
 const rankingCta = { en: "Ranked by label analysis", es: "Ranking por análisis de etiqueta", de: "Vergleich nach Etikett-Analyse" }[locale];
 const guidesHere = await getGuides(locale);
 const related = d.guides.map((k) => guidesHere.find((g) => g.data.translationKey === k)).filter((g) => g !== undefined);
+const inNews = await newsFor(locale, { hub: d.hubKey });
 const siblings = hubsHere.filter((h) => h.id !== hub.id && (d.kind === "goal" ? h.data.kind === "goal" : h.data.group === d.group)).slice(0, 4);
 
 const marketName = { ES: { en: "Spain", es: "España", de: "Spanien" }, DE: { en: "Germany", es: "Alemania", de: "Deutschland" } } as const;
@@ -340,6 +343,8 @@ const jsonLd: object[] = [
 				</div>
 			</section>
 		)}
+
+		<NewsMentions locale={locale} items={inNews} />
 
 		{siblings.length > 0 && (
 			<section aria-labelledby="sib-h" class="section" style="padding-bottom:var(--nm-section-gap)">
