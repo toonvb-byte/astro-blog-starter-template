@@ -167,25 +167,26 @@
     "src": [
       ["NHS — Vitamins and minerals", "https://www.nhs.uk/conditions/vitamins-and-minerals/"],
       ["Directive 2002/46/EC on food supplements (Article 5)", "https://eur-lex.europa.eu/eli/dir/2002/46/oj"],
-      ["BfR — Recommended maximum levels for vitamins and minerals in food supplements", "https://www.bfr.bund.de/cm/343/hoechstmengenempfehlungen-des-bfr.pdf"]
+      ["BfR — Recommended maximum levels for vitamins and minerals in food supplements", "https://www.bfr.bund.de/cm/343/hoechstmengenempfehlungen-des-bfr.pdf"],
+      ["HBW Insight — Commission says no 2026 consultation planned on EU supplement limits (22 Oct 2026)", "https://insights.citeline.com/hbw-insight/wellness/policy-and-regulation/page-error-or-postponement-commission-says-no-2026-consultation-planned-on-eu-supplement-limits-SGLL7FQZGNAKBJQZ72ELUPXGUE/"]
     ],
     "en": {
       "name": "Maximum levels in supplements",
       "aka": "national maximum levels, BfR maximum level recommendations (Höchstmengenempfehlungen)",
       "desc": "Neither the UK nor the EU has set binding maximum amounts of vitamins and minerals per daily dose in supplements. In the UK, the NHS publishes amounts from supplements that are unlikely to cause harm (for example 100 µg vitamin D, 25 mg zinc). In the EU each country decides: some have binding limits; Germany's BfR publishes recommended maximums (for example 20 µg vitamin D and 250 mg magnesium); Spain has no national maximum for most vitamins and minerals.",
-      "facts": []
+      "facts": ["EU: the Commission's plan lists adoption of common maximums for the first quarter of 2028; in October 2026 it said no public consultation is planned for 2026"]
     },
     "es": {
       "name": "Cantidades máximas en suplementos",
       "aka": "máximos nacionales, recomendaciones de cantidades máximas del BfR",
       "desc": "La UE nunca ha fijado cantidades máximas comunes de vitaminas y minerales por dosis diaria en los suplementos, así que cada país decide. Algunos tienen límites obligatorios; el BfR alemán publica máximos recomendados (por ejemplo, 20 µg de vitamina D y 250 mg de magnesio); España no tiene un máximo nacional para la mayoría de vitaminas y minerales.",
-      "facts": []
+      "facts": ["UE: el plan de la Comisión prevé aprobar máximos comunes en el primer trimestre de 2028; en octubre de 2026 dijo que este año no habrá consulta pública"]
     },
     "de": {
       "name": "Höchstmengen in Nahrungsergänzungsmitteln",
       "aka": "nationale Höchstmengen, BfR-Höchstmengenempfehlungen",
       "desc": "Die EU hat nie gemeinsame Höchstmengen für Vitamine und Mineralstoffe pro Tagesdosis in Nahrungsergänzungsmitteln festgelegt, daher entscheidet jedes Land selbst. Manche haben verbindliche Grenzen; das deutsche BfR veröffentlicht empfohlene Höchstmengen (zum Beispiel 20 µg Vitamin D und 250 mg Magnesium); Spanien hat für die meisten Vitamine und Mineralstoffe keine nationale Höchstmenge.",
-      "facts": []
+      "facts": ["EU: Die Kommission plant gemeinsame Höchstmengen für das erste Quartal 2028; im Oktober 2026 erklärte sie, dass 2026 keine öffentliche Konsultation stattfindet"]
     }
   },
   {
