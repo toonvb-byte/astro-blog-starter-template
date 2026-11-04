@@ -6,6 +6,7 @@ import { getRankings, rankingUrl, rankingLocale } from "../lib/rankings";
 import { getNews, newsUrl, newsLocale } from "../lib/news";
 import { SITE_NAME, SITE_URL } from "../lib/site";
 import { loadLegalStatus, countryName, STATUS_LABEL } from "../lib/rehype-country-status.mjs";
+import { loadMaxLevels } from "../lib/rehype-max-levels.mjs";
 
 /**
  * /llms.txt — a plain-text index for AI assistants and answer engines (llmstxt.org format):
@@ -45,6 +46,21 @@ export const GET: APIRoute = async () => {
 			}
 			lines.push("");
 		}
+	}
+	{
+		const mx = loadMaxLevels();
+		const typeEn: Record<string, string> = { benchmark: "safety benchmark, total intake", binding: "binding", guidance: "guidance", none: "no national maximum" };
+		lines.push("", `## Maximum amount per daily dose of a food supplement, adults, by country — checked ${mx.checked}; full table: ${abs(`/en/guides/${mx.guide.en}/`)}#mx-all`, "");
+		for (const n of mx.nutrients) {
+			const parts = mx.rows.map((r: any) => {
+				const v = r.values?.[n.id];
+				const who = r.code === "EFSA" ? "EFSA UL" : countryName(r.code, "en");
+				const note = r.notes?.[n.id]?.en;
+				return `${who} ${v == null ? "none" : `${v} ${n.unit}${note ? ` (${note})` : ""}`}`;
+			});
+			lines.push(`- ${n.name.en}: ${parts.join("; ")}.`);
+		}
+		lines.push(`- Type of rule: ${mx.rows.filter((r: any) => r.code !== "EFSA").map((r: any) => `${countryName(r.code, "en")} ${typeEn[r.type]}${r.scope ? ` (${r.scope.en})` : ""}`).join("; ")}.`, "");
 	}
 	for (const l of LOCALES) {
 		const list = hubs.filter((h) => hubLocale(h) === l);

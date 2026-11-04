@@ -1,0 +1,445 @@
+{
+ "id": "max-levels",
+ "checked": "2026-10-15",
+ "guide": {
+  "en": "supplement-maximum-levels-europe",
+  "es": "limites-maximos-suplementos-europa",
+  "de": "hoechstmengen-nahrungsergaenzungsmittel-europa"
+ },
+ "market": {
+  "en": "GB",
+  "es": "ES",
+  "de": "DE"
+ },
+ "caption": {
+  "en": "Maximum per daily dose of a food supplement, adults",
+  "es": "Máximo por dosis diaria de un complemento alimenticio, adultos",
+  "de": "Höchstmenge pro Tagesdosis eines Nahrungsergänzungsmittels, Erwachsene"
+ },
+ "overview": {
+  "title": "Verbraucherzentrale — Höchstmengen für Vitamine und Mineralstoffe in Europa (Sept 2025)",
+  "url": "https://www.klartext-nahrungsergaenzung.de/wissen/lebensmittel/nahrungsergaenzungsmittel/hoechstmengen-fuer-vitamine-und-mineralstoffe-in-der-eu-28438"
+ },
+ "nutrients": [
+  {
+   "id": "vitamin-d",
+   "unit": "µg",
+   "name": {
+    "en": "Vitamin D",
+    "es": "Vitamina D",
+    "de": "Vitamin D"
+   }
+  },
+  {
+   "id": "vitamin-b6",
+   "unit": "mg",
+   "name": {
+    "en": "Vitamin B6",
+    "es": "Vitamina B6",
+    "de": "Vitamin B6"
+   }
+  },
+  {
+   "id": "folic-acid",
+   "unit": "µg",
+   "name": {
+    "en": "Folic acid",
+    "es": "Ácido fólico",
+    "de": "Folsäure"
+   }
+  },
+  {
+   "id": "magnesium",
+   "unit": "mg",
+   "name": {
+    "en": "Magnesium",
+    "es": "Magnesio",
+    "de": "Magnesium"
+   }
+  },
+  {
+   "id": "zinc",
+   "unit": "mg",
+   "name": {
+    "en": "Zinc",
+    "es": "Zinc",
+    "de": "Zink"
+   }
+  },
+  {
+   "id": "selenium",
+   "unit": "µg",
+   "name": {
+    "en": "Selenium",
+    "es": "Selenio",
+    "de": "Selen"
+   }
+  },
+  {
+   "id": "iodine",
+   "unit": "µg",
+   "name": {
+    "en": "Iodine",
+    "es": "Yodo",
+    "de": "Jod"
+   }
+  }
+ ],
+ "order": {
+  "en": [
+   "EFSA",
+   "GB",
+   "IE",
+   "ES",
+   "IT",
+   "FR",
+   "NL",
+   "BE",
+   "DE",
+   "SE",
+   "NO",
+   "FI",
+   "AT",
+   "CH"
+  ],
+  "es": [
+   "EFSA",
+   "ES",
+   "GB",
+   "IE",
+   "IT",
+   "FR",
+   "NL",
+   "BE",
+   "DE",
+   "SE",
+   "NO",
+   "FI",
+   "AT",
+   "CH"
+  ],
+  "de": [
+   "EFSA",
+   "DE",
+   "AT",
+   "CH",
+   "NL",
+   "BE",
+   "FR",
+   "IT",
+   "ES",
+   "SE",
+   "NO",
+   "FI",
+   "IE",
+   "GB"
+  ]
+ },
+ "rows": [
+  {
+   "code": "EFSA",
+   "type": "benchmark",
+   "values": {
+    "vitamin-d": 100,
+    "vitamin-b6": 12,
+    "folic-acid": 1000,
+    "magnesium": 250,
+    "zinc": 25,
+    "selenium": 255,
+    "iodine": 600
+   },
+   "notes": {
+    "magnesium": {
+     "en": "supplements only",
+     "es": "solo suplementos",
+     "de": "nur Präparate"
+    }
+   },
+   "sources": [
+    {
+     "title": "EFSA — Overview of tolerable upper intake levels (2024)",
+     "url": "https://www.efsa.europa.eu/sites/default/files/2024-05/ul-summary-report.pdf"
+    }
+   ]
+  },
+  {
+   "code": "GB",
+   "type": "guidance",
+   "by": "NHS",
+   "checked": "2026-10-30",
+   "values": {
+    "vitamin-d": 100,
+    "vitamin-b6": 10,
+    "folic-acid": 1000,
+    "magnesium": 400,
+    "zinc": 25,
+    "selenium": 350,
+    "iodine": 500
+   },
+   "sources": [
+    {
+     "title": "NHS — Vitamins and minerals",
+     "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/"
+    }
+   ],
+   "nutrientSources": {
+    "vitamin-d": [
+     {
+      "title": "NHS — Vitamin D",
+      "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/"
+     }
+    ],
+    "vitamin-b6": [
+     {
+      "title": "NHS — B vitamins and folic acid",
+      "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-b/"
+     }
+    ],
+    "folic-acid": [
+     {
+      "title": "NHS — B vitamins and folic acid",
+      "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-b/"
+     }
+    ],
+    "magnesium": [
+     {
+      "title": "NHS — Others (magnesium, selenium, zinc)",
+      "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/others/"
+     }
+    ],
+    "zinc": [
+     {
+      "title": "NHS — Others (magnesium, selenium, zinc)",
+      "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/others/"
+     }
+    ],
+    "selenium": [
+     {
+      "title": "NHS — Others (magnesium, selenium, zinc)",
+      "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/others/"
+     }
+    ],
+    "iodine": [
+     {
+      "title": "NHS — Iodine",
+      "url": "https://www.nhs.uk/conditions/vitamins-and-minerals/iodine/"
+     }
+    ]
+   }
+  },
+  {
+   "code": "IE",
+   "type": "guidance",
+   "values": {
+    "vitamin-d": 100,
+    "vitamin-b6": 25,
+    "folic-acid": 1000,
+    "magnesium": 250,
+    "zinc": 25,
+    "selenium": 300,
+    "iodine": 600
+   },
+   "sources": [
+    {
+     "title": "Verbraucherzentrale — Höchstmengen für Vitamine und Mineralstoffe in Europa (Sept 2025)",
+     "url": "https://www.klartext-nahrungsergaenzung.de/wissen/lebensmittel/nahrungsergaenzungsmittel/hoechstmengen-fuer-vitamine-und-mineralstoffe-in-der-eu-28438"
+    }
+   ]
+  },
+  {
+   "code": "ES",
+   "type": "none",
+   "values": {},
+   "sources": [
+    {
+     "title": "AESAN — Complementos alimenticios",
+     "url": "https://www.aesan.gob.es/es/seguridad-alimentaria/alimentos-especificos/complementos-alimenticios"
+    }
+   ]
+  },
+  {
+   "code": "IT",
+   "type": "binding",
+   "values": {
+    "vitamin-d": 50,
+    "vitamin-b6": 10,
+    "folic-acid": 400,
+    "magnesium": 450,
+    "zinc": 15,
+    "selenium": 100,
+    "iodine": 225
+   },
+   "sources": [
+    {
+     "title": "Ministero della Salute — Apporti giornalieri ammessi negli integratori (2021)",
+     "url": "https://www.salute.gov.it/imgs/C_17_pagineAree_1268_5_file.pdf"
+    }
+   ]
+  },
+  {
+   "code": "FR",
+   "type": "binding",
+   "values": {
+    "vitamin-d": 50,
+    "vitamin-b6": 12.5,
+    "folic-acid": 500,
+    "magnesium": 360,
+    "zinc": 15,
+    "selenium": 150,
+    "iodine": 150
+   },
+   "sources": [
+    {
+     "title": "Verbraucherzentrale — Höchstmengen für Vitamine und Mineralstoffe in Europa (Sept 2025)",
+     "url": "https://www.klartext-nahrungsergaenzung.de/wissen/lebensmittel/nahrungsergaenzungsmittel/hoechstmengen-fuer-vitamine-und-mineralstoffe-in-der-eu-28438"
+    }
+   ]
+  },
+  {
+   "code": "NL",
+   "type": "binding",
+   "scope": {
+    "en": "A, D and B6 only",
+    "es": "solo A, D y B6",
+    "de": "nur A, D und B6"
+   },
+   "checked": "2026-11-04",
+   "values": {
+    "vitamin-d": 75,
+    "vitamin-b6": 21
+   },
+   "sources": [
+    {
+     "title": "Warenwetregeling vrijstelling voedingssupplementen (TRIS 2017/0546/NL)",
+     "url": "https://technical-regulation-information-system.ec.europa.eu/en/notification/17729"
+    },
+    {
+     "title": "Lareb — Legal maximum of 21 mg vitamin B6 per daily dose (2018)",
+     "url": "https://www.lareb.nl/en/news/maximum-daily-dose-of-vitamin-b6-in-dietary-supplements-has-now-been-legally-established-in-the-netherlands/"
+    }
+   ]
+  },
+  {
+   "code": "BE",
+   "type": "binding",
+   "values": {
+    "vitamin-d": 75,
+    "vitamin-b6": 6,
+    "folic-acid": 500,
+    "magnesium": 450,
+    "zinc": 22.5,
+    "selenium": 105,
+    "iodine": 225
+   },
+   "sources": [
+    {
+     "title": "Verbraucherzentrale — Höchstmengen für Vitamine und Mineralstoffe in Europa (Sept 2025)",
+     "url": "https://www.klartext-nahrungsergaenzung.de/wissen/lebensmittel/nahrungsergaenzungsmittel/hoechstmengen-fuer-vitamine-und-mineralstoffe-in-der-eu-28438"
+    }
+   ]
+  },
+  {
+   "code": "DE",
+   "type": "guidance",
+   "by": "BfR",
+   "values": {
+    "vitamin-d": 20,
+    "vitamin-b6": 0.9,
+    "folic-acid": 200,
+    "magnesium": 250,
+    "zinc": 6.5,
+    "selenium": 40,
+    "iodine": 100
+   },
+   "sources": [
+    {
+     "title": "BfR — Höchstmengenvorschläge für Nahrungsergänzungsmittel (2024)",
+     "url": "https://www.bfr.bund.de/cm/343/aktualisierte-hoechstmengenvorschlaege-fuer-vitamine-und-mineralstoffe-in-nahrungsergaenzungsmitteln-und-angereicherten-lebensmitteln-2024.pdf"
+    }
+   ]
+  },
+  {
+   "code": "SE",
+   "type": "binding",
+   "scope": {
+    "en": "D and iodine only",
+    "es": "solo D y yodo",
+    "de": "nur D und Jod"
+   },
+   "values": {
+    "vitamin-d": 80,
+    "iodine": 200
+   },
+   "sources": [
+    {
+     "title": "Livsmedelsverket — Föreskrifter om kosttillskott (TRIS 2022/0395/S)",
+     "url": "https://technical-regulation-information-system.ec.europa.eu/en/notification/18593"
+    }
+   ]
+  },
+  {
+   "code": "NO",
+   "type": "binding",
+   "values": {
+    "vitamin-d": 80,
+    "folic-acid": 960,
+    "magnesium": 350
+   },
+   "sources": [
+    {
+     "title": "Lovdata — Forskrift om kosttilskudd, vedlegg 1",
+     "url": "https://lovdata.no/dokument/SF/forskrift/2004-05-20-755"
+    }
+   ]
+  },
+  {
+   "code": "FI",
+   "type": "none",
+   "values": {},
+   "sources": [
+    {
+     "title": "Verbraucherzentrale — Höchstmengen für Vitamine und Mineralstoffe in Europa (Sept 2025)",
+     "url": "https://www.klartext-nahrungsergaenzung.de/wissen/lebensmittel/nahrungsergaenzungsmittel/hoechstmengen-fuer-vitamine-und-mineralstoffe-in-der-eu-28438"
+    }
+   ]
+  },
+  {
+   "code": "AT",
+   "type": "guidance",
+   "values": {
+    "vitamin-d": 20,
+    "vitamin-b6": 5.6,
+    "folic-acid": 600,
+    "magnesium": 375,
+    "zinc": 15,
+    "selenium": 100,
+    "iodine": 180
+   },
+   "sources": [
+    {
+     "title": "Österreich — Empfehlung zu Mengen von Vitaminen und Mineralstoffen (2016)",
+     "url": "https://www.apothekerkammer.at/fileadmin/user_upload/Empfehlung_zu_Mengen_von_Vitaminen_und_Mineralstoffen_2016.pdf"
+    }
+   ]
+  },
+  {
+   "code": "CH",
+   "type": "binding",
+   "values": {
+    "vitamin-d": 70,
+    "vitamin-b6": 15,
+    "folic-acid": 750,
+    "magnesium": 375,
+    "zinc": 5.3,
+    "selenium": 165,
+    "iodine": 200
+   },
+   "sources": [
+    {
+     "title": "VNem — Verordnung des EDI über Nahrungsergänzungsmittel, Anhang 1",
+     "url": "https://www.lexfind.ch/tolv/205788/de"
+    }
+   ]
+  }
+ ]
+}

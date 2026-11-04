@@ -8,6 +8,7 @@ import keystatic from "@keystatic/astro";
 import rehypeGlossaryLinks from "./src/lib/rehype-glossary-links.mjs";
 import rehypeFigureCaptions from "./src/lib/rehype-figure-captions.mjs";
 import rehypeCountryStatus from "./src/lib/rehype-country-status.mjs";
+import rehypeMaxLevels from "./src/lib/rehype-max-levels.mjs";
 import stripImageMetadata from "./src/lib/strip-image-metadata.mjs";
 import indexNow from "./src/lib/indexnow.mjs";
 import { lastmodFor } from "./src/lib/sitemap-lastmod.mjs";
@@ -22,7 +23,7 @@ export default defineConfig({
 		keystatic(),
 		// Image captions from ![alt](src "caption"), then links to the glossary (see src/data/glossary/link-terms.mjs),
 		// then [[country-status:{id}]] tables from src/data/legal-status/ (after the glossary, so table text stays unlinked).
-		mdx({ rehypePlugins: [rehypeFigureCaptions, rehypeGlossaryLinks, rehypeCountryStatus] }),
+		mdx({ rehypePlugins: [rehypeFigureCaptions, rehypeGlossaryLinks, rehypeCountryStatus, rehypeMaxLevels] }),
 		// Removes EXIF/GPS from every published image (originals of uploaded photos included).
 		stripImageMetadata(),
 		sitemap({
