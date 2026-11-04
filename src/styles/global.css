@@ -221,3 +221,34 @@ a.gl-term:hover { color: var(--nm-accent); text-decoration-style: solid; }
 @media (max-width: 600px) {
 	h1, h2, h3, .h1, .h2, .h3 { hyphens: auto; overflow-wrap: break-word; }
 }
+
+/* Country status tables ([[country-status:{id}]] in guide MDX, data in src/data/legal-status/, plugin src/lib/rehype-country-status.mjs) */
+.cs-wrap { margin: 24px 0; }
+.cs-wrap .table-wrap { background: none; border: 0; }
+.prose table.cs-table td:first-child { background: none; }
+.cs-table caption { caption-side: top; text-align: left; padding: 0 0 10px; font-size: var(--nm-caption); color: var(--nm-muted); }
+.cs-table caption strong { color: var(--nm-ink); font-size: 15px; }
+.cs-table tbody th { font-weight: 600; white-space: nowrap; background: var(--nm-surface-alt); }
+.cs-table tr:target > * { background: var(--nm-accent-soft); }
+.cs-status { white-space: nowrap; }
+.cs-badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: var(--nm-radius-sm); background: var(--nm-surface-alt); color: var(--nm-ink-2); }
+.cs-limit { display: block; margin-top: 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cs-supplement, .cs-allowed { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+.cs-warning, .cs-restricted, .cs-draft, .cs-disputed { background: var(--nm-deal-soft); color: var(--nm-deal-ink); }
+.cs-banned, .cs-medicine { background: #F6E1E1; color: #7A1F1F; }
+.cs-eu { background: #E8ECF4; color: #233A66; }
+.cs-src { font-size: 13px; line-height: 1.45; min-width: 180px; }
+.cs-checked { color: var(--nm-muted); }
+.cs-note { font-size: 13px; color: var(--nm-muted); margin-top: 10px; }
+@media (max-width: 700px) {
+	.prose table.cs-table { display: block; border: 0; background: none; }
+	.cs-table thead { display: none; }
+	.cs-table tbody, .cs-table tr { display: block; }
+	.cs-table tr { border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); margin-bottom: 12px; background: var(--nm-surface); overflow: hidden; }
+	.cs-table tbody th, .cs-table td { display: block; border: 0; padding: 8px 14px; }
+	.cs-table tbody th { padding-top: 12px; }
+	.cs-table td.cs-src { padding-bottom: 12px; }
+	.cs-table td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; color: var(--nm-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+	.cs-status::before { display: none !important; }
+	.cs-table caption { display: block; }
+}

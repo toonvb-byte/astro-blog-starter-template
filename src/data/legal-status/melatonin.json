@@ -1,0 +1,272 @@
+{
+ "id": "melatonin",
+ "name": {
+  "en": "Melatonin",
+  "es": "Melatonina",
+  "de": "Melatonin"
+ },
+ "caption": {
+  "en": "Melatonin in food supplements, by country",
+  "es": "La melatonina en complementos alimenticios, por país",
+  "de": "Melatonin in Nahrungsergänzungsmitteln nach Land"
+ },
+ "checked": "2026-11-04",
+ "guide": {
+  "en": "melatonin-dose-legal-status-europe",
+  "es": "melatonina-dosis-y-limites",
+  "de": "melatonin-dosierung-rechtslage"
+ },
+ "watch": [],
+ "rows": [
+  {
+   "code": "ES",
+   "status": "supplement",
+   "limit": {
+    "en": "below 2 mg/day",
+    "es": "menos de 2 mg/día",
+    "de": "unter 2 mg/Tag"
+   },
+   "rule": {
+    "en": "Food supplement below 2 mg a day; from 2 mg it counts as a medicine (AEMPS criterion). That is why so many Spanish products contain 1.9–1.99 mg.",
+    "es": "Complemento alimenticio por debajo de 2 mg al día; a partir de 2 mg se considera medicamento (criterio de la AEMPS). Por eso tantos productos españoles llevan entre 1,9 y 1,99 mg.",
+    "de": "Nahrungsergänzungsmittel unter 2 mg pro Tag; ab 2 mg gilt Melatonin als Arzneimittel (Kriterium der AEMPS). Deshalb enthalten so viele spanische Produkte 1,9 bis 1,99 mg."
+   },
+   "sources": [
+    {
+     "title": "Basque Government — Use of melatonin in food supplements (AESAN/AEMPS criterion)",
+     "url": "https://www.euskadi.eus/contenidos/informacion/sanidad_alimentaria/es_1247/adjuntos/Empresas.Uso%20de%20melatonina%20en%20complementos%20alimenticios.pdf"
+    }
+   ]
+  },
+  {
+   "code": "FR",
+   "status": "supplement",
+   "limit": {
+    "en": "below 2 mg/day",
+    "es": "menos de 2 mg/día",
+    "de": "unter 2 mg/Tag"
+   },
+   "rule": {
+    "en": "Food supplements may provide less than 2 mg a day; higher doses are medicines. ANSES advises pregnant and breastfeeding women, children, teenagers and people with some conditions not to take melatonin supplements.",
+    "es": "Los complementos pueden aportar menos de 2 mg al día; dosis mayores son medicamento. La ANSES desaconseja estos complementos a embarazadas, mujeres lactantes, niños, adolescentes y personas con algunas enfermedades.",
+    "de": "Nahrungsergänzungsmittel dürfen weniger als 2 mg pro Tag liefern; höhere Dosen sind Arzneimittel. Die ANSES rät Schwangeren, Stillenden, Kindern, Jugendlichen und Menschen mit bestimmten Erkrankungen von solchen Präparaten ab."
+   },
+   "sources": [
+    {
+     "title": "Ordre national des pharmaciens — ANSES advice on melatonin supplements (French)",
+     "url": "https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/complements-alimentaires-contenant-de-la-melatonine-certaines-populations-doivent-en-eviter-la-consommation-selon-l-anses"
+    }
+   ]
+  },
+  {
+   "code": "IT",
+   "status": "supplement",
+   "limit": {
+    "en": "max. 1 mg/day",
+    "es": "máx. 1 mg/día",
+    "de": "max. 1 mg/Tag"
+   },
+   "rule": {
+    "en": "Food supplements may provide at most 1 mg a day (Ministry of Health, June 2013; previously 5 mg). Above that, melatonin is treated as a medicine.",
+    "es": "Los complementos pueden aportar como máximo 1 mg al día (Ministerio de Sanidad, junio de 2013; antes, 5 mg). Por encima, la melatonina se trata como medicamento.",
+    "de": "Nahrungsergänzungsmittel dürfen höchstens 1 mg pro Tag liefern (Gesundheitsministerium, Juni 2013; zuvor 5 mg). Darüber gilt Melatonin als Arzneimittel."
+   },
+   "sources": [
+    {
+     "title": "Altroconsumo — Melatonina (Italian)",
+     "url": "https://www.altroconsumo.it/salute/farmaci/speciali/melatonina"
+    },
+    {
+     "title": "NutraIngredients — Italy cuts maximum melatonin levels from 5 mg to 1 mg (2013)",
+     "url": "https://www.nutraingredients.com/Article/2013/06/26/Italy-slashes-maximum-melatonin-levels-from-5mg-per-day-to-1mg"
+    }
+   ]
+  },
+  {
+   "code": "PT",
+   "status": "supplement",
+   "limit": {
+    "en": "max. 1 mg/day",
+    "es": "máx. 1 mg/día",
+    "de": "max. 1 mg/Tag"
+   },
+   "rule": {
+    "en": "The food authority DGAV accepts supplement notifications only up to 1 mg a day, and not for children (2016 opinion on the boundary between medicines and supplements).",
+    "es": "La autoridad alimentaria DGAV solo admite complementos de hasta 1 mg al día, y no destinados a niños (dictamen de 2016 sobre la frontera entre medicamento y complemento).",
+    "de": "Die Lebensmittelbehörde DGAV akzeptiert Meldungen nur bis 1 mg pro Tag und nicht für Kinder (Stellungnahme von 2016 zur Abgrenzung zwischen Arzneimittel und NEM)."
+   },
+   "sources": [
+    {
+     "title": "DGAV — Opinion on melatonin in food supplements, July 2016 (Portuguese)",
+     "url": "https://www.infarmed.pt/documents/15786/1541422/Melatonina_final_DGAV_26072016_PB.PDF/1555a5fc-e444-4ff5-be47-2cf39c985afe"
+    }
+   ]
+  },
+  {
+   "code": "BE",
+   "status": "supplement",
+   "limit": {
+    "en": "below 0.3 mg",
+    "es": "menos de 0,3 mg",
+    "de": "unter 0,3 mg"
+   },
+   "rule": {
+    "en": "The medicines agency (FAGG/AFMPS) treats oral products with 0.3 mg or more as medicines, and products absorbed in the mouth (sprays, melts) from 0.2 mg. That is why Belgian supplements contain about 0.29 mg.",
+    "es": "La agencia del medicamento (FAGG/AFMPS) considera medicamento los productos orales con 0,3 mg o más, y los que se absorben en la boca (sprays, comprimidos bucodispersables) desde 0,2 mg. Por eso los complementos belgas llevan unos 0,29 mg.",
+    "de": "Die Arzneimittelbehörde (FAGG/AFMPS) stuft orale Produkte ab 0,3 mg als Arzneimittel ein, Produkte, die im Mund aufgenommen werden (Sprays, Schmelztabletten), schon ab 0,2 mg. Deshalb enthalten belgische Präparate rund 0,29 mg."
+   },
+   "sources": [
+    {
+     "title": "Habraken H et al. Melatonine bij kinderen met slapeloosheid? Tijdschrift voor Jeugdgezondheidszorg, 2022 (Dutch)",
+     "url": "https://tjgz.archief.openjournals.nl/pdf/12452_2022_Article_291.pdf"
+    },
+    {
+     "title": "Luxembourg Ministry of Health — Answer to parliamentary question 3172 on melatonin, 2017 (French)",
+     "url": "https://csv.lu/files/2017/08/QP-3172.pdf"
+    }
+   ]
+  },
+  {
+   "code": "NL",
+   "status": "supplement",
+   "limit": {
+    "en": "below 0.3 mg/day",
+    "es": "menos de 0,3 mg/día",
+    "de": "unter 0,3 mg/Tag"
+   },
+   "rule": {
+    "en": "A food supplement only below 0.3 mg a day and without any health claim; from 0.3 mg it is a medicine that needs a marketing authorisation (IGJ and NVWA).",
+    "es": "Complemento solo por debajo de 0,3 mg al día y sin ninguna declaración de salud; desde 0,3 mg es un medicamento que necesita autorización (IGJ y NVWA).",
+    "de": "Nahrungsergänzungsmittel nur unter 0,3 mg pro Tag und ohne jede gesundheitsbezogene Angabe; ab 0,3 mg ist es ein zulassungspflichtiges Arzneimittel (IGJ und NVWA)."
+   },
+   "sources": [
+    {
+     "title": "Dutch government — Answers to parliamentary questions on melatonin, 2019–2020 no. 297 (Dutch)",
+     "url": "https://zoek.officielebekendmakingen.nl/ah-tk-20192020-297.pdf"
+    },
+    {
+     "title": "IGJ and NVWA — Letter on stepped-up supervision of melatonin products (Dutch)",
+     "url": "https://igj.nl/binaries/igj/documenten/brieven/2020/01/28/aankondigingsbrief-melatonine/Aankondigingsbrief+melatonine.pdf"
+    }
+   ]
+  },
+  {
+   "code": "DE",
+   "status": "disputed",
+   "limit": {
+    "en": "no legal limit",
+    "es": "sin límite legal",
+    "de": "keine Höchstmenge"
+   },
+   "rule": {
+    "en": "No legal maximum. The federal institutes have regarded melatonin as a medicine since 1996, but the federal states decide and courts have ruled both ways; supplements with 0.5–1.5 mg a day are widely sold. Melatonin medicines are prescription-only.",
+    "es": "Sin máximo legal. Los institutos federales consideran la melatonina un medicamento desde 1996, pero deciden los estados federados y los tribunales han fallado en ambos sentidos; se venden muchos complementos con 0,5–1,5 mg al día. Los medicamentos con melatonina necesitan receta.",
+    "de": "Keine gesetzliche Höchstmenge. Die Bundesinstitute sehen Melatonin seit 1996 als Arzneimittel, entscheiden müssen aber die Länder, und Gerichte haben unterschiedlich geurteilt; NEM mit 0,5–1,5 mg pro Tag sind weit verbreitet. Melatonin-Arzneimittel sind verschreibungspflichtig."
+   },
+   "sources": [
+    {
+     "title": "BfR — Melatonin-containing food supplements: possible health risks (Opinion 038/2024, German)",
+     "url": "https://www.bfr.bund.de/stellungnahme/melatoninhaltige-nahrungsergaenzungsmittel-bfr-weist-auf-moegliche-gesundheitsrisiken-hin/"
+    },
+    {
+     "title": "Verbraucherzentrale NRW — Melatonin zum Einschlafen (German)",
+     "url": "https://www.verbraucherzentrale.nrw/wissen/lebensmittel/melatonin-zum-einschlafen-wie-sinnvoll-sind-produkte-wie-sprays-118307"
+    },
+    {
+     "title": "PTA heute — Wie viel Melatonin in NEM ist erlaubt? (2022, German)",
+     "url": "https://ptaheute.de/aktuelles/2022/04/21/wie-viel-melatonin-in-nem-ist-erlaubt"
+    }
+   ]
+  },
+  {
+   "code": "DK",
+   "status": "medicine",
+   "rule": {
+    "en": "Melatonin products are medicines and need a prescription. A product sold as a supplement elsewhere is generally treated as a medicine when it is sent to Denmark, and medicines may not be received from outside the EU/EEA.",
+    "es": "Los productos con melatonina son medicamentos y necesitan receta. Un producto vendido como complemento en otro país suele tratarse como medicamento al enviarse a Dinamarca, y no se pueden recibir medicamentos de fuera de la UE/EEE.",
+    "de": "Melatonin-Produkte sind Arzneimittel und verschreibungspflichtig. Ein anderswo als NEM verkauftes Produkt gilt beim Versand nach Dänemark in der Regel als Arzneimittel; Arzneimittel von außerhalb der EU/des EWR dürfen nicht empfangen werden."
+   },
+   "sources": [
+    {
+     "title": "Danish Medicines Agency — Are you considering buying melatonin online?",
+     "url": "https://laegemiddelstyrelsen.dk/en/pharmacies/medicines-imported-from-abroad/are-you-considering-to-buy-melatonin-online"
+    }
+   ]
+  },
+  {
+   "code": "SE",
+   "status": "medicine",
+   "rule": {
+    "en": "A medicine (prescription and some non-prescription medicines). Selling it as a food supplement is illegal; the Medical Products Agency has banned the sale of several such products.",
+    "es": "Es un medicamento (con receta y algunos sin receta). Venderla como complemento es ilegal; la Agencia de Productos Médicos ha prohibido la venta de varios de esos productos.",
+    "de": "Ein Arzneimittel (verschreibungspflichtig, teils rezeptfrei). Der Verkauf als NEM ist illegal; die Arzneimittelbehörde hat mehrere solche Produkte verboten."
+   },
+   "sources": [
+    {
+     "title": "Läkemedelsverket — Risk that melatonin is used too lightly (press release, 24 March 2025, Swedish)",
+     "url": "https://via.tt.se/pressmeddelande/3839885/risk-att-melatonin-anvands-alltfor-lattvindigt"
+    }
+   ]
+  },
+  {
+   "code": "IE",
+   "status": "medicine",
+   "rule": {
+    "en": "A prescription-only medicine that is not authorised in food. The food safety authority FSAI recalls supplements that contain it (most recently in May 2026).",
+    "es": "Medicamento solo con receta, no autorizado en alimentos. La autoridad alimentaria FSAI retira los complementos que la contienen (la última vez, en mayo de 2026).",
+    "de": "Verschreibungspflichtiges Arzneimittel, in Lebensmitteln nicht zugelassen. Die Lebensmittelbehörde FSAI ruft Präparate damit zurück (zuletzt im Mai 2026)."
+   },
+   "sources": [
+    {
+     "title": "FSAI — Medicinal product (melatonin) not permitted in food: Jelly Pills supplements (alert 2026.29, 29 May 2026)",
+     "url": "https://www.fsai.ie/News-and-Alerts/Food-Alerts/Medicinal-product-(melatonin)-not-permitted-in-(1)"
+    }
+   ]
+  },
+  {
+   "code": "GB",
+   "status": "medicine",
+   "rule": {
+    "en": "A prescription-only medicine: the MHRA says any product containing melatonin is a medicine, so melatonin supplements are illegal in the UK.",
+    "es": "Medicamento solo con receta: la MHRA considera medicamento cualquier producto con melatonina, así que los complementos con melatonina son ilegales en el Reino Unido.",
+    "de": "Verschreibungspflichtiges Arzneimittel: Laut MHRA ist jedes Produkt mit Melatonin ein Arzneimittel, Melatonin-NEM sind im Vereinigten Königreich daher illegal."
+   },
+   "sources": [
+    {
+     "title": "MHRA — Parents advised to stop using a brand of kids' magnesium gummies containing undeclared melatonin (18 August 2025)",
+     "url": "https://www.gov.uk/government/news/parents-and-caregivers-advised-to-stop-all-use-of-specific-brand-of-kids-magnesium-gummies-due-to-the-presence-of-an-undeclared-prescription-only-med"
+    }
+   ]
+  },
+  {
+   "code": "CH",
+   "status": "medicine",
+   "rule": {
+    "en": "Only as a prescription medicine; selling it as a food or food supplement is prohibited. Swissmedic warns against importing it privately (warning of 27 November 2023).",
+    "es": "Solo como medicamento con receta; está prohibido venderla como alimento o complemento. Swissmedic advierte contra importarla por cuenta propia (aviso del 27 de noviembre de 2023).",
+    "de": "Nur als verschreibungspflichtiges Arzneimittel; der Verkauf als Lebensmittel oder NEM ist verboten. Swissmedic warnt vor privaten Importen (Warnung vom 27. November 2023)."
+   },
+   "sources": [
+    {
+     "title": "Swissmedic — Warning about imports of melatonin and DHEA by private individuals (27 November 2023)",
+     "url": "https://www.swissmedic.ch/swissmedic/en/home/humanarzneimittel/marktueberwachung/arzneimittel-aus-dem-internet/drug-safety-current-threats/warnung-importen-melatonin-und-dhea.html"
+    }
+   ]
+  },
+  {
+   "code": "EU",
+   "status": "eu",
+   "rule": {
+    "en": "No EU-wide maximum: each country sets its own rule. Two authorised claims: falling asleep faster (1 mg shortly before bedtime) and jet lag (at least 0.5 mg). A product lawful in one EU country can often be sold in another (mutual recognition).",
+    "es": "No hay un máximo para toda la UE: cada país pone su regla. Dos declaraciones autorizadas: dormirse antes (1 mg poco antes de acostarse) y jet lag (al menos 0,5 mg). Un producto legal en un país de la UE a menudo puede venderse en otro (reconocimiento mutuo).",
+    "de": "Keine EU-weite Höchstmenge: Jedes Land regelt selbst. Zwei zugelassene Angaben: schneller einschlafen (1 mg kurz vor dem Schlafengehen) und Jetlag (mindestens 0,5 mg). Ein in einem EU-Land rechtmäßiges Produkt darf oft auch in anderen verkauft werden (gegenseitige Anerkennung)."
+   },
+   "sources": [
+    {
+     "title": "European Commission — EU Register of nutrition and health claims",
+     "url": "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/nutrition-and-health-claims/eu-register-health-claims_en"
+    }
+   ]
+  }
+ ]
+}
