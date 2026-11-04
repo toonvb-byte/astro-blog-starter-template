@@ -309,9 +309,11 @@ cautions:
   - '**Embarazo y lactancia:** consulta antes con tu médico.'
 guides:
   - creatine-guide
+  - creatine-over-55
   - creatine-women
 linkFrom:
   - creatine-guide
+  - creatine-over-55
   - creatine-women
   - brands-hsn-myprotein-prozis
 faq:

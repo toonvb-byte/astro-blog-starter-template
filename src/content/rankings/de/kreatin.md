@@ -255,9 +255,11 @@ cautions:
   - '**Schwangerschaft und Stillzeit:** vorher ärztlich beraten lassen.'
 guides:
   - creatine-guide
+  - creatine-over-55
   - creatine-women
 linkFrom:
   - creatine-guide
+  - creatine-over-55
   - creatine-women
 faq:
   - q: Welches Kreatin ist das beste?
