@@ -1,5 +1,5 @@
 ---
-import { ALL_LANGUAGES, LOCALES, path, rankingsIndexPath, type Locale } from "../i18n/config";
+import { ALL_LANGUAGES, LOCALES, brandsIndexPath, path, rankingsIndexPath, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
 import { AMAZON_MARKET_BY_LOCALE, AMAZON_STATEMENT, GA_ENABLED, amazonLive } from "../lib/site";
 
@@ -10,6 +10,7 @@ const about = path(locale, "about");
 const guides = path(locale, "guides");
 const year = new Date().getFullYear();
 const rankingsIndex = rankingsIndexPath(locale);
+const brandsIndex = brandsIndexPath(locale);
 const langName = (c: string) => ALL_LANGUAGES.find((l) => l.code === c)?.name ?? c;
 // Amazon's required sentence on every page of a language whose shop links go to a tagged Amazon store
 const amazonLine = amazonLive(AMAZON_MARKET_BY_LOCALE[locale]) ? AMAZON_STATEMENT[locale] : "";
@@ -27,6 +28,7 @@ const amazonLine = amazonLive(AMAZON_MARKET_BY_LOCALE[locale]) ? AMAZON_STATEMEN
 				<span class="head">{t("footer.tools")}</span>
 				<a href={path(locale, "finder")}>{t("nav.finder")}</a>
 				{rankingsIndex && <a href={rankingsIndex}>{t("rankings.all")}</a>}
+				{brandsIndex && <a href={brandsIndex}>{locale === "de" ? "Marken" : "Marcas"}</a>}
 				<a href={path(locale, "glossary")}>{t("footer.glossary")}</a>
 			</nav>
 			<nav aria-label={t("footer.guidesHead")} class="footer-col">

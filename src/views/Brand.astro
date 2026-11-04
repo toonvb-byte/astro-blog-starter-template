@@ -1,0 +1,399 @@
+---
+/**
+ * Brand page for one market: /es/marcas/{slug}/ · /de/marken/{slug}/.
+ * Content: src/content/brands/{locale}/{slug}.md. The product table, positions and averages come from the rankings
+ * (lib/brands.ts brandProducts), so they always match the ranking pages. Rules (claude/page-plan.md):
+ *  - only brands with ≥ MIN_BRAND_PRODUCTS ranked products in the market (the build fails otherwise)
+ *  - company facts each have a source; no customer reviews, star ratings, Amazon prices or images
+ *  - shop buttons only through AffiliateLink (/go/{offerId}); DE never says "Test/Testsieger"
+ *  - schema: Article (about: Brand) + ItemList (links to the ranking entries) + FAQPage + BreadcrumbList
+ */
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import AffiliateLink from "../components/AffiliateLink.astro";
+import { LOCALES, brandsIndexPath, path, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { getGuides, guideUrl, inlineMd } from "../lib/guides";
+import { AFFILIATE, AMAZON_STATEMENT, SITE_URL, amazonLive } from "../lib/site";
+import { CRITERIA, WEIGHTS, fmtScore } from "../lib/rankings";
+import { MIN_BRAND_PRODUCTS, brandAlternates, brandProducts, brandProfile, brandUrl, getBrands, type Brand } from "../lib/brands";
+
+interface Props { locale: Locale; brand: Brand }
+const { locale, brand } = Astro.props;
+const d = brand.data;
+const t = useT(locale);
+const { Content, headings } = await render(brand);
+const alternates = await brandAlternates(brand);
+const url = brandUrl(brand);
+const updated = d.updatedDate ?? d.publishDate;
+const list = await brandProducts(brand);
+if (list.length < MIN_BRAND_PRODUCTS)
+	throw new Error(`Brand ${brand.id}: only ${list.length} ranked products for "${d.match}" (need ${MIN_BRAND_PRODUCTS})`);
+const profile = brandProfile(list);
+const rankingCount = new Set(list.map((x) => x.ranking.id)).size;
+const firsts = list.filter((x) => x.pos === 1);
+const guidesHere = await getGuides(locale);
+const related = d.guides.map((k) => guidesHere.find((g) => g.data.translationKey === k)).filter((g) => g !== undefined);
+for (const k of [...d.guides, ...d.linkFrom]) if (!guidesHere.some((g) => g.data.translationKey === k)) throw new Error(`Brand ${brand.id}: "${k}" is not a ${locale} guide`);
+const indexUrl = brandsIndexPath(locale)!;
+const siblings = (await getBrands(locale)).filter((b) => b.id !== brand.id);
+const amazonHere = amazonLive(d.market);
+const affiliateLive = amazonHere || AFFILIATE.awin;
+const store = d.market === "ES" ? "Amazon.es" : "Amazon.de";
+
+const S = {
+	es: {
+		eyebrow: "Marca", analysed: "productos analizados", checked: "Datos revisados", numbers: "Cifras",
+		nProducts: "Productos analizados", nRankings: "Rankings en los que aparece", avg: "Puntuación media", best: "Primeros puestos",
+		bestNote: (n: string[]) => (n.length ? n.join(", ") : "Ninguno"),
+		products: "Productos que hemos analizado", th: ["Producto", "Ranking", "Puesto", "Por dosis diaria", "Puntuación"],
+		posOf: (p: number, o: number) => `${p} de ${o}`, rankingName: (n: string) => `Mejor ${n.charAt(0).toLowerCase()}${n.slice(1)}`,
+		profile: "Perfil de la marca", profileP: "Media de cada criterio en sus productos (0–10). Son los mismos criterios y pesos de todos nuestros rankings.",
+		criteria: { dose: "Dosis", form: "Forma y calidad", label: "Etiqueta honesta", additives: "Aditivos", practical: "Uso práctico" },
+		weight: "peso", strengths: "Lo que hace bien", weaknesses: "Lo que debes vigilar", company: "La empresa", source: "fuente",
+		buy: store, faq: "Preguntas frecuentes", sources: "Fuentes", more: "Otras marcas", all: "Todas las marcas", guides: "Para saber más",
+		method: "Cómo lo hemos hecho",
+		methodP: "No publicamos opiniones de clientes ni estrellas. Esta página reúne lo que muestran las etiquetas de los productos de la marca que hemos analizado en nuestros rankings, con su puesto y su puntuación, y los datos de la empresa con su fuente. Si un producto cambia en un ranking, cambia aquí.",
+		moneyNote: affiliateLive
+			? `Los botones de tienda son enlaces de afiliado: si compras a través de ellos podemos recibir una comisión, sin coste para ti. La comisión nunca cambia el orden ni la puntuación.${amazonHere ? ` ${AMAZON_STATEMENT.es}` : ""}`
+			: "Ninguna marca paga por aparecer ni por su puntuación.",
+		moneyMore: "Cómo ganamos dinero", methodMore: "Metodología completa", website: "Web oficial",
+	},
+	de: {
+		eyebrow: "Marke", analysed: "Produkte analysiert", checked: "Daten geprüft", numbers: "Zahlen",
+		nProducts: "Analysierte Produkte", nRankings: "Vergleiche, in denen sie vorkommt", avg: "Durchschnittlicher Score", best: "Platz 1",
+		bestNote: (n: string[]) => (n.length ? n.join(", ") : "Keiner"),
+		products: "Produkte, die wir analysiert haben", th: ["Produkt", "Vergleich", "Platz", "Pro Tagesdosis", "Score"],
+		posOf: (p: number, o: number) => `${p} von ${o}`, rankingName: (n: string) => `${n} Vergleich`,
+		profile: "Profil der Marke", profileP: "Durchschnitt jedes Kriteriums über ihre Produkte (0–10). Es sind dieselben Kriterien und Gewichte wie in allen unseren Vergleichen.",
+		criteria: { dose: "Dosis", form: "Form und Qualität", label: "Ehrliches Etikett", additives: "Zusatzstoffe", practical: "Alltag" },
+		weight: "Gewicht", strengths: "Was sie gut macht", weaknesses: "Worauf du achten solltest", company: "Das Unternehmen", source: "Quelle",
+		buy: store, faq: "Häufige Fragen", sources: "Quellen", more: "Weitere Marken", all: "Alle Marken", guides: "Mehr dazu",
+		method: "So sind wir vorgegangen",
+		methodP: "Wir veröffentlichen keine Kundenbewertungen und keine Sterne. Diese Seite fasst zusammen, was die Etiketten der Produkte dieser Marke zeigen, die wir in unseren Vergleichen analysiert haben, mit Platz und Score, dazu die Firmendaten mit Quelle. Ändert sich ein Produkt im Vergleich, ändert es sich hier.",
+		moneyNote: affiliateLive
+			? `Die Shop-Buttons sind Affiliate-Links: Kaufst du darüber, erhalten wir eventuell eine Provision, ohne Mehrkosten für dich. Die Provision ändert nie Reihenfolge oder Score.${amazonHere ? ` ${AMAZON_STATEMENT.de}` : ""}`
+			: "Keine Marke bezahlt für ihren Platz oder ihren Score.",
+		moneyMore: "Wie wir Geld verdienen", methodMore: "Unsere Methodik", website: "Offizielle Website",
+	},
+	en: undefined,
+}[locale];
+if (!S) throw new Error(`No brand page copy for locale "${locale}"`);
+
+const placement = (id: string) => `br:${d.brandKey}-${d.market.toLowerCase()}:${id}`;
+const firstNames = firsts.map((x) => S.rankingName(x.ranking.data.name));
+
+const toc = [
+	...(d.takeaways.length ? [{ slug: "quick", text: t("hub.quick") }] : []),
+	{ slug: "products", text: S.products },
+	{ slug: "profile", text: S.profile },
+	...headings.filter((h) => h.depth === 2).map((h) => ({ slug: h.slug, text: h.text })),
+	{ slug: "company", text: S.company },
+	{ slug: "method", text: S.method },
+	...(d.faq.length ? [{ slug: "faq", text: S.faq }] : []),
+	...(d.sources.length ? [{ slug: "sources", text: S.sources }] : []),
+];
+
+const abs = (p: string) => new URL(p, SITE_URL).href;
+const jsonLd: object[] = [
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: d.h1,
+		name: d.title,
+		description: d.description,
+		inLanguage: locale,
+		url: abs(url),
+		datePublished: d.publishDate.toISOString(),
+		dateModified: updated.toISOString(),
+		author: { "@type": "Person", name: d.author, url: abs(`${path(locale, "about")}#team`) },
+		publisher: { "@id": `${SITE_URL}/#org` },
+		isPartOf: { "@id": `${SITE_URL}/#website` },
+		about: { "@type": "Brand", name: d.name, url: d.website },
+		...(d.sources.some((s) => s.url)
+			? { citation: d.sources.filter((s) => s.url).map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })) }
+			: {}),
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: S.products,
+		numberOfItems: list.length,
+		itemListElement: list.map((x, i) => ({ "@type": "ListItem", position: i + 1, name: `${x.p.brand} ${x.p.name}`, url: abs(x.url) })),
+	},
+	...(d.faq.length
+		? [{
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				mainEntity: d.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+			}]
+		: []),
+];
+
+const crumbs = [
+	{ name: t("article.home"), href: path(locale) },
+	{ name: locale === "de" ? "Marken" : "Marcas", href: indexUrl },
+	{ name: d.name, href: url },
+];
+---
+<Base
+	locale={locale}
+	title={d.title}
+	description={d.description}
+	alternates={alternates}
+	active="rankings"
+	ogType="article"
+	disclosure={affiliateLive}
+	breadcrumbs={crumbs}
+	jsonLd={jsonLd}
+>
+	<div class="container">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				{crumbs.map((c, i) => (i < crumbs.length - 1 ? <li><a href={c.href}>{c.name}</a></li> : <li aria-current="page">{c.name}</li>))}
+			</ol>
+		</nav>
+
+		<header class="hub-head">
+			<span class="eyebrow">{S.eyebrow} · {list.length} {S.analysed}</span>
+			<h1 class="h1" style="font-size:clamp(2rem,3.6vw,3rem)">{d.h1}</h1>
+			<p class="lead">{d.dek}</p>
+			<div class="byline">
+				<span><span class="muted">{t("article.writtenBy")}</span> <a href={`${path(locale, "about")}#team`}>{d.author}</a></span>
+				<span><span class="muted">{S.checked}</span> <time datetime={d.checked.toISOString().slice(0, 10)}>{formatDate(d.checked, locale)}</time></span>
+				<span><a href={d.website} rel="noopener nofollow" target="_blank">{S.website}</a></span>
+				{Object.keys(alternates).length > 1 && (
+					<span>
+						<span class="muted">{t("article.alsoIn")}</span>
+						{LOCALES.filter((l) => l !== locale && alternates[l]).map((l) => (
+							<a href={alternates[l]} hreflang={l} lang={l} class="lang-pill">{l.toUpperCase()}</a>
+						))}
+					</span>
+				)}
+			</div>
+		</header>
+
+		<div class="hub-layout">
+			<aside aria-labelledby="toc-h" class="toc">
+				<h2 id="toc-h">{t("article.toc")}</h2>
+				<ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+			</aside>
+
+			<article class="prose">
+				{d.takeaways.length > 0 && (
+					<section id="quick" aria-labelledby="quick-h" class="quick">
+						<h2 id="quick-h">{t("hub.quick")}</h2>
+						<ul>{d.takeaways.map((k) => <li set:html={inlineMd(k)} />)}</ul>
+					</section>
+				)}
+
+				<dl class="facts" aria-label={S.numbers}>
+					<div class="fact"><dt>{S.nProducts}</dt><dd class="fact-val">{list.length}</dd></div>
+					<div class="fact"><dt>{S.nRankings}</dt><dd class="fact-val">{rankingCount}</dd></div>
+					<div class="fact"><dt>{S.avg}</dt><dd class="fact-val">{fmtScore(profile.avg, locale)}</dd></div>
+					<div class="fact"><dt>{S.best}</dt><dd class="fact-val">{firsts.length}</dd><dd class="fact-note">{S.bestNote(firstNames)}</dd></div>
+				</dl>
+
+				<section id="products" aria-labelledby="products-h">
+					<h2 id="products-h">{S.products}</h2>
+					<div class="table-wrap">
+						<table class="table br-table stack">
+							<thead><tr>{S.th.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+							<tbody>
+								{list.map((x) => (
+									<tr>
+										<th scope="row">
+											<a href={x.url}><span class="brand">{x.p.brand}</span> {x.p.name}</a><span class="dose">{x.p.form}</span>
+											<AffiliateLink offerId={x.p.offerId} placement={placement(x.p.id)} variant="outline" class="btn-sm row-shop">{S.buy}</AffiliateLink>
+										</th>
+										<td data-label={S.th[1]}><a href={x.url}>{S.rankingName(x.ranking.data.name)}</a></td>
+										<td data-label={S.th[2]} class="c-pos">{S.posOf(x.pos, x.of)}</td>
+										<td data-label={S.th[3]} class="c-daily">{x.p.daily}<span class="dose">{x.p.dailyNote}</span></td>
+										<td data-label={S.th[4]}><span class="score-pill">{fmtScore(x.score, locale)}</span></td>
+									</tr>
+								))}
+							</tbody>
+							<caption>{S.checked}: {formatDate(d.checked, locale)}</caption>
+						</table>
+					</div>
+				</section>
+
+				<section id="profile" aria-labelledby="profile-h" class="method">
+					<h2 id="profile-h">{S.profile}</h2>
+					<p>{S.profileP}</p>
+					<ul class="bars" aria-label={S.profile}>
+						{CRITERIA.map((c) => (
+							<li>
+								<span class="bar-name">{S.criteria[c]} <span class="muted">· {WEIGHTS[c]} % {S.weight}</span></span>
+								<span class="bar"><span style={`width:${profile.byCriterion[c] * 10}%`} /></span>
+								<span class="bar-val mono">{fmtScore(profile.byCriterion[c], locale)}</span>
+							</li>
+						))}
+					</ul>
+					{(d.strengths.length > 0 || d.weaknesses.length > 0) && (
+						<div class="fit">
+							{d.strengths.length > 0 && (
+								<div class="fit-box yes"><strong>{S.strengths}</strong><ul>{d.strengths.map((s) => <li set:html={inlineMd(s)} />)}</ul></div>
+							)}
+							{d.weaknesses.length > 0 && (
+								<div class="fit-box no"><strong>{S.weaknesses}</strong><ul>{d.weaknesses.map((s) => <li set:html={inlineMd(s)} />)}</ul></div>
+							)}
+						</div>
+					)}
+				</section>
+
+				<Content />
+
+				<section id="company" aria-labelledby="company-h">
+					<h2 id="company-h">{S.company}</h2>
+					<dl class="co">
+						{d.company.map((c) => (
+							<div>
+								<dt>{c.label}</dt>
+								<dd><span set:html={inlineMd(c.value)} /> <a href={c.source} rel="noopener nofollow" target="_blank" class="co-src">{S.source}</a></dd>
+							</div>
+						))}
+					</dl>
+				</section>
+
+				<section id="method" aria-labelledby="method-h" class="method">
+					<h2 id="method-h">{S.method}</h2>
+					<p>{S.methodP}</p>
+					<p>{S.moneyNote} <a href={path(locale, "disclosure")}>{S.moneyMore}</a> · <a href={path(locale, "about")}>{S.methodMore}</a></p>
+				</section>
+
+				{d.faq.length > 0 && (
+					<section id="faq" aria-labelledby="faq-h">
+						<h2 id="faq-h">{S.faq}</h2>
+						{d.faq.map((f, i) => (
+							<details class="faq" open={i === 0}>
+								<summary>{f.q}</summary>
+								<p>{f.a}</p>
+							</details>
+						))}
+					</section>
+				)}
+
+				{d.sources.length > 0 && (
+					<section id="sources" aria-labelledby="src-h">
+						<h2 id="src-h">{S.sources}</h2>
+						<ol class="sources">
+							{d.sources.map((s) => <li>{s.url ? <a href={s.url} rel="noopener" target="_blank">{s.title}</a> : s.title}</li>)}
+						</ol>
+					</section>
+				)}
+
+				<p role="note" class="hub-note">{t("hub.note")}</p>
+			</article>
+		</div>
+
+		{siblings.length > 0 && (
+			<section aria-labelledby="more-h" class="section" style="padding-bottom:0">
+				<div class="more-head">
+					<h2 id="more-h" class="h2">{S.more}</h2>
+					<a href={indexUrl} class="link-strong">{S.all} →</a>
+				</div>
+				<ul class="grid-auto more-list" style="--min:240px">
+					{siblings.map((b) => (
+						<li>
+							<a href={brandUrl(b)} class="card rel-card">
+								<span class="rel-cat">{S.eyebrow}</span>
+								<span class="rel-title">{b.data.name}</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
+		{related.length > 0 && (
+			<section aria-labelledby="rel-h" class="section" style="padding-bottom:var(--nm-section-gap)">
+				<h2 id="rel-h" class="h2">{S.guides}</h2>
+				<div class="grid-auto">
+					{related.map((r) => (
+						<a href={guideUrl(r)} class="card rel-card">
+							<span class="rel-cat">{r.data.category}</span>
+							<span class="rel-title">{r.data.title}</span>
+							<span class="muted" style="font-size:14px">{r.data.readingMinutes} {t("guides.read")}</span>
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+	</div>
+</Base>
+
+<style>
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 0 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	.more-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+	.more-list { list-style: none; margin: 0; padding: 0; }
+	.more-list li { display: flex; }
+	.more-list .rel-card { width: 100%; }
+	.hub-head { max-width: 820px; padding: 28px 0 32px; display: flex; flex-direction: column; gap: 18px; }
+	.byline { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; align-items: center; padding-top: 16px; border-top: 1px solid var(--nm-line); }
+	.byline a { font-weight: 600; }
+	.lang-pill { margin-left: 6px; padding: 4px 8px; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-sm); text-decoration: none; font-size: 13px; }
+	.hub-layout { display: grid; grid-template-columns: 240px minmax(0, 860px); gap: 56px; padding-bottom: 32px; }
+	.toc { position: sticky; top: 24px; align-self: start; font-size: 14px; }
+	.toc h2 { font-family: var(--nm-font-body); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--nm-muted); margin-bottom: 10px; }
+	.toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--nm-line); }
+	.toc a { display: block; padding: 7px 14px; color: var(--nm-ink-2); text-decoration: none; }
+	.toc a:hover { color: var(--nm-accent); }
+	@media (max-width: 900px) {
+		.hub-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+		.toc { position: static; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px; }
+	}
+	.quick { background: var(--nm-accent-soft); border-radius: var(--nm-radius-lg); padding: 24px 28px; }
+	.quick h2 { margin-top: 0; font-size: 22px; }
+	.quick ul { margin-top: 12px; }
+	.brand { font-weight: 600; }
+	.mono { font-variant-numeric: tabular-nums; }
+	.score-pill { display: inline-block; min-width: 2.6em; text-align: center; font-weight: 700; font-size: 14px; padding: 2px 8px; border-radius: var(--nm-radius-sm); background: var(--nm-accent-soft); color: var(--nm-accent-ink); font-variant-numeric: tabular-nums; }
+	.br-table th[scope="row"] { font-weight: 500; min-width: 200px; }
+	.br-table th[scope="row"] a { text-decoration: none; color: var(--nm-ink); }
+	.br-table :global(.row-shop) { margin-top: 8px; min-height: 34px; padding: 0 12px; font-size: 13px; }
+	.br-table .c-daily { min-width: 150px; }
+	.br-table .c-pos { white-space: nowrap; font-variant-numeric: tabular-nums; }
+	.dose { display: block; font-size: 13px; color: var(--nm-muted); font-weight: 400; margin-top: 2px; }
+	.table td, .table th { vertical-align: top; }
+	.prose .table-wrap .table { font-size: 14.5px; }
+	.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr)); gap: 12px; margin: 24px 0 0; }
+	.fact { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
+	.fact dt { font-size: 14px; line-height: 1.4; color: var(--nm-muted); font-weight: 500; }
+	.fact dd { margin: 0; }
+	.fact dd.fact-val { font-size: 22px; font-weight: 600; color: var(--nm-ink); line-height: 1.3; font-variant-numeric: tabular-nums; }
+	.fact-note { font-size: 13px; line-height: 1.45; color: var(--nm-ink-2); }
+	.method { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-lg); padding: 20px 26px; margin-top: 2em; }
+	.method h2 { margin-top: 0; font-size: 22px; }
+	.method p { font-size: 15px; color: var(--nm-ink-2); line-height: 1.55; }
+	.method p + p { margin-top: 10px; }
+	.bars { list-style: none; padding: 0; margin: 14px 0 6px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 10px 22px; }
+	.bars li { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; align-items: center; font-size: 14px; }
+	.bar-name { color: var(--nm-ink-2); }
+	.bar { grid-column: 1 / -1; grid-row: 2; height: 8px; background: var(--nm-line-soft); border-radius: 4px; overflow: hidden; }
+	.bar span { display: block; height: 100%; background: var(--nm-accent); }
+	.bar-val { font-weight: 600; }
+	.fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 10px; margin: 16px 0 0; }
+	.fit-box { border-radius: var(--nm-radius-md); padding: 14px 18px; font-size: 15px; line-height: 1.5; }
+	.fit-box ul { margin: 8px 0 0; padding-left: 1.1em; }
+	.fit-box li + li { margin-top: 6px; }
+	.fit-box.yes { background: var(--nm-accent-soft); color: var(--nm-accent-ink); }
+	.fit-box.no { background: var(--nm-deal-soft); color: var(--nm-deal-ink); }
+	.co { display: grid; gap: 0; margin: 16px 0 0; border-top: 1px solid var(--nm-line-soft); }
+	.co > div { display: grid; grid-template-columns: minmax(0, 200px) minmax(0, 1fr); gap: 4px 18px; padding: 12px 0; border-bottom: 1px solid var(--nm-line-soft); font-size: 15px; }
+	.co dt { font-weight: 600; color: var(--nm-ink-2); }
+	.co dd { margin: 0; line-height: 1.5; }
+	.co-src { font-size: 13px; white-space: nowrap; }
+	@media (max-width: 560px) { .co > div { grid-template-columns: minmax(0, 1fr); } }
+	.faq { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 0 20px; font-size: 16px; }
+	.faq + .faq { margin-top: 10px; }
+	.faq summary { cursor: pointer; font-weight: 600; min-height: 52px; display: flex; align-items: center; }
+	.faq p { padding-bottom: 16px; color: var(--nm-ink-2); }
+	.sources { font-size: 15px; word-break: break-word; }
+	.hub-note { font-size: 13px; color: var(--nm-muted); border-top: 1px solid var(--nm-line); padding-top: 14px; margin-top: 2em; }
+	.rel-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; text-decoration: none; color: var(--nm-ink); }
+	.rel-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.rel-cat { font-size: 13px; font-weight: 600; color: var(--nm-accent); }
+	.rel-title { font-family: var(--nm-font-display); font-weight: 600; font-size: 19px; line-height: 1.25; }
+</style>

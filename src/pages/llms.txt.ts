@@ -3,6 +3,7 @@ import { LOCALES, RANKING_BASE, path } from "../i18n/config";
 import { getGuides, guideUrl, guideLocale } from "../lib/guides";
 import { getHubs, hubUrl, hubLocale } from "../lib/hubs";
 import { getRankings, rankingUrl, rankingLocale } from "../lib/rankings";
+import { getBrands, brandLocale, brandUrl } from "../lib/brands";
 import { getNews, newsUrl, newsLocale } from "../lib/news";
 import { SITE_NAME, SITE_URL } from "../lib/site";
 import { loadLegalStatus, countryName, STATUS_LABEL } from "../lib/rehype-country-status.mjs";
@@ -79,6 +80,13 @@ export const GET: APIRoute = async () => {
 		);
 		lines.push(`- All rankings in this market: ${abs(`/${l}/${RANKING_BASE[l]}/`)}`);
 		for (const r of list) lines.push(`- [${r.data.title}](${abs(rankingUrl(r))}): ${r.data.description.replace(/\s+/g, " ").trim()}`);
+	}
+	const brands = await getBrands();
+	for (const l of LOCALES) {
+		const list = brands.filter((b) => brandLocale(b) === l);
+		if (!list.length) continue;
+		lines.push("", `## Brand pages — ${LANG[l] ?? l} (every product of the brand that we ranked in this market, with position and score; company facts with sources; no customer reviews)`, "");
+		for (const b of list) lines.push(`- [${b.data.title}](${abs(brandUrl(b))}): ${b.data.description.replace(/\s+/g, " ").trim()}`);
 	}
 	const news = await getNews();
 	for (const l of LOCALES) {

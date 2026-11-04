@@ -52,6 +52,20 @@ export const rankingsIndexPath = (locale: Locale): string | undefined =>
 export const rankingsIndexAlternates = (): Partial<Record<Locale, string>> =>
 	Object.fromEntries(LOCALES.flatMap((l) => (RANKING_BASE[l] ? [[l, `/${l}/${RANKING_BASE[l]}/`]] : [])));
 
+/**
+ * Brand pages exist per market like rankings (they list the brand's ranked products): /es/marcas/ · /de/marken/.
+ * Kept out of ROUTES so no English index is generated.
+ */
+export const BRAND_BASE: Partial<Record<Locale, string>> = { es: "marcas", de: "marken" };
+
+/** /es/marcas/ · /de/marken/ — undefined for locales without brand pages. */
+export const brandsIndexPath = (locale: Locale): string | undefined =>
+	BRAND_BASE[locale] ? `/${locale}/${BRAND_BASE[locale]}/` : undefined;
+
+/** hreflang alternates for the brand index pages. */
+export const brandsIndexAlternates = (): Partial<Record<Locale, string>> =>
+	Object.fromEntries(LOCALES.flatMap((l) => (BRAND_BASE[l] ? [[l, `/${l}/${BRAND_BASE[l]}/`]] : [])));
+
 export const isLocale = (v: unknown): v is Locale => LOCALES.includes(v as Locale);
 
 /** Absolute path to a page in a given locale, always with trailing slash. */

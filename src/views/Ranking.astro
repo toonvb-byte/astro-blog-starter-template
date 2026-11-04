@@ -17,6 +17,7 @@ import { getGuides, guideUrl, inlineMd } from "../lib/guides";
 import { getHubs, hubUrl } from "../lib/hubs";
 import { AFFILIATE, AMAZON_STATEMENT, SITE_URL, amazonLive } from "../lib/site";
 import { CRITERIA, WEIGHTS, fmtScore, getRankings, rankingAlternates, rankingUrl, ranked, total, type Criterion, type Ranking } from "../lib/rankings";
+import { brandUrl, getBrands } from "../lib/brands";
 
 interface Props { locale: Locale; ranking: Ranking }
 const { locale, ranking } = Astro.props;
@@ -41,6 +42,8 @@ const amazonHere = amazonLive(d.market);
 const affiliateLive = amazonHere || AFFILIATE.awin;
 const showNrv = list.some((p) => p.nrv);
 const store = d.market === "ES" ? "Amazon.es" : "Amazon.de";
+// brand pages of this market, so each product card links to "More from {brand}" when one exists
+const brandPages = new Map((await getBrands(locale)).map((b) => [b.data.match, brandUrl(b)]));
 
 const S = {
 	es: {
@@ -56,7 +59,7 @@ const S = {
 		moneyNote: affiliateLive
 			? `Algunos enlaces son de afiliado: si compras a través de ellos podemos recibir una comisión, sin coste para ti. La comisión nunca cambia el orden ni la puntuación.${amazonHere ? ` ${AMAZON_STATEMENT.es}` : ""}`
 			: "Ningún fabricante ha pagado por aparecer. Si en el futuro los enlaces a tiendas pasan a ser de afiliado, lo indicaremos aquí; la comisión nunca cambiará el orden ni la puntuación.",
-		moneyMore: "Cómo ganamos dinero", methodMore: "Metodología completa", rankShort: "Puesto",
+		moneyMore: "Cómo ganamos dinero", methodMore: "Metodología completa", rankShort: "Puesto", brandMore: (b: string) => `Todo sobre ${b}`,
 	},
 	de: {
 		eyebrow: "Vergleich", analysed: "Produkte analysiert", checked: "Etiketten geprüft", picks: "Unsere Auswahl",
@@ -71,7 +74,7 @@ const S = {
 		moneyNote: affiliateLive
 			? `Einige Links sind Affiliate-Links: Kaufst du darüber, erhalten wir eventuell eine Provision, ohne Mehrkosten für dich. Die Provision ändert nie Reihenfolge oder Score.${amazonHere ? ` ${AMAZON_STATEMENT.de}` : ""}`
 			: "Kein Hersteller hat für seinen Platz bezahlt. Werden Shop-Links später zu Affiliate-Links, steht das hier; die Provision ändert nie Reihenfolge oder Score.",
-		moneyMore: "Wie wir Geld verdienen", methodMore: "Unsere Methodik", rankShort: "Platz",
+		moneyMore: "Wie wir Geld verdienen", methodMore: "Unsere Methodik", rankShort: "Platz", brandMore: (b: string) => `Mehr zu ${b}`,
 	},
 	en: {
 		eyebrow: "Ranking", analysed: "products analysed", checked: "Labels checked", picks: "Our picks",
@@ -84,7 +87,7 @@ const S = {
 		criteria: { dose: "Dose", form: "Form and quality", label: "Honest label", additives: "Additives", practical: "Everyday use" },
 		priceNote: "Price is not part of the score yet: we only publish prices from sources that allow it, and will then add cost per daily dose.",
 		moneyNote: "No manufacturer paid to be listed. Commission never changes the order or the score.",
-		moneyMore: "How we make money", methodMore: "Methodology", rankShort: "Rank",
+		moneyMore: "How we make money", methodMore: "Methodology", rankShort: "Rank", brandMore: (b: string) => `More on ${b}`,
 	},
 }[locale];
 
@@ -302,6 +305,7 @@ const crumbs = [
 								<div class="rk-actions">
 									<AffiliateLink offerId={p.offerId} placement={placement(p.id, "card")}>{S.buy}</AffiliateLink>
 									<a href={p.source} rel="noopener nofollow" target="_blank" class="src-link">{S.labelSrc}: {p.sourceLabel}</a>
+									{brandPages.has(p.brand) && <a href={brandPages.get(p.brand)} class="src-link brand-link">{S.brandMore(p.brand)} →</a>}
 								</div>
 							</li>
 						))}

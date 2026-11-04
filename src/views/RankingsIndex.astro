@@ -5,7 +5,8 @@
  * No English version: rankings exist per market (Amazon.es / Amazon.de), see RANKING_BASE in i18n/config.ts.
  */
 import Base from "../layouts/Base.astro";
-import { path, rankingsIndexAlternates, rankingsIndexPath, type Locale } from "../i18n/config";
+import { brandsIndexPath, path, rankingsIndexAlternates, rankingsIndexPath, type Locale } from "../i18n/config";
+import { getBrands } from "../lib/brands";
 import { useT, formatDate } from "../i18n/ui";
 import { CRITERIA, WEIGHTS, fmtScore, getRankings, ranked, rankingUrl, total, type Ranking } from "../lib/rankings";
 import { SITE_URL } from "../lib/site";
@@ -19,6 +20,7 @@ if (!url) throw new Error(`No rankings index for locale "${locale}"`);
 const checkedOf = (r: Ranking) => r.data.updatedDate && +r.data.updatedDate > +r.data.checked ? r.data.updatedDate : r.data.checked;
 const rankings = (await getRankings(locale)).sort((a, b) => +checkedOf(b) - +checkedOf(a) || a.data.name.localeCompare(b.data.name));
 const newest = rankings.length ? checkedOf(rankings[0]) : undefined;
+const brandsIndex = (await getBrands(locale)).length ? brandsIndexPath(locale) : undefined;
 
 const C = {
 	es: {
@@ -32,7 +34,7 @@ const C = {
 		methodP: "Los mismos cinco criterios en todos los rankings; cada ranking explica cómo los aplica a su categoría.",
 		criteria: { dose: "Dosis real", form: "Forma y calidad", label: "Etiqueta honesta", additives: "Aditivos", practical: "Uso práctico" },
 		priceNote: "El precio aún no cuenta: solo publicaremos precios de fuentes que lo permitan (feeds de las tiendas o la API de Amazon) y entonces añadiremos el coste por dosis diaria.",
-		methodLink: "Metodología completa", moneyLink: "Cómo ganamos dinero",
+		methodLink: "Metodología completa", moneyLink: "Cómo ganamos dinero", brandsLink: "Marcas analizadas",
 	},
 	de: {
 		title: "Nahrungsergänzung im Vergleich 2026: nach Etikett",
@@ -45,7 +47,7 @@ const C = {
 		methodP: "Dieselben fünf Kriterien in jedem Vergleich; jeder Vergleich erklärt, wie er sie in seiner Kategorie anwendet.",
 		criteria: { dose: "Echte Dosis", form: "Form und Qualität", label: "Ehrliches Etikett", additives: "Zusatzstoffe", practical: "Alltag" },
 		priceNote: "Der Preis zählt noch nicht: Wir veröffentlichen Preise nur aus Quellen, die das erlauben (Shop-Feeds oder die Amazon-API), und ergänzen dann die Kosten pro Tagesdosis.",
-		methodLink: "Unsere Methodik", moneyLink: "Wie wir Geld verdienen",
+		methodLink: "Unsere Methodik", moneyLink: "Wie wir Geld verdienen", brandsLink: "Marken im Check",
 	},
 	en: undefined,
 }[locale];
@@ -128,7 +130,7 @@ const jsonLd = [
 				{CRITERIA.map((c) => <li><strong>{C.criteria[c]}</strong> <span class="mono">{WEIGHTS[c]} %</span></li>)}
 			</ul>
 			<p style="color:var(--nm-ink-2)">{C.priceNote}</p>
-			<p><a href={`${path(locale, "about")}#method`}>{C.methodLink}</a> · <a href={path(locale, "disclosure")}>{C.moneyLink}</a></p>
+			<p><a href={`${path(locale, "about")}#method`}>{C.methodLink}</a> · <a href={path(locale, "disclosure")}>{C.moneyLink}</a>{brandsIndex && <> · <a href={brandsIndex}>{C.brandsLink}</a></>}</p>
 		</section>
 	</div>
 </Base>

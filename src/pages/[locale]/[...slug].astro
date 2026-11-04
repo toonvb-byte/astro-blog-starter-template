@@ -12,6 +12,8 @@
  *   /{locale}/{news}/{slug}/       → news item
  *   /es/mejores/ · /de/vergleich/  → rankings index (only locales with rankings)
  *   /es/mejores/{slug}/ · /de/vergleich/{slug}/ → ranking
+ *   /es/marcas/ · /de/marken/      → brand index (only locales with brand pages)
+ *   /es/marcas/{slug}/ · /de/marken/{slug}/ → brand page
  *   /{locale}/{prices|compare}/    → coming soon (build steps 3–5)
  *   /{locale}/legal/…              → legal pages
  */
@@ -31,17 +33,21 @@ import Glossary from "../../views/Glossary.astro";
 import RankingView from "../../views/Ranking.astro";
 import RankingsIndex from "../../views/RankingsIndex.astro";
 import { getRankings, rankingLocale, rankingSlug, type Ranking } from "../../lib/rankings";
-import { RANKING_BASE } from "../../i18n/config";
+import { BRAND_BASE, RANKING_BASE } from "../../i18n/config";
+import { getBrands, brandLocale, brandSlug, type Brand } from "../../lib/brands";
+import BrandView from "../../views/Brand.astro";
+import BrandsIndex from "../../views/BrandsIndex.astro";
 import { getNews, newsLocale, newsSlug, type NewsItem } from "../../lib/news";
 import NewsIndex from "../../views/NewsIndex.astro";
 import NewsItemView from "../../views/NewsItem.astro";
 
 type Props =
-	| { kind: RouteKey | "rankings"; guide?: undefined; hub?: undefined; ranking?: undefined; item?: undefined }
-	| { kind: "article"; guide: Guide; hub?: undefined; ranking?: undefined; item?: undefined }
-	| { kind: "hub"; hub: Hub; guide?: undefined; ranking?: undefined; item?: undefined }
-	| { kind: "ranking"; ranking: Ranking; guide?: undefined; hub?: undefined; item?: undefined }
-	| { kind: "newsItem"; item: NewsItem; guide?: undefined; hub?: undefined; ranking?: undefined };
+	| { kind: RouteKey | "rankings" | "brands"; guide?: undefined; hub?: undefined; ranking?: undefined; item?: undefined; brand?: undefined }
+	| { kind: "brand"; brand: Brand; guide?: undefined; hub?: undefined; ranking?: undefined; item?: undefined }
+	| { kind: "article"; guide: Guide; hub?: undefined; ranking?: undefined; item?: undefined; brand?: undefined }
+	| { kind: "hub"; hub: Hub; guide?: undefined; ranking?: undefined; item?: undefined; brand?: undefined }
+	| { kind: "ranking"; ranking: Ranking; guide?: undefined; hub?: undefined; item?: undefined; brand?: undefined }
+	| { kind: "newsItem"; item: NewsItem; guide?: undefined; hub?: undefined; ranking?: undefined; brand?: undefined };
 
 export const getStaticPaths = (async () => {
 	const pages = LOCALES.flatMap((locale) =>
@@ -68,15 +74,24 @@ export const getStaticPaths = (async () => {
 		params: { locale, slug: RANKING_BASE[locale]! },
 		props: { kind: "rankings" as const },
 	}));
+	// /es/marcas/{slug}/ · /de/marken/{slug}/ — brand pages exist only in their market's language.
+	const brands = (await getBrands()).map((brand) => ({
+		params: { locale: brandLocale(brand), slug: `${BRAND_BASE[brandLocale(brand)]}/${brandSlug(brand)}` },
+		props: { kind: "brand" as const, brand },
+	}));
+	const brandIndexes = LOCALES.filter((l) => BRAND_BASE[l] && brands.some((b) => b.params.locale === l)).map((locale) => ({
+		params: { locale, slug: BRAND_BASE[locale]! },
+		props: { kind: "brands" as const },
+	}));
 	const news = (await getNews()).map((item) => ({
 		params: { locale: newsLocale(item), slug: `${ROUTES.news[newsLocale(item)]}/${newsSlug(item)}` },
 		props: { kind: "newsItem" as const, item },
 	}));
-	return [...pages, ...articles, ...hubs, ...rankingIndexes, ...rankings, ...news];
+	return [...pages, ...articles, ...hubs, ...rankingIndexes, ...rankings, ...brandIndexes, ...brands, ...news];
 }) satisfies GetStaticPaths;
 
 const locale = Astro.params.locale as Locale;
-const { kind, guide, hub, ranking, item } = Astro.props as Props;
+const { kind, guide, hub, ranking, item, brand } = Astro.props as Props;
 ---
 {kind === "guides" && <GuidesIndex locale={locale} />}
 {kind === "article" && guide && <Article locale={locale} guide={guide} />}
@@ -86,6 +101,8 @@ const { kind, guide, hub, ranking, item } = Astro.props as Props;
 {kind === "hub" && hub && <HubView locale={locale} hub={hub} />}
 {kind === "rankings" && <RankingsIndex locale={locale} />}
 {kind === "ranking" && ranking && <RankingView locale={locale} ranking={ranking} />}
+{kind === "brands" && <BrandsIndex locale={locale} />}
+{kind === "brand" && brand && <BrandView locale={locale} brand={brand} />}
 {kind === "glossary" && <Glossary locale={locale} />}
 {kind === "news" && <NewsIndex locale={locale} />}
 {kind === "newsItem" && item && <NewsItemView locale={locale} item={item} />}

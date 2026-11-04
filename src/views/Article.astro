@@ -12,6 +12,7 @@ import HeroImage from "../components/HeroImage.astro";
 import NewsMentions from "../components/NewsMentions.astro";
 import { newsFor } from "../lib/news";
 import { fmtScore, ranked, rankingUrl, rankingsForGuide, total } from "../lib/rankings";
+import { brandProducts, brandsForGuide, brandUrl } from "../lib/brands";
 
 interface Props { locale: Locale; guide: Guide }
 const { locale, guide } = Astro.props;
@@ -36,6 +37,8 @@ const related = await relatedGuides(guide, 3);
 const inNews = await newsFor(locale, { guide: d.translationKey });
 // Rankings that list this guide in `linkFrom` (ES/DE only) — a box right after the key takeaways.
 const rankingsHere = await rankingsForGuide(d.translationKey, locale);
+// Brand pages that list this guide in `linkFrom` — shown in the same box style.
+const brandsHere = await Promise.all((await brandsForGuide(d.translationKey, locale)).map(async (b) => ({ b, n: (await brandProducts(b)).length })));
 
 const heroAlt = d.heroAlt?.trim() || d.title;
 const ogImage = d.heroImage ? await socialImage(d.heroImage, heroAlt) : undefined;
@@ -150,6 +153,18 @@ const jsonLd: object[] = [
 								</a>
 							);
 						})}
+					</aside>
+				)}
+
+				{brandsHere.length > 0 && (
+					<aside class="rk-box" aria-label={locale === "de" ? "Marken" : "Marcas"}>
+						{brandsHere.map(({ b, n }) => (
+							<a href={brandUrl(b)} class="rk-box-item">
+								<span class="rk-box-k">{locale === "de" ? "Marken-Check" : "Marca"} · {n} {t("rankings.analysed")}</span>
+								<span class="rk-box-t">{b.data.title}</span>
+								<span class="rk-box-cta">{locale === "de" ? "Zur Marke" : "Ver la marca"} →</span>
+							</a>
+						))}
 					</aside>
 				)}
 

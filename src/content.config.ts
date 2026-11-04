@@ -168,6 +168,49 @@ const rankings = defineCollection({
 });
 
 /**
+ * Brand pages live in src/content/brands/{locale}/{url-slug}.md — one per brand and market (ES or DE).
+ * URL: /es/marcas/{slug}/ · /de/marken/{slug}/ (see BRAND_BASE in i18n/config.ts). Not editable in Keystatic yet.
+ * Gate (claude/page-plan.md): at least 5 of the brand's products ranked in that market. The product table, scores
+ * and positions come from the rankings (matched by `match` = the products' `brand` field), never typed by hand.
+ * Company facts need a source each; no customer reviews or star ratings.
+ */
+const brands = defineCollection({
+	loader: glob({ base: "./src/content/brands", pattern: "**/*.md" }),
+	schema: z.object({
+		title: z.string().max(60),
+		description: z.string().max(155),
+		h1: z.string(),
+		dek: z.string(),
+		/** Display name, e.g. "HSN". */
+		name: z.string(),
+		/** The `brand` value of this brand's products in the rankings (exact match). */
+		match: z.string(),
+		/** Ties market versions of the same brand together (hreflang). */
+		brandKey: z.string(),
+		market: z.enum(["ES", "DE"]),
+		/** The brand's own shop (plain link, not an affiliate link). */
+		website: z.string().url(),
+		author: z.string(),
+		publishDate: z.coerce.date(),
+		updatedDate: optionalDate,
+		/** Date the company facts were last checked. */
+		checked: z.coerce.date(),
+		draft: z.boolean().default(false),
+		takeaways: z.array(z.string()).default([]),
+		/** Company facts, each with its source. */
+		company: z.array(z.object({ label: z.string(), value: z.string(), source: z.string().url() })).min(3),
+		strengths: z.array(z.string()).default([]),
+		weaknesses: z.array(z.string()).default([]),
+		/** Guides (translationKeys, same language) under "Go deeper". */
+		guides: z.array(z.string()).default([]),
+		/** Guides (translationKeys, same language) that show a box linking to this brand page. */
+		linkFrom: z.array(z.string()).default([]),
+		faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+		sources: z.array(z.object({ title: z.string(), url: optionalString })).default([]),
+	}).superRefine(checkDates),
+});
+
+/**
  * News items live in src/content/news/{locale}/{url-slug}.mdx — edited via Keystatic ("News").
  * URL: /{locale}/{news route}/{url-slug}/ (/en/news/, /es/noticias/, /de/aktuelles/). `newsKey` ties language versions together.
  * `region` drives the country filter on the index; `place` overrides the badge text (e.g. "Netherlands").
@@ -201,4 +244,4 @@ const news = defineCollection({
 	}),
 });
 
-export const collections = { guides, hubs, rankings, news };
+export const collections = { guides, hubs, rankings, brands, news };

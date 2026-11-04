@@ -1,0 +1,127 @@
+---
+/**
+ * Brand index: /es/marcas/ · /de/marken/ — every brand page of that market.
+ * Linked from the footer, every brand page and the rankings index. No English version (see BRAND_BASE).
+ */
+import Base from "../layouts/Base.astro";
+import { brandsIndexAlternates, brandsIndexPath, path, rankingsIndexPath, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { fmtScore } from "../lib/rankings";
+import { brandProducts, brandProfile, brandUrl, getBrands } from "../lib/brands";
+import { SITE_URL } from "../lib/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+const url = brandsIndexPath(locale);
+if (!url) throw new Error(`No brands index for locale "${locale}"`);
+
+const brands = await getBrands(locale);
+const cards = await Promise.all(
+	brands.map(async (b) => {
+		const list = await brandProducts(b);
+		return { b, n: list.length, avg: brandProfile(list).avg, rankings: new Set(list.map((x) => x.ranking.id)).size };
+	}),
+);
+const newest = brands.map((b) => b.data.checked).sort((a, b) => +b - +a)[0];
+
+const C = {
+	es: {
+		title: "Marcas de suplementos analizadas por etiqueta (2026)",
+		description: "Qué muestran las etiquetas de cada marca: todos sus productos de nuestros rankings, su puntuación media y quién está detrás. Sin opiniones de pago.",
+		eyebrow: "Marcas", h1: "Marcas de suplementos: qué muestran sus etiquetas",
+		lead: "Solo publicamos una página de marca cuando hemos analizado al menos cinco de sus productos en nuestros rankings. Cada página reúne esos productos con su puesto y su puntuación, lo que hace bien y mal en sus etiquetas, y quién está detrás de la marca, con fuentes.",
+		crumb: "Marcas", products: "productos analizados", in: "rankings", avg: "Media", see: "Ver la marca", checked: "Revisado",
+		rankingsLink: "Todos los rankings",
+	},
+	de: {
+		title: "Supplement-Marken im Etiketten-Check (2026)",
+		description: "Was die Etiketten jeder Marke zeigen: alle ihre Produkte aus unseren Vergleichen, ihr Durchschnitts-Score und wer dahintersteht. Keine gekauften Plätze.",
+		eyebrow: "Marken", h1: "Supplement-Marken: was ihre Etiketten zeigen",
+		lead: "Eine Markenseite gibt es erst, wenn wir mindestens fünf Produkte der Marke in unseren Vergleichen analysiert haben. Jede Seite fasst diese Produkte mit Platz und Score zusammen, zeigt, was die Etiketten gut und schlecht machen, und wer hinter der Marke steht, mit Quellen.",
+		crumb: "Marken", products: "Produkte analysiert", in: "Vergleiche", avg: "Durchschnitt", see: "Zur Marke", checked: "Geprüft",
+		rankingsLink: "Alle Vergleiche",
+	},
+	en: undefined,
+}[locale];
+if (!C) throw new Error(`No brands index copy for locale "${locale}"`);
+
+const abs = (p: string) => new URL(p, SITE_URL).href;
+const jsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		name: C.h1,
+		description: C.description,
+		inLanguage: locale,
+		url: abs(url),
+		publisher: { "@id": `${SITE_URL}/#org` },
+		isPartOf: { "@id": `${SITE_URL}/#website` },
+		...(newest ? { dateModified: newest.toISOString() } : {}),
+		mainEntity: {
+			"@type": "ItemList",
+			numberOfItems: brands.length,
+			itemListElement: brands.map((b, i) => ({ "@type": "ListItem", position: i + 1, name: b.data.name, url: abs(brandUrl(b)) })),
+		},
+	},
+];
+---
+<Base
+	locale={locale}
+	title={C.title}
+	description={C.description}
+	alternates={brandsIndexAlternates()}
+	active="rankings"
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: C.crumb, href: url }]}
+	jsonLd={jsonLd}
+>
+	<div class="container">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				<li><a href={path(locale)}>{t("article.home")}</a></li>
+				<li aria-current="page">{C.crumb}</li>
+			</ol>
+		</nav>
+		<header class="idx-head">
+			<span class="eyebrow">{C.eyebrow} · {brands.length}</span>
+			<h1 class="h1">{C.h1}</h1>
+			<p class="lead">{C.lead}</p>
+		</header>
+	</div>
+
+	<div class="container" style="padding-bottom:var(--nm-section-gap);display:flex;flex-direction:column;gap:32px">
+		<ul class="grid-auto br-cards" style="--min:280px">
+			{cards.map(({ b, n, avg, rankings }) => (
+				<li>
+					<a href={brandUrl(b)} class="card br-card">
+						<span class="br-k">{n} {C.products} · {rankings} {C.in}</span>
+						<span class="br-name">{b.data.name}</span>
+						<span class="br-dek">{b.data.dek}</span>
+						<span class="br-foot">
+							<span><span class="muted">{C.avg}</span> <span class="score-pill">{fmtScore(avg, locale)}</span></span>
+							<span class="br-cta">{C.see} →</span>
+						</span>
+						<span class="muted" style="font-size:13px">{C.checked}: {formatDate(b.data.checked, locale)}</span>
+					</a>
+				</li>
+			))}
+		</ul>
+		<p><a href={rankingsIndexPath(locale)} class="link-strong">{C.rankingsLink} →</a></p>
+	</div>
+</Base>
+
+<style>
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 0 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	.idx-head { max-width: 820px; padding: 28px 0 40px; display: flex; flex-direction: column; gap: 16px; }
+	.br-cards { list-style: none; margin: 0; padding: 0; }
+	.br-cards li { display: flex; }
+	.br-card { display: flex; flex-direction: column; gap: 12px; padding: 24px; text-decoration: none; color: var(--nm-ink); width: 100%; }
+	.br-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.br-k { font-size: 13px; font-weight: 600; color: var(--nm-accent); }
+	.br-name { font-family: var(--nm-font-display); font-weight: 600; font-size: 26px; line-height: 1.2; }
+	.br-dek { color: var(--nm-ink-2); font-size: 15px; }
+	.br-foot { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; font-size: 14px; border-top: 1px solid var(--nm-line-soft); padding-top: 12px; }
+	.br-cta { font-weight: 600; color: var(--nm-accent); }
+	.score-pill { display: inline-block; min-width: 2.6em; text-align: center; font-weight: 700; font-size: 14px; padding: 2px 8px; border-radius: var(--nm-radius-sm); background: var(--nm-accent-soft); color: var(--nm-accent-ink); font-variant-numeric: tabular-nums; }
+</style>
