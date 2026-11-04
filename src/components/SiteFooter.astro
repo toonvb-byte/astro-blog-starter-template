@@ -1,5 +1,5 @@
 ---
-import { ALL_LANGUAGES, LOCALES, path, type Locale } from "../i18n/config";
+import { ALL_LANGUAGES, LOCALES, path, rankingsIndexPath, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
 import { AMAZON_MARKET_BY_LOCALE, AMAZON_STATEMENT, GA_ENABLED, amazonLive } from "../lib/site";
 
@@ -9,6 +9,8 @@ const t = useT(locale);
 const about = path(locale, "about");
 const guides = path(locale, "guides");
 const year = new Date().getFullYear();
+const rankingsIndex = rankingsIndexPath(locale);
+const langName = (c: string) => ALL_LANGUAGES.find((l) => l.code === c)?.name ?? c;
 // Amazon's required sentence on every page of a language whose shop links go to a tagged Amazon store
 const amazonLine = amazonLive(AMAZON_MARKET_BY_LOCALE[locale]) ? AMAZON_STATEMENT[locale] : "";
 ---
@@ -23,18 +25,15 @@ const amazonLine = amazonLive(AMAZON_MARKET_BY_LOCALE[locale]) ? AMAZON_STATEMEN
 			</div>
 			<nav aria-label={t("footer.tools")} class="footer-col">
 				<span class="head">{t("footer.tools")}</span>
-				<a href={path(locale, "prices")}>{t("nav.prices")}</a>
-				<a href={path(locale, "compare")}>{t("nav.compare")}</a>
-				<a href={path(locale, "prices")}>{t("footer.alerts")}</a>
+				<a href={path(locale, "finder")}>{t("nav.finder")}</a>
+				{rankingsIndex && <a href={rankingsIndex}>{t("rankings.all")}</a>}
+				<a href={path(locale, "glossary")}>{t("footer.glossary")}</a>
 			</nav>
 			<nav aria-label={t("footer.guidesHead")} class="footer-col">
 				<span class="head">{t("footer.guidesHead")}</span>
 				<a href={path(locale, "supplements")}>{t("footer.supplements")}</a>
-				<a href={path(locale, "glossary")}>{t("footer.glossary")}</a>
-				<a href={path(locale, "news")}>{t("footer.news")}</a>
 				<a href={guides}>{t("footer.buying")}</a>
-				<a href={guides}>{t("footer.explainers")}</a>
-				<a href={guides}>{t("footer.deals")}</a>
+				<a href={path(locale, "news")}>{t("footer.news")}</a>
 			</nav>
 			<nav aria-label={t("footer.company")} class="footer-col">
 				<span class="head">{t("footer.company")}</span>
@@ -46,13 +45,9 @@ const amazonLine = amazonLive(AMAZON_MARKET_BY_LOCALE[locale]) ? AMAZON_STATEMEN
 		</div>
 		<nav aria-label={t("footer.readIn")} class="footer-langs">
 			<span class="label">{t("footer.readIn")}</span>
-			{ALL_LANGUAGES.map((l) =>
-				LOCALES.includes(l.code as Locale) ? (
-					<a href={alternates[l.code as Locale] ?? path(l.code as Locale)} hreflang={l.code} lang={l.code} aria-current={l.code === locale ? "true" : undefined}>{l.name}</a>
-				) : (
-					<span class="off" lang={l.code} title={t("footer.soon")}>{l.name}</span>
-				)
-			)}
+			{LOCALES.map((l) => (
+				<a href={alternates[l] ?? path(l)} hreflang={l} lang={l} aria-current={l === locale ? "true" : undefined}>{langName(l)}</a>
+			))}
 		</nav>
 		<div class="footer-bottom">
 			<span>© {year} NutriMetrics.eu</span>

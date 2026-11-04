@@ -310,6 +310,10 @@ cautions:
 guides:
   - creatine-guide
   - creatine-women
+linkFrom:
+  - creatine-guide
+  - creatine-women
+  - brands-hsn-myprotein-prozis
 faq:
   - q: ¿Cuál es la mejor creatina?
     a: >-

@@ -394,6 +394,8 @@ cautions:
 guides:
   - collagen-combos
   - eu-health-claims
+linkFrom:
+  - collagen-combos
 faq:
   - q: Welches Kollagenpulver ist das beste?
     a: >-

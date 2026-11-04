@@ -158,7 +158,10 @@ const rankings = defineCollection({
 		excluded: z.array(z.object({ name: z.string(), reason: z.string() })).default([]),
 		facts: z.array(z.object({ label: z.string(), value: z.string(), note: optionalString })).default([]),
 		cautions: z.array(z.string()).default([]),
+		/** Guides (translationKeys, same language) shown under "Go deeper" on the ranking. */
 		guides: z.array(z.string()).default([]),
+		/** Guides (translationKeys, same language) that show a box linking to this ranking near their top. */
+		linkFrom: z.array(z.string()).default([]),
 		faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
 		sources: z.array(z.object({ title: z.string(), url: optionalString })).default([]),
 	}).superRefine(checkDates),

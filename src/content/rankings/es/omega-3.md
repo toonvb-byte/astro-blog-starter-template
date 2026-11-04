@@ -386,6 +386,9 @@ cautions:
 guides:
   - omega3-sources
   - eu-health-claims
+linkFrom:
+  - omega3-sources
+  - brands-hsn-myprotein-prozis
 faq:
   - q: ¿Cuál es el mejor omega-3?
     a: >-

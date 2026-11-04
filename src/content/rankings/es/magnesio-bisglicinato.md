@@ -297,6 +297,10 @@ cautions:
 guides:
   - magnesium-forms
   - magnesium-sleep
+linkFrom:
+  - magnesium-forms
+  - magnesium-sleep
+  - food-magnesium
 faq:
   - q: ¿Cuál es el mejor magnesio bisglicinato?
     a: >-

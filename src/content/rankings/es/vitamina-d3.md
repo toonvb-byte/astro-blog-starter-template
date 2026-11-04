@@ -321,6 +321,10 @@ cautions:
 guides:
   - d3-k2
   - vitamin-d-winter
+linkFrom:
+  - vitamin-d-winter
+  - d3-k2
+  - food-vitamin-d
 faq:
   - q: ¿Cuál es la mejor vitamina D3?
     a: >-

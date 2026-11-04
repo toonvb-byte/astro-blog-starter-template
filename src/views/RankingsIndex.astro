@@ -1,0 +1,154 @@
+---
+/**
+ * Rankings index: /es/mejores/ · /de/vergleich/ — every ranking of that market, newest check first.
+ * Linked from the main menu, the footer, the homepage and every ranking ("More rankings").
+ * No English version: rankings exist per market (Amazon.es / Amazon.de), see RANKING_BASE in i18n/config.ts.
+ */
+import Base from "../layouts/Base.astro";
+import { path, rankingsIndexAlternates, rankingsIndexPath, type Locale } from "../i18n/config";
+import { useT, formatDate } from "../i18n/ui";
+import { CRITERIA, WEIGHTS, fmtScore, getRankings, ranked, rankingUrl, total, type Ranking } from "../lib/rankings";
+import { SITE_URL } from "../lib/site";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useT(locale);
+const url = rankingsIndexPath(locale);
+if (!url) throw new Error(`No rankings index for locale "${locale}"`);
+
+const checkedOf = (r: Ranking) => r.data.updatedDate && +r.data.updatedDate > +r.data.checked ? r.data.updatedDate : r.data.checked;
+const rankings = (await getRankings(locale)).sort((a, b) => +checkedOf(b) - +checkedOf(a) || a.data.name.localeCompare(b.data.name));
+const newest = rankings.length ? checkedOf(rankings[0]) : undefined;
+
+const C = {
+	es: {
+		title: "Mejores suplementos 2026: rankings por etiqueta",
+		description: "Rankings de suplementos de Amazon.es analizados por etiqueta: dosis real por toma, forma, aditivos y límites legales. Ningún puesto es de pago.",
+		eyebrow: "Rankings",
+		h1: "Mejores suplementos: rankings analizados por etiqueta",
+		lead: "Cada ranking compara los más vendidos de Amazon.es con la misma puntuación publicada. Leemos la etiqueta de cada producto, calculamos la cantidad real por dosis diaria y la comparamos con la ingesta de referencia y los límites legales. Ningún fabricante paga por su puesto.",
+		cardName: (n: string) => `Mejor ${n.charAt(0).toLowerCase()}${n.slice(1)}`,
+		methodH: "Cómo puntuamos",
+		methodP: "Los mismos cinco criterios en todos los rankings; cada ranking explica cómo los aplica a su categoría.",
+		criteria: { dose: "Dosis real", form: "Forma y calidad", label: "Etiqueta honesta", additives: "Aditivos", practical: "Uso práctico" },
+		priceNote: "El precio aún no cuenta: solo publicaremos precios de fuentes que lo permitan (feeds de las tiendas o la API de Amazon) y entonces añadiremos el coste por dosis diaria.",
+		methodLink: "Metodología completa", moneyLink: "Cómo ganamos dinero",
+	},
+	de: {
+		title: "Nahrungsergänzung im Vergleich 2026: nach Etikett",
+		description: "Vergleiche von Nahrungsergänzungsmitteln auf Amazon.de nach Etikett: echte Dosis pro Portion, Form, Zusatzstoffe und Grenzwerte. Kein Platz ist gekauft.",
+		eyebrow: "Vergleiche",
+		h1: "Nahrungsergänzungsmittel im Vergleich: nach Etikett analysiert",
+		lead: "Jeder Vergleich prüft Bestseller von Amazon.de mit demselben veröffentlichten Score. Wir lesen das Etikett jedes Produkts, rechnen die echte Menge pro Tagesdosis aus und vergleichen sie mit Referenzwert und Grenzwerten. Kein Hersteller bezahlt für seinen Platz.",
+		cardName: (n: string) => `${n} Vergleich`,
+		methodH: "So bewerten wir",
+		methodP: "Dieselben fünf Kriterien in jedem Vergleich; jeder Vergleich erklärt, wie er sie in seiner Kategorie anwendet.",
+		criteria: { dose: "Echte Dosis", form: "Form und Qualität", label: "Ehrliches Etikett", additives: "Zusatzstoffe", practical: "Alltag" },
+		priceNote: "Der Preis zählt noch nicht: Wir veröffentlichen Preise nur aus Quellen, die das erlauben (Shop-Feeds oder die Amazon-API), und ergänzen dann die Kosten pro Tagesdosis.",
+		methodLink: "Unsere Methodik", moneyLink: "Wie wir Geld verdienen",
+	},
+	en: undefined,
+}[locale];
+if (!C) throw new Error(`No rankings index copy for locale "${locale}"`);
+
+const abs = (p: string) => new URL(p, SITE_URL).href;
+const jsonLd = [
+	{
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		name: C.h1,
+		description: C.description,
+		inLanguage: locale,
+		url: abs(url),
+		publisher: { "@id": `${SITE_URL}/#org` },
+		isPartOf: { "@id": `${SITE_URL}/#website` },
+		...(newest ? { dateModified: newest.toISOString() } : {}),
+		mainEntity: {
+			"@type": "ItemList",
+			numberOfItems: rankings.length,
+			itemListElement: rankings.map((r, i) => ({ "@type": "ListItem", position: i + 1, name: r.data.h1, url: abs(rankingUrl(r)) })),
+		},
+	},
+];
+---
+<Base
+	locale={locale}
+	title={C.title}
+	description={C.description}
+	alternates={rankingsIndexAlternates()}
+	active="rankings"
+	breadcrumbs={[{ name: t("article.home"), href: path(locale) }, { name: t("nav.rankings"), href: url }]}
+	jsonLd={jsonLd}
+>
+	<div class="container">
+		<nav aria-label="Breadcrumb" class="crumbs">
+			<ol>
+				<li><a href={path(locale)}>{t("article.home")}</a></li>
+				<li aria-current="page">{t("nav.rankings")}</li>
+			</ol>
+		</nav>
+		<header class="idx-head">
+			<span class="eyebrow">{C.eyebrow} · {rankings.length}</span>
+			<h1 class="h1">{C.h1}</h1>
+			<p class="lead">{C.lead}</p>
+			{newest && <p class="muted" style="font-size:14px">{t("rankings.checked")}: <time datetime={newest.toISOString().slice(0, 10)}>{formatDate(newest, locale)}</time></p>}
+		</header>
+	</div>
+
+	<div class="container" style="padding-bottom:var(--nm-section-gap);display:flex;flex-direction:column;gap:56px">
+		<ul class="grid-auto rk-cards" style="--min:300px">
+			{rankings.map((r) => {
+				const top = ranked(r)[0];
+				return (
+					<li>
+						<a href={rankingUrl(r)} class="card rk-card">
+							<span class="rk-k">{t("rankings.box")} · {r.data.products.length} {t("rankings.analysed")}</span>
+							<span class="rk-name">{C.cardName(r.data.name)}</span>
+							<span class="rk-dek">{r.data.dek}</span>
+							{top && (
+								<span class="rk-top">
+									<span class="muted">{t("rankings.top")}:</span> <strong>{top.brand}</strong> {top.name}
+									<span class="score-pill">{fmtScore(total(top), locale)}</span>
+								</span>
+							)}
+							<span class="rk-foot">
+								<span class="muted">{t("rankings.checked")}: {formatDate(checkedOf(r), locale)}</span>
+								<span class="rk-cta">{t("rankings.see")} →</span>
+							</span>
+						</a>
+					</li>
+				);
+			})}
+		</ul>
+
+		<section aria-labelledby="m-h" class="card rk-method">
+			<h2 id="m-h" class="h2" style="font-size:28px">{C.methodH}</h2>
+			<p style="color:var(--nm-ink-2)">{C.methodP}</p>
+			<ul class="w-list">
+				{CRITERIA.map((c) => <li><strong>{C.criteria[c]}</strong> <span class="mono">{WEIGHTS[c]} %</span></li>)}
+			</ul>
+			<p style="color:var(--nm-ink-2)">{C.priceNote}</p>
+			<p><a href={`${path(locale, "about")}#method`}>{C.methodLink}</a> · <a href={path(locale, "disclosure")}>{C.moneyLink}</a></p>
+		</section>
+	</div>
+</Base>
+
+<style>
+	.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 20px 0 0; margin: 0; font-size: 14px; color: var(--nm-muted); }
+	.crumbs li + li::before { content: "/"; margin-right: 6px; }
+	.idx-head { max-width: 820px; padding: 28px 0 40px; display: flex; flex-direction: column; gap: 16px; }
+	.rk-cards { list-style: none; margin: 0; padding: 0; }
+	.rk-cards li { display: flex; }
+	.rk-card { display: flex; flex-direction: column; gap: 12px; padding: 24px; text-decoration: none; color: var(--nm-ink); width: 100%; }
+	.rk-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.rk-k { font-size: 13px; font-weight: 600; color: var(--nm-accent); }
+	.rk-name { font-family: var(--nm-font-display); font-weight: 600; font-size: 24px; line-height: 1.2; }
+	.rk-dek { color: var(--nm-ink-2); font-size: 15px; }
+	.rk-top { font-size: 15px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+	.rk-foot { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; border-top: 1px solid var(--nm-line-soft); padding-top: 12px; }
+	.rk-cta { font-weight: 600; color: var(--nm-accent); }
+	.score-pill { display: inline-block; min-width: 2.6em; text-align: center; font-weight: 700; font-size: 14px; padding: 2px 8px; border-radius: var(--nm-radius-sm); background: var(--nm-accent-soft); color: var(--nm-accent-ink); font-variant-numeric: tabular-nums; }
+	.rk-method { padding: 32px; display: flex; flex-direction: column; gap: 14px; max-width: 860px; }
+	.w-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+	.w-list li { padding: 8px 14px; border: 1px solid var(--nm-line); border-radius: var(--nm-pill); font-size: 15px; display: flex; gap: 8px; }
+</style>

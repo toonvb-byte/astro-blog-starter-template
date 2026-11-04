@@ -3,7 +3,8 @@ import Base from "../../layouts/Base.astro";
 import { Image } from "astro:assets";
 import ArticleCard from "../../components/ArticleCard.astro";
 import CardArt from "../../components/CardArt.astro";
-import { LOCALES, path, routeAlternates, type Locale } from "../../i18n/config";
+import { LOCALES, path, rankingsIndexPath, routeAlternates, type Locale } from "../../i18n/config";
+import { fmtScore, getRankings, ranked, rankingUrl, total } from "../../lib/rankings";
 import { useT } from "../../i18n/ui";
 import { getGuides, guideUrl } from "../../lib/guides";
 import { getHubs, hubUrl } from "../../lib/hubs";
@@ -29,6 +30,10 @@ const posts = all.filter((g) => !picks.includes(g)).slice(0, 3);
 const chipLink = (c: string) => `${guides}?q=${encodeURIComponent(c)}`;
 const hubs = await getHubs(locale);
 const news = (await getNews(locale)).slice(0, 3);
+// ES/DE only: the market rankings (the pages with shop links), newest check first
+const rankingsIndex = rankingsIndexPath(locale);
+const rankings = rankingsIndex ? (await getRankings(locale)).sort((a, b) => +b.data.checked - +a.data.checked || a.data.name.localeCompare(b.data.name)) : [];
+const rkName = (n: string) => (locale === "de" ? `${n} Vergleich` : `Mejor ${n.charAt(0).toLowerCase()}${n.slice(1)}`);
 ---
 <Base locale={locale} title={t("home.title")} description={t("home.description")} alternates={routeAlternates()} active="home">
 	<section aria-labelledby="hero-h" style="background:var(--nm-surface);border-bottom:1px solid var(--nm-line)">
@@ -88,6 +93,32 @@ const news = (await getNews(locale)).slice(0, 3);
 			</div>
 			<ul class="hub-chips">
 				{hubs.map((h) => <li><a href={hubUrl(h)} class={`chip${h.data.kind === "goal" ? " chip-goal" : ""}`}>{h.data.name}</a></li>)}
+			</ul>
+		</section>
+	)}
+
+	{rankings.length > 0 && rankingsIndex && (
+		<section aria-labelledby="rk-h" class="container section">
+			<div class="section-head">
+				<div>
+					<h2 id="rk-h" class="h2">{t("rankings.homeH")}</h2>
+					<p class="muted" style="margin-top:8px;max-width:720px">{t("rankings.homeP")}</p>
+				</div>
+				<a href={rankingsIndex} class="link-strong">{t("rankings.all")} →</a>
+			</div>
+			<ul class="grid-auto rk-home" style="--min:240px">
+				{rankings.map((r) => {
+					const top = ranked(r)[0];
+					return (
+						<li>
+							<a href={rankingUrl(r)} class="card rk-home-card">
+								<span class="rk-home-k">{r.data.products.length} {t("rankings.analysed")}</span>
+								<span class="rk-home-t">{rkName(r.data.name)}</span>
+								{top && <span class="muted" style="font-size:14px">{t("rankings.top")}: {top.brand} · {fmtScore(total(top), locale)}</span>}
+							</a>
+						</li>
+					);
+				})}
 			</ul>
 		</section>
 	)}
@@ -194,6 +225,12 @@ const news = (await getNews(locale)).slice(0, 3);
 	.cmp-card :global(.cmp-img) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; background: var(--nm-accent-soft); }
 	.cmp-foot { margin-top: auto; font-size: 13px; border-top: 1px solid var(--nm-line-soft); padding-top: 12px; }
 	.home-news { list-style: none; margin: 0; padding: 0; }
+	.rk-home { list-style: none; margin: 0; padding: 0; }
+	.rk-home li { display: flex; }
+	.rk-home-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; text-decoration: none; color: var(--nm-ink); width: 100%; border-left: 4px solid var(--nm-accent); }
+	.rk-home-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.rk-home-k { font-size: 13px; font-weight: 600; color: var(--nm-accent); }
+	.rk-home-t { font-family: var(--nm-font-display); font-weight: 600; font-size: 20px; line-height: 1.25; }
 	.news-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; text-decoration: none; color: var(--nm-ink); height: 100%; }
 	.news-card:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
 	.news-meta { font-size: 13px; color: var(--nm-muted); }

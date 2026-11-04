@@ -4,7 +4,7 @@
  * Only dates that mean "the content really changed" are used, so Google can trust them:
  * - Guides:      updatedDate, else publishDate (Keystatic: "Last updated").
  * - Hubs:        updatedDate, else publishDate (Keystatic: "Last checked").
- * - Rankings:    the latest of publishDate, updatedDate and checked (label/price check date).
+ * - Rankings:    the latest of publishDate, updatedDate and checked (label/price check date); the rankings index = newest ranking.
  * - Index pages: the newest date among the pages they list (home = newest of everything in that language).
  * - News:        updatedDate, else publishDate; the news index = newest of its items.
  * - Glossary:    GLOSSARY_CHECKED in src/lib/glossary.ts.
@@ -56,7 +56,7 @@ let cache;
 function build() {
 	const map = new Map();
 	const byLocale = () => Object.fromEntries(LOCALES.map((l) => [l, []]));
-	const guides = byLocale(), hubs = byLocale(), news = byLocale(), all = byLocale();
+	const guides = byLocale(), hubs = byLocale(), news = byLocale(), rankings = byLocale(), all = byLocale();
 	const set = (url, d, bucket, locale) => {
 		if (!d) return;
 		map.set(url, d);
@@ -74,7 +74,7 @@ function build() {
 	}
 	for (const { locale, slug, fm } of collection("rankings")) {
 		if (!RANKING_BASE[locale]) continue;
-		set(`/${locale}/${RANKING_BASE[locale]}/${slug}/`, latest(day(fm.publishDate), day(fm.updatedDate), day(fm.checked)), null, locale);
+		set(`/${locale}/${RANKING_BASE[locale]}/${slug}/`, latest(day(fm.publishDate), day(fm.updatedDate), day(fm.checked)), rankings, locale);
 	}
 	const glossary = fs.readFileSync(path.join(ROOT, "src/lib/glossary.ts"), "utf8").match(/GLOSSARY_CHECKED\s*=\s*"(\d{4}-\d{2}-\d{2})"/)?.[1];
 	const finderData = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts/seed/finder-data.json"), "utf8"));
@@ -88,6 +88,8 @@ function build() {
 		if (h) map.set(`/${l}/${ROUTES.supplements[l]}/`, h);
 		const n = latest(...news[l]);
 		if (n) map.set(`/${l}/${ROUTES.news[l]}/`, n);
+		const r = latest(...rankings[l]);
+		if (r && RANKING_BASE[l]) map.set(`/${l}/${RANKING_BASE[l]}/`, r);
 		const home = latest(...all[l]);
 		if (home) map.set(`/${l}/`, home);
 	}

@@ -50,6 +50,11 @@ export async function rankingAlternates(r: Ranking): Promise<Partial<Record<Loca
 	return out;
 }
 
+/** Rankings whose `linkFrom` lists this guide (same locale) — shown as a box near the top of the guide. */
+export async function rankingsForGuide(translationKey: string, locale: Locale): Promise<Ranking[]> {
+	return (await getRankings(locale)).filter((r) => r.data.linkFrom.includes(translationKey));
+}
+
 /** Rankings linked from a hub (same locale and hubKey). */
 export async function rankingsForHub(hubKey: string, locale: Locale): Promise<Ranking[]> {
 	return (await getRankings(locale)).filter((r) => r.data.hubKey === hubKey);

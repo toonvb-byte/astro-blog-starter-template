@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { LOCALES, path } from "../i18n/config";
+import { LOCALES, RANKING_BASE, path } from "../i18n/config";
 import { getGuides, guideUrl, guideLocale } from "../lib/guides";
 import { getHubs, hubUrl, hubLocale } from "../lib/hubs";
 import { getRankings, rankingUrl, rankingLocale } from "../lib/rankings";
@@ -45,6 +45,7 @@ export const GET: APIRoute = async () => {
 			`## Rankings — ${LANG[l] ?? l} (${l === "es" ? "Amazon.es" : "Amazon.de"} market; label-verified products only, scored on dose, form, label honesty, additives and practicality; weights shown on each page; price not scored)`,
 			"",
 		);
+		lines.push(`- All rankings in this market: ${abs(`/${l}/${RANKING_BASE[l]}/`)}`);
 		for (const r of list) lines.push(`- [${r.data.title}](${abs(rankingUrl(r))}): ${r.data.description.replace(/\s+/g, " ").trim()}`);
 	}
 	const news = await getNews();

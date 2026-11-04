@@ -318,6 +318,10 @@ cautions:
 guides:
   - magnesium-forms
   - magnesium-sleep
+linkFrom:
+  - magnesium-forms
+  - magnesium-sleep
+  - food-magnesium
 faq:
   - q: Welches Magnesiumbisglycinat ist das beste?
     a: >-

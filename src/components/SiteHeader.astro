@@ -1,6 +1,6 @@
 ---
 import Logo from "./Logo.astro";
-import { LOCALES, ALL_LANGUAGES, path, type Locale } from "../i18n/config";
+import { LOCALES, ALL_LANGUAGES, path, rankingsIndexPath, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
 import type { NavKey } from "../layouts/Base.astro";
 
@@ -8,11 +8,12 @@ interface Props { locale: Locale; active: NavKey; alternates: Partial<Record<Loc
 const { locale, active, alternates } = Astro.props;
 const t = useT(locale);
 
+// Price tracker and compare are still "coming soon" (noindex) pages, so they stay out of the menu until they exist.
+const rankingsIndex = rankingsIndexPath(locale);
 const links = [
 	{ id: "finder", label: t("nav.finder"), href: path(locale, "finder") },
 	{ id: "supplements", label: t("nav.supplements"), href: path(locale, "supplements") },
-	{ id: "prices", label: t("nav.prices"), href: path(locale, "prices") },
-	{ id: "compare", label: t("nav.compare"), href: path(locale, "compare") },
+	...(rankingsIndex ? [{ id: "rankings", label: t("nav.rankings"), href: rankingsIndex }] : []),
 	{ id: "guides", label: t("nav.guides"), href: path(locale, "guides") },
 	{ id: "news", label: t("nav.news"), href: path(locale, "news") },
 	{ id: "about", label: t("nav.about"), href: path(locale, "about") },

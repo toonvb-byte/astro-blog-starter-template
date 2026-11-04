@@ -11,6 +11,7 @@ import { schemaImages, socialImage } from "../lib/images";
 import HeroImage from "../components/HeroImage.astro";
 import NewsMentions from "../components/NewsMentions.astro";
 import { newsFor } from "../lib/news";
+import { fmtScore, ranked, rankingUrl, rankingsForGuide, total } from "../lib/rankings";
 
 interface Props { locale: Locale; guide: Guide }
 const { locale, guide } = Astro.props;
@@ -33,6 +34,8 @@ const toc = [
 // Related: by shared ingredient and supplement page, then links, newest last (src/lib/related.ts).
 const related = await relatedGuides(guide, 3);
 const inNews = await newsFor(locale, { guide: d.translationKey });
+// Rankings that list this guide in `linkFrom` (ES/DE only) — a box right after the key takeaways.
+const rankingsHere = await rankingsForGuide(d.translationKey, locale);
 
 const heroAlt = d.heroAlt?.trim() || d.title;
 const ogImage = d.heroImage ? await socialImage(d.heroImage, heroAlt) : undefined;
@@ -134,6 +137,22 @@ const jsonLd: object[] = [
 					</section>
 				)}
 
+				{rankingsHere.length > 0 && (
+					<aside class="rk-box" aria-label={t("nav.rankings")}>
+						{rankingsHere.map((r) => {
+							const top = ranked(r)[0];
+							return (
+								<a href={rankingUrl(r)} class="rk-box-item">
+									<span class="rk-box-k">{t("rankings.box")} · {r.data.products.length} {t("rankings.analysed")}</span>
+									<span class="rk-box-t">{r.data.title}</span>
+									{top && <span class="rk-box-top">{t("rankings.top")}: <strong>{top.brand}</strong> {top.name} · {fmtScore(total(top), locale)}</span>}
+									<span class="rk-box-cta">{t("rankings.see")} →</span>
+								</a>
+							);
+						})}
+					</aside>
+				)}
+
 				<Content />
 
 				{d.faq.length > 0 && (
@@ -207,6 +226,13 @@ const jsonLd: object[] = [
 		.toc { position: static; background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px; }
 	}
 	.takeaways { background: var(--nm-accent-soft); border-radius: var(--nm-radius-lg); padding: 24px 28px; }
+	.rk-box { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+	.rk-box-item { display: flex; flex-direction: column; gap: 6px; padding: 18px 22px; border: 1px solid var(--nm-line); border-left: 4px solid var(--nm-accent); border-radius: var(--nm-radius-lg); background: #fff; text-decoration: none; color: var(--nm-ink); }
+	.rk-box-item:hover { border-color: var(--nm-accent); color: var(--nm-ink); }
+	.rk-box-k { font-size: 13px; font-weight: 600; color: var(--nm-accent); }
+	.rk-box-t { font-family: var(--nm-font-display); font-weight: 600; font-size: 20px; line-height: 1.25; }
+	.rk-box-top { font-size: 15px; color: var(--nm-ink-2); }
+	.rk-box-cta { font-weight: 600; color: var(--nm-accent); font-size: 15px; }
 	.takeaways h2 { margin-top: 0; font-size: 22px; }
 	.takeaways ul { margin-top: 12px; }
 	.faq { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 0 20px; font-size: 16px; }

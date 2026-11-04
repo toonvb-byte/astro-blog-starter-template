@@ -1,86 +1,100 @@
 ---
 import Base from "../layouts/Base.astro";
-import { ALL_LANGUAGES, path, routeAlternates, type Locale } from "../i18n/config";
+import { ALL_LANGUAGES, LOCALES, path, routeAlternates, type Locale } from "../i18n/config";
 import { useT } from "../i18n/ui";
-import { OPERATOR } from "../lib/site";
+import { OPERATOR, amazonLive } from "../lib/site";
+import { WEIGHTS as W } from "../lib/rankings";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useT(locale);
+// Say only what is live: which Amazon stores carry our affiliate tag right now (src/lib/site.ts AMAZON_TAGS).
+const esLive = amazonLive("ES");
+const deLive = amazonLive("DE");
+const langName = (c: string) => ALL_LANGUAGES.find((l) => l.code === c)?.name ?? c;
 
 const C = {
 	en: {
 		title: "About NutriMetrics & our methodology",
-		description: "How NutriMetrics checks supplements for the UK and Europe, how we make money, our editorial policy and how to contact us.",
+		description: "How NutriMetrics checks supplement labels for the UK and Europe, how products are scored, how we make money and our editorial policy.",
 		eyebrow: "About us",
-		h1: "Supplement prices in Europe are opaque. We make them comparable.",
-		lead: "Pack sizes, doses and shipping costs vary wildly between countries and shops. NutriMetrics turns every offer into one honest number — cost per dose — and puts quality information right next to it.",
-		toc: ["How we compare prices", "How we make money", "Editorial policy", "Team", "Contact"],
+		h1: "We read the label, so you know what you’re actually taking.",
+		lead: "The number on the front of a supplement is often not what you get. We take each product’s label, work out the real amount per daily dose and check it against official reference intakes, authorised claims and legal and safe upper limits. Our rankings compare products on that, with one published score.",
+		toc: ["How we check products", "How we make money", "Editorial policy", "Team", "Contact"],
 		steps: [
-			["01 · Collect", "Product data from shops", "We record dose, form, pack size and price from retailer pages and product feeds, and re-check them before a guide is published or updated."],
-			["02 · Match", "Same product, every shop", "Offers are matched by EAN/GTIN and checked by hand, so one product shows every place it’s sold."],
-			["03 · Normalise", "Cost per dose, shipping in", "Total price to your country divided by servings, or by grams of active ingredient."],
-			["04 · Qualify", "Quality signals alongside", "Form, dose, third-party testing and additives are shown with the price — never hidden behind it."],
+			["01 · Read", "The label, not the front", "We take dose, form, servings and other ingredients from the label: the manufacturer’s page or the label photos on the shop listing. Every product in our rankings links to its label source and shows when we checked it."],
+			["02 · Convert", "The real daily dose", "Compound weights become the active amount (1,000 mg of magnesium bisglycinate gives at most about 140 mg of magnesium), and herb equivalents become the actual extract. We set that against the EU reference intake, the dose behind the authorised claim and the upper limits."],
+			["03 · Score", "One published score", `Rankings use the same five criteria everywhere: real dose ${W.dose}%, form and quality ${W.form}%, honest label ${W.label}%, additives ${W.additives}%, everyday use ${W.practical}%. Each ranking explains how it applies them. Products whose label figures are missing or impossible are left out.`],
+			["04 · Price", "Cost per dose: not yet", "Price is not part of the score yet, and we don’t publish prices. We will add cost per daily dose once we have price data we are allowed to show (shop feeds or Amazon’s product API)."],
 		],
-		money: ["NutriMetrics is free. Many shop links are affiliate links through Amazon, networks such as AWIN and direct partner programmes: if you buy after clicking, the shop may pay us a commission. You pay the same price.", "Retailers we don’t earn from are still listed when they have the product. Every affiliate link is marked."],
-		promises: ["Rankings follow price and methodology, never commission.", "No paid placements or sponsored rankings.", "Brands can’t pay to review or edit our guides."],
+		money: [
+			`NutriMetrics is free to read. ${esLive ? "In the Spanish edition, links to Amazon.es are affiliate links (Amazon Associates): if you buy after clicking, Amazon may pay us a commission. You pay the same price." : "None of our shop links earn us a commission yet."}${esLive && !deLive ? " Links to Amazon.de in the German edition don’t earn us anything yet." : ""}${esLive && deLive ? " The same goes for links to Amazon.de in the German edition." : ""} The English edition has no shop links yet.`,
+			"We include products whether or not we can earn from them, and pages with affiliate links say so at the top. The affiliate disclosure has the details.",
+		],
+		promises: ["Rankings follow our published score, never commission.", "No paid placements or sponsored rankings.", "Brands can’t pay to be reviewed or to change our guides."],
 		editorial: ["Every guide names its author and shows when its evidence was last checked. We are not doctors, so we don’t give our own medical opinions: every health statement links to an official source — the Great Britain or EU register of health claims, the NHS, the Food Standards Agency and its Committee on Toxicity, the MHRA, EFSA, or a national authority such as AESAN (Spain) or BfR (Germany) — and to systematic reviews where they exist.", "The English edition is written for UK readers first: where rules in Great Britain differ from the EU (and from Northern Ireland, which follows EU food law), we say so. We only use health claims in the wording authorised on the GB and EU registers, we never claim that a supplement treats, cures or prevents a disease, and we say so when the evidence is weak. None of our guides is described as medically reviewed unless a named professional has reviewed it."],
-		errors: "Spotted an error?", tell: "Tell us", errorsEnd: "— corrections are noted at the bottom of the article.",
+		errors: "Spotted an error?", tell: "Tell us", errorsEnd: "— we correct it and the page shows the new date.",
 		team: [
 			["Toon Van Buylaere", "Founder & editor", "Around 20 years building and running e-commerce businesses across Europe. Started NutriMetrics because supplement prices, doses and rules differ so much between countries that comparing them honestly takes real work. Not a health professional: health statements come from the official sources linked in each guide."],
 		],
-		langH: "Built for the UK and all of Europe",
-		langP: "Each language edition is localised for its market — local rules, local retailers, local search terms — not just translated. The English edition follows UK rules and NHS advice.",
+		langH: "Three editions, each for its own market",
+		langP: "Each edition follows its market’s rules, shops and search terms rather than being a translation. The English edition puts UK rules and NHS advice first; our product checks so far cover products sold in Spain (Amazon.es) and Germany (Amazon.de).",
 		contactP: "Questions, corrections, or you run a shop and want to be listed? Write to us.",
 		form: { name: "Name", email: "Email", topic: "Topic", message: "Message", send: "Send message", topics: ["General question", "Report an error", "Retailer / partnership", "Press"], sending: "Sending…", ok: "Thanks — your message has arrived. We usually reply within a few working days.", err: "Sorry, that didn’t work. Please email us instead.", invalid: "Please fill in your name, a valid email and a message.", note: "We use your details only to reply. See our privacy policy." },
 	},
 	es: {
 		title: "Quiénes somos y nuestra metodología",
-		description: "Cómo compara NutriMetrics los precios de suplementos en Europa, cómo ganamos dinero, nuestra política editorial y cómo contactarnos.",
+		description: "Cómo analiza NutriMetrics las etiquetas de los suplementos en Europa, cómo puntuamos los productos, cómo ganamos dinero y nuestra política editorial.",
 		eyebrow: "Quiénes somos",
-		h1: "Los precios de los suplementos en Europa son opacos. Nosotros los hacemos comparables.",
-		lead: "Los tamaños de envase, las dosis y los gastos de envío cambian muchísimo entre países y tiendas. NutriMetrics convierte cada oferta en una sola cifra honesta, el coste por dosis, y pone la información de calidad justo al lado.",
-		toc: ["Cómo comparamos precios", "Cómo ganamos dinero", "Política editorial", "Equipo", "Contacto"],
+		h1: "Leemos la etiqueta para que sepas qué tomas de verdad.",
+		lead: "La cifra de la portada de un suplemento a menudo no es lo que lleva. Tomamos la etiqueta de cada producto, calculamos la cantidad real por dosis diaria y la comparamos con las ingestas de referencia, las declaraciones autorizadas y los límites legales y de seguridad. Nuestros rankings comparan los productos con eso, con una única puntuación publicada.",
+		toc: ["Cómo analizamos los productos", "Cómo ganamos dinero", "Política editorial", "Equipo", "Contacto"],
 		steps: [
-			["01 · Recopilar", "Datos de producto de las tiendas", "Anotamos dosis, forma, tamaño del envase y precio desde las fichas y catálogos de las tiendas, y los revisamos antes de publicar o actualizar una guía."],
-			["02 · Emparejar", "El mismo producto, en cada tienda", "Las ofertas se emparejan por EAN/GTIN y se revisan a mano, para que cada producto muestre todos los sitios donde se vende."],
-			["03 · Normalizar", "Coste por dosis, envío incluido", "Precio total a tu país dividido entre las tomas, o entre los gramos de ingrediente activo."],
-			["04 · Calificar", "Señales de calidad al lado", "Forma, dosis, análisis independientes y aditivos se muestran junto al precio, nunca escondidos."],
+			["01 · Leer", "La etiqueta, no la portada", "Tomamos dosis, forma, número de tomas y demás ingredientes de la etiqueta: la web del fabricante o las fotos de la etiqueta en la ficha de la tienda. Cada producto de nuestros rankings enlaza a su fuente y muestra cuándo lo revisamos."],
+			["02 · Convertir", "La dosis diaria real", "El peso del compuesto se convierte en la cantidad activa (1000 mg de bisglicinato de magnesio aportan como mucho unos 140 mg de magnesio) y los equivalentes de planta, en el extracto real. Lo comparamos con el valor de referencia de nutrientes (VRN) de la UE, la dosis de la declaración autorizada y los límites máximos."],
+			["03 · Puntuar", "Una puntuación publicada", `Los rankings usan siempre los mismos cinco criterios: dosis real ${W.dose} %, forma y calidad ${W.form} %, etiqueta honesta ${W.label} %, aditivos ${W.additives} % y uso práctico ${W.practical} %. Cada ranking explica cómo los aplica. Los productos sin cantidades en la etiqueta o con cifras imposibles quedan fuera.`],
+			["04 · Precio", "Coste por dosis: todavía no", "El precio aún no cuenta en la puntuación y no publicamos precios. Añadiremos el coste por dosis diaria cuando tengamos datos de precio que se puedan mostrar (feeds de las tiendas o la API de productos de Amazon)."],
 		],
-		money: ["NutriMetrics es gratis. Muchos enlaces a tiendas son enlaces de afiliado a través de Amazon, redes como AWIN y programas directos: si compras después de hacer clic, la tienda puede pagarnos una comisión. Tú pagas lo mismo.", "Las tiendas con las que no ganamos nada también aparecen si tienen el producto. Todos los enlaces de afiliado están marcados."],
-		promises: ["Las clasificaciones siguen el precio y la metodología, nunca la comisión.", "Sin posiciones pagadas ni clasificaciones patrocinadas.", "Las marcas no pueden pagar para revisar o editar nuestras guías."],
+		money: [
+			`NutriMetrics es gratis. ${esLive ? "Los enlaces a Amazon.es son enlaces de afiliado (Programa de Afiliados de Amazon): si compras después de hacer clic, Amazon puede pagarnos una comisión. Tú pagas lo mismo." : "Por ahora ningún enlace a tiendas nos reporta comisión."}`,
+			"Incluimos los productos tanto si podemos ganar algo con ellos como si no, y las páginas con enlaces de afiliado lo indican arriba. Los detalles están en la divulgación de afiliados.",
+		],
+		promises: ["Los rankings siguen nuestra puntuación publicada, nunca la comisión.", "Sin puestos pagados ni rankings patrocinados.", "Las marcas no pueden pagar para aparecer ni para cambiar nuestras guías."],
 		editorial: ["Cada guía indica su autor y cuándo se comprobó la evidencia por última vez. No somos médicos, así que no damos opiniones médicas propias: cada afirmación de salud enlaza a una fuente oficial —el registro de declaraciones de propiedades saludables de la UE, la EFSA o una autoridad nacional como la AESAN (España) o el BfR (Alemania)— y a revisiones sistemáticas cuando existen.", "Solo usamos declaraciones de salud con la redacción autorizada en la UE, nunca decimos que un suplemento trate, cure o prevenga una enfermedad, y lo indicamos cuando la evidencia es débil. Ninguna guía se presenta como revisada por un médico salvo que la haya revisado un profesional con nombre propio."],
-		errors: "¿Has visto un error?", tell: "Dínoslo", errorsEnd: ": las correcciones se indican al final del artículo.",
+		errors: "¿Has visto un error?", tell: "Dínoslo", errorsEnd: ": lo corregimos y la página muestra la nueva fecha.",
 		team: [
 			["Toon Van Buylaere", "Fundador y editor", "Unos 20 años creando y dirigiendo negocios de comercio electrónico en Europa. Creó NutriMetrics porque los precios, las dosis y las normas de los suplementos cambian tanto entre países que compararlos con honestidad exige trabajo de verdad. No es profesional sanitario: las afirmaciones de salud proceden de las fuentes oficiales enlazadas en cada guía."],
 		],
-		langH: "Hecho para toda Europa",
-		langP: "Cada edición está localizada para su mercado (tiendas locales, envíos locales, búsquedas locales), no solo traducida.",
+		langH: "Tres ediciones, cada una para su mercado",
+		langP: "Cada edición sigue las normas, las tiendas y las búsquedas de su mercado; no es una traducción. La edición española analiza productos de Amazon.es y la alemana, de Amazon.de. La inglesa explica las normas del Reino Unido y de la UE.",
 		contactP: "¿Preguntas, correcciones o tienes una tienda y quieres aparecer? Escríbenos.",
 		form: { name: "Nombre", email: "Email", topic: "Tema", message: "Mensaje", send: "Enviar mensaje", topics: ["Pregunta general", "Informar de un error", "Tienda / colaboración", "Prensa"], sending: "Enviando…", ok: "Gracias, hemos recibido tu mensaje. Solemos responder en pocos días laborables.", err: "Lo sentimos, no ha funcionado. Escríbenos por email.", invalid: "Indica tu nombre, un email válido y un mensaje.", note: "Usamos tus datos solo para responderte. Consulta nuestra política de privacidad." },
 	},
 	de: {
 		title: "Über NutriMetrics & unsere Methodik",
-		description: "Wie NutriMetrics Preise für Nahrungsergänzungsmittel in Europa vergleicht, wie wir Geld verdienen, unsere redaktionellen Grundsätze und Kontakt.",
+		description: "Wie NutriMetrics Etiketten von Nahrungsergänzungsmitteln prüft, wie wir Produkte bewerten, wie wir Geld verdienen und unsere redaktionellen Grundsätze.",
 		eyebrow: "Über uns",
-		h1: "Preise für Nahrungsergänzungsmittel in Europa sind undurchsichtig. Wir machen sie vergleichbar.",
-		lead: "Packungsgrößen, Dosierungen und Versandkosten unterscheiden sich stark zwischen Ländern und Shops. NutriMetrics macht aus jedem Angebot eine ehrliche Zahl – die Kosten pro Dosis – und zeigt die Qualitätsinformationen direkt daneben.",
-		toc: ["So vergleichen wir Preise", "Wie wir Geld verdienen", "Redaktionelle Grundsätze", "Team", "Kontakt"],
+		h1: "Wir lesen das Etikett, damit du weißt, was du wirklich nimmst.",
+		lead: "Die Zahl vorne auf der Packung ist oft nicht das, was drin ist. Wir nehmen das Etikett jedes Produkts, rechnen die echte Menge pro Tagesdosis aus und gleichen sie mit Referenzwerten, zugelassenen Angaben sowie gesetzlichen und sicheren Höchstmengen ab. Unsere Vergleiche bewerten Produkte danach – mit einem veröffentlichten Score.",
+		toc: ["So prüfen wir Produkte", "Wie wir Geld verdienen", "Redaktionelle Grundsätze", "Team", "Kontakt"],
 		steps: [
-			["01 · Sammeln", "Produktdaten aus Shops", "Wir erfassen Dosis, Form, Packungsgröße und Preis aus Produktseiten und Feeds der Shops und prüfen sie erneut, bevor ein Ratgeber erscheint oder aktualisiert wird."],
-			["02 · Zuordnen", "Gleiches Produkt, jeder Shop", "Angebote werden über EAN/GTIN zugeordnet und von Hand geprüft, damit ein Produkt alle Shops zeigt, in denen es erhältlich ist."],
-			["03 · Umrechnen", "Kosten pro Dosis, mit Versand", "Gesamtpreis in dein Land geteilt durch die Portionen – oder durch die Gramm Wirkstoff."],
-			["04 · Einordnen", "Qualitätsmerkmale daneben", "Verbindung, Dosis, unabhängige Tests und Zusatzstoffe stehen neben dem Preis – nie dahinter versteckt."],
+			["01 · Lesen", "Das Etikett, nicht die Vorderseite", "Dosis, Form, Portionen und weitere Zutaten nehmen wir vom Etikett: von der Herstellerseite oder den Etikettfotos im Shop-Angebot. Jedes Produkt in unseren Vergleichen verlinkt seine Etikett-Quelle und zeigt, wann wir es geprüft haben."],
+			["02 · Umrechnen", "Die echte Tagesdosis", "Verbindungsgewichte rechnen wir in die Wirkstoffmenge um (1.000 mg Magnesiumbisglycinat liefern höchstens etwa 140 mg Magnesium), Pflanzen-Äquivalente in den tatsächlichen Extrakt. Das vergleichen wir mit dem EU-Referenzwert (NRV), der Dosis hinter der zugelassenen Angabe und den Höchstmengen."],
+			["03 · Bewerten", "Ein veröffentlichter Score", `Unsere Vergleiche nutzen überall dieselben fünf Kriterien: echte Dosis ${W.dose} %, Form und Qualität ${W.form} %, ehrliches Etikett ${W.label} %, Zusatzstoffe ${W.additives} % und Alltag ${W.practical} %. Jeder Vergleich erklärt, wie er sie anwendet. Produkte mit fehlenden oder unmöglichen Mengenangaben nehmen wir nicht auf.`],
+			["04 · Preis", "Kosten pro Dosis: noch nicht", "Der Preis fließt noch nicht in den Score ein, und wir veröffentlichen keine Preise. Die Kosten pro Tagesdosis ergänzen wir, sobald wir Preisdaten haben, die wir zeigen dürfen (Shop-Feeds oder die Produkt-API von Amazon)."],
 		],
-		money: ["NutriMetrics ist kostenlos. Viele Shop-Links sind Affiliate-Links über Amazon, Netzwerke wie AWIN und direkte Partnerprogramme: Wenn du nach dem Klick kaufst, zahlt uns der Shop eventuell eine Provision. Du zahlst denselben Preis.", "Shops, an denen wir nichts verdienen, werden trotzdem gelistet, wenn sie das Produkt führen. Jeder Affiliate-Link ist gekennzeichnet."],
-		promises: ["Rangfolgen richten sich nach Preis und Methodik, nie nach Provision.", "Keine bezahlten Platzierungen oder gesponserten Rankings.", "Marken können nicht dafür bezahlen, unsere Ratgeber zu prüfen oder zu ändern."],
+		money: [
+			`NutriMetrics ist kostenlos. ${deLive ? "Links zu Amazon.de sind Affiliate-Links (Amazon-Partnerprogramm): Wenn du nach dem Klick kaufst, zahlt uns Amazon eventuell eine Provision. Du zahlst denselben Preis." : "Links zu Amazon.de sind derzeit keine Affiliate-Links: Wir verdienen daran nichts. Ändert sich das, steht es hier und oben auf jeder betroffenen Seite."}`,
+			"Wir nehmen Produkte auf, egal ob wir an ihnen etwas verdienen können. Details stehen im Affiliate-Hinweis.",
+		],
+		promises: ["Rangfolgen folgen unserem veröffentlichten Score, nie der Provision.", "Keine bezahlten Platzierungen oder gesponserten Vergleiche.", "Marken können nicht dafür bezahlen, aufgenommen zu werden oder unsere Ratgeber zu ändern."],
 		editorial: ["Jeder Ratgeber nennt seinen Autor und zeigt, wann die Belege zuletzt geprüft wurden. Wir sind keine Ärzte und geben deshalb keine eigenen medizinischen Einschätzungen: Jede Gesundheitsaussage verweist auf eine amtliche Quelle – das EU-Register für gesundheitsbezogene Angaben, die EFSA oder eine nationale Behörde wie das BfR – und, wo vorhanden, auf systematische Übersichtsarbeiten.", "Wir verwenden gesundheitsbezogene Angaben nur im in der EU zugelassenen Wortlaut, behaupten nie, dass ein Nahrungsergänzungsmittel eine Krankheit behandelt, heilt oder verhindert, und sagen es offen, wenn die Beleglage schwach ist. Kein Ratgeber wird als medizinisch geprüft bezeichnet, solange ihn keine namentlich genannte Fachperson geprüft hat."],
-		errors: "Einen Fehler entdeckt?", tell: "Schreib uns", errorsEnd: "– Korrekturen vermerken wir am Ende des Artikels.",
+		errors: "Einen Fehler entdeckt?", tell: "Schreib uns", errorsEnd: "– wir korrigieren ihn, und die Seite zeigt das neue Datum.",
 		team: [
 			["Toon Van Buylaere", "Gründer & Redakteur", "Rund 20 Jahre Aufbau und Führung von E-Commerce-Unternehmen in Europa. Hat NutriMetrics gegründet, weil sich Preise, Dosierungen und Regeln für Nahrungsergänzungsmittel zwischen Ländern so stark unterscheiden, dass ein ehrlicher Vergleich echte Arbeit ist. Kein Arzt oder Apotheker: Gesundheitsaussagen stammen aus den amtlichen Quellen, die in jedem Ratgeber verlinkt sind."],
 		],
-		langH: "Gemacht für ganz Europa",
-		langP: "Jede Sprachausgabe ist auf ihren Markt zugeschnitten – lokale Shops, lokaler Versand, lokale Suchbegriffe – und nicht nur übersetzt.",
+		langH: "Drei Ausgaben, jede für ihren Markt",
+		langP: "Jede Ausgabe folgt den Regeln, Shops und Suchbegriffen ihres Markts und ist keine Übersetzung. Die deutsche Ausgabe prüft Produkte von Amazon.de, die spanische von Amazon.es; die englische erklärt die Regeln in Großbritannien und der EU.",
 		contactP: "Fragen, Korrekturen oder du betreibst einen Shop und möchtest gelistet werden? Schreib uns.",
 		form: { name: "Name", email: "E-Mail", topic: "Thema", message: "Nachricht", send: "Nachricht senden", topics: ["Allgemeine Frage", "Fehler melden", "Shop / Partnerschaft", "Presse"], sending: "Wird gesendet …", ok: "Danke – deine Nachricht ist angekommen. Wir antworten meist innerhalb weniger Werktage.", err: "Das hat leider nicht geklappt. Bitte schreib uns per E-Mail.", invalid: "Bitte Name, gültige E-Mail-Adresse und Nachricht angeben.", note: "Wir nutzen deine Angaben nur für die Antwort. Mehr in unserer Datenschutzerklärung." },
 	},
@@ -158,7 +172,7 @@ const ids = ["method", "money", "editorial", "team", "contact"];
 				<h2 id="lang-h" class="h2" style="font-size:28px">{C.langH}</h2>
 				<p style="color:var(--nm-ink-2)">{C.langP}</p>
 			</div>
-			<ul class="langs">{ALL_LANGUAGES.map((l) => <li lang={l.code}>{l.name}</li>)}</ul>
+			<ul class="langs">{LOCALES.map((l) => <li lang={l}><a href={path(l, "about")} hreflang={l} aria-current={l === locale ? "true" : undefined}>{langName(l)}</a></li>)}</ul>
 		</section>
 
 		<section id="contact" aria-labelledby="contact-h" class="two-col">
@@ -195,7 +209,8 @@ const ids = ["method", "money", "editorial", "team", "contact"];
 	.person { padding: 24px; display: flex; flex-direction: column; gap: 6px; }
 	.avatar { width: 64px; height: 64px; border-radius: 50%; margin-bottom: 8px; }
 	.langs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-	.langs li { padding: 8px 14px; border: 1px solid var(--nm-line); border-radius: var(--nm-pill); font-size: 15px; }
+	.langs li a { display: block; padding: 8px 14px; border: 1px solid var(--nm-line); border-radius: var(--nm-pill); font-size: 15px; text-decoration: none; color: var(--nm-ink); }
+	.langs li a[aria-current] { border-color: var(--nm-accent); color: var(--nm-accent-ink); font-weight: 600; }
 	.contact-form { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
 	.contact-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 500; font-size: 14px; }
 	.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

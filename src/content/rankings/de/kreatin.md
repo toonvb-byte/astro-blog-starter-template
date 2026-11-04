@@ -256,6 +256,9 @@ cautions:
 guides:
   - creatine-guide
   - creatine-women
+linkFrom:
+  - creatine-guide
+  - creatine-women
 faq:
   - q: Welches Kreatin ist das beste?
     a: >-

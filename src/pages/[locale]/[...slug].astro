@@ -10,6 +10,8 @@
  *   /{locale}/{glossary}/          → glossary of ingredients, forms and label terms
  *   /{locale}/{news}/              → news index (country filter)
  *   /{locale}/{news}/{slug}/       → news item
+ *   /es/mejores/ · /de/vergleich/  → rankings index (only locales with rankings)
+ *   /es/mejores/{slug}/ · /de/vergleich/{slug}/ → ranking
  *   /{locale}/{prices|compare}/    → coming soon (build steps 3–5)
  *   /{locale}/legal/…              → legal pages
  */
@@ -27,6 +29,7 @@ import HubsIndex from "../../views/HubsIndex.astro";
 import HubView from "../../views/Hub.astro";
 import Glossary from "../../views/Glossary.astro";
 import RankingView from "../../views/Ranking.astro";
+import RankingsIndex from "../../views/RankingsIndex.astro";
 import { getRankings, rankingLocale, rankingSlug, type Ranking } from "../../lib/rankings";
 import { RANKING_BASE } from "../../i18n/config";
 import { getNews, newsLocale, newsSlug, type NewsItem } from "../../lib/news";
@@ -34,7 +37,7 @@ import NewsIndex from "../../views/NewsIndex.astro";
 import NewsItemView from "../../views/NewsItem.astro";
 
 type Props =
-	| { kind: RouteKey; guide?: undefined; hub?: undefined; ranking?: undefined; item?: undefined }
+	| { kind: RouteKey | "rankings"; guide?: undefined; hub?: undefined; ranking?: undefined; item?: undefined }
 	| { kind: "article"; guide: Guide; hub?: undefined; ranking?: undefined; item?: undefined }
 	| { kind: "hub"; hub: Hub; guide?: undefined; ranking?: undefined; item?: undefined }
 	| { kind: "ranking"; ranking: Ranking; guide?: undefined; hub?: undefined; item?: undefined }
@@ -61,11 +64,15 @@ export const getStaticPaths = (async () => {
 		params: { locale: rankingLocale(ranking), slug: `${RANKING_BASE[rankingLocale(ranking)]}/${rankingSlug(ranking)}` },
 		props: { kind: "ranking" as const, ranking },
 	}));
+	const rankingIndexes = LOCALES.filter((l) => RANKING_BASE[l]).map((locale) => ({
+		params: { locale, slug: RANKING_BASE[locale]! },
+		props: { kind: "rankings" as const },
+	}));
 	const news = (await getNews()).map((item) => ({
 		params: { locale: newsLocale(item), slug: `${ROUTES.news[newsLocale(item)]}/${newsSlug(item)}` },
 		props: { kind: "newsItem" as const, item },
 	}));
-	return [...pages, ...articles, ...hubs, ...rankings, ...news];
+	return [...pages, ...articles, ...hubs, ...rankingIndexes, ...rankings, ...news];
 }) satisfies GetStaticPaths;
 
 const locale = Astro.params.locale as Locale;
@@ -77,6 +84,7 @@ const { kind, guide, hub, ranking, item } = Astro.props as Props;
 {kind === "finder" && <Finder locale={locale} />}
 {kind === "supplements" && <HubsIndex locale={locale} />}
 {kind === "hub" && hub && <HubView locale={locale} hub={hub} />}
+{kind === "rankings" && <RankingsIndex locale={locale} />}
 {kind === "ranking" && ranking && <RankingView locale={locale} ranking={ranking} />}
 {kind === "glossary" && <Glossary locale={locale} />}
 {kind === "news" && <NewsIndex locale={locale} />}

@@ -3,7 +3,7 @@ export const LOCALES = ["en", "es", "de"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 
-/** All planned editions — shown in the footer; only LOCALES are linked. */
+/** Language names for the editions (only LOCALES are live and shown). */
 export const ALL_LANGUAGES: { code: string; name: string }[] = [
 	{ code: "en", name: "English" },
 	{ code: "de", name: "Deutsch" },
@@ -39,9 +39,18 @@ export type RouteKey = keyof typeof ROUTES;
 
 /**
  * Rankings exist per market, not in every language: Spanish rankings for Amazon.es, German for Amazon.de, none in English.
- * URL: /{locale}/{RANKING_BASE}/{slug}/. Kept out of ROUTES so no empty index page is generated.
+ * URL: /{locale}/{RANKING_BASE}/{slug}/, index at /{locale}/{RANKING_BASE}/ (views/RankingsIndex.astro).
+ * Kept out of ROUTES so no empty English index page is generated.
  */
 export const RANKING_BASE: Partial<Record<Locale, string>> = { es: "mejores", de: "vergleich" };
+
+/** /es/mejores/ · /de/vergleich/ — undefined for locales without rankings. */
+export const rankingsIndexPath = (locale: Locale): string | undefined =>
+	RANKING_BASE[locale] ? `/${locale}/${RANKING_BASE[locale]}/` : undefined;
+
+/** hreflang alternates for the rankings index pages (only locales that have rankings). */
+export const rankingsIndexAlternates = (): Partial<Record<Locale, string>> =>
+	Object.fromEntries(LOCALES.flatMap((l) => (RANKING_BASE[l] ? [[l, `/${l}/${RANKING_BASE[l]}/`]] : [])));
 
 export const isLocale = (v: unknown): v is Locale => LOCALES.includes(v as Locale);
 

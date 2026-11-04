@@ -406,6 +406,8 @@ cautions:
 guides:
   - ashwagandha
   - eu-health-claims
+linkFrom:
+  - ashwagandha
 faq:
   - q: Welches Ashwagandha ist das beste?
     a: >-
