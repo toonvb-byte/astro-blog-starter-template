@@ -187,7 +187,7 @@ function compare(d, codes, loc, fp) {
 	const rows = d.nutrients.map((n) =>
 		el("tr", {}, [
 			el("th", { scope: "row", dataLabel: t.nutrient }, [txt(n.name[loc])]),
-			...cols.map((r) => el("td", { dataLabel: colHead(r), className: ["mx-num"] }, [txt(valueText(r, n, loc))])),
+			...cols.map((r) => el("td", { dataLabel: rowName(r, loc), className: ["mx-num"] }, [txt(valueText(r, n, loc))])),
 		]),
 	);
 	const srcs = [];
