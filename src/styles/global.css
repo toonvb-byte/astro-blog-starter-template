@@ -268,4 +268,5 @@ a.gl-term:hover { color: var(--nm-accent); text-decoration-style: solid; }
 	.cs-table.mx-compare td, .cs-table.mx-matrix td.mx-num { display: inline-block; width: 50%; vertical-align: top; white-space: normal; overflow-wrap: anywhere; }
 	/* no uppercase: it turns "µg" into "MG" */
 	.cs-table.mx-compare td::before, .cs-table.mx-matrix td::before { text-transform: none; letter-spacing: 0; }
+	.cs-table tr.mx-market { background: var(--nm-accent-soft); }
 }
