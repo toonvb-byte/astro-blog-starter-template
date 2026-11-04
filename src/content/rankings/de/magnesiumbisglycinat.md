@@ -318,10 +318,12 @@ cautions:
 guides:
   - magnesium-forms
   - magnesium-sleep
+  - magnesium-cramps
 linkFrom:
   - magnesium-forms
   - magnesium-sleep
   - food-magnesium
+  - magnesium-cramps
 faq:
   - q: Welches Magnesiumbisglycinat ist das beste?
     a: >-
