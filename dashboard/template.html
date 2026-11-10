@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NutriMetrics team activity</title>
+<style>
+:root{--ink:#10201A;--green:#0B6B4F;--orange:#B4470E;--mist:#E8ECF4;--sage:#E3F1EA;--line:#d6dbd8}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"IBM Plex Sans",sans-serif;color:var(--ink);background:#fff;padding:20px;max-width:980px;margin:auto}
+h1{font-size:22px;margin:0 0 4px}.meta{color:#55635c;font-size:13px;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+.stat{background:var(--sage);border-radius:10px;padding:12px}.stat b{display:block;font-size:24px;color:var(--green)}.stat span{font-size:12px;color:#33463d}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+select,input{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.day{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.dayhead{background:var(--mist);padding:10px 14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-weight:600}
+.dayhead small{font-weight:400;color:#44524b}
+.commit{padding:10px 14px;border-top:1px solid var(--line);display:grid;grid-template-columns:52px 1fr;gap:4px 10px;font-size:14px}
+.commit .t{color:#55635c;font-variant-numeric:tabular-nums}
+.commit .s{font-weight:600}
+.tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.tag{font-size:11px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:1px 7px;color:#33463d}
+.author{font-size:12px;color:#55635c}
+.docs{padding:8px 14px 10px;color:var(--orange);font-size:13px;border-top:1px dashed var(--line)}
+.empty{color:#55635c;padding:14px}
+</style></head><body>
+<h1>NutriMetrics team activity</h1>
+<div class="meta" id="meta"></div>
+<div class="stats" id="stats"></div>
+<div class="filters">
+  <select id="author"><option value="">All authors</option></select>
+  <select id="area"><option value="">All areas</option></select>
+  <input id="q" placeholder="Search subject or sha">
+</div>
+<div id="days"></div>
+<script>
+const DATA = __DATA__;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const authors = [...new Set(DATA.days.flatMap(d => d.commits.map(c => c.author)))].sort();
+const areas = [...new Set(DATA.days.flatMap(d => d.commits.flatMap(c => c.areas)))].sort();
+authors.forEach(a => $('#author').insertAdjacentHTML('beforeend', `<option>${esc(a)}</option>`));
+areas.forEach(a => $('#area').insertAdjacentHTML('beforeend', `<option>${esc(a)}</option>`));
+$('#meta').textContent = `Generated ${DATA.generated} · from ${DATA.since} · times in Madrid time`;
+function render(){
+  const a = $('#author').value, ar = $('#area').value, q = $('#q').value.toLowerCase();
+  const days = DATA.days.map(d => {
+    const commits = d.commits.filter(c => (!a || c.author === a) && (!ar || c.areas.includes(ar)) &&
+      (!q || c.subject.toLowerCase().includes(q) || c.sha.startsWith(q)));
+    return {...d, commits};
+  }).filter(d => d.commits.length || (d.doc_changes||[]).length);
+  const all = days.flatMap(d => d.commits);
+  const files = all.reduce((n,c)=>n+c.files_changed,0);
+  $('#stats').innerHTML = [
+    ['Days with activity', days.length],['Commits', all.length],
+    ['Files changed', files],['Lines added', all.reduce((n,c)=>n+c.added,0)],
+    ['Doc changes', days.reduce((n,d)=>n+(d.doc_changes||[]).length,0)]
+  ].map(([k,v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`).join('');
+  $('#days').innerHTML = days.length ? days.map(d => {
+    const by = [...new Set(d.commits.map(c => c.author))].join(', ') || '—';
+    const rows = d.commits.map(c => `<div class="commit"><div class="t">${esc(c.time)}</div><div>
+      <div class="s">${esc(c.subject)}</div>
+      <div class="author">${esc(c.author)} · <code>${esc(c.sha)}</code> · ${c.files_changed} files, +${c.added} −${c.deleted}</div>
+      <div class="tags">${c.areas.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div></div></div>`).join('');
+    const docs = (d.doc_changes||[]).map(x => `<div class="docs">Doc: ${esc(x.by||'')} ${esc(x.summary||'')} <small>(${esc(x.path||'')})</small></div>`).join('');
+    return `<div class="day"><div class="dayhead"><span>${d.date}</span><small>${d.commits.length} commits · ${esc(by)}</small></div>${rows}${docs}</div>`;
+  }).join('') : '<div class="empty">No activity matches these filters.</div>';
+}
+['#author','#area','#q'].forEach(s => $(s).addEventListener('input', render));
+render();
+</script></body></html>

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build activity.json for the team dashboard from git history on main.
 
-Usage: python3 scripts/dashboard/build_activity.py [--since 2026-10-01] [--out activity.json]
+Usage: python3 scripts/dashboard/build_activity.py [--since 2026-10-01] [--ref origin/main]
+                                                 [--out activity.json] [--template ...] [--html ...]
 
 Each commit becomes one entry, grouped by day (Europe/Madrid), with the area
 of the site it touched. Project-doc changes are read from doc-changes.json if
@@ -39,9 +40,14 @@ def area_of(path: str) -> str:
     return "other"
 
 
-def git_log(since: str):
+DEFAULT_TEMPLATE = Path("dashboard/template.html")
+DEFAULT_HTML = Path("dashboard/index.html")
+DATA_PLACEHOLDER = "__DATA__"
+
+
+def git_log(ref: str, since: str):
     out = subprocess.run(
-        ["git", "log", "main", f"--since={since}", "--numstat",
+        ["git", "log", ref, f"--since={since}", "--numstat",
          f"--format={SEP}%H%x1f%aI%x1f%an%x1f%s"],
         capture_output=True, text=True, check=True,
     ).stdout
@@ -67,11 +73,15 @@ def git_log(since: str):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--since", default="2026-10-01")
+    # Use origin/main: the local main branch can be behind the remote.
+    ap.add_argument("--ref", default="origin/main")
     ap.add_argument("--out", default="activity.json")
+    ap.add_argument("--template", default=str(DEFAULT_TEMPLATE))
+    ap.add_argument("--html", default=str(DEFAULT_HTML))
     args = ap.parse_args()
 
     days = defaultdict(lambda: {"commits": [], "doc_changes": []})
-    for c in git_log(args.since):
+    for c in git_log(args.ref, args.since):
         when = datetime.fromisoformat(c["time"]).astimezone(MADRID)
         day = when.date().isoformat()
         areas = sorted({f["area"] for f in c["files"]})
@@ -99,8 +109,20 @@ def main():
         ],
     }
     Path(args.out).write_text(json.dumps(result, ensure_ascii=False, indent=2))
+
+    template = Path(args.template)
+    if not template.exists():
+        raise SystemExit(f"template not found: {template}")
+    template_text = template.read_text()
+    if template_text.count(DATA_PLACEHOLDER) != 1:
+        raise SystemExit(f"{template} must contain {DATA_PLACEHOLDER} exactly once")
+    # Escape "</" so a commit subject cannot close the <script> tag early.
+    data_js = json.dumps(result, ensure_ascii=False).replace("</", "<\\/")
+    Path(args.html).parent.mkdir(parents=True, exist_ok=True)
+    Path(args.html).write_text(template_text.replace(DATA_PLACEHOLDER, data_js))
+
     total = sum(len(d["commits"]) for d in result["days"])
-    print(f"wrote {args.out}: {len(result['days'])} days, {total} commits")
+    print(f"wrote {args.out} and {args.html}: {len(result['days'])} days, {total} commits")
 
 
 if __name__ == "__main__":
