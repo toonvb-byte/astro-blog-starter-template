@@ -1,7 +1,26 @@
 {
-  "generated": "2026-11-12T08:14+01:00",
+  "generated": "2026-11-14T08:13+01:00",
   "since": "2026-10-01",
   "days": [
+    {
+      "date": "2026-11-13",
+      "commits": [
+        {
+          "sha": "7d8e401",
+          "time": "10:40",
+          "author": "Claude",
+          "subject": "News: EU court bars organic label for unauthorised CBD foods (EN/ES/DE)",
+          "areas": [
+            "docs",
+            "news"
+          ],
+          "files_changed": 4,
+          "added": 128,
+          "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    },
     {
       "date": "2026-11-10",
       "commits": [
@@ -694,27 +713,14 @@
           "author": "toonvb-byte",
           "subject": "Update src/content/guides/en/ashwagandha-eu-legal-status",
           "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 49,
-          "deleted": 35
-        },
-        {
-          "sha": "bec5ff8",
-          "time": "15:26",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/es/limites-maximos-suplementos-europa",
-          "areas": [
             "code",
             "data",
             "guides",
             "images",
             "other"
           ],
-          "files_changed": 226,
-          "added": 57828,
+          "files_changed": 227,
+          "added": 57842,
           "deleted": 0
         }
       ],
