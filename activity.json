@@ -1,0 +1,730 @@
+{
+  "generated": "2026-11-14T08:13+01:00",
+  "since": "2026-10-01",
+  "days": [
+    {
+      "date": "2026-11-13",
+      "commits": [
+        {
+          "sha": "7d8e401",
+          "time": "10:40",
+          "author": "Claude",
+          "subject": "News: EU court bars organic label for unauthorised CBD foods (EN/ES/DE)",
+          "areas": [
+            "docs",
+            "news"
+          ],
+          "files_changed": 4,
+          "added": 128,
+          "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-10",
+      "commits": [
+        {
+          "sha": "adacd73",
+          "time": "13:39",
+          "author": "Claude",
+          "subject": "News: UK COT advice on echinacea supplements in pregnancy (EN)",
+          "areas": [
+            "news"
+          ],
+          "files_changed": 1,
+          "added": 43,
+          "deleted": 0
+        },
+        {
+          "sha": "25c6fcf",
+          "time": "13:28",
+          "author": "Claude",
+          "subject": "Merge seo-impressions: SEO item 5 (pages that already get impressions)",
+          "areas": [],
+          "files_changed": 0,
+          "added": 0,
+          "deleted": 0
+        },
+        {
+          "sha": "13b574a",
+          "time": "08:41",
+          "author": "Claude",
+          "subject": "SEO item 5: optimise pages that already get impressions",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 8,
+          "added": 62,
+          "deleted": 21
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-07",
+      "commits": [
+        {
+          "sha": "91fc7db",
+          "time": "10:38",
+          "author": "Claude",
+          "subject": "News: update UK-EU SPS summit item (draft deal agreed 3 Nov)",
+          "areas": [
+            "docs",
+            "news"
+          ],
+          "files_changed": 2,
+          "added": 18,
+          "deleted": 8
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-05",
+      "commits": [
+        {
+          "sha": "d1834f6",
+          "time": "13:42",
+          "author": "Claude",
+          "subject": "Hero images: 7 new heroes (19 pages) and 4 regenerated ones (12 pages)",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 50,
+          "added": 57,
+          "deleted": 0
+        },
+        {
+          "sha": "3e5d9f3",
+          "time": "08:26",
+          "author": "Claude",
+          "subject": "Card tints for red yeast rice and creatine 55+ guides back on the palette",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 6,
+          "added": 6,
+          "deleted": 6
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-04",
+      "commits": [
+        {
+          "sha": "38f0608",
+          "time": "20:06",
+          "author": "Claude",
+          "subject": "Guides: red yeast rice EU ban + creatine after 55 (EN/ES/DE)",
+          "areas": [
+            "guides",
+            "rankings"
+          ],
+          "files_changed": 17,
+          "added": 1240,
+          "deleted": 11
+        },
+        {
+          "sha": "7e28ef0",
+          "time": "17:04",
+          "author": "Claude",
+          "subject": "Guides: magnesium for leg cramps + which supplements not to take together (EN/ES/DE)",
+          "areas": [
+            "guides",
+            "rankings"
+          ],
+          "files_changed": 17,
+          "added": 929,
+          "deleted": 0
+        },
+        {
+          "sha": "a1d2fee",
+          "time": "16:54",
+          "author": "Claude",
+          "subject": "Brand pages: /es/marcas/ and /de/marken/ (HSN, WeightWorld, natural elements, Sunday Natural)",
+          "areas": [
+            "code",
+            "rankings"
+          ],
+          "files_changed": 16,
+          "added": 1271,
+          "deleted": 19
+        },
+        {
+          "sha": "af4c586",
+          "time": "16:16",
+          "author": "Claude",
+          "subject": "ES collagen ranking: /es/mejores/colageno/ (11 products, label check 4 Nov)",
+          "areas": [
+            "data",
+            "guides",
+            "rankings"
+          ],
+          "files_changed": 5,
+          "added": 530,
+          "deleted": 7
+        },
+        {
+          "sha": "c2f02df",
+          "time": "16:11",
+          "author": "Claude",
+          "subject": "Immune support: winter guide + goal page in EN/ES/DE",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 15,
+          "added": 1016,
+          "deleted": 0
+        },
+        {
+          "sha": "540ee6b",
+          "time": "15:08",
+          "author": "Claude",
+          "subject": "Max-levels phone cards: fill the market card background",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 1,
+          "added": 1,
+          "deleted": 0
+        },
+        {
+          "sha": "27fb9c6",
+          "time": "15:03",
+          "author": "Claude",
+          "subject": "Max-levels phone cards: no uppercase labels (µg was shown as MG)",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 1,
+          "added": 2,
+          "deleted": 0
+        },
+        {
+          "sha": "c41924d",
+          "time": "15:01",
+          "author": "Claude",
+          "subject": "Max-levels tables: two values per row on phones, shorter card labels",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 2,
+          "added": 5,
+          "deleted": 1
+        },
+        {
+          "sha": "d65baf4",
+          "time": "14:56",
+          "author": "Claude",
+          "subject": "Upgrades to ranking-candidate pages: max levels by country, ferritin, multivitamins, turmeric mg, bowel claims",
+          "areas": [
+            "code",
+            "data",
+            "guides",
+            "other"
+          ],
+          "files_changed": 35,
+          "added": 1279,
+          "deleted": 106
+        },
+        {
+          "sha": "e897d8b",
+          "time": "14:16",
+          "author": "Claude",
+          "subject": "Max-levels guides: melatonin table from the shared legal-status data",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 3,
+          "added": 8,
+          "deleted": 33
+        },
+        {
+          "sha": "c883860",
+          "time": "13:16",
+          "author": "Toon Van Buylaere",
+          "subject": "News routine: procedure for the 3-day scheduled task + post-build check",
+          "areas": [
+            "docs",
+            "scripts"
+          ],
+          "files_changed": 2,
+          "added": 142,
+          "deleted": 0
+        },
+        {
+          "sha": "7b34a14",
+          "time": "11:37",
+          "author": "Claude",
+          "subject": "Country status tables from one data source; IndexNow on deploy",
+          "areas": [
+            "code",
+            "data",
+            "guides",
+            "other"
+          ],
+          "files_changed": 14,
+          "added": 749,
+          "deleted": 61
+        },
+        {
+          "sha": "378d92b",
+          "time": "11:11",
+          "author": "Claude",
+          "subject": "Link the rankings into the site; About page describes the real method",
+          "areas": [
+            "code",
+            "rankings"
+          ],
+          "files_changed": 25,
+          "added": 449,
+          "deleted": 103
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-03",
+      "commits": [
+        {
+          "sha": "0234677",
+          "time": "15:59",
+          "author": "Toon Van Buylaere",
+          "subject": "News section in EN/ES/DE with country filter and 27 news items",
+          "areas": [
+            "code",
+            "news",
+            "other"
+          ],
+          "files_changed": 46,
+          "added": 2072,
+          "deleted": 13
+        },
+        {
+          "sha": "a999d5b",
+          "time": "13:14",
+          "author": "Toon Van Buylaere",
+          "subject": "Amazon.es Associates tag live (nutrimetric0e-21)",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 7,
+          "added": 48,
+          "deleted": 20
+        },
+        {
+          "sha": "f11d0f5",
+          "time": "09:41",
+          "author": "Claude",
+          "subject": "DE guide: zinc + vitamin C combos, Öko-Test 11/2026 and 18 label checks",
+          "areas": [
+            "data",
+            "guides",
+            "images"
+          ],
+          "files_changed": 6,
+          "added": 258,
+          "deleted": 4
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-02",
+      "commits": [
+        {
+          "sha": "bc6b6e0",
+          "time": "13:02",
+          "author": "Claude",
+          "subject": "German food-first guides: use du like the rest of the German site",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 5,
+          "added": 58,
+          "deleted": 67
+        },
+        {
+          "sha": "c943540",
+          "time": "13:00",
+          "author": "Claude",
+          "subject": "Maximum levels guide: publish ES, add DE, correct the EU timeline",
+          "areas": [
+            "code",
+            "guides",
+            "images"
+          ],
+          "files_changed": 12,
+          "added": 389,
+          "deleted": 16
+        },
+        {
+          "sha": "6c98ec2",
+          "time": "12:49",
+          "author": "Claude",
+          "subject": "Titles: every page title within 60 characters",
+          "areas": [
+            "code",
+            "guides",
+            "other",
+            "rankings"
+          ],
+          "files_changed": 45,
+          "added": 61,
+          "deleted": 55
+        },
+        {
+          "sha": "d44fcfc",
+          "time": "12:43",
+          "author": "Claude",
+          "subject": "Real freshness: sitemap lastmod from content dates, honest Published/Updated",
+          "areas": [
+            "code",
+            "other"
+          ],
+          "files_changed": 6,
+          "added": 128,
+          "deleted": 6
+        },
+        {
+          "sha": "e0da151",
+          "time": "12:33",
+          "author": "Claude",
+          "subject": "Finder: server-render headings, goals and the full evidence map",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 1,
+          "added": 132,
+          "deleted": 36
+        },
+        {
+          "sha": "4e400ea",
+          "time": "11:56",
+          "author": "Claude",
+          "subject": "Keep reading: pick related guides by shared ingredient and hub, not category",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 2,
+          "added": 114,
+          "deleted": 6
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-10-30",
+      "commits": [
+        {
+          "sha": "6c10c3c",
+          "time": "08:25",
+          "author": "Toon Van Buylaere",
+          "subject": "UK edition: adapt English pages to GB rules (UK-first, EU notes kept)",
+          "areas": [
+            "code",
+            "data",
+            "guides"
+          ],
+          "files_changed": 59,
+          "added": 1763,
+          "deleted": 834
+        },
+        {
+          "sha": "001354a",
+          "time": "07:28",
+          "author": "Claude",
+          "subject": "Add Phase 2 rankings: ES omega-3, DE collagen powder, DE ashwagandha",
+          "areas": [
+            "code",
+            "data",
+            "rankings"
+          ],
+          "files_changed": 5,
+          "added": 1403,
+          "deleted": 1
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-10-29",
+      "commits": [
+        {
+          "sha": "daa1527",
+          "time": "17:59",
+          "author": "Claude",
+          "subject": "Add Phase 1 rankings: ES/DE vitamin D3(+K2), creatine, magnesium bisglycinate",
+          "areas": [
+            "code",
+            "data",
+            "rankings"
+          ],
+          "files_changed": 16,
+          "added": 2865,
+          "deleted": 7
+        },
+        {
+          "sha": "31b6ba6",
+          "time": "07:55",
+          "author": "Toon Van Buylaere",
+          "subject": "Keep per-language hero file names in the build",
+          "areas": [
+            "images"
+          ],
+          "files_changed": 137,
+          "added": 0,
+          "deleted": 0
+        },
+        {
+          "sha": "1a645c2",
+          "time": "07:49",
+          "author": "Toon Van Buylaere",
+          "subject": "Add AI hero images for all guides and supplement pages (ES, DE, EN)",
+          "areas": [
+            "code",
+            "guides",
+            "images"
+          ],
+          "files_changed": 301,
+          "added": 386,
+          "deleted": 100
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-10-28",
+      "commits": [
+        {
+          "sha": "87b0e7f",
+          "time": "16:25",
+          "author": "Claude",
+          "subject": "Guides 10-27: add in-body charts, maps and diagrams (ES, DE, EN)",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 102,
+          "added": 2363,
+          "deleted": 0
+        },
+        {
+          "sha": "0a97b45",
+          "time": "16:02",
+          "author": "Claude",
+          "subject": "Guides 3-9: add in-body charts, maps and diagram; credit AI heroes",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 40,
+          "added": 702,
+          "deleted": 1
+        },
+        {
+          "sha": "ebdc6fa",
+          "time": "15:51",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/de/kollagen-magnesium-oder-hyaluronsaeure",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 35,
+          "deleted": 29
+        },
+        {
+          "sha": "e231079",
+          "time": "15:50",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/es/colageno-con-magnesio-o-acido-hialuronico",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 30,
+          "deleted": 24
+        },
+        {
+          "sha": "a1346d1",
+          "time": "15:50",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/en/collagen-magnesium-vs-hyaluronic-acid",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 27,
+          "deleted": 22
+        },
+        {
+          "sha": "4a3b156",
+          "time": "15:40",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/de/kreatin-frauen",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 31,
+          "deleted": 25
+        },
+        {
+          "sha": "e20d66f",
+          "time": "15:39",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/es/creatina-mujeres",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 20,
+          "deleted": 16
+        },
+        {
+          "sha": "8109444",
+          "time": "15:39",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/en/creatine-for-women",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 24,
+          "deleted": 19
+        },
+        {
+          "sha": "79c5ad9",
+          "time": "15:35",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/de/magnesium-zum-schlafen",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 13,
+          "deleted": 10
+        },
+        {
+          "sha": "26574f8",
+          "time": "15:35",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/es/magnesio-para-dormir",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 19,
+          "deleted": 13
+        },
+        {
+          "sha": "2790c13",
+          "time": "15:34",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/en/magnesium-for-sleep",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 17,
+          "deleted": 11
+        },
+        {
+          "sha": "5a0127a",
+          "time": "15:31",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/de/zugelassene-health-claims-tabelle",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 53,
+          "deleted": 41
+        },
+        {
+          "sha": "62cd1e2",
+          "time": "15:31",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/es/declaraciones-salud-autorizadas-ue",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 43,
+          "deleted": 37
+        },
+        {
+          "sha": "787cf94",
+          "time": "15:30",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/en/eu-approved-health-claims-supplements",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 52,
+          "deleted": 46
+        },
+        {
+          "sha": "bfa0440",
+          "time": "15:28",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/de/ashwagandha-wirkung-nebenwirkungen",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 39,
+          "deleted": 29
+        },
+        {
+          "sha": "b96b123",
+          "time": "15:27",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/es/ashwagandha-para-que-sirve",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 30,
+          "deleted": 24
+        },
+        {
+          "sha": "7f093a2",
+          "time": "15:27",
+          "author": "toonvb-byte",
+          "subject": "Update src/content/guides/en/ashwagandha-eu-legal-status",
+          "areas": [
+            "code",
+            "data",
+            "guides",
+            "images",
+            "other"
+          ],
+          "files_changed": 227,
+          "added": 57842,
+          "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    }
+  ]
+}
