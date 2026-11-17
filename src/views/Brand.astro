@@ -51,7 +51,7 @@ const S = {
 		profile: "Perfil de la marca", profileP: "Media de cada criterio en sus productos (0–10). Son los mismos criterios y pesos de todos nuestros rankings.",
 		criteria: { dose: "Dosis", form: "Forma y calidad", label: "Etiqueta honesta", additives: "Aditivos", practical: "Uso práctico" },
 		weight: "peso", strengths: "Lo que hace bien", weaknesses: "Lo que debes vigilar", company: "La empresa", source: "fuente",
-		buy: store, faq: "Preguntas frecuentes", sources: "Fuentes", more: "Otras marcas", all: "Todas las marcas", guides: "Para saber más",
+		buy: `Comprar en ${store}`, faq: "Preguntas frecuentes", sources: "Fuentes", more: "Otras marcas", all: "Todas las marcas", guides: "Para saber más",
 		method: "Cómo lo hemos hecho",
 		methodP: "No publicamos opiniones de clientes ni estrellas. Esta página reúne lo que muestran las etiquetas de los productos de la marca que hemos analizado en nuestros rankings, con su puesto y su puntuación, y los datos de la empresa con su fuente. Si un producto cambia en un ranking, cambia aquí.",
 		moneyNote: affiliateLive
@@ -68,7 +68,7 @@ const S = {
 		profile: "Profil der Marke", profileP: "Durchschnitt jedes Kriteriums über ihre Produkte (0–10). Es sind dieselben Kriterien und Gewichte wie in allen unseren Vergleichen.",
 		criteria: { dose: "Dosis", form: "Form und Qualität", label: "Ehrliches Etikett", additives: "Zusatzstoffe", practical: "Alltag" },
 		weight: "Gewicht", strengths: "Was sie gut macht", weaknesses: "Worauf du achten solltest", company: "Das Unternehmen", source: "Quelle",
-		buy: store, faq: "Häufige Fragen", sources: "Quellen", more: "Weitere Marken", all: "Alle Marken", guides: "Mehr dazu",
+		buy: `Jetzt bei ${store} kaufen`, faq: "Häufige Fragen", sources: "Quellen", more: "Weitere Marken", all: "Alle Marken", guides: "Mehr dazu",
 		method: "So sind wir vorgegangen",
 		methodP: "Wir veröffentlichen keine Kundenbewertungen und keine Sterne. Diese Seite fasst zusammen, was die Etiketten der Produkte dieser Marke zeigen, die wir in unseren Vergleichen analysiert haben, mit Platz und Score, dazu die Firmendaten mit Quelle. Ändert sich ein Produkt im Vergleich, ändert es sich hier.",
 		moneyNote: affiliateLive
@@ -204,7 +204,7 @@ const crumbs = [
 									<tr>
 										<th scope="row">
 											<a href={x.url}><span class="brand">{x.p.brand}</span> {x.p.name}</a><span class="dose">{x.p.form}</span>
-											<AffiliateLink offerId={x.p.offerId} placement={placement(x.p.id)} variant="outline" class="btn-sm row-shop">{S.buy}</AffiliateLink>
+											<AffiliateLink offerId={x.p.offerId} placement={placement(x.p.id)} variant="primary" class="btn-sm row-shop">{S.buy} →</AffiliateLink>
 										</th>
 										<td data-label={S.th[1]}><a href={x.url}>{S.rankingName(x.ranking.data.name)}</a></td>
 										<td data-label={S.th[2]} class="c-pos">{S.posOf(x.pos, x.of)}</td>

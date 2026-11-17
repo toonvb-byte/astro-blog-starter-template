@@ -50,7 +50,7 @@ const S = {
 		eyebrow: "Ranking", analysed: "productos analizados", checked: "Etiquetas revisadas", picks: "Nuestras elecciones",
 		table: "Comparativa", th: ["#", "Producto", "Por dosis diaria", "% VRN", "Frente a los límites", "Envase", "Puntuación"],
 		method: "Cómo puntuamos", weight: "peso", products: "Análisis producto a producto", score: "Puntuación NutriMetrics", of10: "de 10",
-		goodFor: "Para quién", skipIf: "Mejor otro si", catch: "Ojo con la etiqueta", buy: `Ver en ${store}`, labelSrc: "Fuente de la etiqueta",
+		goodFor: "Para quién", skipIf: "Mejor otro si", catch: "Ojo con la etiqueta", buy: `Comprar en ${store}`, labelSrc: "Fuente de la etiqueta",
 		excluded: "Por qué estos productos no están en la lista", numbers: "Cifras clave", careful: "Quién debe tener cuidado",
 		faq: "Preguntas frecuentes", sources: "Fuentes", form: "Forma", daily: "Dosis diaria", nrv: "% VRN", limit: "Límites", pack: "Envase",
 		additives: "Otros ingredientes", extras: "Además", hubCta: "Formas, dosis y declaraciones autorizadas", guides: "Para saber más",
@@ -65,7 +65,7 @@ const S = {
 		eyebrow: "Vergleich", analysed: "Produkte analysiert", checked: "Etiketten geprüft", picks: "Unsere Auswahl",
 		table: "Vergleichstabelle", th: ["#", "Produkt", "Pro Tagesdosis", "% NRV", "Grenzwerte", "Packung", "Score"],
 		method: "So bewerten wir", weight: "Gewicht", products: "Alle Produkte im Detail", score: "NutriMetrics-Score", of10: "von 10",
-		goodFor: "Passt zu", skipIf: "Eher nicht, wenn", catch: "Der Haken", buy: `Bei ${store} ansehen`, labelSrc: "Etikett-Quelle",
+		goodFor: "Passt zu", skipIf: "Eher nicht, wenn", catch: "Der Haken", buy: `Jetzt bei ${store} kaufen`, labelSrc: "Etikett-Quelle",
 		excluded: "Warum diese Bestseller fehlen", numbers: "Die wichtigsten Zahlen", careful: "Wer aufpassen sollte",
 		faq: "Häufige Fragen", sources: "Quellen", form: "Form", daily: "Tagesdosis", nrv: "% NRV", limit: "Grenzwerte", pack: "Packung",
 		additives: "Weitere Zutaten", extras: "Außerdem", hubCta: "Formen, Dosis und zugelassene Angaben", guides: "Mehr dazu",
@@ -80,7 +80,7 @@ const S = {
 		eyebrow: "Ranking", analysed: "products analysed", checked: "Labels checked", picks: "Our picks",
 		table: "Comparison", th: ["#", "Product", "Per daily dose", "% NRV", "Against the limits", "Pack", "Score"],
 		method: "How we score", weight: "weight", products: "Product by product", score: "NutriMetrics score", of10: "out of 10",
-		goodFor: "Good for", skipIf: "Pick another if", catch: "Label catch", buy: `View on ${store}`, labelSrc: "Label source",
+		goodFor: "Good for", skipIf: "Pick another if", catch: "Label catch", buy: `Buy on ${store}`, labelSrc: "Label source",
 		excluded: "Why these best-sellers are not on the list", numbers: "Key numbers", careful: "Who should be careful",
 		faq: "FAQ", sources: "Sources", form: "Form", daily: "Daily dose", nrv: "% NRV", limit: "Limits", pack: "Pack",
 		additives: "Other ingredients", extras: "Also", hubCta: "Forms, doses and authorised claims", guides: "Go deeper",
@@ -218,7 +218,7 @@ const crumbs = [
 										<a class="pick-name" href={`#${anchor(p.id)}`}><span class="brand">{p.brand}</span> {p.name}</a>
 										<span class="pick-meta"><span class="score-pill">{fmtScore(total(p), locale)}</span> {S.rankShort} {pos} · {p.daily}</span>
 										<p set:html={inlineMd(pick.why)} />
-										<AffiliateLink offerId={p.offerId} placement={placement(p.id, "pick")} variant="outline" class="btn-sm">{S.buy}</AffiliateLink>
+										<AffiliateLink offerId={p.offerId} placement={placement(p.id, "pick")} variant="primary" class="btn-sm">{S.buy} →</AffiliateLink>
 									</div>
 								);
 							})}
@@ -303,8 +303,8 @@ const crumbs = [
 								</div>
 								{p.catch && <p class="catch"><strong>{S.catch}:</strong> <span set:html={inlineMd(p.catch)} /></p>}
 								<div class="rk-actions">
-									<AffiliateLink offerId={p.offerId} placement={placement(p.id, "card")}>{S.buy}</AffiliateLink>
-									<a href={p.source} rel="noopener nofollow" target="_blank" class="src-link">{S.labelSrc}: {p.sourceLabel}</a>
+									<AffiliateLink offerId={p.offerId} placement={placement(p.id, "card")} class="buy-main">{S.buy} →</AffiliateLink>
+									<a href={p.source} rel="noopener nofollow" target="_blank" class="src-link">{S.labelSrc} ↗ <span class="muted">({p.sourceLabel})</span></a>
 									{brandPages.has(p.brand) && <a href={brandPages.get(p.brand)} class="src-link brand-link">{S.brandMore(p.brand)} →</a>}
 								</div>
 							</li>
@@ -494,6 +494,7 @@ const crumbs = [
 	.catch { background: var(--nm-deal-soft); color: var(--nm-deal-ink); border-radius: var(--nm-radius-md); padding: 12px 16px; font-size: 15px; line-height: 1.5; }
 	.rk-actions { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: 14px; }
 	.src-link { font-size: 14px; }
+	.rk-actions :global(.buy-main) { min-height: 48px; padding: 0 26px; font-size: 16px; font-weight: 600; }
 	.excluded li + li { margin-top: 10px; }
 	.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: 12px; margin: 16px 0 0; }
 	.fact { background: #fff; border: 1px solid var(--nm-line); border-radius: var(--nm-radius-md); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
