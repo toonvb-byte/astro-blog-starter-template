@@ -1,7 +1,26 @@
 {
-  "generated": "2026-11-16T08:16+01:00",
+  "generated": "2026-11-17T08:14+01:00",
   "since": "2026-10-01",
   "days": [
+    {
+      "date": "2026-11-16",
+      "commits": [
+        {
+          "sha": "7b2df11",
+          "time": "10:41",
+          "author": "Claude",
+          "subject": "News: Verbraucherzentralen check of influencer supplement ads (DE/EN)",
+          "areas": [
+            "docs",
+            "news"
+          ],
+          "files_changed": 3,
+          "added": 90,
+          "deleted": 2
+        }
+      ],
+      "doc_changes": []
+    },
     {
       "date": "2026-11-13",
       "commits": [
@@ -700,27 +719,14 @@
           "author": "toonvb-byte",
           "subject": "Update src/content/guides/es/ashwagandha-para-que-sirve",
           "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 30,
-          "deleted": 24
-        },
-        {
-          "sha": "7f093a2",
-          "time": "15:27",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/en/ashwagandha-eu-legal-status",
-          "areas": [
             "code",
             "data",
             "guides",
             "images",
             "other"
           ],
-          "files_changed": 227,
-          "added": 57842,
+          "files_changed": 228,
+          "added": 57848,
           "deleted": 0
         }
       ],
