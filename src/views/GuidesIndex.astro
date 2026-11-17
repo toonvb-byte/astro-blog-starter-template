@@ -6,6 +6,7 @@ import { Image } from "astro:assets";
 import { path, routeAlternates, type Locale } from "../i18n/config";
 import { useT, formatDate } from "../i18n/ui";
 import { getGuides, guideUrl } from "../lib/guides";
+import { getHubs, hubUrl } from "../lib/hubs";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -13,6 +14,8 @@ const t = useT(locale);
 const all = await getGuides(locale);
 const featured = all.find((g) => g.data.featured);
 const rest = all.filter((g) => g !== featured);
+// Supplement pages (ingredient and goal hubs) are searched too, so "vitamina b12" finds its page.
+const hubs = await getHubs(locale);
 const meta = (g: (typeof all)[number]) =>
 	`${g.data.readingMinutes} ${t("guides.read")}${g.data.reviewer ? ` · ${t("guides.reviewedBy")} ${g.data.reviewer}` : ""}`;
 ---
@@ -36,6 +39,16 @@ const meta = (g: (typeof all)[number]) =>
 	</header>
 
 	<div class="container" style="padding-bottom:var(--nm-section-gap);display:flex;flex-direction:column;gap:48px">
+		<section id="hub-hits" aria-labelledby="hubs-h" hidden class="hub-section">
+			<h2 id="hubs-h" class="h2">{t("guides.hubsH")}</h2>
+			<ul class="hub-hits">
+				{hubs.map((h) => (
+					<li data-search={`${h.data.title} ${h.data.name} ${h.data.hubKey}`}>
+						<a href={hubUrl(h)}>{h.data.title}</a>
+					</li>
+				))}
+			</ul>
+		</section>
 		{all.length === 0 && <p class="lead">{t("guides.empty")}</p>}
 
 		{featured && (
@@ -76,16 +89,24 @@ const meta = (g: (typeof all)[number]) =>
 	// Tiny client-side filter; also handles ?q= from the header search.
 	const input = document.getElementById("blog-q") as HTMLInputElement | null;
 	const items = Array.from(document.querySelectorAll<HTMLElement>("[data-search]"));
+	const hubHits = document.getElementById("hub-hits");
 	const none = document.getElementById("no-match");
+	// Accent-insensitive and case-insensitive: "colageno" finds "colágeno", "sueno" finds "sueño".
+	const norm = (v: string) => v.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[-_]/g, " ");
 	const run = () => {
-		const q = (input?.value ?? "").trim().toLowerCase();
+		const words = norm((input?.value ?? "").trim()).split(/\s+/).filter(Boolean);
 		let shown = 0;
+		let hubShown = 0;
 		for (const el of items) {
-			const hit = !q || q.split(/\s+/).every((w) => el.dataset.search!.includes(w));
+			const hit = !words.length || words.every((w) => norm(el.dataset.search!).includes(w));
 			el.hidden = !hit;
 			if (hit) shown++;
+			if (hit && el.closest("#hub-hits")) hubShown++;
 		}
+		// Guide cards hidden by the filter; the supplement section only appears when it has matches.
+		if (hubHits) hubHits.hidden = !words.length || hubShown === 0;
 		if (none) none.hidden = shown > 0 || items.length === 0;
+		if (none && hubShown > 0) none.hidden = true;
 	};
 	const initial = new URLSearchParams(location.search).get("q");
 	if (input && initial) input.value = initial;
@@ -98,5 +119,8 @@ const meta = (g: (typeof all)[number]) =>
 	.guides-head { padding-top: 56px; padding-bottom: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
 	.guides-search { display: flex; flex: 0 1 360px; min-width: 240px; }
 	.featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: 24px; }
-	.featured[hidden], [data-search][hidden] { display: none; }
+	.featured[hidden], [data-search][hidden], #hub-hits[hidden] { display: none; }
+	.hub-section { display: flex; flex-direction: column; gap: 16px; }
+	.hub-hits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+	.hub-hits a { font-weight: 600; color: var(--nm-ink); }
 </style>
