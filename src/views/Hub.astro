@@ -13,6 +13,8 @@ import {
 	getHubs, hubAlternates, hubUrl, productsFor, goalRows, ingredient, amount, evidenceLabel, checkedDate, type Hub,
 } from "../lib/hubs";
 import { SITE_URL } from "../lib/site";
+import AffiliateLink from "../components/AffiliateLink.astro";
+import { DEFAULT_COUNTRY } from "../i18n/config";
 import { FINDER_TO_GLOSSARY, glossaryUrl } from "../lib/glossary";
 import { schemaImages, socialImage } from "../lib/images";
 import HeroImage from "../components/HeroImage.astro";
@@ -44,6 +46,16 @@ const guidesHere = await getGuides(locale);
 const related = d.guides.map((k) => guidesHere.find((g) => g.data.translationKey === k)).filter((g) => g !== undefined);
 const inNews = await newsFor(locale, { hub: d.hubKey });
 const siblings = hubsHere.filter((h) => h.id !== hub.id && (d.kind === "goal" ? h.data.kind === "goal" : h.data.group === d.group)).slice(0, 4);
+
+// Shop buttons: the page's market (es → ES, de/en → DE), Amazon first, only through /go/{offerId}.
+const hubMarket = DEFAULT_COUNTRY[locale];
+const buyStore = (label: string) => label.replace(/^amazon\./, "Amazon.");
+const buysFor = (p: (typeof products)[number]) => {
+	const offers = [...(p.offers?.[hubMarket] ?? [])].sort((a, b) => Number(!a.label.startsWith("amazon")) - Number(!b.label.startsWith("amazon")));
+	return offers.slice(0, 2).map((o, i) => ({ ...o, primary: i === 0 }));
+};
+const buyText = (store: string) => (locale === "de" ? `Jetzt bei ${store} kaufen` : locale === "es" ? `Comprar en ${store}` : `Buy on ${store}`);
+const hubPlacement = (id: string, offerId: number) => `hub:${hub.data.hubKey ?? hub.id}:${id}:${offerId}`;
 
 const marketName = { ES: { en: "Spain", es: "España", de: "Spanien" }, DE: { en: "Germany", es: "Alemania", de: "Deutschland" } } as const;
 const markets = (m: Record<string, string>) =>
@@ -275,7 +287,15 @@ const jsonLd: object[] = [
 														})}
 													</td>
 													<td data-label={t("hub.thMarkets")}>{markets(p.markets)}</td>
-													<td data-label={t("hub.thLabel")}>{p.source ? <a href={p.source} rel="noopener nofollow" target="_blank">{t("hub.source")}</a> : "—"}</td>
+													<td data-label={t("hub.thLabel")} class="hub-buy">
+														{buysFor(p).map((o) => (
+															<AffiliateLink offerId={o.id} placement={hubPlacement(p.id, o.id)} variant={o.primary ? "primary" : "outline"} class="btn-sm row-shop">
+																{buyText(buyStore(o.label))} →
+															</AffiliateLink>
+														))}
+														{p.source && <a class="src-link" href={p.source} rel="noopener nofollow" target="_blank">{t("hub.source")} ↗</a>}
+														{!buysFor(p).length && !p.source && "—"}
+													</td>
 												</tr>
 											);
 										})}
@@ -408,6 +428,11 @@ const jsonLd: object[] = [
 	.products th[scope="row"] { font-weight: 500; min-width: 180px; }
 	.products .brand { font-weight: 600; }
 	.products .dose { display: block; font-size: 13px; color: var(--nm-muted); font-weight: 400; margin-top: 2px; }
+	.products .hub-buy { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+	.products .hub-buy :global(.row-shop) { min-height: 44px; padding: 0 16px; font-size: 15px; font-weight: 600; }
+	.products .hub-buy :global(.btn-outline) { background: var(--nm-surface, transparent); }
+	.products .hub-buy .src-link { font-size: 13px; color: var(--nm-muted); }
+	@media (max-width: 520px) { .products .hub-buy :global(.row-shop) { width: 100%; justify-content: center; } }
 	.amt { display: block; }
 	.amt + .amt { margin-top: 4px; }
 	.amt-ing { color: var(--nm-ink-2); }
