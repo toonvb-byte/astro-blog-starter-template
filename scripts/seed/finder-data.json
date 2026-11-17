@@ -1177,16 +1177,6 @@
           {
             "id": 20001,
             "label": "amazon.es"
-          },
-          {
-            "id": 20002,
-            "label": "medononline.com"
-          }
-        ],
-        "DE": [
-          {
-            "id": 20003,
-            "label": "medononline.com"
           }
         ]
       }
@@ -1939,20 +1929,7 @@
         }
       ],
       "source": "https://medononline.com/product/solgar-zinc-picolinate-22mg-tablets-100-tablets-10568",
-      "offers": {
-        "ES": [
-          {
-            "id": 20027,
-            "label": "medononline.com"
-          }
-        ],
-        "DE": [
-          {
-            "id": 20028,
-            "label": "medononline.com"
-          }
-        ]
-      }
+      "offers": {}
     },
     {
       "id": "solgar-ester-c-1000",

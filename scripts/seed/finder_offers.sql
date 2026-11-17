@@ -1,7 +1,6 @@
 -- Goal finder shop offers (generated 2026-11-17 from scripts/seed/finder-data.json). Product IDs 5001+ = finder products (index in finder-data.json).
 -- Retailers 1001+ = shops from finder 'source' URLs. Amazon offers (retailer 2 = Amazon.es, 3 = Amazon.de) use verified ASINs from the 2026-10-29 Keepa snapshot.
 -- Price 0 = not tracked (no prices shown on the site). /go/{offerId} adds the Amazon tag per market.
-INSERT OR IGNORE INTO retailers (id, name, network, active) VALUES (1001, 'medononline.com', 'direct', 1);
 INSERT OR IGNORE INTO retailers (id, name, network, active) VALUES (1002, 'soin-et-nature.com', 'direct', 1);
 INSERT OR IGNORE INTO retailers (id, name, network, active) VALUES (1003, 'medpex.de', 'direct', 1);
 INSERT OR IGNORE INTO retailers (id, name, network, active) VALUES (1004, 'farmaciajimenez.com', 'direct', 1);
@@ -28,8 +27,6 @@ INSERT OR IGNORE INTO retailers (id, name, network, active) VALUES (1024, 'farma
 INSERT OR IGNORE INTO retailers (id, name, network, active) VALUES (1025, 'superdrug.com', 'direct', 1);
 INSERT OR IGNORE INTO retailers (id, name, network, active) VALUES (1026, 'les-calories.com', 'direct', 1);
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20001, 5001, 2, 'ES', 0, 1, 'https://www.amazon.es/dp/B00068X4IG', '2026-11-17');
-INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20002, 5001, 1001, 'ES', 0, 1, 'https://medononline.com/product/solgar-gentle-iron-25mg-non-constipating-anaemia-support-capsules-90s-3031', '2026-11-17');
-INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20003, 5001, 1001, 'DE', 0, 1, 'https://medononline.com/product/solgar-gentle-iron-25mg-non-constipating-anaemia-support-capsules-90s-3031', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20004, 5002, 1002, 'ES', 0, 1, 'https://www.soin-et-nature.com/es/1399-berocca-energie-vitaminas-comprimidos-efervescentes-sin-azucar.html', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20005, 5003, 1003, 'DE', 0, 1, 'https://www.medpex.de/vitamin-b-komplex-hochdosiert-b12-methylcobalamin-180-st/6W7CXFMV', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20006, 5004, 1004, 'ES', 0, 1, 'https://farmaciajimenez.com/nuestras-marcas/solgar/solgar-vitamina-b12-1000-microgramos-100-comprimidos-masticables', '2026-11-17');
@@ -53,8 +50,6 @@ INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_s
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20024, 5017, 1012, 'ES', 0, 1, 'https://www.mccabespharmacy.com/products/solgar-vitamin-d3-2200-iu-55-g-vegetable-capsules-50s', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20025, 5017, 1012, 'DE', 0, 1, 'https://www.mccabespharmacy.com/products/solgar-vitamin-d3-2200-iu-55-g-vegetable-capsules-50s', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20026, 5018, 1013, 'DE', 0, 1, 'https://www.docmorris.de/vitamin-d3k2-1000-ie20-g-tropfen/15821458', '2026-11-17');
-INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20027, 5019, 1001, 'ES', 0, 1, 'https://medononline.com/product/solgar-zinc-picolinate-22mg-tablets-100-tablets-10568', '2026-11-17');
-INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20028, 5019, 1001, 'DE', 0, 1, 'https://medononline.com/product/solgar-zinc-picolinate-22mg-tablets-100-tablets-10568', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20029, 5020, 1014, 'ES', 0, 1, 'https://www.elcorteingles.es/parafarmacia/A31272454-0033984010529-pr-90-comprimidos-ester-c-plus-solgar/', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20030, 5020, 1014, 'DE', 0, 1, 'https://www.elcorteingles.es/parafarmacia/A31272454-0033984010529-pr-90-comprimidos-ester-c-plus-solgar/', '2026-11-17');
 INSERT OR REPLACE INTO offers (id, product_id, retailer_id, country, price, in_stock, merchant_url, checked_at) VALUES (20031, 5021, 1008, 'DE', 0, 1, 'https://www.shop-apotheke.com/arzneimittel/upmWG7KZC/natural-elements-mariendistel-mit-artischocke-loewenzahn.htm', '2026-11-17');
