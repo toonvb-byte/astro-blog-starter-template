@@ -1,7 +1,75 @@
 {
-  "generated": "2026-11-17T08:14+01:00",
+  "generated": "2026-11-18T08:13+01:00",
   "since": "2026-10-01",
   "days": [
+    {
+      "date": "2026-11-17",
+      "commits": [
+        {
+          "sha": "cbe2424",
+          "time": "13:32",
+          "author": "Claude",
+          "subject": "Guides search: include supplement pages, ignore accents and hyphens",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 2,
+          "added": 30,
+          "deleted": 3
+        },
+        {
+          "sha": "ccd665a",
+          "time": "11:40",
+          "author": "Claude",
+          "subject": "Ingredient hub pages: clear Amazon-first buy buttons; drop UAE source links",
+          "areas": [
+            "code",
+            "data"
+          ],
+          "files_changed": 2,
+          "added": 26,
+          "deleted": 3
+        },
+        {
+          "sha": "745c8d3",
+          "time": "11:36",
+          "author": "Claude",
+          "subject": "Ranking and brand pages: clear buy buttons, Amazon first",
+          "areas": [
+            "code"
+          ],
+          "files_changed": 2,
+          "added": 10,
+          "deleted": 9
+        },
+        {
+          "sha": "8850e1a",
+          "time": "11:25",
+          "author": "Claude",
+          "subject": "Goal finder: remove Medon Pharmacy (UAE) offers",
+          "areas": [
+            "data"
+          ],
+          "files_changed": 2,
+          "added": 1,
+          "deleted": 29
+        },
+        {
+          "sha": "d8e08e7",
+          "time": "08:51",
+          "author": "Claude",
+          "subject": "Goal finder: Amazon/shop offers via /go, language-based market, internal price page",
+          "areas": [
+            "code",
+            "data"
+          ],
+          "files_changed": 5,
+          "added": 3434,
+          "deleted": 2664
+        }
+      ],
+      "doc_changes": []
+    },
     {
       "date": "2026-11-16",
       "commits": [
@@ -654,79 +722,14 @@
           "author": "toonvb-byte",
           "subject": "Update src/content/guides/en/magnesium-for-sleep",
           "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 17,
-          "deleted": 11
-        },
-        {
-          "sha": "5a0127a",
-          "time": "15:31",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/de/zugelassene-health-claims-tabelle",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 53,
-          "deleted": 41
-        },
-        {
-          "sha": "62cd1e2",
-          "time": "15:31",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/es/declaraciones-salud-autorizadas-ue",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 43,
-          "deleted": 37
-        },
-        {
-          "sha": "787cf94",
-          "time": "15:30",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/en/eu-approved-health-claims-supplements",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 52,
-          "deleted": 46
-        },
-        {
-          "sha": "bfa0440",
-          "time": "15:28",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/de/ashwagandha-wirkung-nebenwirkungen",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 39,
-          "deleted": 29
-        },
-        {
-          "sha": "b96b123",
-          "time": "15:27",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/es/ashwagandha-para-que-sirve",
-          "areas": [
             "code",
             "data",
             "guides",
             "images",
             "other"
           ],
-          "files_changed": 228,
-          "added": 57848,
+          "files_changed": 233,
+          "added": 57888,
           "deleted": 0
         }
       ],
