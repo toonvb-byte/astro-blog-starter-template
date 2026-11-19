@@ -1,7 +1,35 @@
 {
-  "generated": "2026-11-18T08:13+01:00",
+  "generated": "2026-11-19T08:13+01:00",
   "since": "2026-10-01",
   "days": [
+    {
+      "date": "2026-11-18",
+      "commits": [
+        {
+          "sha": "2579328",
+          "time": "12:33",
+          "author": "toonvb-byte",
+          "subject": "Merge pull request #2 from toonvb-byte/content/2026-11-blood-tests",
+          "areas": [],
+          "files_changed": 0,
+          "added": 0,
+          "deleted": 0
+        },
+        {
+          "sha": "6a4d647",
+          "time": "10:06",
+          "author": "Toon Van Buylaere",
+          "subject": "Guides: blood tests explained (vitamin D, B12, ferritin, creatinine), drafted",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 3,
+          "added": 390,
+          "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    },
     {
       "date": "2026-11-17",
       "commits": [
@@ -709,27 +737,14 @@
           "author": "toonvb-byte",
           "subject": "Update src/content/guides/es/magnesio-para-dormir",
           "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 19,
-          "deleted": 13
-        },
-        {
-          "sha": "2790c13",
-          "time": "15:34",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/en/magnesium-for-sleep",
-          "areas": [
             "code",
             "data",
             "guides",
             "images",
             "other"
           ],
-          "files_changed": 233,
-          "added": 57888,
+          "files_changed": 234,
+          "added": 57894,
           "deleted": 0
         }
       ],
