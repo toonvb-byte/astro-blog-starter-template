@@ -1,7 +1,38 @@
 {
-  "generated": "2026-11-20T08:13+01:00",
+  "generated": "2026-11-21T08:13+01:00",
   "since": "2026-10-01",
   "days": [
+    {
+      "date": "2026-11-20",
+      "commits": [
+        {
+          "sha": "4ed948a",
+          "time": "11:13",
+          "author": "toonvb-byte",
+          "subject": "Guides: add hero image to vegan and vegetarian guides (EN, ES, DE)",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 6,
+          "added": 9,
+          "deleted": 0
+        },
+        {
+          "sha": "d462c84",
+          "time": "10:32",
+          "author": "toonvb-byte",
+          "subject": "Guides: publish vegan and vegetarian nutrients (EN, ES, DE)",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 3,
+          "added": 337,
+          "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    },
     {
       "date": "2026-11-18",
       "commits": [
@@ -711,40 +742,14 @@
           "author": "toonvb-byte",
           "subject": "Update src/content/guides/en/creatine-for-women",
           "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 24,
-          "deleted": 19
-        },
-        {
-          "sha": "79c5ad9",
-          "time": "15:35",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/de/magnesium-zum-schlafen",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 13,
-          "deleted": 10
-        },
-        {
-          "sha": "26574f8",
-          "time": "15:35",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/es/magnesio-para-dormir",
-          "areas": [
             "code",
             "data",
             "guides",
             "images",
             "other"
           ],
-          "files_changed": 234,
-          "added": 57894,
+          "files_changed": 236,
+          "added": 57902,
           "deleted": 0
         }
       ],
