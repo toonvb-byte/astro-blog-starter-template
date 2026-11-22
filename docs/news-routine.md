@@ -20,11 +20,11 @@ Check this table first. When a date has passed, find the outcome. If there is on
 
 | Date | What | Items / data to update |
 | --- | --- | --- |
-| 20 Nov 2026 | UK-EU summit in Brussels (SPS food deal; draft text agreed 3 Nov, item updated 7 Nov) | `uk-eu-sps-summit` (EN); new item if a deal is signed, especially if the published text says what changes for supplements, claims, novel foods or CBD |
 | 7 Dec 2026 | EU standstill ends for the Dutch herbal decree (ashwagandha leaf ban) | `nl-herbal-decree` (EN/ES/DE), `src/data/legal-status/ashwagandha.json` |
 | 8 Dec 2026 | UK Committee on Toxicity meeting (ashwagandha statement pending) | new UK item if a statement is published; `ashwagandha.json` UK row |
+| monthly | UK-EU SPS agreement (agreed 20 Nov 2026, due to apply 1 March 2028): legal text, European Partnership Bill, the government's "targeted consultation" on food and feed law, DHSC/FSA guidance on GB health claims and supplements | `uk-eu-sps-agreed` (EN; update or new item if GB-only claims, supplement forms or CBD rules change), guides `eu-health-claims` and `supplement-limits-europe` (EN) |
 | monthly | European Commission initiative page on EU maximum levels for vitamins and minerals | `eu-max-levels-delay` (EN/ES/DE) if the timeline changes |
-| each run | Official Journal: Commission regulations banning monacolins from red yeast rice (EP objection failed 8 Oct 2026) and HAD plants (senna, rhubarb, buckthorn; scrutiny ended 15 Oct 2026), both not yet published on 16 Nov | new EU item when published; tell the owner, because the guide `red-yeast-rice` (EN/ES/DE) says publication is still pending |
+| each run | Official Journal: Commission regulations banning monacolins from red yeast rice (EP objection failed 8 Oct 2026) and HAD plants (senna, rhubarb, buckthorn; scrutiny ended 15 Oct 2026), both not yet published on 22 Nov | new EU item when published; tell the owner, because the guide `red-yeast-rice` (EN/ES/DE) says publication is still pending |
 
 ## 3. Where to look
 
