@@ -1289,8 +1289,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20005,
-            "label": "medpex.de"
+            "id": 20071,
+            "label": "amazon.de"
           }
         ]
       }
@@ -1323,8 +1323,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20006,
-            "label": "farmaciajimenez.com"
+            "id": 20112,
+            "label": "amazon.es"
           }
         ]
       }
@@ -1355,8 +1355,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20007,
-            "label": "soin-et-nature.com"
+            "id": 20072,
+            "label": "amazon.es"
           }
         ],
         "DE": [
@@ -1398,8 +1398,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20009,
-            "label": "farma2go.com"
+            "id": 20073,
+            "label": "amazon.es"
           }
         ]
       }
@@ -1451,8 +1451,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20010,
-            "label": "farmaciajimenez.com"
+            "id": 20074,
+            "label": "amazon.es"
           }
         ]
       }
@@ -1496,8 +1496,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20011,
-            "label": "farmaciaevacontreras.com"
+            "id": 20075,
+            "label": "amazon.es"
           }
         ]
       }
@@ -1546,8 +1546,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20012,
-            "label": "knuspr.de"
+            "id": 20076,
+            "label": "amazon.es"
           }
         ],
         "DE": [
@@ -1589,10 +1589,12 @@
           {
             "id": 20014,
             "label": "amazon.de"
-          },
+          }
+        ],
+        "ES": [
           {
-            "id": 20015,
-            "label": "shop-apotheke.com"
+            "id": 20077,
+            "label": "amazon.es"
           }
         ]
       }
@@ -1625,8 +1627,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20016,
-            "label": "farma2go.com"
+            "id": 20078,
+            "label": "amazon.es"
           }
         ]
       }
@@ -1778,8 +1780,14 @@
       "offers": {
         "DE": [
           {
-            "id": 20021,
-            "label": "shop-apotheke.com"
+            "id": 20080,
+            "label": "amazon.de"
+          }
+        ],
+        "ES": [
+          {
+            "id": 20079,
+            "label": "amazon.es"
           }
         ]
       }
@@ -1812,14 +1820,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20022,
-            "label": "medpex.de"
+            "id": 20113,
+            "label": "amazon.es"
           }
         ],
         "DE": [
           {
-            "id": 20023,
-            "label": "medpex.de"
+            "id": 20081,
+            "label": "amazon.de"
           }
         ]
       }
@@ -1852,8 +1860,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20024,
-            "label": "mccabespharmacy.com"
+            "id": 20082,
+            "label": "amazon.es"
           }
         ],
         "DE": [
@@ -1896,8 +1904,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20026,
-            "label": "docmorris.de"
+            "id": 20083,
+            "label": "amazon.de"
           }
         ]
       }
@@ -1953,8 +1961,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20029,
-            "label": "elcorteingles.es"
+            "id": 20084,
+            "label": "amazon.es"
           }
         ],
         "DE": [
@@ -2001,8 +2009,14 @@
       "offers": {
         "DE": [
           {
-            "id": 20031,
-            "label": "shop-apotheke.com"
+            "id": 20086,
+            "label": "amazon.de"
+          }
+        ],
+        "ES": [
+          {
+            "id": 20085,
+            "label": "amazon.es"
           }
         ]
       }
@@ -2037,8 +2051,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20032,
-            "label": "hsnstore.com"
+            "id": 20087,
+            "label": "amazon.es"
           }
         ],
         "DE": [
@@ -2076,8 +2090,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20034,
-            "label": "druni.es"
+            "id": 20088,
+            "label": "amazon.es"
           }
         ]
       }
@@ -2121,8 +2135,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20035,
-            "label": "shop-apotheke.at"
+            "id": 20089,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2151,8 +2165,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20036,
-            "label": "lactoflora.es"
+            "id": 20090,
+            "label": "amazon.es"
           }
         ]
       }
@@ -2216,14 +2230,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20038,
-            "label": "myprotein.es"
+            "id": 20091,
+            "label": "amazon.es"
           }
         ],
         "DE": [
           {
-            "id": 20039,
-            "label": "myprotein.es"
+            "id": 20092,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2257,8 +2271,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20040,
-            "label": "sunday.de"
+            "id": 20093,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2294,8 +2308,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20041,
-            "label": "cosmetis.com"
+            "id": 20094,
+            "label": "amazon.es"
           }
         ]
       }
@@ -2343,18 +2357,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20042,
-            "label": "vitalabo.com"
+            "id": 20095,
+            "label": "amazon.es"
           }
         ],
         "DE": [
           {
             "id": 20043,
             "label": "amazon.de"
-          },
-          {
-            "id": 20044,
-            "label": "vitalabo.com"
           }
         ]
       }
@@ -2399,8 +2409,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20045,
-            "label": "docmorris.de"
+            "id": 20096,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2450,8 +2460,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20046,
-            "label": "primor.eu"
+            "id": 20097,
+            "label": "amazon.es"
           }
         ]
       }
@@ -2512,10 +2522,6 @@
           {
             "id": 20047,
             "label": "amazon.es"
-          },
-          {
-            "id": 20048,
-            "label": "farmaprincipal.es"
           }
         ]
       }
@@ -2572,8 +2578,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20049,
-            "label": "das.medpex.de"
+            "id": 20098,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2629,8 +2635,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20050,
-            "label": "knuspr.de"
+            "id": 20099,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2692,8 +2698,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20051,
-            "label": "primor.eu"
+            "id": 20100,
+            "label": "amazon.es"
           }
         ]
       }
@@ -2807,14 +2813,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20054,
-            "label": "vitalabo.com"
+            "id": 20101,
+            "label": "amazon.es"
           }
         ],
         "DE": [
           {
-            "id": 20055,
-            "label": "vitalabo.com"
+            "id": 20102,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2867,18 +2873,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20056,
-            "label": "shop-apotheke.com"
+            "id": 20103,
+            "label": "amazon.es"
           }
         ],
         "DE": [
           {
             "id": 20057,
             "label": "amazon.de"
-          },
-          {
-            "id": 20058,
-            "label": "shop-apotheke.com"
           }
         ]
       }
@@ -2910,14 +2912,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20059,
-            "label": "shop-apotheke.com"
+            "id": 20104,
+            "label": "amazon.es"
           }
         ],
         "DE": [
           {
-            "id": 20060,
-            "label": "shop-apotheke.com"
+            "id": 20105,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2949,14 +2951,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20061,
-            "label": "vitalabo.com"
+            "id": 20106,
+            "label": "amazon.es"
           }
         ],
         "DE": [
           {
-            "id": 20062,
-            "label": "vitalabo.com"
+            "id": 20107,
+            "label": "amazon.de"
           }
         ]
       }
@@ -2987,8 +2989,14 @@
       "offers": {
         "ES": [
           {
-            "id": 20063,
-            "label": "superdrug.com"
+            "id": 20108,
+            "label": "amazon.es"
+          }
+        ],
+        "DE": [
+          {
+            "id": 20109,
+            "label": "amazon.de"
           }
         ]
       }
@@ -3028,20 +3036,12 @@
           {
             "id": 20064,
             "label": "amazon.es"
-          },
-          {
-            "id": 20065,
-            "label": "les-calories.com"
           }
         ],
         "DE": [
           {
             "id": 20066,
             "label": "amazon.de"
-          },
-          {
-            "id": 20067,
-            "label": "les-calories.com"
           }
         ]
       }
@@ -3072,8 +3072,8 @@
       "offers": {
         "ES": [
           {
-            "id": 20068,
-            "label": "shop-apotheke.com"
+            "id": 20110,
+            "label": "amazon.es"
           }
         ],
         "DE": [
@@ -3110,8 +3110,8 @@
       "offers": {
         "DE": [
           {
-            "id": 20070,
-            "label": "vitalabo.com"
+            "id": 20111,
+            "label": "amazon.de"
           }
         ]
       }
