@@ -1179,6 +1179,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Gentle Iron 25 mg",
+        "es": "Gentle Iron 25 mg",
+        "de": "Gentle Iron 25 mg"
       }
     },
     {
@@ -1251,6 +1256,11 @@
             "label": "soin-et-nature.com"
           }
         ]
+      },
+      "names": {
+        "en": "Berocca Energy",
+        "es": "Berocca Energía",
+        "de": "Berocca Energie"
       }
     },
     {
@@ -1294,6 +1304,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "High-dose vitamin B complex",
+        "es": "Complejo de vitamina B de alta dosis",
+        "de": "Vitamin B12 Kapseln hochdosiert 500 µg mit B6 + Folsäure"
       }
     },
     {
@@ -1335,6 +1350,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Vitamin B12 1000 µg chewable",
+        "es": "Vitamina B12 1000 microgramos masticable",
+        "de": "Vitamin B12 1000 µg Kautabletten"
       }
     },
     {
@@ -1373,6 +1393,11 @@
             "label": "soin-et-nature.com"
           }
         ]
+      },
+      "names": {
+        "en": "Rhodiola Root Extract",
+        "es": "Rhodiola: extracto de raíz",
+        "de": "Rhodiola Wurzelextrakt"
       }
     },
     {
@@ -1410,6 +1435,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Melatonin 1.95 mg",
+        "es": "Melatonina 1,95 mg",
+        "de": "Melatonin 1,95 mg"
       }
     },
     {
@@ -1463,6 +1493,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Sleep Forte",
+        "es": "Sueño Forte",
+        "de": "Sueño Forte"
       }
     },
     {
@@ -1508,6 +1543,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Sleep Compact",
+        "es": "Sueño Compact",
+        "de": "Sueño Compact"
       }
     },
     {
@@ -1564,6 +1604,11 @@
             "label": "knuspr.de"
           }
         ]
+      },
+      "names": {
+        "en": "ZzzQuil Natura gummies",
+        "es": "ZzzQuil Natura gummies de melatonina",
+        "de": "ZzzQuil Goodnight"
       }
     },
     {
@@ -1605,6 +1650,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Magnesium bisglycinate",
+        "es": "Glicinato de magnesio",
+        "de": "Magnesiumbisglycinat"
       }
     },
     {
@@ -1639,6 +1689,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Magnesium bisglycinate",
+        "es": "Bisglicinato de magnesio",
+        "de": "Magnesiumbisglycinat"
       }
     },
     {
@@ -1669,6 +1724,11 @@
             "label": "das.medpex.de"
           }
         ]
+      },
+      "names": {
+        "en": "Ashwagandha Opti KSM-66",
+        "es": "Ashwagandha Opti KSM-66",
+        "de": "Ashwagandha Opti KSM-66"
       }
     },
     {
@@ -1724,6 +1784,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "KSM-66 Ashwagandha",
+        "es": "KSM-66 Ashwagandha",
+        "de": "KSM-66 Ashwagandha Kapseln"
       }
     },
     {
@@ -1762,6 +1827,11 @@
             "label": "medino.com"
           }
         ]
+      },
+      "names": {
+        "en": "L-theanine 150 mg",
+        "es": "L-teanina 150 mg",
+        "de": "L-Theanin 150 mg"
       }
     },
     {
@@ -1812,6 +1882,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Omega-3 Total (liquid)",
+        "es": "Omega-3 Total líquido sabor limón",
+        "de": "Omega-3 Total Zitrone"
       }
     },
     {
@@ -1859,6 +1934,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Ultimate Omega 1280 mg",
+        "es": "Ultimate Omega 1280 mg",
+        "de": "Ultimatives Omega 1280 mg Weichkapseln"
       }
     },
     {
@@ -1906,6 +1986,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Vitamin D3 2200 IU (55 µg)",
+        "es": "Vitamina D3 2200 UI (55 µg)",
+        "de": "Vitamin D3 2200 I.E. (55 µg)"
       }
     },
     {
@@ -1944,6 +2029,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "Vitamin D3+K2 1000 IU drops",
+        "es": "Vitamina D3+K2 1000 UI gotas",
+        "de": "Vitamin D3/K2 1000 I.E./20 µg Tropfen"
       }
     },
     {
@@ -1971,7 +2061,12 @@
           "form": "picolinate"
         }
       ],
-      "offers": {}
+      "offers": {},
+      "names": {
+        "en": "Zinc picolinate 22 mg",
+        "es": "Picolinato de zinc 22 mg",
+        "de": "Zinkpicolinat 22 mg"
+      }
     },
     {
       "id": "solgar-ester-c-1000",
@@ -2007,6 +2102,11 @@
             "label": "elcorteingles.es"
           }
         ]
+      },
+      "names": {
+        "en": "Ester-C Plus 1000 mg",
+        "es": "Ester-C Plus 1000 mg",
+        "de": "Ester-C Plus 1000 mg"
       }
     },
     {
@@ -2055,6 +2155,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Milk thistle, artichoke & dandelion",
+        "es": "Complejo de cardo mariano, alcachofa y diente de león",
+        "de": "Mariendistel Artischocke Löwenzahn Komplex"
       }
     },
     {
@@ -2097,6 +2202,11 @@
             "label": "hsnstore.com"
           }
         ]
+      },
+      "names": {
+        "en": "Milk thistle extract 450 mg",
+        "es": "Extracto de cardo mariano (25:1) 450 mg",
+        "de": "Mariendistel-Extrakt 450 mg"
       }
     },
     {
@@ -2130,6 +2240,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Milk thistle",
+        "es": "Cardo María",
+        "de": "Mariendistel"
       }
     },
     {
@@ -2142,7 +2257,12 @@
       },
       "excluded": "Registered traditional herbal medicine in Spain (AEMPS 74261), not a food supplement — keep out of affiliate recommendations.",
       "ingredients": [],
-      "source": "https://cima.aemps.es/cima/dochtml/ft/74261/FT_74261.html"
+      "source": "https://cima.aemps.es/cima/dochtml/ft/74261/FT_74261.html",
+      "names": {
+        "en": "Arkocápsulas Cardo Mariano",
+        "es": "Arkocápsulas Cardo Mariano",
+        "de": "Arkocápsulas Cardo Mariano"
+      }
     },
     {
       "id": "omni-biotic-6",
@@ -2175,6 +2295,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "OMNi-BiOTiC 6 sachets",
+        "es": "OMNi-BiOTiC 6 sobres",
+        "de": "OMNi-BiOTiC 6 Portionsbeutel"
       }
     },
     {
@@ -2205,6 +2330,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Lactoflora Restore",
+        "es": "Lactoflora Restore",
+        "de": "Lactoflora Restore"
       }
     },
     {
@@ -2239,6 +2369,11 @@
             "label": "sunday.de"
           }
         ]
+      },
+      "names": {
+        "en": "Organic psyllium husk powder",
+        "es": "Cáscara de psyllium en polvo ecológica",
+        "de": "Bio Flohsamenschalen gemahlen (Pulver)"
       }
     },
     {
@@ -2283,6 +2418,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Myvegan creatine monohydrate powder",
+        "es": "Myvegan Creatina Monohidrato en polvo",
+        "de": "Myvegan Kreatin Monohydrat Pulver"
       }
     },
     {
@@ -2318,6 +2458,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "Turmeric extract + piperine",
+        "es": "Extracto de cúrcuma + piperina",
+        "de": "Kurkuma-Extrakt + Piperin Kapseln"
       }
     },
     {
@@ -2355,6 +2500,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Collagen with magnesium tablets",
+        "es": "Colágeno con magnesio, comprimidos",
+        "de": "Kollagen mit Magnesium Tabletten"
       }
     },
     {
@@ -2417,6 +2567,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Biotin 10,000 µg + zinc + selenium",
+        "es": "Biotina 10.000 µg con selenio y zinc",
+        "de": "Biotin 10.000 µg + Zink + Selen"
       }
     },
     {
@@ -2463,6 +2618,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "Biotin, zinc & selenium",
+        "es": "Biotina, zinc y selenio",
+        "de": "Biotin, Zink & Selen Presslinge"
       }
     },
     {
@@ -2521,6 +2681,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Biotin Complex 12,000 µg + zinc, selenium, D3 & E",
+        "es": "Biotina Complex 12.000 µg + zinc, selenio, vitaminas D3 y E",
+        "de": "Biotin Complex 12.000 µg + Zink + Selen + D3 + E"
       }
     },
     {
@@ -2581,6 +2746,11 @@
             "label": "amazon.es"
           }
         ]
+      },
+      "names": {
+        "en": "Multicentrum Women 50+",
+        "es": "Multicentrum Mujer 50+",
+        "de": "Multicentrum Frau 50+"
       }
     },
     {
@@ -2639,6 +2809,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "Centrum A–Zinc",
+        "es": "Centrum A–Zinc",
+        "de": "Centrum A–Zink"
       }
     },
     {
@@ -2696,6 +2871,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "Centrum Generation 50+",
+        "es": "Centrum Generation 50+",
+        "de": "Centrum Generation 50+ Tabletten"
       }
     },
     {
@@ -2766,6 +2946,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Collagen + hyaluronic acid capsules",
+        "es": "Cápsulas de colágeno + ácido hialurónico",
+        "de": "Kollagen + Hyaluronsäure Kapseln"
       }
     },
     {
@@ -2798,6 +2983,11 @@
             "label": "sunday.de"
           }
         ]
+      },
+      "names": {
+        "en": "Hyaluronic acid 250 mg",
+        "es": "Ácido hialurónico 250 mg",
+        "de": "Hyaluronsäure 250 mg"
       }
     },
     {
@@ -2829,6 +3019,11 @@
             "label": "vitalabo.com"
           }
         ]
+      },
+      "names": {
+        "en": "Hyaluronic acid capsules",
+        "es": "Ácido hialurónico en cápsulas",
+        "de": "Hyaluronsäure Kapseln"
       }
     },
     {
@@ -2894,6 +3089,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Glucosamine + chondroitin + MSM",
+        "es": "Glucosamina, condroitina y MSM 1000 mg",
+        "de": "Glucosamin + Chondroitin + MSM"
       }
     },
     {
@@ -2961,6 +3161,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Glucosamine & chondroitin with MSM & collagen",
+        "es": "Glucosamina y condroitina con MSM y colágeno",
+        "de": "Glucosamin & Chondroitin hochdosiert mit MSM und Kollagen"
       }
     },
     {
@@ -3007,6 +3212,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "MSM powder",
+        "es": "MSM en polvo",
+        "de": "MSM Pulver"
       }
     },
     {
@@ -3053,6 +3263,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Coenzyme Q10 200 mg",
+        "es": "Coenzima Q10 200 mg",
+        "de": "Coenzym Q10 200 mg"
       }
     },
     {
@@ -3098,6 +3313,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Co-Enzyme Q10 200 mg",
+        "es": "Coenzima Q10 200 mg",
+        "de": "Coenzym Q10 200 mg"
       }
     },
     {
@@ -3150,6 +3370,11 @@
             "label": "amazon.co.uk"
           }
         ]
+      },
+      "names": {
+        "en": "Coenzyme Q10 ubiquinol 200 mg",
+        "es": "Coenzima Q10 Ubiquinol 200 mg",
+        "de": "Coenzym Q10 Ubiquinol 200 mg"
       }
     },
     {
@@ -3188,6 +3413,11 @@
             "label": "shop-apotheke.com"
           }
         ]
+      },
+      "names": {
+        "en": "Ubiquinol 100 mg",
+        "es": "Ubiquinol 100 mg",
+        "de": "Ubiquinol 100 mg"
       }
     },
     {
@@ -3220,6 +3450,11 @@
             "label": "amazon.de"
           }
         ]
+      },
+      "names": {
+        "en": "Coenzyme Q10 100 mg",
+        "es": "Coenzima Q10 100 mg",
+        "de": "Coenzym Q10 100 mg"
       }
     }
   ]

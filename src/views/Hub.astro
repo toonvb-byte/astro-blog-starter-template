@@ -269,7 +269,7 @@ const jsonLd: object[] = [
 											return (
 												<tr>
 													<th scope="row">
-														<span class="brand">{p.brand}</span> {p.name}<span class="dose">{p.dose[locale]}</span>
+														<span class="brand">{p.brand}</span> {p.names?.[locale] ?? p.name}<span class="dose">{p.dose[locale]}</span>
 														{p.partial && <span class="pflag">{t("hub.partial")}</span>}
 														{(p.flags ?? []).map((f) => <span class="pflag warn">{f[locale]}</span>)}
 													</th>
