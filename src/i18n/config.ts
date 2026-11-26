@@ -18,7 +18,7 @@ export const ALL_LANGUAGES: { code: string; name: string }[] = [
 export const OG_LOCALE: Record<Locale, string> = { en: "en_GB", es: "es_ES", de: "de_DE" };
 
 /** Default "ship to" country per locale (overridable by the visitor later). */
-export const DEFAULT_COUNTRY: Record<Locale, string> = { en: "DE", es: "ES", de: "DE" };
+export const DEFAULT_COUNTRY: Record<Locale, string> = { en: "UK", es: "ES", de: "DE" };
 
 /** Localised URL segments for every non-article page. */
 export const ROUTES = {

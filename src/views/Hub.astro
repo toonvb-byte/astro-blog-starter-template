@@ -57,7 +57,7 @@ const buysFor = (p: (typeof products)[number]) => {
 const buyText = (store: string) => (locale === "de" ? `Jetzt bei ${store} kaufen` : locale === "es" ? `Comprar en ${store}` : `Buy on ${store}`);
 const hubPlacement = (id: string, offerId: number) => `hub:${hub.data.hubKey ?? hub.id}:${id}:${offerId}`;
 
-const marketName = { ES: { en: "Spain", es: "España", de: "Spanien" }, DE: { en: "Germany", es: "Alemania", de: "Deutschland" } } as const;
+const marketName = { ES: { en: "Spain", es: "España", de: "Spanien" }, DE: { en: "Germany", es: "Alemania", de: "Deutschland" }, UK: { en: "UK", es: "Reino Unido", de: "Großbritannien" } } as const;
 const markets = (m: Record<string, string>) =>
 	(Object.keys(m) as ("ES" | "DE")[])
 		.filter((k) => k in marketName)
