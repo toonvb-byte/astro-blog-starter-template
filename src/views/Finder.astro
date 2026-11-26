@@ -343,7 +343,7 @@ const caution = (id: string) => D.ingredients.find((i) => i.id === id)?.caution?
 			return `<article class="nmf-card ${k === 0 ? "top" : ""}">
 				<div class="nmf-score"><div class="nmf-ring" style="--p:${pct}"><b>${pct}</b></div><small>% ${T.match}</small></div>
 				<div class="nmf-cbody">
-					<div class="nmf-chead"><div><div class="nmf-brand">${esc(p.brand)}</div><h3>${esc(p.name)}</h3></div><div class="nmf-price">${price}</div></div>
+					<div class="nmf-chead"><div><div class="nmf-brand">${esc(p.brand)}</div><h3>${esc(p.names?.[root.dataset.locale] ?? p.name)}</h3></div><div class="nmf-price">${price}</div></div>
 					<div class="nmf-cmeta">${T.dose}: ${esc(p.dose ? p.dose[lang] : "—")} · ${T.pack}: ${esc(p.pack)}</div>
 					<div class="nmf-hits">${rows}</div>
 					${badges ? `<div class="nmf-badges">${badges}</div>` : ""}
