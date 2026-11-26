@@ -1,10 +1,212 @@
 {
-  "generated": "2026-11-22T08:13+01:00",
+  "generated": "2026-11-26T08:13+01:00",
   "since": "2026-10-01",
   "days": [
     {
+      "date": "2026-11-25",
+      "commits": [
+        {
+          "sha": "d350704",
+          "time": "12:21",
+          "author": "toonvb-byte",
+          "subject": "Guides: add hero images to supplements over 50 (EN, ES, DE)",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 6,
+          "added": 9,
+          "deleted": 0
+        },
+        {
+          "sha": "a756e42",
+          "time": "11:57",
+          "author": "toonvb-byte",
+          "subject": "Guides: publish supplements over 50 (EN, ES, DE)",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 3,
+          "added": 327,
+          "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-23",
+      "commits": [
+        {
+          "sha": "2901bf3",
+          "time": "11:05",
+          "author": "Claude",
+          "subject": "Guides: hero image for the iodine guide (DE)",
+          "areas": [
+            "guides",
+            "images"
+          ],
+          "files_changed": 2,
+          "added": 3,
+          "deleted": 0
+        },
+        {
+          "sha": "17879be",
+          "time": "10:52",
+          "author": "Claude",
+          "subject": "Guides: publish iodine supplements guide (DE)",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 1,
+          "added": 1,
+          "deleted": 1
+        },
+        {
+          "sha": "e71f0d5",
+          "time": "10:48",
+          "author": "Claude",
+          "subject": "Guides: iodine (DE draft, still hidden) corrected after source check",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 1,
+          "added": 118,
+          "deleted": 36
+        },
+        {
+          "sha": "da7a2b1",
+          "time": "10:27",
+          "author": "toonvb-byte",
+          "subject": "Merge pull request #1 from toonvb-byte/team-dashboard",
+          "areas": [],
+          "files_changed": 0,
+          "added": 0,
+          "deleted": 0
+        },
+        {
+          "sha": "65a9d17",
+          "time": "10:27",
+          "author": "toonvb-byte",
+          "subject": "Merge pull request #5 from toonvb-byte/amazon-links-finder-2026-11-20",
+          "areas": [],
+          "files_changed": 0,
+          "added": 0,
+          "deleted": 0
+        },
+        {
+          "sha": "eb4b1fd",
+          "time": "10:27",
+          "author": "toonvb-byte",
+          "subject": "Merge pull request #6 from toonvb-byte/content/2026-11-23-iodine-de",
+          "areas": [],
+          "files_changed": 0,
+          "added": 0,
+          "deleted": 0
+        },
+        {
+          "sha": "a9f464d",
+          "time": "08:47",
+          "author": "Toon Van Buylaere",
+          "subject": "Guides: iodine supplements (DE draft, hidden)",
+          "areas": [
+            "guides"
+          ],
+          "files_changed": 1,
+          "added": 76,
+          "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-22",
+      "commits": [
+        {
+          "sha": "d99ca30",
+          "time": "17:49",
+          "author": "Toon Van Buylaere",
+          "subject": "Goal finder: Amazon availability update (22 Nov 2026)",
+          "areas": [
+            "data"
+          ],
+          "files_changed": 2,
+          "added": 7,
+          "deleted": 4
+        },
+        {
+          "sha": "ab7e437",
+          "time": "10:40",
+          "author": "Claude",
+          "subject": "News: UK-EU SPS deal agreed (EN); update summit preview and two UK guide lines",
+          "areas": [
+            "docs",
+            "guides",
+            "news"
+          ],
+          "files_changed": 5,
+          "added": 80,
+          "deleted": 15
+        },
+        {
+          "sha": "4256695",
+          "time": "08:14",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 14 days / 52 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 2,
+          "deleted": 2
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-21",
+      "commits": [
+        {
+          "sha": "9cfbdee",
+          "time": "08:14",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 14 days / 52 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 35,
+          "deleted": 30
+        }
+      ],
+      "doc_changes": []
+    },
+    {
       "date": "2026-11-20",
       "commits": [
+        {
+          "sha": "2bb33c0",
+          "time": "15:51",
+          "author": "Toon Van Buylaere",
+          "subject": "Goal finder: show only the Amazon link where Amazon is available",
+          "areas": [
+            "data"
+          ],
+          "files_changed": 1,
+          "added": 0,
+          "deleted": 172
+        },
+        {
+          "sha": "4aab9e1",
+          "time": "15:50",
+          "author": "Toon Van Buylaere",
+          "subject": "Point goal finder purchase links to Amazon where available",
+          "areas": [
+            "data"
+          ],
+          "files_changed": 2,
+          "added": 220,
+          "deleted": 0
+        },
         {
           "sha": "4ed948a",
           "time": "11:13",
@@ -29,6 +231,36 @@
           "files_changed": 3,
           "added": 337,
           "deleted": 0
+        },
+        {
+          "sha": "f5407be",
+          "time": "08:13",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 13 days / 52 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 2,
+          "deleted": 2
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-19",
+      "commits": [
+        {
+          "sha": "abf30b8",
+          "time": "08:13",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 13 days / 52 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 32,
+          "deleted": 17
         }
       ],
       "doc_changes": []
@@ -45,6 +277,18 @@
           "files_changed": 0,
           "added": 0,
           "deleted": 0
+        },
+        {
+          "sha": "dcbe82c",
+          "time": "12:13",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 12 days / 51 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 72,
+          "deleted": 69
         },
         {
           "sha": "6a4d647",
@@ -125,6 +369,18 @@
           "files_changed": 5,
           "added": 3434,
           "deleted": 2664
+        },
+        {
+          "sha": "a06c162",
+          "time": "08:14",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 11 days / 51 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 23,
+          "deleted": 17
         }
       ],
       "doc_changes": []
@@ -144,6 +400,54 @@
           "files_changed": 3,
           "added": 90,
           "deleted": 2
+        },
+        {
+          "sha": "468ce92",
+          "time": "08:17",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 10 days / 51 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 2,
+          "deleted": 2
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-15",
+      "commits": [
+        {
+          "sha": "035eb61",
+          "time": "08:13",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 10 days / 51 commits)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 2,
+          "deleted": 2
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-14",
+      "commits": [
+        {
+          "sha": "d4b04b2",
+          "time": "08:13",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 10 days / 51 commits from origin/main)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 23,
+          "deleted": 17
         }
       ],
       "doc_changes": []
@@ -163,6 +467,24 @@
           "files_changed": 4,
           "added": 128,
           "deleted": 0
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-12",
+      "commits": [
+        {
+          "sha": "612cca1",
+          "time": "08:14",
+          "author": "Claude",
+          "subject": "Dashboard: refresh activity.json and index.html (since 2026-10-01, 9 days / 51 commits from origin/main)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 2,
+          "added": 45,
+          "deleted": 677
         }
       ],
       "doc_changes": []
@@ -203,6 +525,49 @@
           "files_changed": 8,
           "added": 62,
           "deleted": 21
+        },
+        {
+          "sha": "7a9271b",
+          "time": "08:24",
+          "author": "Claude",
+          "subject": "Dashboard: add generated activity.json (98 commits, 15 days since 1 Oct)",
+          "areas": [
+            "other"
+          ],
+          "files_changed": 1,
+          "added": 1356,
+          "deleted": 0
+        },
+        {
+          "sha": "0f74f9a",
+          "time": "08:23",
+          "author": "Claude",
+          "subject": "Dashboard: template with DATA placeholder; builder injects data and reads origin/main",
+          "areas": [
+            "other",
+            "scripts"
+          ],
+          "files_changed": 3,
+          "added": 163,
+          "deleted": 5
+        }
+      ],
+      "doc_changes": []
+    },
+    {
+      "date": "2026-11-09",
+      "commits": [
+        {
+          "sha": "385d03b",
+          "time": "12:57",
+          "author": "Toon Van Buylaere",
+          "subject": "Team dashboard: build activity.json from git history",
+          "areas": [
+            "scripts"
+          ],
+          "files_changed": 1,
+          "added": 107,
+          "deleted": 0
         }
       ],
       "doc_changes": []
@@ -651,105 +1016,14 @@
           "author": "Claude",
           "subject": "Guides 10-27: add in-body charts, maps and diagrams (ES, DE, EN)",
           "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 102,
-          "added": 2363,
-          "deleted": 0
-        },
-        {
-          "sha": "0a97b45",
-          "time": "16:02",
-          "author": "Claude",
-          "subject": "Guides 3-9: add in-body charts, maps and diagram; credit AI heroes",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 40,
-          "added": 702,
-          "deleted": 1
-        },
-        {
-          "sha": "ebdc6fa",
-          "time": "15:51",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/de/kollagen-magnesium-oder-hyaluronsaeure",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 35,
-          "deleted": 29
-        },
-        {
-          "sha": "e231079",
-          "time": "15:50",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/es/colageno-con-magnesio-o-acido-hialuronico",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 30,
-          "deleted": 24
-        },
-        {
-          "sha": "a1346d1",
-          "time": "15:50",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/en/collagen-magnesium-vs-hyaluronic-acid",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 27,
-          "deleted": 22
-        },
-        {
-          "sha": "4a3b156",
-          "time": "15:40",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/de/kreatin-frauen",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 31,
-          "deleted": 25
-        },
-        {
-          "sha": "e20d66f",
-          "time": "15:39",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/es/creatina-mujeres",
-          "areas": [
-            "guides",
-            "images"
-          ],
-          "files_changed": 2,
-          "added": 20,
-          "deleted": 16
-        },
-        {
-          "sha": "8109444",
-          "time": "15:39",
-          "author": "toonvb-byte",
-          "subject": "Update src/content/guides/en/creatine-for-women",
-          "areas": [
             "code",
             "data",
             "guides",
             "images",
             "other"
           ],
-          "files_changed": 236,
-          "added": 57902,
+          "files_changed": 309,
+          "added": 60993,
           "deleted": 0
         }
       ],
