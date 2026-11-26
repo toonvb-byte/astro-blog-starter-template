@@ -33,7 +33,7 @@ export const GA_ENABLED = GA_MEASUREMENT_ID !== "";
  * Empty = no account for that store yet → visitors get the plain product link and that market's
  * pages don't show the Amazon disclosure. ES live since 3 Nov 2026.
  */
-export const AMAZON_TAGS = { ES: "nutrimetric0e-21", DE: "" } as const;
+export const AMAZON_TAGS = { ES: "nutrimetric0e-21", DE: "", UK: "" } as const;
 export type AmazonMarket = keyof typeof AMAZON_TAGS;
 
 /** Amazon market whose links appear on a locale's pages (Spanish → Amazon.es, German → Amazon.de, English → none). */
