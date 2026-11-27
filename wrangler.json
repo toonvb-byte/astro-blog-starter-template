@@ -32,7 +32,27 @@
 	// The recipient comes from the secret CONTACT_TO (a verified destination address).
 	"send_email": [
 		{ "name": "EMAIL" }
-	]
+	],
+	// Preview builds (non-main branches) use separate resources so they never touch production data.
+	"previews": {
+		"d1_databases": [
+			{
+				"binding": "DB",
+				"database_name": "nutrimetrics-db-preview",
+				"database_id": "58c37dd5-c128-4fe7-9eda-a80c8816edda",
+				"migrations_dir": "migrations"
+			}
+		],
+		"kv_namespaces": [
+			{
+				"binding": "CACHE",
+				"id": "fb75674c5567464396e77b48fb2a8b85"
+			}
+		],
+		"send_email": [
+			{ "name": "EMAIL" }
+		]
+	}
 	// Launch switch (noindex + robots.txt) lives in src/lib/site.ts → SITE_LIVE.
 	// Secrets (set in dashboard → Worker → Settings → Variables, type "Secret"):
 	//   AWIN_PUBLISHER_ID
